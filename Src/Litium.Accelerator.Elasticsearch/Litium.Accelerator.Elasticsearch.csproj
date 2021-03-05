@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Litium.Accelerator</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Litium.Accelerator\Litium.Accelerator.csproj" />
+    <PackageReference Include="Litium.Elasticsearch.Abstractions" Version="7.6.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="4.7.1" />
+  </ItemGroup>
+</Project>

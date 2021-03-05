@@ -1,0 +1,9 @@
+﻿
+@model List<Litium.Web.Models.Blocks.BlockModel>
+
+@foreach (var item in Model)
+{
+    <section data-litium-block-id="@item.SystemId">
+        @Html.Block(item)
+    </section>
+}

@@ -1,0 +1,18 @@
+﻿@model Litium.Accelerator.ViewModels.Framework.OpenGraphViewModel
+   
+<meta property="og:title" content="@Model.Title" />
+<meta property="og:type" content="website" />
+@if (Model.ImageVisible)
+{
+    var suffix = "og:image" + Model.ImageSuffix;
+    <meta property="@suffix" content="@Model.ImageUrl" />
+}
+@if (Model.LogotypeVisible)
+{
+    var suffix = "og:image" + Model.ImageSuffix;
+    <meta property="@suffix" content="@Model.LogotypeImageUrl" />
+}
+<meta property="og:url" content="@Model.Url" />
+<meta property="og:description" content="@Html.Encode(Model.MetaDescription)" />
+<meta property="og:locale" content="@Model.Locale" />
+<meta property="og:site_name" content="@Model.WebSiteTitle" />

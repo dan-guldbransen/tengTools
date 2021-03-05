@@ -1,0 +1,112 @@
+﻿<status />
+<style>
+    .tags {
+        display: inline-block;
+        min-height: 30px;
+        vertical-align: middle
+    }
+
+        .tags.tags--dark ul li {
+            background-color: #2f2f2f;
+            border-color: #bcbcbc;
+            margin-top: 0
+        }
+
+            .tags.tags--dark ul li .fa,
+            .tags.tags--dark ul li span {
+                color: #ddd
+            }
+
+        .tags ul {
+            padding: 0
+        }
+
+            .tags ul li {
+                background-color: #efefef;
+                list-style: none;
+                padding: 0 10px;
+                margin-right: 5px;
+                margin-top: 5px;
+                border: 1px solid #e4e4e4;
+                border-radius: 3px;
+                height: 30px;
+                line-height: 30px;
+                display: inline-block;
+                vertical-align: top;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+            }
+
+                .tags ul li:last-child {
+                    margin-right: 0
+                }
+
+                .tags ul li span {
+                    /*! vertical-align:top; */ /*! color:#000 */
+                }
+
+                .tags ul li .fa {
+                    font-size: 1.1rem;
+                    color: #666;
+                    margin-left: 10px;
+                    line-height: inherit;
+                    vertical-align: top
+                }
+</style>
+<div class="editpage">
+    <form class="form" name="myForm">
+        <div class="form__header">
+            <h1 translate>accelerator.settings.searchindexing.headline</h1>
+            <div form-buttons my-form="myForm" model="model" model-server="modelServer" data-has-changed="dataHasChanged" save-form="saveForm(myForm)"></div>
+        </div>
+        <div class="form__group">
+            <div class="form__group__header" translate>accelerator.settings.searchindexing.template.general.templates.headline</div>
+            <div class="form__group__item" ng-repeat="groupedTemplate in model.groupedTemplates" hide-edit="true">
+                <label>{{groupedTemplate.title}}</label>
+                <div class="form__group__item__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td width="20%" translate>accelerator.settings.searchindexing.template.template</td>
+                                <td width="20%" translate>accelerator.settings.searchindexing.template.fields</td>
+                                <td width="7%" translate></td>
+                                <td translate>accelerator.settings.searchindexing.template.selectedfields</td>
+                            </tr>
+                        </thead>
+                        <tbody class="fields-container">
+                            <tr ng-repeat="template in groupedTemplate.templates">
+                                <td>{{template.title}}</td>
+                                <td class="base__align__center">
+                                    <select style="width:95%" ng-model="field" ng-options="field as field.title for field in template.fields" ng-change="addField(template, field)">
+                                        <option value="">&nbsp;</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <a ng-if="template.selectedFields.length > 0" class="action__link" ng-click="removeAllFields(template)" translate>accelerator.general.action.removeall</a>
+                                </td>
+                                <td>
+                                    <div>
+                                        <tags>
+                                            <div class="tags">
+                                                <ul>
+                                                    <li ng-repeat="field in template.selectedFields">
+                                                        <span>{{ field.title }}</span> <i ng-click="removeField(template, field, $index)" class="fa fa-close base__cursor__pointer"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </tags>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+    <div ng-debug="dataHasChanged"></div>
+    <div ng-debug="model"></div>
+</div>

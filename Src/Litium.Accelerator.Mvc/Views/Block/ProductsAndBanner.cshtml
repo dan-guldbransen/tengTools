@@ -1,0 +1,69 @@
+﻿@model Litium.Accelerator.ViewModels.Block.ProductsAndBannerBlockViewModel
+@{
+    var ProductColumn = Model.Products.Products.Any() ? 12 / Math.Min(Model.Products.Products.Count, 4) : 0;
+    var BannerColumn = Model.Banners.Banners.Any() ? 12 / Math.Min(Model.Banners.Banners.Count, 4) : 0;
+}
+<div class="row mixed">
+    @if (!Model.ShowProductToTheRight)
+    {
+        @DisplayProducts(ProductColumn)
+        @DisplayBanners(BannerColumn)
+    }
+    else
+    {
+        @DisplayBanners(BannerColumn)
+        @DisplayProducts(ProductColumn)
+    }
+</div>
+@helper  DisplayHeader()
+{
+    <div class="row mixed-block">
+        <div class="small-8 columns">
+            <h2 class="mixed-block__header">@Model.Products.Title</h2>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(Model.Products.FooterLinkUrl))
+        {
+            <div class="small-4 columns text--right">
+                <a class="mixed-block__header" id="FooterLink" href="@Model.Products.FooterLinkUrl">@Model.Products.FooterLinkText</a>
+            </div>
+        }
+    </div>
+}
+
+@helper DisplayBanners(int bannerColumn)
+{
+    <div class="small-12 large-6 columns">
+        @if (Model.Banners != null && Model.Banners.Banners.Any())
+        {
+            <div class="row">
+                @foreach (var banner in Model.Banners.Banners)
+                {
+                    <div class="columns small-12 large-@bannerColumn">
+                        <a href="@banner.LinkUrl" class="product-and-banner-block__image-link">
+                            @Html.ImageFor(x => banner.Image, maxSize: new Size(786, -1), htmlAttributes: new { @class = "product-and-banner-block__image" })
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}
+
+@helper DisplayProducts(int productColumn)
+{
+    <div class="small-12 large-6 columns">
+        @DisplayHeader()
+        @if (Model.Products != null && Model.Products.Products.Any())
+        {
+            <div class="row">
+                @foreach (var product in Model.Products.Products)
+                {
+                    <div class="columns small-12 large-@productColumn product--mixed">
+                        @Html.DisplayFor(x => product)
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}

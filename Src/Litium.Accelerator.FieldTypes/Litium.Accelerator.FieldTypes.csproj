@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dist\Accelerator.js" />
+    <EmbeddedResource Include="dist\Accelerator.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Litium.Web.Administration.Abstractions" Version="7.6.1" />
+  </ItemGroup>
+</Project>

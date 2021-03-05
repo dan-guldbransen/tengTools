@@ -1,0 +1,82 @@
+.slider {
+    margin-bottom: 40px;
+    position: absolute;
+    top: 0;
+    left : 0;
+    height: 100%;
+    width : 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    &__container {
+        width: 100%;
+        padding-top : 30%;
+        position : relative;
+    }
+    &__text {
+        color : #F6EE26;
+        font-size: rem(40px);
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        text-align : center;
+    }
+    &__button {
+        background-color: $color-primary;
+        color: $color-white;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+        padding: 10px 15px;
+    }
+    &__link {
+        display : block;
+        width : 100%;
+        padding-top: 30%;
+        position : relative;
+    }
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height : 100%;
+        width : 100%;
+        object-fit: cover;
+    }
+    .carousel {
+        .slide {
+            background: none;
+        }
+    }
+}
+
+.carousel {
+    &.carousel-slider {
+        overflow: visible;
+        .control-arrow {
+            position: absolute;
+            z-index: 1;
+        }
+    }
+    .control-dots {
+        bottom: 0px;
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: $color-grey;
+            &:hover {
+                background: #f6ee26;
+            }
+            &.selected {
+                background: #f6ee26;
+            }
+        }
+    }
+    
+    .control-arrow {
+        width: 45px;
+    }
+}

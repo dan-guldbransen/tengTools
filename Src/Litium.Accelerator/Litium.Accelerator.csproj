@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net472</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Litium.Accelerator.FieldTypes\Litium.Accelerator.FieldTypes.csproj" />
+    <PackageReference Include="Litium.Web.WebApi.Abstractions" Version="7.6.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Litium.Framework.Search.Indexing" Version="5.1.4" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="3.1.7" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+</Project>

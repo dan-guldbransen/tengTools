@@ -1,0 +1,14 @@
+@using Litium.Accelerator.ViewModels.Framework;
+@model HeaderViewModel
+
+@if (Model.TopLinkList.Any()) {
+	foreach (var link in Model.TopLinkList) {
+		if (link != null) {
+			<div class="top-link">
+				<a class="top-link__link--block" href="@link.Href">
+					<span class="top-link__title">@link.Text</span>
+				</a>
+			</div>
+		}
+    }
+}

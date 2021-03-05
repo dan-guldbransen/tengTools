@@ -1,0 +1,36 @@
+<field-editor [field]="field">
+    <div preview>
+        <tags *ngIf="viewItems?.length" [value]="viewFields" [titleSelector]="titlePreviewSelector" [readonly]="true"></tags>
+    </div>
+    <div edit>
+        <field-selector #control 
+            [manualFetch]="true" 
+            [idSelector]="idSelector"
+            [textSelector]="textSelector"
+            [stateSelector]="stateSelector"
+            (onFieldSelect)="onFieldSelect($event.option, $event.checked)" 
+            [value]="fields"></field-selector>
+        <a class="base__fake__link" (click)="removeAll()">{{ 'setting.fieldSelector.removeAll' | translate }}</a>&nbsp;
+        <a *ngIf="sortable" class="base__fake__link" (click)="displaySortDialog()">{{ 'setting.fieldSelector.sort' | translate }}</a>
+        <div *ngIf="items?.length">
+            <tags [value]="fields" [titleSelector]="titleEditSelector" (onTagRemove)="remove($event)"></tags>
+        </div>
+    </div>
+</field-editor>
+
+<base-dialog 
+    *ngIf="showSortDialog"
+    [close]="closeWithoutSaving"
+    [minHeight]="260"
+    [cssClass]="'modal-dialog-with-list'">
+    <div title>
+        {{ 'dialog.sortDialog.fields.title' | translate }}
+    </div>
+    <div body class="base__height__full">
+        <sortable-list [itemIdKey]="'id'" #sortableList></sortable-list>
+    </div>
+    <div footer>
+        <button type="button" class="base__default" (click)="closeWithoutSaving()">{{'general.action.cancel' | translate}}</button>
+        <button type="button" class="base__success" (click)="saveAndClose()">{{'general.action.ok' | translate}}</button>
+    </div>
+</base-dialog>

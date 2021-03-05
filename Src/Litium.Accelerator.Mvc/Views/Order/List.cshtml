@@ -1,0 +1,95 @@
+﻿@model Litium.Accelerator.ViewModels.Order.OrderHistoryViewModel
+@using Litium.Accelerator.StateTransitions
+@using Litium.Studio.Extenssions;
+
+@{
+    ViewContext.RouteData.DataTokens["BareLayout"] = true;
+}
+
+<div>
+    @if (Model.IsBusinessCustomer && Model.HasApproverRole)
+    {
+        <div class="order__checkbox-container">
+            <a href="@Model.MyOrdersLink" class="form__control columns">
+                @Html.CheckBoxFor(x => x.ShowOnlyMyOrders, new { @checked = (Model.ShowOnlyMyOrders ? "checked" : string.Empty), @class="form__radio form--no-event" })
+                @Html.WebSiteString("orderlist.showonlymyorders")
+            </a>
+        </div>
+    }
+    @if (Model.Orders != null && Model.Orders.Any())
+    {
+        <div class="simple-table">
+            <div class="row medium-unstack no-margin simple-table__header">
+                <div class="columns medium-2">@Html.WebSiteString("orderlist.column.orderdate")</div>
+                <div class="columns medium-6">@Html.WebSiteString("orderlist.column.content")</div>
+                <div class="columns medium-2">@Html.WebSiteString("orderlist.column.grandtotal")</div>
+                <div class="columns medium-2">@Html.WebSiteString("orderlist.column.status")</div>
+                @if (Model.IsBusinessCustomer)
+                {
+                    <div class="columns medium-2 hide-for-small-only"></div>
+                }
+            </div>
+            @foreach (var order in Model.Orders)
+            {
+                <div class="row medium-unstack no-margin">
+                    <div class="columns medium-2">
+                        @order.OrderDate.ToString("d")
+                    </div>
+                    <div class="columns medium-6">
+                        @{
+                        var orderRow = order.OrderRows.FirstOrDefault();
+                        }
+                        @if (orderRow != null)
+                        {
+                            <a href="@Model.OrderLink.Href?id=@order.OrderId" class="order-detail__product-link">
+                                @orderRow.Brand
+                                <b>
+                                    @orderRow.Name
+                                </b>
+                                @if (order.OrderRows.Count > 1)
+                                {
+                                var count = order.OrderRows.Count - 1;
+                                var formatText = (count == 1 ? "orderlist.item" : "orderlist.items").AsWebSiteString();
+                                var orderText = string.Format(formatText, count);
+                                @Html.Raw(orderText)
+                                }
+                            </a>
+                        }
+                    </div>
+                    <div class="columns medium-2">
+                        @order.OrderGrandTotal
+                    </div>
+                    <div class="columns medium-2">
+                        @order.Status
+                    </div>
+                    @if (Model.IsBusinessCustomer)
+                    {
+                    <div class="columns medium-2">
+                        @if (order.OrderStatus == (short)OrderState.WaitingConfirmation && Model.HasApproverRole)
+                        {
+                            using (Html.BeginForm("ApproveOrder", "Order", new { Id = order.OrderId, Page = Model.Pagination.CurrentPageIndex, ShowMyOrders = Model.ShowOnlyMyOrders }, FormMethod.Post, new { @class = "form--inline-block" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="table__icon table__icon--accept" title='@Html.WebSiteString("general.approve")'></button>
+                            }
+
+                            using (Html.BeginForm("CancelOrder", "Order", new { Id = order.OrderId, Page = Model.Pagination.CurrentPageIndex, ShowMyOrders = Model.ShowOnlyMyOrders }, FormMethod.Post, new { @class = "form--inline-block" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="table__icon table__icon--cancel" title='@Html.WebSiteString("general.cancel")'></button>
+                            }
+                        }
+                        <reorder-button data-css-class="table__icon table__icon--reorder" data-order-id="@order.OrderId" data-title="@Html.WebSiteString("general.reorder")"></reorder-button>
+                    </div>
+                    }
+                </div>
+            }
+        </div>
+
+        @Html.DisplayFor(x => x.Pagination)
+    }
+    else
+    {
+        <div>@Html.WebSiteString("orderlist.noorderfound")</div>
+    }
+</div>

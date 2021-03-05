@@ -1,0 +1,25 @@
+{
+  "extends": ["codelyzer"],
+  "rules": {
+    "directive-selector": [false],
+    "component-selector": [false],
+    "prefer-output-readonly": false,
+    "no-input-rename": false,
+    "no-output-rename": false,
+    "directive-class-suffix": false,
+    "no-output-on-prefix": false,
+    "use-host-property-decorator": false,
+    "component-class-suffix": false,
+    "trackBy-function": false,
+    "template-cyclomatic-complexity": [false],
+    "no-life-cycle-call": false,
+    "i18n": [false],    
+
+    "no-forward-ref": true,
+    "no-unused-css": false,
+    "use-life-cycle-interface": true,
+    "contextual-life-cycle": true,
+    "use-pipe-transform-interface": true,
+    "template-conditional-complexity": [true, 4]
+  }
+}

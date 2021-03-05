@@ -1,0 +1,68 @@
+﻿@model Litium.Accelerator.ViewModels.Order.OrderConfirmationViewModel
+
+<div class="row">
+    <div class="small-12 columns">
+        <div class="simple-table order-summary">
+            <div class="row medium-unstack no-margin simple-table__header">
+                <div class="columns small-12 medium-6">
+                    <h2>@Model.Title</h2>
+                </div>
+                <div class="columns small-12 medium-6 text--right">
+                    <h2>@Html.WebSiteString("orderdetail.ordernumber"): @Model.Order.ExternalOrderID</h2>
+                </div>
+            </div>
+            <div class="row medium-unstack no-margin simple-table__header">
+                <div class="columns small-12 medium-6">
+                    <h3>@Html.WebSiteString("orderdetail.deliveryaddress")</h3>
+                </div> 
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="columns small-12 medium-6 text--right">
+                        <h3>@Html.WebSiteString("orderdetail.customernumber"): @Model.Order.CustomerInfo.CustomerNumber</h3>
+                    </div>
+                }
+            </div>
+            <div class="row small-unstack no-margin">
+            @foreach (var delivery in Model.Order.Deliveries)
+            {
+                <div class="columns small-12">
+                    @{
+                        if (string.IsNullOrEmpty(Model.Order.CompanyName))
+                        {
+                            @delivery.Address.FirstName@:&nbsp;@delivery.Address.LastName
+                        }
+                        else
+                        {
+                            @Model.Order.CompanyName
+                        }
+                    }
+                </div>
+                <div class="columns small-12">
+                    @delivery.Address.Address1
+                </div>
+                <div class="columns small-12">
+                    @delivery.Address.Zip @delivery.Address.City
+                </div>
+                <div class="columns small-12">
+                    @delivery.Address.Country
+                </div>
+            }
+            </div>
+        </div>
+
+        @Html.Partial("_OrderSummary", Model.Order)
+
+        <div class="simple-table order-summary">
+            <div class="row medium-unstack no-margin simple-table__header">
+                <div class="columns small-12 medium-6">
+                    @Html.WebSiteString("orderdetail.information")
+                </div>
+            </div>
+            <div class="row small-unstack no-margin">
+                <div class="columns small-12">
+                    @Model.Text
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

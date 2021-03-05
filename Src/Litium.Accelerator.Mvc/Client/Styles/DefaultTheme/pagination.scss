@@ -1,0 +1,28 @@
+.pagination {
+    text-align: center;
+    &__item {
+        display: inline-block;
+        margin: rem(0 5px);
+    }
+    &__link {
+        font-weight: 300;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: rem(30px);
+        height: rem(30px);
+        background-color: $color-grey-lightest;
+        @include textoverflow();
+        @include transition(background-color);
+        &--current {
+            &, &:hover, &:active, &:focus {
+                background-color: $color-black-light;
+                color: $color-white;
+            }
+        }
+        &--disabled {
+            pointer-events: none;
+            background-color: transparent;
+        }
+    }
+}

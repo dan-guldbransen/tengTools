@@ -1,0 +1,39 @@
+﻿<status />
+<div class="editpage">
+    <form class="form" name="myForm">
+        <div class="form__header">
+            <h1 translate>accelerator.settings.headline</h1>
+            <div form-buttons my-form="myForm" model="model" model-server="modelServer" data-has-changed="dataHasChanged" save-form="saveForm(myForm)"></div>
+        </div>
+        <div class="form__group">
+            <div class="form__group__header" translate>accelerator.settings.index.template.headlines</div>
+            <div class="form__group__item" hide-edit="true">
+                <label translate>accelerator.settings.index.template.field</label>
+                <div class="form__group__item__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td translate>accelerator.settings.index.template.fieldtemplate</td>
+                                <td translate>accelerator.settings.index.template.field</td>
+                            </tr>
+                        </thead>
+                        <tbody class="fields-container">
+                            <tr ng-repeat="template in model.templates">
+                                <td>{{template.title}}</td>
+                                <td class="base__align__right">
+                                    <select ng-model="template.groupingFieldId" ng-options="o.fieldId as o.title for o in template.fields">
+                                        <option value="">&nbsp;</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+    <div ng-debug="dataHasChanged"></div>
+    <div ng-debug="model"></div>
+</div>

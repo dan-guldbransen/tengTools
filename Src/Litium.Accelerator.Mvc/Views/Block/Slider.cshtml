@@ -1,0 +1,16 @@
+﻿@model Litium.Accelerator.ViewModels.Block.SliderBlockViewModel
+
+@if (Model.Sliders != null && Model.Sliders.Any())
+{
+    <div class="slider__container">
+        @{var url = Model.Sliders.First().Image?.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(0, 0))?.Url;
+        }
+        <section class="slider" style="background-image: url('@url')">
+            @foreach (var slide in Model.Sliders.Where(x => x.Image != null))
+            {
+                var imageUrl = slide.Image.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(0, 0)).Url;
+                <div class="slider__block" data-image="@imageUrl" data-url="@slide.LinkUrl" data-text="@slide.ActionText"></div>
+            }
+        </section>
+    </div>
+}

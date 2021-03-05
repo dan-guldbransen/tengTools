@@ -1,0 +1,24 @@
+﻿@model Litium.Accelerator.ViewModels.Framework.HeaderViewModel 
+@using Litium.Web.Mvc
+
+@{
+    var logoHeight = Model.IsBigHeader ? 60 : 50;
+    var headerClass = Model.IsBigHeader ? "extended-header" : "compact-header";
+    var headerRow = Model.HeaderName == "OneRow" ? "header__row--one-row" : "";
+}
+
+<header id="header" role="banner" class="header">
+    <div class="header__row @headerClass @headerRow">
+        <a href="@Model.StartPageUrl" class="header__logo">
+            @Html.ImageFor(x => x.Logo, maxSize: new System.Drawing.Size(-1, logoHeight))
+        </a>
+        <div class="header__components">
+            @Html.Partial("Framework/TopLink", Model)
+            <div id="quickSearch"></div>
+            @Html.Partial("Framework/Profile", Model)
+            <div id="miniCart" class="cart cart--mini"></div>
+        </div>
+        <div class="header__break"></div>
+        <nav role="navigation" class="navbar" id="navbar"></nav>
+    </div>
+</header>

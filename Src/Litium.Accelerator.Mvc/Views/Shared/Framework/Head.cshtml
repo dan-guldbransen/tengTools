@@ -1,0 +1,32 @@
+﻿@model Litium.Accelerator.ViewModels.Framework.HeadViewModel
+@using Litium.Web.Mvc
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>@Model.Title</title>
+@Url.FingerprintStylesheetTag("/ui/css/site.min.css", useQueryHash: true)
+@foreach (var fav in Model.Favicons)
+{
+    <link rel="@fav.Rel" href="@fav.Href" type="@fav.Type" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.MetaDescription))
+{
+    <meta name="description" content="@Model.MetaDescription" />
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.Canonical))
+{
+    <link rel="canonical" href="@Model.Canonical" />
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.MetaRobots))
+{
+    <meta name="robots" content="@Model.MetaRobots" />
+}
+<meta name="generator" content="Litium" />
+@if (Model.OpenGraph != null)
+{
+    @Html.Partial("Framework/_OpenGraph", Model.OpenGraph)
+}
+
+@Html.Raw(Model.TrackingScripts)

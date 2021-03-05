@@ -1,0 +1,55 @@
+﻿@using Litium.Accelerator.ViewModels.Framework
+@model SubNavigationLinkModel
+
+@if (Model != null)
+{
+    <nav class="subnav" role="navigation">
+        <h3 class="subnav__header">
+            @if (Model.Url != null)
+            {
+                <a href="@Model.Url">@Model.Name</a>
+            }
+            else
+            {
+                @Model.Name
+            }
+        </h3>
+        @DisplayLinks(Model)
+    </nav>
+}
+
+@helper DisplayLinks(SubNavigationLinkModel contentLink, string ulCssClass = "")
+{
+    if (contentLink?.Links != null && contentLink.Links.Any())
+    {
+        <ul class="subnav__list @ulCssClass">
+            @foreach (var childLink in contentLink.Links)
+            {
+                <li class="subnav__item @GetSubnavigationCssClass(childLink)">
+                    <a class="subnav__link" href="@childLink.Url">@childLink.Name</a>
+                    @DisplayLinks(childLink)
+                </li>
+            }
+        </ul>
+    }
+}
+
+@helper GetSubnavigationCssClass(SubNavigationLinkModel contentLink)
+{
+    var classes = new List<string>();
+
+    if (contentLink.Links != null)
+    {
+        classes.Add("has-children");
+        if (contentLink.Links.Any())
+        {
+            classes.Add("expanded");
+        }
+    }
+
+    if (contentLink.IsSelected && (contentLink.Links == null || contentLink.Links.All(x => !x.IsSelected)))
+    {
+        classes.Add("active");
+    }
+    @Html.Raw(classes.Any() ? string.Join(" ", classes) : string.Empty)
+}

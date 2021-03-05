@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["main"],{"./Accelerator/main.ts":function(e,n,t){this&&this.__importDefault;Promise.all([t.e("vendor"),t.e("Accelerator")]).then(t.bind(null,"./Accelerator/extensions.ts"))},0:function(e,n,t){e.exports=t("./Accelerator/main.ts")}},[[0,"manifest"]]]);
+//# sourceMappingURL=main.js.map

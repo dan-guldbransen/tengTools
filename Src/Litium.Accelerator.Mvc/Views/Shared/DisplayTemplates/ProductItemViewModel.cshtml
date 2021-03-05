@@ -1,0 +1,69 @@
+﻿@using Litium.Accelerator.ViewModels.Product;
+@using System.Drawing;
+@using Litium.Studio.Extenssions;
+@using Litium.Accelerator.Mvc.Extensions
+@model ProductItemViewModel
+@{
+    var maxHeight = 300;
+    var maxWidth = 220;
+}
+
+<div itemscope itemtype="http://schema.org/Product" class="product__wrapper">
+    <figure class="product__figure">
+        @if (Model.Images != null && Model.Images.Any())
+        {
+            <a href="@Model.Url" itemprop="url" class="product__image-link">
+                @{
+                    var image = Model.Images.FirstOrDefault();
+                }
+                @Html.ImageFor(x => image, maxSize: new Size(maxWidth, maxHeight), htmlAttributes: new { itemprop = "image", @class = "product__image" })
+            </a>
+        }
+        else
+        {
+            <span class="product__image--missing">@("product.noproductimage".AsWebSiteString())</span>
+        }
+    </figure>
+    <article class="product__info">
+        <meta itemprop="description" content="@Model.Description" />
+        @if (Model.Price != null && Model.Price.Price != null)
+        {
+            <meta itemprop="sku" content="@Model.Price.Price.UnitOfMeasurementTitle" />
+        }
+        <a href="@Model.Url" title="@Model.Name">
+            <h3 itemprop="name" class="product__name">@Model.Name</h3>
+            @if (!string.IsNullOrEmpty(Model.Brand))
+            {
+                <h4 itemprop="brand" class="product__brand">@Model.Brand</h4>
+            }
+        </a>
+        <div class="product__price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            @if (Model.Price != null)
+            {
+                @Html.DisplayFor(x => x.Price)
+            }
+            @if (Model.IsInStock)
+            {
+                <link itemprop="availability" href="http://schema.org/InStock" />
+            }
+            else
+            {
+                <link itemprop="availability" href="http://schema.org/OutOfStock" />
+            }
+            <link itemprop="url" href="@Model.Url" />
+        </div>
+        @if (Model.ShowBuyButton)
+        {
+            @Html.BuyButton("product__buy-button")
+            if (Model.ShowQuantityField && Model.UseVariantUrl && Model.IsInStock)
+            {
+                <div class="product__quantity-container">
+                    <label for="quantity" class="product__quantity">
+                        @("product.quantity".AsWebSiteString())
+                    </label>
+                    <input id="@Model.QuantityFieldId" type="number" data-buy-quantity-input value="1" min="0" max="999" maxlength="3" class="product__buy-quantity form__input" />
+                </div>
+            }
+        }
+    </article>
+</div>

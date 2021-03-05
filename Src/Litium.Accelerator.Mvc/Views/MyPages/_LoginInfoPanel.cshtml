@@ -1,0 +1,40 @@
+﻿﻿@model Litium.Accelerator.ViewModels.MyPages.LoginInfoViewModel
+@using Litium.Studio.Extenssions;
+
+<div class="row">
+    <div class="columns medium-8 small-12">
+        @using (Html.BeginForm(null, null, new { action = "SaveUserName" }, FormMethod.Post, new { @id = "UserNameForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div>@Html.ValidationSummary(true)</div>
+            <div>
+                @Html.LabelFor(m => m.UserNameForm.UserName, "login.username".AsWebSiteString(), new { @class = "form__label" })
+                @Html.TextBoxFor(m => m.UserNameForm.UserName, new { @class = "form__input", @autocomplete = "username" })
+                @Html.ValidationMessageFor(m => m.UserNameForm.UserName, string.Empty, new { @class = "form__validator--error" })
+            </div>
+            <div>
+                <input type="submit" class="form__button" value="@Html.WebSiteString("general.update")" />
+            </div>
+        }
+
+        @using (Html.BeginForm(null, null, new { action = "SavePassword" }, FormMethod.Post, new { @id = "PasswordForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <div>@Html.ValidationSummary(true)</div>
+            <div>
+                @Html.LabelFor(m => m.PasswordForm.Password, "login.password".AsWebSiteString(), new { @class = "form__label" })
+                @Html.PasswordFor(m => m.PasswordForm.Password, new { @class = "form__input", @autocomplete = "new-password" })
+                @Html.ValidationMessageFor(m => m.PasswordForm.Password, string.Empty, new { @class = "form__validator--error" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.PasswordForm.ConfirmPassword, "login.confirmpassword".AsWebSiteString(), new { @class = "form__label" })
+                @Html.PasswordFor(m => m.PasswordForm.ConfirmPassword, new { @class = "form__input", @autocomplete = "new-password" })
+                @Html.ValidationMessageFor(m => m.PasswordForm.ConfirmPassword, string.Empty, new { @class = "form__validator--error" })
+            </div>
+            <div>
+                <input type="submit" class="form__button" value="@Html.WebSiteString("general.update")" />
+            </div>
+        }
+    </div>
+</div>
+

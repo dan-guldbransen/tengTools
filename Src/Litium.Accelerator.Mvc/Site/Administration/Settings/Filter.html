@@ -1,0 +1,41 @@
+﻿<status />
+<div class="editpage">
+    <form class="form" name="myForm">
+        <div class="form__header">
+            <h1 translate>accelerator.filtering.headline</h1>
+            <div form-buttons my-form="myForm" model="model" model-server="modelServer" data-has-changed="dataHasChanged" save-form="saveForm(myForm)"></div>
+        </div>
+        <div class="form__group">
+            <div class="form__group__header" translate>accelerator.filterfield.headline</div>
+            <div class="form__group__item" hide-edit="true">
+                <div class="form__group__item__table">
+                    <p class="base__align__right">
+                        <select ng-model="$scope.fieldDefinitionSelections" ng-options="o.title group by o.groupName for o in (model.filters | orderBy:['-systemDefined', 'title'])"></select>
+                        <a href="#" ng-click="add($scope.fieldDefinitionSelections)" translate>general.add</a>
+                    </p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td colspan="2" translate>accelerator.filterfield.field</td>
+                            </tr>
+                        </thead>
+                        <tbody class="fields-container">
+                            <tr ng-repeat="field in model.items | orderBy: 'title'">
+                                <td>{{field.title}}</td>
+                                <td class="base__align__right"><i ng-click="remove(field)" class="fa fa-2x fa-close base__cursor__pointer"></i></td>
+                            </tr>
+                            <tr ng-if="group.fields.length == 0">
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+    <div ng-debug="dataHasChanged"></div>
+    <div ng-debug="model"></div>
+</div>

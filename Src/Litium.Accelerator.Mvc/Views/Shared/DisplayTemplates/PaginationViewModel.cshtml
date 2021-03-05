@@ -1,0 +1,92 @@
+﻿@using System.Globalization
+@using Litium.Utilities.Url
+@model Litium.Accelerator.ViewModels.PaginationViewModel
+
+@{
+    if (Model == null || Model.PageCount <= 1)
+    {
+        return;
+    }
+}
+
+<ul class="pagination">
+	@if (Model.CurrentPageIndex > 1)
+	{
+		@CreatePagerControl("<<", Model.CurrentPageIndex -1, Model.CurrentPageIndex <= 1)
+	}
+
+	@if (Model.IntervalStart > 0 && Model.EdgeEntries > 0)
+	{
+		var end = Convert.ToInt32(Math.Min(Model.EdgeEntries, Model.IntervalStart));
+		for (var i = 0; i < end; i++)
+		{
+			@CreatePagerItem(i)
+		}
+
+		if (Model.EdgeEntries < Model.IntervalStart)
+		{
+			@CreatePagerControl("...", 0, true)
+		}
+	}
+
+	@for (var i = Model.IntervalStart; i < Model.IntervalEnd; i++)
+	{
+		@CreatePagerItem(i)
+	}
+
+	@if (Model.IntervalEnd < Model.PageCount && Model.EdgeEntries > 0)
+	{
+		if (Model.PageCount - Model.EdgeEntries > Model.IntervalEnd)
+		{
+			@CreatePagerControl("...", 0, true)
+		}
+
+		var begin = Convert.ToInt32(Math.Max(Model.PageCount - Model.EdgeEntries, Model.IntervalEnd));
+		for (var i = begin; i < Model.PageCount; i++)
+		{
+			@CreatePagerItem(i)
+		}
+	}
+
+	@if (Model.CurrentPageIndex < Model.PageCount)
+	{
+		@CreatePagerControl(">>", Model.CurrentPageIndex + 1, Model.CurrentPageIndex == Model.PageCount)
+	}
+</ul>
+
+@functions {
+
+    private static string GetHref(int page)
+    {
+        var isApiRequest = HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath.StartsWith(Litium.Accelerator.Mvc.App_Start.WebApiConfig.RoutePrefix);
+        var url = isApiRequest && HttpContext.Current.Request.UrlReferrer != null ? HttpContext.Current.Request.UrlReferrer.AbsoluteUri : HttpContext.Current.Request.Url.GetComponents(UriComponents.PathAndQuery, UriFormat.UriEscaped);
+        return UrlUtilities.AddOrReplaceUrlParameter(url, "page", page.ToString(CultureInfo.InvariantCulture));
+    }
+
+}
+
+@helper CreatePagerItem(int pageIndex)
+{
+	var publicPageIndex = pageIndex + 1;
+	var name = "" + publicPageIndex;
+	var href = GetHref(publicPageIndex);
+	var current = publicPageIndex == Model.CurrentPageIndex;
+	@DisplayPaginationItem(name, href, current);
+}
+
+@helper CreatePagerControl(string textKey, int pageIndex = 0, bool disabled = false)
+{
+	var href = pageIndex==0 ? "" : GetHref(pageIndex);
+	disabled = pageIndex == 0 ? true : disabled;
+	@DisplayPaginationItem(@Html.WebSiteString(textKey), href, false, disabled);
+}
+
+@helper DisplayPaginationItem(string name = "", string href = "", bool current = false, bool disabled = false)
+{
+	string[] cssArray = new string[] { "pagination__link", current ? "pagination__link--current" : "", disabled ? "pagination__link--disabled" : "" };
+	string cssClass = String.Join(" ", Array.FindAll(cssArray, c => !string.IsNullOrEmpty(c)));
+
+	<li class="pagination__item">
+		<a class="@cssClass" href="@href">@name</a>
+	</li>
+}

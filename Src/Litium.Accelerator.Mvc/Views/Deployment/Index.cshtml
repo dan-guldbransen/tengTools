@@ -1,0 +1,182 @@
+﻿@using Litium.Studio.Extenssions
+@using Litium.Studio.ContentFingerprint
+@model Litium.Accelerator.ViewModels.Deployment.DeploymentViewModel
+
+@{
+    ViewContext.RouteData.DataTokens["BareLayout"] = true;
+
+    var importHeader = "accelerator.deployment.import.header".AsAngularResourceString();
+    var exportHeader = "accelerator.deployment.export.header".AsAngularResourceString();
+    var createExampleProductsCheckbox = "accelerator.deployment.createexampleproducts.label".AsAngularResourceString();
+    var importButton = "accelerator.deployment.import.button".AsAngularResourceString();
+    var exportButton = "accelerator.deployment.export.button".AsAngularResourceString();
+}
+
+<link href="@FingerprintExtension.ContentFingerprint("~/Litium/dist/web/app-style.css", useQueryHash: true)" rel="stylesheet" type="text/css" />
+<script>
+    function CheckImportPackage() {
+        document.getElementById("loading").style.display = "block";
+        return true;
+    }
+</script>
+<style scoped>
+    body {
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    input[type=checkbox].form__checkbox ~ label[for=form__checkbox]:before {
+        content: "";
+        background-color: #fff;
+        text-align: center;
+        line-height: .9rem;
+        margin-right: .5rem;
+        border: 1px solid #999;
+        border-radius: .1rem;
+        height: .9rem;
+        width: .9rem;
+        vertical-align: text-top;
+        box-sizing: content-box;
+        display: inline-block;
+        visibility: visible;
+        cursor: pointer;
+    }
+
+    input[type=checkbox].form__checkbox:checked ~ label[for=form__checkbox]:before {
+        content: "\f00c";
+        font-family: Font Awesome\ 5 Free;
+        color: #fff;
+        background-color: #1494F6;
+        border: 1px solid #1494F6;
+    }
+
+    .simpleform label[for=form__checkbox] {
+        margin: 0;
+        pointer-events: none;
+    }
+
+    .loading-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 2000;
+        background: #ddd;
+        opacity: 0.6;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+        .loading-container::before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            margin-top: -15px;
+            margin-left: -15px;
+            border-radius: 50%;
+            border: 3px solid #ccc;
+            border-top-color: #333;
+            animation: spinner .6s linear infinite;
+            z-index: 1;
+        }
+
+    @@keyframes spinner {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+@if (!string.IsNullOrWhiteSpace(Model.ImportMessage))
+{
+    <div class="base__status">
+        <div class="base__message base__message__success">
+            <i class="fa fa-check-circle base__message__icon"></i><span>
+                @Model.ImportMessage
+            </span>
+        </div>
+    </div>
+}
+@if (!string.IsNullOrWhiteSpace(Model.ExportMessage))
+{
+    <div class="base__status">
+        <div class="base__message base__message__success">
+            <i class="fa fa-check-circle base__message__icon"></i><span>
+                @Model.ExportMessage
+            </span>
+        </div>
+    </div>
+}
+<div id="loading" class="loading-container" style="display: none">
+</div>
+<main class="layout row__col__xs__6 simpleform">
+    <h1>@importHeader</h1>
+    @if (Model.ShowImport)
+    {
+        using (Html.BeginForm("ImportPackage", "Deployment", FormMethod.Post, new { @onsubmit = "return CheckImportPackage()" }))
+        {
+            @Html.AntiForgeryToken()
+            <p>
+                @Html.LabelFor(x => x.ImportForm.Name, "accelerator.deployment.name.label".AsAngularResourceString()) <br />
+                @Html.TextBoxFor(x => x.ImportForm.Name, new { @autocomplete = "on" })
+                @Html.ValidationMessageFor(x => x.ImportForm.Name, string.Empty, new { @class = "base__color-error" }) <br />
+            </p>
+            <p>
+                @Html.LabelFor(x => x.ImportForm.DomainName, "accelerator.deployment.domainname.label".AsAngularResourceString()) <br />
+                @Html.TextBoxFor(x => x.ImportForm.DomainName, new { @autocomplete = "on" })
+                @Html.ValidationMessageFor(x => x.ImportForm.DomainName, string.Empty, new { @class = "base__color-error" }) <br />
+            </p>
+            if (Model.Packages.Count == 1)
+            {
+                @Html.Hidden(Html.NameFor(x => x.ImportForm.PackageName).ToString(), Model.Packages[0].Value)
+            }
+            else if (Model.Packages.Count > 0)
+            {
+                <p>
+                    @Html.LabelFor(x => x.ImportForm.PackageName, "accelerator.deployment.packagename.label".AsAngularResourceString()) <br />
+                    @Html.DropDownListFor(x => x.ImportForm.PackageName, Model.Packages, new { @autocomplete = "on" }) <br />
+                </p>
+            }
+            <p>
+                @Html.LabelFor(x => x.ImportForm.CreateExampleProducts, "accelerator.deployment.exampleproducts.label".AsAngularResourceString()) <br />
+                <label>
+                    @Html.CheckBoxFor(x => x.ImportForm.CreateExampleProducts, new { @class = "form__checkbox" })
+                    <label for="form__checkbox"></label>
+                    @createExampleProductsCheckbox
+                </label>
+                <br />
+            </p>
+            <p>
+                <button type="submit" class="base__success" @(Model.CanImport ? "" : $"disabled") onclick="var b = this; setTimeout(function () { b.disabled = true; }, 10)" ondblclick="return false;">@importButton</button>
+            </p>
+        }
+    }
+    else
+    {
+        <p>During beta the installation of a package can only be executed once.</p>
+    }
+
+    @if (Model.ShowExport)
+    {
+        <h1>@exportHeader</h1>
+        using (Html.BeginForm("ExportPackage", "Deployment"))
+        {
+            @Html.AntiForgeryToken()
+            <p>
+                @Html.LabelFor(x => x.ExportForm.ChannelSystemId, "accelerator.deployment.channel.label".AsAngularResourceString()) <br />
+                @Html.DropDownListFor(x => x.ExportForm.ChannelSystemId, Model.Channels, new { @autocomplete = "on" }) <br />
+            </p>
+            <p>
+                @Html.LabelFor(x => x.ExportForm.FolderSystemId, "accelerator.deployment.folder.label".AsAngularResourceString()) <br />
+                @Html.DropDownListFor(x => x.ExportForm.FolderSystemId, Model.Folders, new { @autocomplete = "on" }) <br />
+            </p>
+            <p>
+                <button type="submit" class="base__success" @(Model.CanExport ? "" : $"disabled")>@exportButton</button>
+            </p>
+        }
+    }
+
+</main>

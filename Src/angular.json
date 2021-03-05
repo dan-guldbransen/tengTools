@@ -1,0 +1,62 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "field-types": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "Litium.Accelerator.FieldTypes/src",
+      "sourceRoot": "Litium.Accelerator.FieldTypes/src",
+      "prefix": "litium-extensions",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "customWebpackConfig": {
+              "path": "Litium.Accelerator.FieldTypes/config/webpack/webpack.js",
+              "mergeStrategies": { "optimization.minimizer": "replace" }
+            },
+            "outputPath": "Litium.Accelerator.FieldTypes/dist",
+            "index": "Litium.Accelerator.FieldTypes/src/Index.cshtml",
+            "main": "Litium.Accelerator.FieldTypes/src/Accelerator/main.ts",
+            "tsConfig": "Litium.Accelerator.FieldTypes/tsconfig.json",
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "none",
+              "sourceMap": true,
+              "extractCss": false,
+              "namedChunks": true,
+              "aot": false,
+              "extractLicenses": false,
+              "commonChunk": false,
+              "buildOptimizer": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "Litium.Accelerator.FieldTypes/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "field-types"
+}

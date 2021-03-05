@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+}
+
+<div class="row">
+    <aside class="columns large-2 show-for-large">
+        @Html.Action("SubNavigationCategory", "Navigation")
+
+        <div role="navigation" id="facetedSearch">
+        </div>
+    </aside>
+    <div class="medium-12 large-10 columns">
+        @RenderBody()
+    </div>
+</div>

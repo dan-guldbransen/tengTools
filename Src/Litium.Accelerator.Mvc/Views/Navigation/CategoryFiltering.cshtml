@@ -1,0 +1,20 @@
+﻿@using Litium.Accelerator.ViewModels.Product
+@model CategoryFilteringViewModel
+
+<div class="filter-container" data-productfilter>
+    @if (Model != null && Model.SortItems.Any())
+    {
+        <div class="row product-sorting">
+            <div class="small-12 medium-3 columns">
+                <div class="select show-for-large">
+                    <select class="form__input" onchange="location = this.value;">
+                        @foreach (var item in Model.SortItems)
+                        {
+                            <option @(item.Selected ? "selected" : string.Empty) value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+    }
+</div>

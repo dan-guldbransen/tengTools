@@ -1,0 +1,57 @@
+﻿@model Litium.Accelerator.ViewModels.Product.ProductPageViewModel
+
+<div class="row-inner">
+    <div class="small-12 columns product-info__container">
+        <section class="tab">
+            @if (Model.Variants?.Any() ?? false)
+            {
+                <input type="radio" class="tab__radio" id="product-information" name="tab-radio" checked/>
+            }
+            @if (Model.SpecificationTemplate?.Any() ?? false)
+            {
+                <input type="radio" class="tab__radio" id="product-specification" name="tab-radio" @(Model.ProductTabSpecificationsIsActive ? "checked" : string.Empty) />
+            }
+            <nav class="tab__header-container">
+                @if (Model.Variants?.Any() ?? false)
+                {
+                <label class="tab__header" for="product-information"> @Html.WebSiteString("product.description") </label>
+                }
+                @if (Model.SpecificationTemplate?.Any() ?? false)
+                {
+                    <label class="tab__header" for="product-specification"> @Html.WebSiteString("product.specification") </label>
+                }
+            </nav>
+            <section class="tab__content-container">
+                @if (Model.Variants?.Any() ?? false)
+                {
+                    <div class="tab__content tab__content--small-padding">
+                        @foreach (var variant in Model.Variants)
+                        {
+                            @Html.Partial("_VariantItem", variant)
+                        }
+                    </div>
+                }
+                @if (Model.SpecificationTemplate?.Any() ?? false)
+                {
+                    <div class="tab__content tab__content--small-padding">
+                        <div class="row-inner">
+                            <div class="small-12 medium-8 columns" data-equalizer-watch>
+                                <h2 class="product-info__title">
+                                    @Html.WebSiteString("product.specification")
+                                </h2>
+
+                                @foreach (var item in Model.SpecificationTemplate)
+                                {
+                                    <p>
+                                        @Html.Partial("_" + item.ViewName, item)
+                                    </p>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                 }
+                </section>
+        </section>
+    </div>
+</div>

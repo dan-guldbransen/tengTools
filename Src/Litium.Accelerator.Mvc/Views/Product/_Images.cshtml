@@ -1,0 +1,21 @@
+﻿@model Litium.Accelerator.ViewModels.Product.ProductPageViewModel
+
+@if (Model.ProductItem.Images != null && Model.ProductItem.Images.Any())
+{
+<section id="lightBoxImages">
+    <a hidden data-src="@Model.ProductItem.Images[0].GetUrlToImage(Size.Empty, Size.Empty).Url">
+        @Html.ImageFor(x => Model.ProductItem.Images[0], maxSize: new Size(500, 600), htmlAttributes: new { itemprop = "image", @class = "product-detail__image--main" })
+    </a>
+    @for (var i = 1; i < Model.ProductItem.Images.Count; i++)
+    {
+        var image = Model.ProductItem.Images[i];
+        <a hidden data-src="@image.GetUrlToImage(Size.Empty, Size.Empty).Url">
+            @Html.ImageFor(x => image, maxSize: new Size(100, 150), htmlAttributes: new { itemprop = "image", @class = "product-detail__image--alter" })
+        </a>
+    }
+</section>
+}
+else
+{
+    <span class="image-missing">@Html.WebSiteString("product.noproductimage")</span>
+}

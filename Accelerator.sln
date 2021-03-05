@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Litium.Accelerator", "Src\Litium.Accelerator\Litium.Accelerator.csproj", "{0A0BC54B-E6DF-4A1C-93A8-019D61DB49BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Litium.Accelerator.FieldTypes", "Src\Litium.Accelerator.FieldTypes\Litium.Accelerator.FieldTypes.csproj", "{39385662-65A6-4265-9280-DEA20B62B8AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Litium.Accelerator.Mvc", "Src\Litium.Accelerator.Mvc\Litium.Accelerator.Mvc.csproj", "{09817C17-3188-496A-ACC1-E9574607EBF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Litium.Accelerator.Elasticsearch", "Src\Litium.Accelerator.Elasticsearch\Litium.Accelerator.Elasticsearch.csproj", "{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A0BC54B-E6DF-4A1C-93A8-019D61DB49BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A0BC54B-E6DF-4A1C-93A8-019D61DB49BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A0BC54B-E6DF-4A1C-93A8-019D61DB49BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A0BC54B-E6DF-4A1C-93A8-019D61DB49BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39385662-65A6-4265-9280-DEA20B62B8AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39385662-65A6-4265-9280-DEA20B62B8AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39385662-65A6-4265-9280-DEA20B62B8AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39385662-65A6-4265-9280-DEA20B62B8AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09817C17-3188-496A-ACC1-E9574607EBF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09817C17-3188-496A-ACC1-E9574607EBF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09817C17-3188-496A-ACC1-E9574607EBF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09817C17-3188-496A-ACC1-E9574607EBF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFB8E599-2219-412D-8561-CF94E219F133}
+	EndGlobalSection
+EndGlobal

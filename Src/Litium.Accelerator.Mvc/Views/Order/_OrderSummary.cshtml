@@ -1,0 +1,56 @@
+﻿@model Litium.Accelerator.ViewModels.Order.OrderDetailsViewModel
+
+<div class="simple-table order-summary">
+    <div class="row medium-unstack no-margin simple-table__header">
+        <div class="columns medium-6">@Html.WebSiteString("orderdetail.column.products")</div>
+        <div class="columns medium-2">@Html.WebSiteString("orderdetail.column.quantity")</div>
+        <div class="columns medium-2">@Html.WebSiteString("orderdetail.column.price")</div>
+        <div class="columns medium-2 text--right">@Html.WebSiteString("orderdetail.column.total")</div>
+    </div>
+    @foreach (var row in Model.OrderRows)
+    {   var price="";
+        if (row.PriceInfo?.HasPrice == true)
+        {
+            if (row.PriceInfo.CampaignPrice != null)
+            {
+                price = row.PriceInfo.CampaignPrice.FormatPrice(true);
+            }
+            else
+            {
+                price = row.PriceInfo.Price.FormatPrice(true);
+            }
+        }
+        <div class="row medium-unstack no-margin">
+            <div class="columns medium-6 small-6"><a href="@(row.Link?.Href)" class="order-detail__product-link">@row.Brand <strong>@row.Name</strong></a></div>
+            <div class="columns medium-2 small-3">@row.QuantityString</div>
+            <div class="columns medium-2 small-3">@price</div>
+            <div class="columns medium-2 small-12 text--right">@row.TotalPrice</div>
+        </div>
+    }
+
+    <div class="row medium-unstack no-margin">
+        <div class="columns medium-10 ">@Html.WebSiteString("orderdetail.paymentmethod") - @Model.PaymentMethod</div>
+        <div class="columns medium-2 text--right">@Model.OrderTotalFee</div>
+    </div>
+
+    <div class="row medium-unstack no-margin">
+        <div class="columns medium-10 ">@Html.WebSiteString("orderdetail.deliverymethod") - @Model.DeliveryMethod</div>
+        <div class="columns medium-2 text--right">@Model.OrderTotalDeliveryCost</div>
+    </div>
+    @if (!string.IsNullOrEmpty(Model.OrderTotalDiscountAmount))
+    {
+        <div class="row medium-unstack no-margin">
+            <div class="columns medium-10 ">@Html.WebSiteString("orderdetail.discount")</div>
+            <div class="columns medium-2 text--right">@Model.OrderTotalDiscountAmount</div>
+        </div>
+    }
+    <div class="row medium-unstack no-margin order-summary__separator">
+        <div class="columns medium-10 text--right"><h3>@Html.WebSiteString("orderdetail.grandtotal"):</h3></div>
+        <div class="columns medium-2 text--right"><h3>@Model.OrderGrandTotal</h3></div>
+    </div>
+
+    <div class="row medium-unstack no-margin">
+        <div class="columns medium-10 text--right"><h4>@Html.WebSiteString("orderdetail.ordertotalvat"):</h4></div>
+        <div class="columns medium-2 text--right"><h4>@Model.OrderTotalVat</h4></div>
+    </div>
+</div>

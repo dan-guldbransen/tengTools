@@ -1,0 +1,20 @@
+{
+    "name":  "litium-extensions",
+    "private":  true,
+    "version":  "8.0.0",
+    "license":  "UNLICENSED",
+    "homepage":  "https://docs.litium.com",
+    "repository":  {
+
+                   },
+    "scripts":  {
+                    "prod":  "ng build field-types --prod",
+                    "prod:w":  "ng build field-types --prod --watch",
+                    "build:w":  "ng build field-types --watch",
+                    "build":  "ng build field-types --prod",
+                    "lint":  "tslint src/**/*.ts"
+                },
+    "devDependencies":  {
+                            "litium-ui":  "https://packages.litium.com/Npm/litium-ui?7.6.1"
+                        }
+}

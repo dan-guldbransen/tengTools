@@ -1,0 +1,1 @@
+{"version":3,"sources":["./Accelerator/main.ts"],"names":[],"mappings":"iIACA,kG","file":"main.js","sourcesContent":["// name your chunk by using webpackChunkName, to create Accelerator.js file in dist folder\r\nimport(/* webpackChunkName: \"Accelerator\" */ './extensions');"],"sourceRoot":"webpack:///"}

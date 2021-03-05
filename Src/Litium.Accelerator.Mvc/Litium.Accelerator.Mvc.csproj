@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Litium.SqlClient.SNILoader.2.1.1.2\build\Litium.SqlClient.SNILoader.props" Condition="Exists('..\..\packages\Litium.SqlClient.SNILoader.2.1.1.2\build\Litium.SqlClient.SNILoader.props')" />
+  <Import Project="..\..\packages\Microsoft.Net.Compilers.Toolset.3.7.0\build\Microsoft.Net.Compilers.Toolset.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.Toolset.3.7.0\build\Microsoft.Net.Compilers.Toolset.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09817C17-3188-496A-ACC1-E9574607EBF6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Litium.Accelerator.Mvc</RootNamespace>
+    <AssemblyName>Litium.Accelerator.Mvc</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <DeployOnBuild Condition="'$(DeployOnBuild)'==''">$(DeployAcceleratorOnBuild)</DeployOnBuild>
+    <BuildPackage>false</BuildPackage>
+    <TargetFrameworkProfile />
+    <MvcBuildViews>false</MvcBuildViews>
+    <LangVersion>latest</LangVersion>
+    <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Litium.Accelerator.Mvc.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugBuildViews|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <MvcBuildViews>true</MvcBuildViews>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.AcceleratorShared.cs">
+      <Link>Properties\AssemblyInfo.AcceleratorShared.cs</Link>
+    </Compile>
+    <Compile Include="App_Start\KlarnaPaymentConfigV2.cs" />
+    <Compile Include="App_Start\KlarnaPaymentConfigV3.cs" />
+    <Compile Include="Attributes\FromJsonBodyAttribute.cs" />
+    <Compile Include="Attributes\OrganizationRoleAttribute.cs" />
+    <Compile Include="Attributes\ApiValidateAntiForgeryTokenAttribute.cs" />
+    <Compile Include="Extensions\BlockContainerHelperExtension.cs" />
+    <Compile Include="Controllers\Api\MyPageAddressController.cs" />
+    <Compile Include="Controllers\Api\CheckoutController.cs" />
+    <Compile Include="Controllers\Api\MyPagePersonController.cs" />
+    <Compile Include="Controllers\Api\ProductFilterController.cs" />
+    <Compile Include="Controllers\Blocks\BannerBlockController.cs" />
+    <Compile Include="Controllers\Blocks\BrandBlockController.cs" />
+    <Compile Include="Controllers\Blocks\ProductsAndBannerBlockController.cs" />
+    <Compile Include="Controllers\Blocks\ProductBlockController.cs" />
+    <Compile Include="Controllers\Blocks\VideoBlockController.cs" />
+    <Compile Include="Controllers\Blocks\SliderBlockController.cs" />
+    <Compile Include="Controllers\Article\ArticleController.cs" />
+    <Compile Include="Controllers\Brand\BrandController.cs" />
+    <Compile Include="Controllers\Category\CategoryController.cs" />
+    <Compile Include="Controllers\Checkout\CheckoutController.cs" />
+    <Compile Include="Controllers\Checkout\KlarnaPaymentController.cs" />
+    <Compile Include="Controllers\Deployment\DeploymentController.cs" />
+    <Compile Include="Controllers\Error\ErrorController.cs" />
+    <Compile Include="Controllers\Home\HomeController.cs" />
+    <Compile Include="Controllers\LandingPage\LandingPageController.cs" />
+    <Compile Include="Controllers\MyPages\MyPagesController.cs" />
+    <Compile Include="Controllers\Navigation\NavigationController.cs" />
+    <Compile Include="Controllers\News\NewsController.cs" />
+    <Compile Include="Controllers\ProductList\ProductListController.cs" />
+    <Compile Include="Controllers\Product\ProductController.cs" />
+    <Compile Include="Definitions\DisplayTemplateSetupDecorator.cs" />
+    <Compile Include="Extensions\HtmlHelperExtension.cs" />
+    <Compile Include="Definitions\FieldTemplateSetupDecorator.cs" />
+    <Compile Include="Extensions\ProductItemViewModelHtmlExtensions.cs" />
+    <Compile Include="Controllers\Order\OrderController.cs" />
+    <Compile Include="Extensions\RequestHeaderExtension.cs" />
+    <Compile Include="Extensions\ViewExtensions.cs" />
+    <Compile Include="Routing\SessionStorageImpl.cs" />
+    <Compile Include="Routing\ErrorPageResolverDecorator.cs" />
+    <Compile Include="Routing\PageNotFoundResolverDecorator.cs" />
+    <Compile Include="Routing\RequestModelActionFilter.cs" />
+    <Compile Include="Routing\RequestModelHandler.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\ApiControllerBase.cs" />
+    <Compile Include="Controllers\Api\CartController.cs" />
+    <Compile Include="Controllers\Api\NavigationController.cs" />
+    <Compile Include="Controllers\Api\QuickSearchController.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\Framework\LayoutController.cs" />
+    <Compile Include="Controllers\Framework\ClientContextController.cs" />
+    <Compile Include="Controllers\Login\LoginController.cs" />
+    <Compile Include="Controllers\Search\SearchController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Routing\SearchQueryMapper.cs" />
+    <Compile Include="Routing\LoginPageSignInUrlResolverDecorator.cs" />
+    <Compile Include="Site\Administration\Api\Controllers\FilteringController.cs" />
+    <Compile Include="Site\Administration\Api\Controllers\IndexingController.cs" />
+    <Compile Include="Site\Administration\Api\Controllers\SearchIndexingController.cs" />
+    <Compile Include="Site\Administration\Api\ViewModel\FilteringModel.cs" />
+    <Compile Include="Site\Administration\Api\ViewModel\IndexingModel.cs" />
+    <Compile Include="Site\Administration\Api\ViewModel\SearchIndexingModel.cs" />
+    <Compile Include="Site\Administration\Settings\SettingsPageSetup.cs" />
+    <Compile Include="Site\ECommerce\Reports\OrderTotal.ascx.cs">
+      <DependentUpon>OrderTotal.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ECommerce\Reports\OrderTotal.ascx.designer.cs">
+      <DependentUpon>OrderTotal.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelStates\ApiModelState.cs" />
+    <Compile Include="ModelStates\MvcModelState.cs" />
+    <Content Include="Site\Administration\Settings\acceleratorAdministrationSearchIndexingController.js" />
+    <Content Include="Site\Administration\Settings\SearchIndexing.html" />
+    <Content Include="Site\Editor\globalConfig.js" />
+    <Content Include="Views\Order\BusinessCustomerOrder.cshtml" />
+    <Content Include="Views\Product\_BrandInfo.cshtml" />
+    <Content Include="Views\Category\ChildCategoryNavigation.cshtml" />
+    <Content Include="Views\Product\_MostSold.cshtml" />
+    <Content Include="Views\Product\_RelatedProducts.cshtml" />
+    <Content Include="Views\LandingPage\CategoryLandingPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Site\Administration\Settings\acceleratorAdministrationFilterController.js" />
+    <Content Include="Site\Administration\Settings\acceleratorAdministrationIndexingController.js" />
+    <Content Include="Site\Administration\Settings\Filter.html" />
+    <Content Include="Site\Administration\Settings\route-config.js" />
+    <Content Include="Site\Administration\Settings\Indexing.html" />
+    <Content Include="Site\ECommerce\Reports\OrderTotal.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Block\Video.cshtml" />
+    <Content Include="Views\Login\ChangePassword.cshtml" />
+    <Content Include="Views\Mail\ConfirmationEmail.cshtml" />
+    <Content Include="Views\Shared\Framework\BodyEnd.cshtml" />
+    <Content Include="Views\Shared\Framework\BodyStart.cshtml" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site\Dashboard\Styles\base.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site\Resources\Administration\Administration.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Site\Resources\Administration\Administration.sv-se.resx" />
+    <EmbeddedResource Include="Site\Resources\General\AcceleratorCommon.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Site\Resources\General\AcceleratorCommon.sv-se.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Text\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CategoryPage\Index.cshtml" />
+    <Content Include="Views\Login\SelectOrganization.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Framework\BreadCrumbs.cshtml" />
+    <Content Include="Views\Shared\Framework\Footer.cshtml" />
+    <Content Include="Views\Shared\Framework\Header.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="UI\**" />
+    <Content Include="Views\Shared\Framework\Profile.cshtml" />
+    <Content Include="Views\Shared\Framework\ClientContext.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Shared\Framework\Head.cshtml" />
+    <Content Include="Views\Shared\Framework\_OpenGraph.cshtml" />
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\Shared\_FileList.cshtml" />
+    <Content Include="Views\Shared\_LinkList.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Shared\Framework\TopLink.cshtml" />
+    <Content Include="Views\Block\Banners.cshtml" />
+    <Content Include="Views\Block\Brands.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Brand\Index.cshtml" />
+    <Content Include="Views\Brand\List.cshtml" />
+    <Content Include="Views\Block\Product.cshtml" />
+    <Content Include="Views\Shared\Framework\_BlockContainer.cshtml" />
+    <Content Include="Views\News\List.cshtml" />
+    <Content Include="Views\Block\ProductsAndBanner.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Navigation\SubNavigationCategory.cshtml" />
+    <Content Include="Views\Shared\_LayoutWithLeftColumn.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\MyPages\_LoginInfoPanel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProductItemViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProductPriceModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\PaginationViewModel.cshtml" />
+    <Content Include="Views\MyPages\Index.cshtml" />
+    <Content Include="Views\MyPages\_MyDetailsPanel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\FileModel.cshtml" />
+    <Content Include="Views\Navigation\CategoryFiltering.cshtml" />
+    <Content Include="Views\Product\ProductWithVariants.cshtml" />
+    <Content Include="Views\Product\_Images.cshtml" />
+    <Content Include="Views\Product\_StockStatus.cshtml" />
+    <Content Include="Views\Product\_TierPriceInfo.cshtml" />
+    <Content Include="Views\Product\_InformationTabs.cshtml" />
+    <Content Include="Views\Product\_Field.cshtml" />
+    <Content Include="Views\Product\_FileField.cshtml" />
+    <Content Include="Views\Product\_ImageField.cshtml" />
+    <Content Include="Views\Product\ProductWithVariantListing.cshtml" />
+    <Content Include="Views\Product\_VariantInformationTabs.cshtml" />
+    <Content Include="Views\Product\_VariantItem.cshtml" />
+    <Content Include="Views\Order\List.cshtml" />
+    <Content Include="Views\MyPages\_OrderHistoryPanel.cshtml" />
+    <Content Include="Views\Order\Order.cshtml" />
+    <Content Include="Views\ProductList\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Views\MyPages\_BusinessCustomerDetailsPanel.cshtml" />
+    <Content Include="Views\Deployment\Index.cshtml" />
+    <Content Include="Site\Deployments\*.bin" />
+    <Content Include="Views\Order\Confirmation.cshtml" />
+    <Content Include="Views\Order\_OrderSummary.cshtml" />
+    <Content Include="Views\Block\Slider.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentArt.Web.UI, Version=2012.1.1016.4, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.ThirdParty.ComponentArt.1.0.0\lib\net40\ComponentArt.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentArt.Web.Visualization.Charting, Version=2012.1.1016.4, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.ThirdParty.ComponentArt.1.0.0\lib\net40\ComponentArt.Web.Visualization.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentArt.Web.Visualization.Charting.Shader, Version=2012.1.1016.4, Culture=neutral, PublicKeyToken=9bc9f846553156bb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.ThirdParty.ComponentArt.1.0.0\lib\net40\ComponentArt.Web.Visualization.Charting.Shader.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcV2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.ThirdParty.CookComputingXmlRpcV2.1.0.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="Klarna.Checkout, Version=3.0.0.0, Culture=neutral, PublicKeyToken=2042c67c8f8466a5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Klarna.Checkout.3.0.0.0\lib\net35\Klarna.Checkout.dll</HintPath>
+    </Reference>
+    <Reference Include="KlarnaAPI, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b91ee73b88fe3938, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\KlarnaAPI.3.1.0\lib\net452\KlarnaAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.AddOns.Klarna, Version=4.7.115.0, Culture=neutral, PublicKeyToken=309a1b09fe470f89, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.AddOns.Klarna.4.7.115\lib\net461\Litium.AddOns.Klarna.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.AddOns.Klarna.Abstractions, Version=4.7.115.0, Culture=neutral, PublicKeyToken=309a1b09fe470f89, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.AddOns.Klarna.Abstractions.4.7.115\lib\net452\Litium.AddOns.Klarna.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.AddOns.Klarna.UI, Version=4.7.115.0, Culture=neutral, PublicKeyToken=309a1b09fe470f89, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.AddOns.Klarna.UI.4.7.115\lib\net461\Litium.AddOns.Klarna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.Klarna.Rest.Core, Version=3.1.14.0, Culture=neutral, PublicKeyToken=309a1b09fe470f89, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.AddOns.Klarna.4.7.115\lib\net461\Litium.Klarna.Rest.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.Studio.AddOns.Dibs, Version=4.7.102.0, Culture=neutral, PublicKeyToken=f31df33eb112b810, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.AddOns.Dibs.4.7.102\lib\net452\Litium.Studio.AddOns.Dibs.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.Studio.AddOns.Dibs.UI, Version=4.7.102.0, Culture=neutral, PublicKeyToken=f31df33eb112b810, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.AddOns.Dibs.UI.4.7.102\lib\net452\Litium.Studio.AddOns.Dibs.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.Studio.AddOns.Klarna, Version=4.7.115.0, Culture=neutral, PublicKeyToken=309a1b09fe470f89, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.AddOns.Klarna.4.7.115\lib\net452\Litium.Studio.AddOns.Klarna.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.Studio.AddOns.Klarna.UI, Version=4.7.115.0, Culture=neutral, PublicKeyToken=309a1b09fe470f89, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.AddOns.Klarna.UI.4.7.115\lib\net452\Litium.Studio.AddOns.Klarna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.Studio.AddOns.PayEx, Version=4.7.100.0, Culture=neutral, PublicKeyToken=3a2ec2dd44fccd2d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.AddOns.PayEx.4.7.100\lib\net452\Litium.Studio.AddOns.PayEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.Studio.AddOns.PayEx.UI, Version=4.7.100.0, Culture=neutral, PublicKeyToken=3a2ec2dd44fccd2d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.AddOns.PayEx.UI.4.7.100\lib\net452\Litium.Studio.AddOns.PayEx.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="MetadataExtractor.StrongName, Version=2.4.3.0, Culture=neutral, PublicKeyToken=b66b5ccaf776c301, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MetadataExtractor.StrongName.2.4.3\lib\net45\MetadataExtractor.StrongName.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Environment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Configuration.ConfigurationBuilders.Environment.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Environment.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Localization.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Localization.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Primitives.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.18.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Identity.Client.4.18.0\lib\net461\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.JsonWebTokens.6.7.1\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Logging.6.7.1\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Protocols.6.7.1\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.6.7.1\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IdentityModel.Tokens.6.7.1\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IdentityModel.Tokens.Jwt.6.7.1\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Primitives, Version=4.7.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ServiceModel.Primitives.4.7.0\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI, Version=2015.2.826.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.ThirdParty.Telerik.2.0.0\lib\net45\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2015.2.826.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Studio.ThirdParty.Telerik.2.0.0\lib\net45\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="XmpCore.StrongName, Version=6.1.10.0, Culture=neutral, PublicKeyToken=961f4f366277b80e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XmpCore.StrongName.6.1.10\lib\net35\XmpCore.StrongName.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Litium.Accelerator.ElasticSearch\Litium.Accelerator.Elasticsearch.csproj">
+      <Project>{9a9b24e2-da77-47b3-9bb5-b86364b64a38}</Project>
+      <Name>Litium.Accelerator.Elasticsearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Litium.Accelerator.FieldTypes\Litium.Accelerator.FieldTypes.csproj">
+      <Project>{39385662-65a6-4265-9280-dea20b62b8ad}</Project>
+      <Name>Litium.Accelerator.FieldTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Litium.Accelerator\Litium.Accelerator.csproj">
+      <Project>{B3E241B9-4BA5-420B-962C-C45002B9F98A}</Project>
+      <Name>Litium.Accelerator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(SolutionDir)\Src\NuGet.targets" Condition="Exists('$(SolutionDir)\Src\NuGet.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+  </PropertyGroup>
+  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\..\packages\Microsoft.Data.SqlClient.SNI.2.1.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\..\packages\Microsoft.Data.SqlClient.SNI.2.1.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Import Project="..\..\packages\Litium.SqlClient.SNILoader.2.1.1.2\build\Litium.SqlClient.SNILoader.targets" Condition="Exists('..\..\packages\Litium.SqlClient.SNILoader.2.1.1.2\build\Litium.SqlClient.SNILoader.targets')" />
+</Project>

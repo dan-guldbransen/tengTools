@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Action("Head", "Layout")
+    @RenderSection("head", false)
+    @Html.Action("Index", "ClientContext")
+</head>
+<body>
+    @Html.Action("BodyStart", "Layout")
+    @{
+        var bareLayout = (bool?)ViewContext.RouteData.DataTokens["BareLayout"] == true;
+    }
+    @if (!bareLayout)
+    {
+        @Html.Action("Header", "Layout")
+        @Html.Action("BreadCrumbs", "Layout")
+    }
+    <main class="main-content">
+        @RenderBody()
+    </main>
+    @if (!bareLayout)
+    {
+        @Html.Action("Footer", "Layout")
+    }
+    <div id="globalNotification" />
+    @RenderSection("js", false)
+    @Html.Action("BodyEnd", "Layout")
+</body>
+</html>

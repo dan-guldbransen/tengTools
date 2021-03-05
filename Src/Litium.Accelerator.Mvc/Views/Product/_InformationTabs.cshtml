@@ -1,0 +1,110 @@
+﻿@model Litium.Accelerator.ViewModels.Product.ProductPageViewModel
+<div class="row">
+    <div class="small-12 columns product-info__container">
+        <section class="tab">
+            @if (Model.InformationTemplate != null && Model.InformationTemplate.Any())
+            {
+                <input type="radio" class="tab__radio" id="product-information" name="tab-radio" @(Model.ProductTabProductInformationIsActive ? "checked" : string.Empty) />
+            }
+            @if (Model.SpecificationTemplate != null && Model.SpecificationTemplate.Any())
+            {
+                <input type="radio" class="tab__radio" id="product-specification" name="tab-radio" @(Model.ProductTabSpecificationsIsActive ? "checked" : string.Empty) />
+            }
+            @if (Model.BundleProducts != null && Model.BundleProducts.Any())
+            {
+                <input type="radio" class="tab__radio" id="product-package" name="tab-radio" @(Model.ProductTabPackageIsActive ? "checked" : string.Empty) />
+            }
+            <nav class="tab__header-container">
+                @if (Model.InformationTemplate != null && Model.InformationTemplate.Any())
+                {
+                    <label class="tab__header" for="product-information"> @Html.WebSiteString("product.description") </label>
+                }
+                @if (Model.SpecificationTemplate != null && Model.SpecificationTemplate.Any())
+                {
+                    <label class="tab__header" for="product-specification"> @Html.WebSiteString("product.specification") </label>
+                }
+                @if (Model.BundleProducts != null && Model.BundleProducts.Any())
+                {
+                    <label class="tab__header" for="product-package"> @Html.WebSiteString("product.package") </label>
+                }
+            </nav>
+            <section class="tab__content-container">
+                @if (Model.InformationTemplate != null && Model.InformationTemplate.Any())
+                {
+                    <div class="tab__content tab__content--small-padding">
+                        <div class="row product-info">
+                            <div class="small-12 medium-8 columns" data-equalizer-watch>
+                                <h2 class="product-info__title">
+                                    @Html.WebSiteString("product.description")
+                                </h2>
+
+                                @foreach (var item in Model.InformationTemplate)
+                                {
+                                    <p>
+                                        @Html.Partial("_" + item.ViewName, item)
+                                    </p>
+                                }
+
+                            </div>
+                            <div class="small-12 medium-4 columns" data-equalizer-watch>
+                                <div class="product-info__image product-info__image--zoom" style="background-image: url('@(Model.ProductItem.Images?.FirstOrDefault()?.GetUrlToImage(Size.Empty, new Size(562, -1)).Url)');"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (Model.SpecificationTemplate != null && Model.SpecificationTemplate.Any())
+                {
+                    <div class="tab__content tab__content--small-padding">
+                        <div class="row">
+                            <div class="small-12 medium-8 columns" data-equalizer-watch>
+                                <h2 class="product-info__title">
+                                    @Html.WebSiteString("product.specification")
+                                </h2>
+
+                                @foreach (var item in Model.SpecificationTemplate)
+                                {
+                                    <p>
+                                        @Html.Partial("_" + item.ViewName, item)
+                                    </p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (Model.BundleProducts != null && Model.BundleProducts.Any())
+                {
+                    <div class="tab__content tab__content--small-padding">
+                        <div class="row">
+                            <div class="small-12 medium-8 columns" data-equalizer-watch>
+                                <h2 class="product-info__title">
+                                    @Html.WebSiteString("product.package")
+                                </h2>
+
+                                <ul class="small-block-grid-2 medium-block-grid-4">
+                                    @foreach (var bundleProd in Model.BundleProducts)
+                                    {
+                                        <li>
+                                            <div itemscope itemtype="http://schema.org/Product" class="package-item">
+                                                <h3>@bundleProd.Name</h3>
+                                                <div class="product-item">
+                                                    @if (bundleProd.Images != null && bundleProd.Images.Count > 0)
+                                                    {
+                                                        @Html.ImageFor(x => bundleProd.Images[0], maxSize: new Size(350, 510))
+                                                    }
+                                                </div>
+                                            </div>
+
+                                            <div class="product-detail__price-info">
+                                                @Html.DisplayFor(x => x.ProductItem.Price)
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </section>
+        </section>
+    </div>
+</div>
