@@ -1,0 +1,7 @@
+<%@ master language="C#" autoeventwireup="true" inherits="System.Web.UI.MasterPage" %>
+
+<asp:ContentPlaceHolder ID="LitiumStudioHead" runat="Server" />
+<asp:ContentPlaceHolder ID="LitiumStudioToolbar" runat="Server" />
+<asp:ContentPlaceHolder ID="LitiumStudioContentHeading" runat="Server" />
+<asp:ContentPlaceHolder ID="LitiumStudioContent" runat="Server" />
+<asp:ContentPlaceHolder ID="LitiumStudioFilterArea" runat="Server" />
