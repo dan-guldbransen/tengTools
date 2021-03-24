@@ -392,8 +392,14 @@
     <Reference Include="Litium.Owin, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Owin.7.6.1\lib\net472\Litium.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Litium.Redis.Application, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Redis.Application.7.6.1\lib\netstandard2.0\Litium.Redis.Application.dll</HintPath>
+    </Reference>
     <Reference Include="Litium.Setup.Elasticsearch, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Setup.Elasticsearch.7.6.1\lib\net472\Litium.Setup.Elasticsearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.Setup.Redis, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Setup.Redis.7.6.1\lib\net472\Litium.Setup.Redis.dll</HintPath>
     </Reference>
     <Reference Include="Litium.SqlClient.SNILoader, Version=2.1.1.2, Culture=neutral, PublicKeyToken=7f32892a08662c10, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.SqlClient.SNILoader.2.1.1.2\lib\net462\Litium.SqlClient.SNILoader.dll</HintPath>
@@ -463,6 +469,9 @@
     </Reference>
     <Reference Include="Litium.Web.Setup.Elasticsearch, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Web.Setup.Elasticsearch.7.6.1\lib\net472\Litium.Web.Setup.Elasticsearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Litium.Web.Setup.Redis, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Litium.Web.Setup.Redis.7.6.1\lib\net472\Litium.Web.Setup.Redis.dll</HintPath>
     </Reference>
     <Reference Include="Litium.Web.WebApi.Abstractions, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Web.WebApi.Abstractions.7.6.1\lib\net472\Litium.Web.WebApi.Abstractions.dll</HintPath>
@@ -539,6 +548,9 @@
     </Reference>
     <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Extensions.Caching.Memory.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.StackExchangeRedis, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Caching.StackExchangeRedis.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Extensions.Configuration.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
@@ -648,6 +660,18 @@
     <Reference Include="PdfSharp, Version=1.32.2608.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Studio.ThirdParty.PdfSharp.1.0.0\lib\net20\PdfSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Pipelines.Sockets.Unofficial.2.1.16\lib\net472\Pipelines.Sockets.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="RedLockNet.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=1dffde0a6c007f07, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RedLock.net.2.2.0\lib\net472\RedLockNet.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="RedLockNet.SERedis, Version=2.2.0.0, Culture=neutral, PublicKeyToken=1dffde0a6c007f07, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RedLock.net.2.2.0\lib\net472\RedLockNet.SERedis.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\StackExchange.Redis.2.1.58\lib\net472\StackExchange.Redis.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -671,6 +695,9 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.PerformanceCounter.4.7.0\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
@@ -682,7 +709,14 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Pipelines.4.7.1\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
+    </Reference>
     <Reference Include="System.Linq" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
