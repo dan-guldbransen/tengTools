@@ -27,11 +27,11 @@ services:
     container_name: kibana
     ports:
     - "5601:5601"
-  redis:
-    image: redis:5.0.5-alpine
-    container_name: redis
-    ports:
-    - "6379:6379"
+  # redis:
+  #   image: redis:5.0.5-alpine
+  #   container_name: redis
+  #   ports:
+  #   - "6379:6379"
 volumes:
   elastic_data:
     driver: local

@@ -260,6 +260,8 @@
     <Content Include="Litium\web.config" />
     <Content Include="Litium\Framework\ControlPanel.master" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Prod.pubxml" />
+    <None Include="Properties\PublishProfiles\Test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -392,14 +394,8 @@
     <Reference Include="Litium.Owin, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Owin.7.6.1\lib\net472\Litium.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Litium.Redis.Application, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Litium.Redis.Application.7.6.1\lib\netstandard2.0\Litium.Redis.Application.dll</HintPath>
-    </Reference>
     <Reference Include="Litium.Setup.Elasticsearch, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Setup.Elasticsearch.7.6.1\lib\net472\Litium.Setup.Elasticsearch.dll</HintPath>
-    </Reference>
-    <Reference Include="Litium.Setup.Redis, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Litium.Setup.Redis.7.6.1\lib\net472\Litium.Setup.Redis.dll</HintPath>
     </Reference>
     <Reference Include="Litium.SqlClient.SNILoader, Version=2.1.1.2, Culture=neutral, PublicKeyToken=7f32892a08662c10, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.SqlClient.SNILoader.2.1.1.2\lib\net462\Litium.SqlClient.SNILoader.dll</HintPath>
@@ -469,9 +465,6 @@
     </Reference>
     <Reference Include="Litium.Web.Setup.Elasticsearch, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Web.Setup.Elasticsearch.7.6.1\lib\net472\Litium.Web.Setup.Elasticsearch.dll</HintPath>
-    </Reference>
-    <Reference Include="Litium.Web.Setup.Redis, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Litium.Web.Setup.Redis.7.6.1\lib\net472\Litium.Web.Setup.Redis.dll</HintPath>
     </Reference>
     <Reference Include="Litium.Web.WebApi.Abstractions, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Web.WebApi.Abstractions.7.6.1\lib\net472\Litium.Web.WebApi.Abstractions.dll</HintPath>
