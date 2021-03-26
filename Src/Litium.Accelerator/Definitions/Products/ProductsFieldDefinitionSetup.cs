@@ -199,6 +199,15 @@ namespace Litium.Accelerator.Definitions.Products
                     MultiCulture = false,
                 },
 
+                new FieldDefinition<ProductArea>("ItemMiddle2GrossWeight", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+
+
                 new FieldDefinition<ProductArea>("ItemMiddle2PackageUnit", SystemFieldTypeConstants.TextOption)
                 {
                     CanBeGridColumn = true,
@@ -775,20 +784,6 @@ namespace Litium.Accelerator.Definitions.Products
                 },
 
                 new FieldDefinition<ProductArea>("ItemCompleteProductPriceUSD", SystemFieldTypeConstants.Decimal)
-                {
-                    CanBeGridColumn = true,
-                    CanBeGridFilter = true,
-                    MultiCulture = false
-                },
-
-                new FieldDefinition<ProductArea>("ItemRecommendedPRBPriceUSD", SystemFieldTypeConstants.Decimal)
-                {
-                    CanBeGridColumn = true,
-                    CanBeGridFilter = true,
-                    MultiCulture = false
-                },
-
-                new FieldDefinition<ProductArea>("ItemNewProductPrice", SystemFieldTypeConstants.Decimal)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,

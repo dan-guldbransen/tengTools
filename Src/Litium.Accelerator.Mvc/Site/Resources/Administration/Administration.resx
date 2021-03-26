@@ -1410,12 +1410,6 @@
   <data name="fieldtemplate.websitearea.ItemMiddle2WoodenMaterial.name" xml:space="preserve">
     <value>Wooden material - Middle 2</value>
   </data>
-  <data name="fieldtemplate.websitearea.ItemNewProductPrice.description" xml:space="preserve">
-    <value />
-  </data>
-  <data name="fieldtemplate.websitearea.ItemNewProductPrice.name" xml:space="preserve">
-    <value>New product price</value>
-  </data>
   <data name="fieldtemplate.websitearea.ItemPackagingPrice.description" xml:space="preserve">
     <value />
   </data>
@@ -1475,12 +1469,6 @@
   </data>
   <data name="fieldtemplate.websitearea.ItemPurchasingMinimumOrderQuantity.name" xml:space="preserve">
     <value>Purchasing minimum order quantity</value>
-  </data>
-  <data name="fieldtemplate.websitearea.ItemRecommendedPRBPriceUSD.description" xml:space="preserve">
-    <value />
-  </data>
-  <data name="fieldtemplate.websitearea.ItemRecommendedPRBPriceUSD.name" xml:space="preserve">
-    <value>Recommended PRB price (USD)</value>
   </data>
   <data name="fieldtemplate.websitearea.ItemSupplierNumber.description" xml:space="preserve">
     <value />
