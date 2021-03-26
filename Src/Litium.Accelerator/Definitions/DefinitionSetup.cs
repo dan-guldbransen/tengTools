@@ -202,7 +202,7 @@ namespace Litium.Accelerator.Definitions
             {
                 if (IsAlreadyExecuted<FieldDefinition>(item.Id, item.AreaType.Name))
                 {
-                    continue;
+                    //continue;
                 }
 
                 var currentField = _fieldDefinitionService.Get(item.AreaType, item.Id);
