@@ -936,6 +936,597 @@ namespace Litium.Accelerator.Definitions.Products
                 },
 
 
+                new FieldDefinition<ProductArea>("ItemMiddle2GrossWeight", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+
+
+                new FieldDefinition<ProductArea>("ItemMiddle2PackageUnit", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+                    Option = new TextOption
+                    {
+                        MultiSelect = false,
+                        Items = new List<TextOption.Item>
+                        {
+                            //TODO: Fyll i när den är godkänd för import i PIM
+                            new TextOption.Item
+                            {
+                                Value = "Fyll i när den är godkänd för import i PIM"
+                            }
+
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2NetWeight", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2GrossWeight", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2WeightUnit", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+                    Option = new TextOption
+                    {
+                        MultiSelect = false,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "kg",
+                                Name = new Dictionary<string, string>{ {"GB", "kg" }, {"US", "kg" } }
+                            }
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2Length", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2Width", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2Height", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2Volume", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2VolumeUnit", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+
+                    Option = new TextOption
+                    {
+                        MultiSelect = false,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "cuft",
+                                Name = new Dictionary<string, string>{{"GB", "cuft"}, {"US", "cuft"}}
+                            }
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopBarcode", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopQuantity", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopPackageUnit", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+
+                    Option = new TextOption
+                    {
+                        MultiSelect = false,
+                        Items = new List<TextOption.Item>
+                        {
+                            //TODO: Fyll i när den är godkänd för import i PIM
+                            new TextOption.Item
+                            {
+                                Value = "Fyll i när den är godkänd för import i PIM"
+                            }
+                            
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopNetWeight", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopGrossWeight", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopWeightUnit", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+                    Option = new TextOption
+                    {
+                        MultiSelect = false,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "kg",
+                                Name = new Dictionary<string, string>{ {"GB", "kg" }, {"US", "kg" } }
+                            }
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopLenght", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopWidth", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopHeigth", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopVolume", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemTopVolumeUnit", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+
+                    Option = new TextOption
+                    {
+                        MultiSelect = false,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "cuft",
+                                Name = new Dictionary<string, string>{{"GB", "cuft"}, {"US", "cuft"}}
+                            }
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemPackagingText", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemBasePlasticMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemBaseCartonMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemBaseMetalMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemBaseWoodenMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle1PlasticMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle1CartonMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle1MetalMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle1WoodenMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2PlasticMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2CartonMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2MetalMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMiddle2WoodenMaterial", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemPlasticMaterialTop", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemCartonMaterialTop", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemMetalMaterialTop", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemWoodenMaterialTop", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemSupplierNumber", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemProductionLeadTime", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemPurchasingMinimumOrderQuantity", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemProductPrice", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemProductPriceCurrency", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+
+                    Option = new TextOption
+                    {
+                        MultiSelect = true,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "NTD",
+                                Name = new Dictionary<string, string>{ {"GB", "NTD" }, {"US", "NTD" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "USD",
+                                Name = new Dictionary<string, string>{ {"GB", "USD" }, {"US", "USD" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "SEK",
+                                Name = new Dictionary<string, string>{ {"GB", "SEK" }, {"US", "SEK" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "EUR",
+                                Name = new Dictionary<string, string>{ {"GB", "EUR" }, {"US", "EUR" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "GBP",
+                                Name = new Dictionary<string, string>{ {"GB", "GBP" }, {"US", "GBP" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "CNY",
+                                Name = new Dictionary<string, string>{ {"GB", "CNY" }, {"US", "CNY" } }
+                            },
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemPackagingPrice", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemPackagingPurchasingCurrency", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+
+                    Option = new TextOption
+                    {
+                        MultiSelect = true,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "NTD",
+                                Name = new Dictionary<string, string>{ {"GB", "NTD" }, {"US", "NTD" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "USD",
+                                Name = new Dictionary<string, string>{ {"GB", "USD" }, {"US", "USD" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "SEK",
+                                Name = new Dictionary<string, string>{ {"GB", "SEK" }, {"US", "SEK" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "EUR",
+                                Name = new Dictionary<string, string>{ {"GB", "EUR" }, {"US", "EUR" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "GBP",
+                                Name = new Dictionary<string, string>{ {"GB", "GBP" }, {"US", "GBP" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "CNY",
+                                Name = new Dictionary<string, string>{ {"GB", "CNY" }, {"US", "CNY" } }
+                            },
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemCompleteProductPrice", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemCompleteProductPurchasingCurrency", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+
+                    Option = new TextOption
+                    {
+                        MultiSelect = true,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "NTD",
+                                Name = new Dictionary<string, string>{ {"GB", "NTD" }, {"US", "NTD" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "USD",
+                                Name = new Dictionary<string, string>{ {"GB", "USD" }, {"US", "USD" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "SEK",
+                                Name = new Dictionary<string, string>{ {"GB", "SEK" }, {"US", "SEK" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "EUR",
+                                Name = new Dictionary<string, string>{ {"GB", "EUR" }, {"US", "EUR" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "GBP",
+                                Name = new Dictionary<string, string>{ {"GB", "GBP" }, {"US", "GBP" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "CNY",
+                                Name = new Dictionary<string, string>{ {"GB", "CNY" }, {"US", "CNY" } }
+                            },
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemMarginPRBNet", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemPRBPriceUSD", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+                new FieldDefinition<ProductArea>("ItemBCPriceUSD", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
+
+                new FieldDefinition<ProductArea>("ItemPriceList", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+
+                    Option = new TextOption
+                    {
+                        MultiSelect = true,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "StandardItems",
+                                Name = new Dictionary<string, string>{ {"GB", "Standard Items" }, {"US", "Standard Items" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "SpareParts",
+                                Name = new Dictionary<string, string>{ {"GB", "Spare parts" }, {"US", "Spare parts" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "TengCollection",
+                                Name = new Dictionary<string, string>{ {"GB", "Teng Collection" }, {"US", "Teng Collection" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "DisplayEquipment",
+                                Name = new Dictionary<string, string>{ {"GB", "Display Equipment" }, {"US", "Display Equipment" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "ToBePriced",
+                                Name = new Dictionary<string, string>{ {"GB", "To Be Priced" }, {"US", "To Be Priced" } }
+                            },
+                        }
+                    }
+                },
+
+                new FieldDefinition<ProductArea>("ItemCompleteProductPriceUSD", SystemFieldTypeConstants.Decimal)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
                 // G O O G L E  S H O P P I N G  F I E L D S
                 new FieldDefinition<ProductArea>("AgeGroup", SystemFieldTypeConstants.TextOption)
                 {
