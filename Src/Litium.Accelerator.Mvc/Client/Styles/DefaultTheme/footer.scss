@@ -6,10 +6,13 @@
     font-weight: 300;
     width: 100%;
     max-width: none;
+    background: $color-tengtools-red;
+    
     &__section {
         padding-bottom: rem(15px);
         word-break: break-word;
     }
+
     a, &__link {
         &, &:visited, &:hover, &:focus {
             color: $color-primary ;
@@ -17,17 +20,21 @@
             text-decoration: none;
         }
     }
+
     &__header {
         font-weight: 700;
         font-size: $fontsize-h4;
         margin: 4px 0 8px 0;
     }
+
     ul {
         padding-left: 0;
     }
+
     li {
         list-style: none;
     }
+
     p {
         line-height: 1.5em;
         margin: 0 0 10px 0;
