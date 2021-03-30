@@ -1,8 +1,8 @@
 .footer {
     margin-top: rem(30px);
     padding-top: rem(15px);
-    border-top: 1px solid $color-primary;
-    color: $color-primary;
+    border-top: 1px solid $color-primary ;
+    color: $color-primary ;
     font-weight: 300;
     width: 100%;
     max-width: none;
@@ -15,7 +15,7 @@
 
     a, &__link {
         &, &:visited, &:hover, &:focus {
-            color: $color-primary;
+            color: $color-primary ;
             font-weight: 300;
             text-decoration: none;
         }

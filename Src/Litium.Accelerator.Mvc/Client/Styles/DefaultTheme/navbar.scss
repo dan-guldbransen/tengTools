@@ -110,7 +110,7 @@
         .navbar__menu {
             position: absolute;
             width: $navbar-width;
-            left: -$navbar-width;
+            left : -$navbar-width;
             top: 0;
             height: 100vh;
             overflow-y: auto;
@@ -129,8 +129,8 @@
         }
 
         .navbar__item {
-            display: flex;
-            border-bottom: 1px solid $color-grey;
+            display : flex;
+            border-bottom : 1px solid $color-grey;
         }
 
         .navbar__link {
@@ -146,7 +146,7 @@
     .navbar__title {
         cursor: pointer;
         padding: rem(15px 0px);
-        flex: 1;
+        flex : 1;
     }
 
     .navbar__icon {
@@ -174,7 +174,7 @@
             line-height: rem(24px);
             margin-left: auto;
 
-            &:before {
+            &:before{
                 content: '';
                 display: inline-block;
                 @include icon--medium;
@@ -185,7 +185,7 @@
         &--open {
             border-left: 1px solid $color-grey;
 
-            &:hover {
+            &:hover{
                 background-color: $color-grey-lightest;
             }
         }
@@ -234,6 +234,6 @@
         font-weight: bold;
         background-color: $color-grey-lighter;
         color: $color-black-light;
-        border-bottom: 1px solid $color-grey;
+        border-bottom : 1px solid $color-grey;
     }
 }
