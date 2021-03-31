@@ -32,6 +32,15 @@ namespace inRiver_LitiumIntegration
             //Välj det sättet  som passar er bäst, med optimering osv
             var productId = context.ExtensionManager.DataService.GetAllEntityIdsForEntityType(ProductTypeId);
             var products = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, ProductTypeId, LoadLevel.DataAndLinks);
+
+            foreach (var item in products)
+            {
+                foreach (var i in item.Fields)
+                {
+                    Console.WriteLine(i.Data.ToString());
+                }
+            }
+            Console.ReadKey();
         }
     }
 }
