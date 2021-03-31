@@ -5,6 +5,9 @@
 
 trigger:
 - develop
+- master
+- feature/*
+- hotfix/*
 
 pool:
   vmImage: 'windows-latest'
@@ -14,24 +17,45 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-steps:
+name: $(date:yyyyMMdd)$(rev:.r)
+
+steps:    
 - task: NuGetAuthenticate@0
+  displayName: Litium Nuget Authenticate
   inputs:
     nuGetServiceConnections: 'Litium Nuget Feed'
     forceReinstallCredentialProvider: true
 - task: NuGetToolInstaller@1
-
+  displayName: Install Nuget
+- task: NodeTool@0
+  displayName: Use Node Version 14.x
+  inputs:
+    versionSpec: '14.x'
+- task: YarnInstaller@3
+  inputs:
+    versionSpec: '1.x'
+    checkLatest: true
+- task: Yarn@3
+  inputs:
+    projectDirectory: 'Src\Litium.Accelerator.Mvc\'
+    arguments: 'install'
+- task: Yarn@3
+  inputs:
+    projectDirectory: 'Src\Litium.Accelerator.Mvc\'
+    arguments: 'run prod'
 - task: NuGetCommand@2
+  displayName: Restore Nugets
   inputs:
     restoreSolution: '$(solution)'
     feedsToUse: 'config'
     nugetConfigPath: 'NuGet.config'
     externalFeedCredentials: 'Litium Nuget Feed'
-
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
 
