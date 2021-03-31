@@ -71,6 +71,7 @@
     <Compile Include="Connect classes\Variant.cs" />
     <Compile Include="Connect classes\VariantPriceItem.cs" />
     <Compile Include="Connect classes\VariantSettings.cs" />
+    <Compile Include="ItemFromInRiver.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />

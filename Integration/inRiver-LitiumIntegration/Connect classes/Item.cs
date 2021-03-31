@@ -12,5 +12,6 @@ namespace inRiver_LitiumIntegration.Connect_classes
         public int quantity { get; set; }
         public int price { get; set; }
         public int minimumQuantity { get; set; }
+
     }
 }
