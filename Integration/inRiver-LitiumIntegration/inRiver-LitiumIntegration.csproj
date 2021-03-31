@@ -52,7 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Item.cs" />
+    <Compile Include="Connect classes\Address.cs" />
+    <Compile Include="Connect classes\AddressTypeMapping.cs" />
+    <Compile Include="Connect classes\Field.cs" />
+    <Compile Include="Connect classes\Inventory.cs" />
+    <Compile Include="Connect classes\InventoryItem.cs" />
+    <Compile Include="Connect classes\Item.cs" />
+    <Compile Include="Connect classes\Organization.cs" />
+    <Compile Include="Connect classes\OrganizationSettings.cs" />
+    <Compile Include="Connect classes\Person.cs" />
+    <Compile Include="Connect classes\PersonSettings.cs" />
+    <Compile Include="Connect classes\PriceGroup.cs" />
+    <Compile Include="Connect classes\PriceList.cs" />
+    <Compile Include="Connect classes\Product.cs" />
+    <Compile Include="Connect classes\ProductSettings.cs" />
+    <Compile Include="Connect classes\Root.cs" />
+    <Compile Include="Connect classes\Value.cs" />
+    <Compile Include="Connect classes\Variant.cs" />
+    <Compile Include="Connect classes\VariantPriceItem.cs" />
+    <Compile Include="Connect classes\VariantSettings.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
