@@ -29,7 +29,6 @@ namespace inRiver_LitiumIntegration
         public string ItemStandardType { get; set; }
         public string ItemCertificates { get; set; }
         public bool ItemElectricRecycling { get; set; }
-        //public bool Environmental_fee_Y/N { get; set; }
         public double ItemSellingMinQuantityTW { get; set; }
         public double ItemOrderMultipleTW { get; set; }
         public double ItemLunaArticleNumber { get; set; }

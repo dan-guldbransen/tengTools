@@ -19,6 +19,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Home
 
         public ActionResult Index(PageModel currentPageModel)
         {
+
             var previewBlockId = Request.QueryString["previewGlobalBlock"];
             if (!string.IsNullOrEmpty(previewBlockId) && Guid.TryParse(previewBlockId, out var blockId) && _authorizationService.HasOperation(Operations.Function.Websites.UI))
             {

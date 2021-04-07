@@ -11,6 +11,6 @@ namespace inRiver_LitiumIntegration.Connect_classes
         public string articleNumber { get; set; }
         public string fieldTemplateId { get; set; }
         public string taxClassId { get; set; }
-        public List<Field> fields { get; set; }
+        public List<Field> fields { get; set; } = new List<Field>();
     }
 }
