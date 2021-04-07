@@ -1,0 +1,21 @@
+﻿@model Litium.Accelerator.ViewModels.Framework.UtilityMenuViewModel
+
+@if (Model.ChannelLinkList.Any() && Model.ChannelLinkList.Count > 1)
+{
+	var current = Model.ChannelLinkList.FirstOrDefault(link => link.IsSelected);
+
+	<ul>
+		<li>
+			<a href="#">@(current != null ? current.Name : string.Empty)</a>
+			<ul>
+				@foreach (var link in Model.ChannelLinkList)
+				{
+					if (link != null)
+					{
+						<li><a href="@link.Url">@link.Name</a></li>
+					}
+				}
+			</ul>
+		</li>
+	</ul>
+}

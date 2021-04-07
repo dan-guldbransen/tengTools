@@ -16,19 +16,22 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         private readonly BreadCrumbsViewModelBuilder<BreadCrumbsViewModel> _breadCrumbsViewModelBuilder;
         private readonly FooterViewModelBuilder _footerViewModelBuilder;
         private readonly BodyViewModelBuilder _bodyViewModelBuilder;
+        private readonly UtilityMenuViewModelBuilder<UtilityMenuViewModel> _utilityMenuViewModelBuilder;
 
         public LayoutController(
             BreadCrumbsViewModelBuilder<BreadCrumbsViewModel> breadCrumbsViewModelBuilder,
             HeadViewModelBuilder<HeadViewModel> headViewModelBuilder,
             HeaderViewModelBuilder<HeaderViewModel> headerViewModelBuilder,
             FooterViewModelBuilder footerViewModelBuilder,
-            BodyViewModelBuilder bodyViewModelBuilder)
+            BodyViewModelBuilder bodyViewModelBuilder,
+            UtilityMenuViewModelBuilder<UtilityMenuViewModel> utilityMenuViewModelBuilder)
         {
             _breadCrumbsViewModelBuilder = breadCrumbsViewModelBuilder;
             _headViewModelBuilder = headViewModelBuilder;
             _headerViewModelBuilder = headerViewModelBuilder;
             _footerViewModelBuilder = footerViewModelBuilder;
             _bodyViewModelBuilder = bodyViewModelBuilder;
+            _utilityMenuViewModelBuilder = utilityMenuViewModelBuilder;
         }
 
         [ChildActionOnly]
@@ -83,6 +86,17 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         {
             var viewModel = _footerViewModelBuilder.Build();
             return PartialView("Framework/Footer", viewModel);
+        }
+
+        /// <summary>
+        /// Builds header for the site
+        /// </summary>
+        /// <returns>Return view for the header</returns>
+        [ChildActionOnly]
+        public ActionResult UtilityMenu()
+        {
+            var viewModel = _utilityMenuViewModelBuilder.Build();
+            return PartialView("Framework/UtilityMenu", viewModel);
         }
     }
 }

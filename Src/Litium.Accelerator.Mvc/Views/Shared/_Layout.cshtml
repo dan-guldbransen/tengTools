@@ -12,6 +12,7 @@
     }
     @if (!bareLayout)
     {
+        @Html.Action("UtilityMenu", "Layout")
         @Html.Action("Header", "Layout")
         @Html.Action("BreadCrumbs", "Layout")
     }
