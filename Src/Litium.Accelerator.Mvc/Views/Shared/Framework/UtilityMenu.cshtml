@@ -4,18 +4,22 @@
 {
 	var current = Model.ChannelLinkList.FirstOrDefault(link => link.IsSelected);
 
-	<ul>
-		<li>
-			<a href="#">@(current != null ? current.Name : string.Empty)</a>
-			<ul>
+	<div class="utilitymenu">
+		<div class="utilitymenu_current_container">
+			<p class="utilitymenu_current_text">@(current != null ? current.Name : string.Empty)</p>
+		</div>
+
+		<div class="utilitymenu_language_container">
+			<hr />
+			<div class="utilitymenu_language_languages">
 				@foreach (var link in Model.ChannelLinkList)
 				{
 					if (link != null)
 					{
-						<li><a href="@link.Url">@link.Name</a></li>
+						<a href="@link.Url">@link.Name</a>
 					}
 				}
-			</ul>
-		</li>
-	</ul>
+			</div>
+		</div>
+	</div>
 }

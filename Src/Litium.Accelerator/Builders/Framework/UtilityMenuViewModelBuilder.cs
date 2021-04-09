@@ -2,6 +2,9 @@
 using Litium.Accelerator.ViewModels.Framework;
 using Litium.Globalization;
 using Litium.Web;
+using Litium.Websites;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Litium.Accelerator.Builders.Framework
@@ -12,16 +15,18 @@ namespace Litium.Accelerator.Builders.Framework
         private readonly UrlService _urlService;
         private readonly RequestModelAccessor _requestModelAccessor;
         private readonly ChannelService _channelService;
-        
+        private readonly PageService _pageService;
 
         public UtilityMenuViewModelBuilder(
             UrlService urlService,
             RequestModelAccessor requestModelAccessor,
-            ChannelService channelService)
+            ChannelService channelService,
+            PageService pageService)
         {
             _urlService = urlService;
             _requestModelAccessor = requestModelAccessor;
             _channelService = channelService;
+            _pageService = pageService;
         }
 
         public UtilityMenuViewModel Build()
@@ -32,9 +37,28 @@ namespace Litium.Accelerator.Builders.Framework
             var currentUICulture = _requestModelAccessor.RequestModel.ChannelModel.Channel.Localizations.CurrentUICulture.Name;
             var culture = _requestModelAccessor.RequestModel.ChannelModel.Channel.Localizations.First(x => x.Value.Name == currentUICulture);
 
-            // get current website
-            var channels = _channelService.GetAll().ToList();
-           
+            // Only active channels so get channellinks to startpage
+            var website = _requestModelAccessor.RequestModel.WebsiteModel;
+            var startPage = _pageService.GetChildPages(Guid.Empty, website.SystemId).FirstOrDefault();
+            var channelsActive = new List<Guid>();
+
+            // also check dates if set
+            foreach(var cl in startPage.ChannelLinks)
+            {
+                if(cl.StartDateTimeUtc.HasValue && cl.StartDateTimeUtc.Value.CompareTo(DateTime.UtcNow) > 0)
+                    continue;
+                
+                if(cl.EndDateTimeUtc.HasValue && cl.EndDateTimeUtc.Value.CompareTo(DateTime.UtcNow) <= 0)
+                    continue;
+                
+                channelsActive.Add(cl.ChannelSystemId);
+            }
+
+            // get channels to be shown on marketselector
+            var channels = _channelService.GetAll()
+                .Where(c => channelsActive.Contains(c.SystemId))
+                .ToList();
+
             foreach (var channel in channels)
             {
                 viewModel.ChannelLinkList.Add(new ContentLinkModel

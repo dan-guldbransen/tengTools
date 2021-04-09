@@ -18,6 +18,7 @@ module.exports = {
             'whatwg-fetch',
             path.resolve(JS_DIR, 'index.js'),
             path.resolve(CSS_DIR, 'site.scss'),
+            path.resolve(JS_DIR, 'site.js'),
         ],
     },
     output: {
