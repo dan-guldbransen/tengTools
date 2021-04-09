@@ -1,0 +1,41 @@
+﻿.utilitymenu {
+    background: $color-grey-light;
+    padding: .5rem 1rem;
+
+    &_current {
+        &_container {
+        }
+
+        &_text {
+            color: $color-black;
+            text-align: right;
+            margin: 0;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &_language {
+
+        &_container {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+
+        &_languages {
+           
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            a {
+                padding: 0 1rem;
+            }
+        }
+    }
+}
