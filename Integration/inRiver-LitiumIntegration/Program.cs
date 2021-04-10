@@ -4,6 +4,8 @@ using inRiver.Remoting.Extension;
 using inRiver.Remoting.Objects;
 using inRiver_LitiumIntegration.Logging;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -84,24 +86,41 @@ namespace inRiver_LitiumIntegration
             {
                 //var targetResource = new Connect_classes.  .Variant();
             }
-          
-            var h = 8;
 
-            /*
-            using (var client = new HttpClient())
-            {
-                string json = JsonConvert.SerializeObject(root);
-                client.BaseAddress = new Uri("http://localhost:51134/");
-                client.DefaultRequestHeaders.Add("api-version", "2.0");
-                client.DefaultRequestHeaders.Add("ContentType", "application/json");
-                var response = client.PostAsJsonAsync("/Litium/api/connect/erp/imports?api-version=2.0", json).Result;
+            string jwtToken = GetJWTToken();
 
-                Console.WriteLine(response);
-            }
-            */
+            //Byt ut porten till den du kör på
+            var restClient = new RestClient("http://localhost:8080/Litium/api/connect/erp/imports?api-version=2.0");
+            restClient.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Authorization", "Bearer " + jwtToken);
+            request.AddHeader("Content-Type", "application/json");
+            string json = JsonConvert.SerializeObject(root);
+            request.AddParameter(json, ParameterType.RequestBody);
+            IRestResponse response = restClient.Execute(request);
 
+            Console.WriteLine(response.Content);
             Console.ReadKey();
         }
+
+        static string GetJWTToken()
+        {
+            //Byt ut porten till den du kör på
+            var restClient = new RestClient("http://localhost:8080/Litium/oauth/token");
+            restClient.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.AddParameter("grant_type", "client_credentials");
+            //Skapa ett servicekonto med samma uppgifter eller byt ut till ditt konto
+            request.AddParameter("client_id", "serviceID");
+            request.AddParameter("client_secret", "servicepw");
+            IRestResponse restResponse = restClient.Execute(request);
+            var jObject = JObject.Parse(restResponse.Content);
+            string access_token = jObject.GetValue("access_token").ToString();
+
+            return access_token;
+        }
     }
+           
    
 }
