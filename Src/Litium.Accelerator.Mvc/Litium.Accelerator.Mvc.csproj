@@ -141,6 +141,97 @@
     </Compile>
     <Compile Include="ModelStates\ApiModelState.cs" />
     <Compile Include="ModelStates\MvcModelState.cs" />
+    <Content Include="Client\images\bag.svg" />
+    <Content Include="Client\images\bin.svg" />
+    <Content Include="Client\images\caret-down.svg" />
+    <Content Include="Client\images\checked.svg" />
+    <Content Include="Client\images\cross.svg" />
+    <Content Include="Client\images\Favicon_litium_transp.16x16.ico" />
+    <Content Include="Client\images\Favicon_litium_transp.16x16.png" />
+    <Content Include="Client\images\Favicon_litium_transp.180x180.png" />
+    <Content Include="Client\images\Favicon_litium_transp.192x192.png" />
+    <Content Include="Client\images\Favicon_litium_transp.32x32.png" />
+    <Content Include="Client\images\Favicon_litium_transp.96x96.png" />
+    <Content Include="Client\images\Logo-B2C.png" />
+    <Content Include="Client\images\magnifier.svg" />
+    <Content Include="Client\images\menu.svg" />
+    <Content Include="Client\images\pencil.svg" />
+    <Content Include="Client\images\rotate-arrow.svg" />
+    <Content Include="Client\images\shopping-bag.png" />
+    <Content Include="Client\images\user.png" />
+    <Content Include="Client\images\user.svg" />
+    <Content Include="Client\Scripts\Actions\Address.action.js" />
+    <Content Include="Client\Scripts\Actions\Cart.action.js" />
+    <Content Include="Client\Scripts\Actions\Checkout.action.js" />
+    <Content Include="Client\Scripts\Actions\Error.action.js" />
+    <Content Include="Client\Scripts\Actions\FacetedSearch.action.js" />
+    <Content Include="Client\Scripts\Actions\LightboxImages.action.js" />
+    <Content Include="Client\Scripts\Actions\Navigation.action.js" />
+    <Content Include="Client\Scripts\Actions\Person.action.js" />
+    <Content Include="Client\Scripts\Actions\QuickSearch.action.js" />
+    <Content Include="Client\Scripts\Components\AddressForm.js" />
+    <Content Include="Client\Scripts\Components\AddressList.js" />
+    <Content Include="Client\Scripts\Components\BuyButton.js" />
+    <Content Include="Client\Scripts\Components\Cart.js" />
+    <Content Include="Client\Scripts\Components\Checkout.BusinessCustomerInfo.js" />
+    <Content Include="Client\Scripts\Components\Checkout.DeliveryMethods.js" />
+    <Content Include="Client\Scripts\Components\Checkout.OrderInfo.js" />
+    <Content Include="Client\Scripts\Components\Checkout.OrderNote.js" />
+    <Content Include="Client\Scripts\Components\Checkout.PaymentMethods.js" />
+    <Content Include="Client\Scripts\Components\Checkout.PrivateCustomerInfo.js" />
+    <Content Include="Client\Scripts\Components\DynamicComponent.js" />
+    <Content Include="Client\Scripts\Components\FacetedSearch.js" />
+    <Content Include="Client\Scripts\Components\FacetedSearchCompact.js" />
+    <Content Include="Client\Scripts\Components\FilterTags.js" />
+    <Content Include="Client\Scripts\Components\LightboxImages.js" />
+    <Content Include="Client\Scripts\Components\MiniCart.js" />
+    <Content Include="Client\Scripts\Components\Navigation.js" />
+    <Content Include="Client\Scripts\Components\Payments\CheckoutWidget.js" />
+    <Content Include="Client\Scripts\Components\Payments\PaymentWidget.js" />
+    <Content Include="Client\Scripts\Components\PersonForm.js" />
+    <Content Include="Client\Scripts\Components\PersonList.js" />
+    <Content Include="Client\Scripts\Components\ProductList.js" />
+    <Content Include="Client\Scripts\Components\QuickSearch.js" />
+    <Content Include="Client\Scripts\Components\QuickSearchResult.js" />
+    <Content Include="Client\Scripts\Components\ReorderButton.js" />
+    <Content Include="Client\Scripts\Components\Slider.js" />
+    <Content Include="Client\Scripts\Components\SortCriteriaCompact.js" />
+    <Content Include="Client\Scripts\Components\SubNavCompact.js" />
+    <Content Include="Client\Scripts\constants.js" />
+    <Content Include="Client\Scripts\Containers\Accordion.container.js" />
+    <Content Include="Client\Scripts\Containers\AddressList.container.js" />
+    <Content Include="Client\Scripts\Containers\BuyButton.container.js" />
+    <Content Include="Client\Scripts\Containers\Checkout.container.js" />
+    <Content Include="Client\Scripts\Containers\FacetedSearch.container.js" />
+    <Content Include="Client\Scripts\Containers\FacetedSearchCompact.container.js" />
+    <Content Include="Client\Scripts\Containers\LightboxImages.container.js" />
+    <Content Include="Client\Scripts\Containers\MiniCart.container.js" />
+    <Content Include="Client\Scripts\Containers\Navigation.container.js" />
+    <Content Include="Client\Scripts\Containers\PersonList.container.js" />
+    <Content Include="Client\Scripts\Containers\QuickSearch.container.js" />
+    <Content Include="Client\Scripts\Containers\ReorderButton.container.js" />
+    <Content Include="Client\Scripts\Containers\withReactiveStyleBuyButton.js" />
+    <Content Include="Client\Scripts\index.js" />
+    <Content Include="Client\Scripts\Middlewares\History.middleware.js" />
+    <Content Include="Client\Scripts\NoneReactComponents\utilitymenu.js" />
+    <Content Include="Client\Scripts\reducers.js" />
+    <Content Include="Client\Scripts\Reducers\Address.reducer.js" />
+    <Content Include="Client\Scripts\Reducers\Cart.reducer.js" />
+    <Content Include="Client\Scripts\Reducers\Checkout.reducer.js" />
+    <Content Include="Client\Scripts\Reducers\Error.reducer.js" />
+    <Content Include="Client\Scripts\Reducers\FacetedSearch.reducer.js" />
+    <Content Include="Client\Scripts\Reducers\LightboxImages.reducer.js" />
+    <Content Include="Client\Scripts\Reducers\MyPage.reducer.js" />
+    <Content Include="Client\Scripts\Reducers\Navigation.reducer.js" />
+    <Content Include="Client\Scripts\Reducers\Person.reducer.js" />
+    <Content Include="Client\Scripts\Reducers\QuickSearch.reducer.js" />
+    <Content Include="Client\Scripts\Services\Cart.service.js" />
+    <Content Include="Client\Scripts\Services\http.js" />
+    <Content Include="Client\Scripts\Services\translation.js" />
+    <Content Include="Client\Scripts\site.js" />
+    <Content Include="Client\webpack\webpack.common.js" />
+    <Content Include="Client\webpack\webpack.dev.js" />
+    <Content Include="Client\webpack\webpack.prod.js" />
     <Content Include="Site\Administration\Settings\acceleratorAdministrationSearchIndexingController.js" />
     <Content Include="Site\Administration\Settings\SearchIndexing.html" />
     <Content Include="Site\Editor\globalConfig.js" />
@@ -259,7 +350,55 @@
     <Content Include="NLog.config" />
     <Content Include="Litium\web.config" />
     <Content Include="Litium\Framework\ControlPanel.master" />
+    <Content Include="Client\.babelrc" />
+    <Content Include="Client\Styles\DefaultTheme\accordion.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\banner.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\brand.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\brandinfo.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\mixedblock.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\productandbanner.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\slider.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\teaser.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\video.scss" />
+    <Content Include="Client\Styles\DefaultTheme\brandlist.scss" />
+    <Content Include="Client\Styles\DefaultTheme\breadcrumb.scss" />
+    <Content Include="Client\Styles\DefaultTheme\cart.scss" />
+    <Content Include="Client\Styles\DefaultTheme\category.scss" />
+    <Content Include="Client\Styles\DefaultTheme\checkout.scss" />
+    <Content Include="Client\Styles\DefaultTheme\facetedsearch.scss" />
+    <Content Include="Client\Styles\DefaultTheme\fonts.scss" />
+    <Content Include="Client\Styles\DefaultTheme\footer.scss" />
+    <Content Include="Client\Styles\DefaultTheme\form.scss" />
+    <Content Include="Client\Styles\DefaultTheme\header.scss" />
+    <Content Include="Client\Styles\DefaultTheme\headeronerow.scss" />
+    <Content Include="Client\Styles\DefaultTheme\index.scss" />
+    <Content Include="Client\Styles\DefaultTheme\navbar.scss" />
+    <Content Include="Client\Styles\DefaultTheme\news.scss" />
+    <Content Include="Client\Styles\DefaultTheme\normalize.scss" />
+    <Content Include="Client\Styles\DefaultTheme\notification.scss" />
+    <Content Include="Client\Styles\DefaultTheme\orderhistorydetail.scss" />
+    <Content Include="Client\Styles\DefaultTheme\ordersummary.scss" />
+    <Content Include="Client\Styles\DefaultTheme\pagination.scss" />
+    <Content Include="Client\Styles\DefaultTheme\product.scss" />
+    <Content Include="Client\Styles\DefaultTheme\productdetail.scss" />
+    <Content Include="Client\Styles\DefaultTheme\profile.scss" />
+    <Content Include="Client\Styles\DefaultTheme\quicksearch.scss" />
+    <Content Include="Client\Styles\DefaultTheme\quicksearchresult.scss" />
+    <Content Include="Client\Styles\DefaultTheme\searchresult.scss" />
+    <Content Include="Client\Styles\DefaultTheme\subnav.scss" />
+    <Content Include="Client\Styles\DefaultTheme\tab.scss" />
+    <Content Include="Client\Styles\DefaultTheme\table.scss" />
+    <Content Include="Client\Styles\DefaultTheme\toplink.scss" />
+    <Content Include="Client\Styles\DefaultTheme\_mixins.scss" />
+    <Content Include="Client\Styles\DefaultTheme\_variables.scss" />
+    <Content Include="Client\Styles\library-settings.scss" />
+    <Content Include="Client\Styles\site.scss" />
+    <Content Include="Client\Styles\DefaultTheme\utilitymenu.scss" />
+    <Content Include="package.json" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Prod.pubxml" />
+    <None Include="Properties\PublishProfiles\Test.pubxml" />
+    <Content Include="Views\Shared\Framework\UtilityMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -392,14 +531,8 @@
     <Reference Include="Litium.Owin, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Owin.7.6.1\lib\net472\Litium.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Litium.Redis.Application, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Litium.Redis.Application.7.6.1\lib\netstandard2.0\Litium.Redis.Application.dll</HintPath>
-    </Reference>
     <Reference Include="Litium.Setup.Elasticsearch, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Setup.Elasticsearch.7.6.1\lib\net472\Litium.Setup.Elasticsearch.dll</HintPath>
-    </Reference>
-    <Reference Include="Litium.Setup.Redis, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Litium.Setup.Redis.7.6.1\lib\net472\Litium.Setup.Redis.dll</HintPath>
     </Reference>
     <Reference Include="Litium.SqlClient.SNILoader, Version=2.1.1.2, Culture=neutral, PublicKeyToken=7f32892a08662c10, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.SqlClient.SNILoader.2.1.1.2\lib\net462\Litium.SqlClient.SNILoader.dll</HintPath>
@@ -469,9 +602,6 @@
     </Reference>
     <Reference Include="Litium.Web.Setup.Elasticsearch, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Web.Setup.Elasticsearch.7.6.1\lib\net472\Litium.Web.Setup.Elasticsearch.dll</HintPath>
-    </Reference>
-    <Reference Include="Litium.Web.Setup.Redis, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Litium.Web.Setup.Redis.7.6.1\lib\net472\Litium.Web.Setup.Redis.dll</HintPath>
     </Reference>
     <Reference Include="Litium.Web.WebApi.Abstractions, Version=7.6.1.0, Culture=neutral, PublicKeyToken=093d4a638630e7c5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Litium.Web.WebApi.Abstractions.7.6.1\lib\net472\Litium.Web.WebApi.Abstractions.dll</HintPath>
