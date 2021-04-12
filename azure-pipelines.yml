@@ -64,6 +64,7 @@ steps:
     configuration: '$(buildConfiguration)'
     
 - task: OctopusPack@4
+  condition: and( 	succeeded(),  	 	or(  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/develop'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/master'),  		 		startsWith(variables['Build.SourceBranchName'], 'develop'),  		 		startsWith(variables['Build.SourceBranchName'], 'master'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'), 		startsWith(variables['Build.SourceBranchName'], 'upgrade') 	) 		 )
   inputs:
     PackageId: 'Tengtools.Web'
     PackageFormat: 'NuPkg'
@@ -76,7 +77,7 @@ steps:
   inputs:
     OctoConnectedServiceName: 'Octopus'
     Space: 'Spaces-1'
-    Package: '$(System.ArtifactsDirectory)/Tengtools.Web.NuPkg'
+    Package: '$(System.ArtifactsDirectory)/Tengtools.Web.$(Build.BuildNumber).nupkg'
     Replace: 'true'
 - task: OctopusMetadata@4
   condition: and( 	succeeded(),  	 	or(  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/develop'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/master'),  		 		startsWith(variables['Build.SourceBranchName'], 'develop'),  		 		startsWith(variables['Build.SourceBranchName'], 'master'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'), 		startsWith(variables['Build.SourceBranchName'], 'upgrade') 	) 		 )
