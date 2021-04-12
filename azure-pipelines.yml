@@ -62,26 +62,28 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: ArchiveFiles@2
+    
+- task: OctopusPack@4
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/Litium.Accelerator.Mvc.$(GitVersion.SemVer).zip'
-    replaceExistingArchive: true
+    PackageId: 'Tengtools.Web'
+    PackageFormat: 'NuPkg'
+    PackageVersion: '$(Build.BuildNumber)'
+    SourcePath: '$(Build.ArtifactStagingDirectory)'
+    OutputPath: '$(System.ArtifactsDirectory)'
+
 - task: OctopusPush@4
   condition: and( 	succeeded(),  	 	or(  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/develop'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/master'),  		 		startsWith(variables['Build.SourceBranchName'], 'develop'),  		 		startsWith(variables['Build.SourceBranchName'], 'master'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'), 		startsWith(variables['Build.SourceBranchName'], 'upgrade') 	) 		 )
   inputs:
     OctoConnectedServiceName: 'Octopus'
     Space: 'Spaces-1'
-    Package: '$(Build.ArtifactStagingDirectory)/Litium.Accelerator.Mvc.$(GitVersion.SemVer).zip'
+    Package: '$(System.ArtifactsDirectory)/Tengtools.Web.NuPkg'
     Replace: 'true'
 - task: OctopusMetadata@4
   condition: and( 	succeeded(),  	 	or(  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/develop'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/master'),  		 		startsWith(variables['Build.SourceBranchName'], 'develop'),  		 		startsWith(variables['Build.SourceBranchName'], 'master'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'), 		startsWith(variables['Build.SourceBranchName'], 'upgrade') 	) 		 )
   inputs:
     OctoConnectedServiceName: 'Octopus'
     Space: 'Spaces-1'
-    PackageId: 'Litium.Web'
+    PackageId: 'Tengtools.Web'
     PackageVersion: '$(GitVersion.SemVer)'
     Replace: 'IgnoreIfExists'
 - task: OctopusCreateRelease@4
@@ -95,10 +97,3 @@ steps:
     Channel: '$(Build.SourceBranchName)'
     ChangesetCommentReleaseNotes: true
     AdditionalArguments: '--packageversion=$(GitVersion.SemVer)'
-- task: PublishBuildArtifacts@1
-  condition: and( 	succeeded(),  	 	or(  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/develop'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/master'),  		 		startsWith(variables['Build.SourceBranchName'], 'develop'),  		 		startsWith(variables['Build.SourceBranchName'], 'master'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'), 		startsWith(variables['Build.SourceBranchName'], 'upgrade') 	) 		 )
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-  
