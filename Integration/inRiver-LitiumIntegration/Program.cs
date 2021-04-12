@@ -13,6 +13,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,9 +37,10 @@ namespace inRiver_LitiumIntegration
             //var context = new inRiverContext(RemoteManager.CreateInstance(InRiverRemotingUrl, InRiverUsername, InRiverPassword, InRiverEnvironmentProd), new ConsoleLogger());
             Console.WriteLine("Connected!");
 
-            var items = context.ExtensionManager.DataService.GetEntitiesForEntityType(0,ItemTypeId, LoadLevel.DataAndLinks);
+            var items = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, ItemTypeId, LoadLevel.DataAndLinks);
             var products = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, ProductTypeId, LoadLevel.DataAndLinks);
             var resources = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, ResourceTypeId, LoadLevel.DataAndLinks);
+
             var root = new Connect_classes.Root();
             root.importBehavior = "stopOnAnyError";
             root.variants = new List<Connect_classes.Variant>();
@@ -49,8 +51,8 @@ namespace inRiver_LitiumIntegration
                 var targetProduct = new Connect_classes.Product();
                 var sourceProduct = workingProduct;
                 var multipleVariants = workingProduct.OutboundLinks.Count() > 1 ? true : false;
-               
-                targetProduct.articleNumber = workingProduct.GetField("ProductID").Data?.ToString() ?? "";
+
+                targetProduct.articleNumber = workingProduct.GetField("ProductID").Data?.ToString() ?? "test_" + workingProduct.Id.ToString() + "";  // nullkontroll har testId
                 targetProduct.fieldTemplateId = multipleVariants ? "ProductWithVariants" : "ProductWithOneVariant";
                 targetProduct.taxClassId = "";
                 foreach (var f in sourceProduct.Fields)
@@ -59,7 +61,11 @@ namespace inRiver_LitiumIntegration
                     targetProduct.fields.Add(field);
                 }
 
-                root.products.Add(targetProduct);
+                if (workingProduct == products[5])
+                {
+                    root.products.Add(targetProduct);
+
+                }
             }
 
             foreach (var workingItem in items)
@@ -68,19 +74,23 @@ namespace inRiver_LitiumIntegration
                 targetVariant.fields = new List<Connect_classes.Field>();
                 targetVariant.articleNumber = workingItem.GetField("ItemId").Data.ToString();
                 targetVariant.productArticleNumber = workingItem.InboundLinks.FirstOrDefault().Id.ToString();
-                targetVariant.sortIndex  = 0;
+                targetVariant.sortIndex = 0;
                 targetVariant.unitOfMeasurementId = "";
 
                 foreach (var f in workingItem.Fields)
                 {
-                    var field = new Connect_classes.Field(f);
-                    targetVariant.fields.Add(field);
+                    if (f.FieldType.CategoryId != "PriceAdjustmentInfo")
+                    {
+                        var field = new Connect_classes.Field(f);
+                        targetVariant.fields.Add(field);
+                    }
+
                 }
 
-                root.variants.Add(targetVariant);
+                //root.variants.Add(targetVariant);
             }
 
-            
+
 
             foreach (var workingResource in resources)
             {
@@ -90,7 +100,10 @@ namespace inRiver_LitiumIntegration
             string jwtToken = GetJWTToken();
 
             //Byt ut porten till den du kör på
-            var restClient = new RestClient("http://localhost:8080/Litium/api/connect/erp/imports?api-version=2.0");
+
+
+          //  var restClient = new RestClient("http://localhost:51134/Litium/api/connect/erp/imports?api-version=2.0");
+            var restClient = new RestClient("http://tengtools.localtest.me:8050/Litium/api/connect/erp/imports?api-version=2.0");
             restClient.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Authorization", "Bearer " + jwtToken);
@@ -106,7 +119,8 @@ namespace inRiver_LitiumIntegration
         static string GetJWTToken()
         {
             //Byt ut porten till den du kör på
-            var restClient = new RestClient("http://localhost:8080/Litium/oauth/token");
+           // var restClient = new RestClient("http://localhost:51134/Litium/oauth/token");
+            var restClient = new RestClient("http://tengtools.localtest.me:8050/Litium/oauth/token");
             restClient.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");

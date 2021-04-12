@@ -1866,4 +1866,154 @@
   <data name="fielddefinition.productarea.ItemWorkingDescription.name" xml:space="preserve">
     <value>Working description</value>
   </data>
+  <data name="fielddefinition.productarea.ProductBranchFocused.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBranchFocused.name" xml:space="preserve">
+    <value>Branch focused</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBrand.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBrand.name" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet1.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet1.name" xml:space="preserve">
+    <value>Bullet 1</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet2.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet2.name" xml:space="preserve">
+    <value>Bullet 2</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet3.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet3.name" xml:space="preserve">
+    <value>Bullet 3</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet4.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet4.name" xml:space="preserve">
+    <value>Bullet 4</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet5.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet5.name" xml:space="preserve">
+    <value>Bullet 5</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductCategoryDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductCategoryDescription.name" xml:space="preserve">
+    <value>Product category description</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductCategoryNumber.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductCategoryNumber.name" xml:space="preserve">
+    <value>Product category no.</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductGroupNumber.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductGroupNumber.name" xml:space="preserve">
+    <value>Product group no.</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductId.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductId.name" xml:space="preserve">
+    <value>ProductID</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductItemType.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductItemType.name" xml:space="preserve">
+    <value>Item type</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductKeywords.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductKeywords.name" xml:space="preserve">
+    <value>Keywords</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductLongDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductLongDescription.name" xml:space="preserve">
+    <value>Long description</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductLongHeading.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductLongHeading.name" xml:space="preserve">
+    <value>Long heading</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductMarket.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductMarket.name" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductMaterial.name" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductMetaDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductMetaDescription.name" xml:space="preserve">
+    <value>Meta description</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductMetaTitle.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductMetaTitle.name" xml:space="preserve">
+    <value>Meta title</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductPriority.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductPriority.name" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductProfessionFocused.descriptiuon" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductProfessionFocused.name" xml:space="preserve">
+    <value>Yrkes focused</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductPublicPlatforms.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductPublicPlatforms.name" xml:space="preserve">
+    <value>Public platforms</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductShortDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductShortDescription.name" xml:space="preserve">
+    <value>Short description</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductShortHeading.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductShortHeading.name" xml:space="preserve">
+    <value>Short heading</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductSymbols.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductSymbols.name" xml:space="preserve">
+    <value>Symbols</value>
+  </data>
 </root>
