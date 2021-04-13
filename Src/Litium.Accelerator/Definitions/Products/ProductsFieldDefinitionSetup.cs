@@ -1569,7 +1569,7 @@ namespace Litium.Accelerator.Definitions.Products
                     }
                 },
 
-                new FieldDefinition<ProductArea>("ProductBrand", SystemFieldTypeConstants.TextOption)
+               new FieldDefinition<ProductArea>("ProductBrand", SystemFieldTypeConstants.TextOption)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,

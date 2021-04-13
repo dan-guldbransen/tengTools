@@ -16,6 +16,7 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace inRiver_LitiumIntegration
 {
@@ -40,6 +41,9 @@ namespace inRiver_LitiumIntegration
             var items = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, ItemTypeId, LoadLevel.DataAndLinks);
             var products = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, ProductTypeId, LoadLevel.DataAndLinks);
             var resources = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, ResourceTypeId, LoadLevel.DataAndLinks);
+            var cvlValues = context.ExtensionManager.ModelService.GetAllCVLValues();
+            var selectedVal3 = cvlValues.Where(v => v.CVLId == "Currency");
+
 
             var root = new Connect_classes.Root();
             root.importBehavior = "stopOnAnyError";
@@ -54,18 +58,21 @@ namespace inRiver_LitiumIntegration
 
                 targetProduct.articleNumber = workingProduct.GetField("ProductID").Data?.ToString() ?? "test_" + workingProduct.Id.ToString() + "";  // nullkontroll har testId
                 targetProduct.fieldTemplateId = multipleVariants ? "ProductWithVariants" : "ProductWithOneVariant";
-                targetProduct.taxClassId = "";
+                targetProduct.taxClassId = null;
+              
                 foreach (var f in sourceProduct.Fields)
                 {
+                    if(f.FieldType.DataType == "CVL")
+                    {
+                        f.Data = GetCvlDisplayValues(cvlValues, f);
+                    }
+                   
                     var field = new Connect_classes.Field(f);
                     targetProduct.fields.Add(field);
                 }
 
-                if (workingProduct == products[5])
-                {
-                    root.products.Add(targetProduct);
-
-                }
+               
+               root.products.Add(targetProduct);
             }
 
             foreach (var workingItem in items)
@@ -80,14 +87,20 @@ namespace inRiver_LitiumIntegration
                 foreach (var f in workingItem.Fields)
                 {
                     if (f.FieldType.CategoryId != "PriceAdjustmentInfo")
-                    {
-                        var field = new Connect_classes.Field(f);
-                        targetVariant.fields.Add(field);
+                    { 
+
+                        if (f.FieldType.DataType == "CVL")
+                        {
+                            //f.Data = GetCvlDisplayValues(cvlValues, f);
+                        }
+
+                     var field = new Connect_classes.Field(f);
+                     targetVariant.fields.Add(field);
                     }
 
                 }
 
-                //root.variants.Add(targetVariant);
+               // root.variants.Add(targetVariant);
             }
 
 
@@ -97,8 +110,10 @@ namespace inRiver_LitiumIntegration
                 //var targetResource = new Connect_classes.  .Variant();
             }
 
+
             string jwtToken = GetJWTToken();
 
+           
             //Byt ut porten till den du kör på
 
 
@@ -108,7 +123,14 @@ namespace inRiver_LitiumIntegration
             var request = new RestRequest(Method.POST);
             request.AddHeader("Authorization", "Bearer " + jwtToken);
             request.AddHeader("Content-Type", "application/json");
-            string json = JsonConvert.SerializeObject(root);
+            //string json = JsonConvert.SerializeObject(root);
+            
+            string json = JsonConvert.SerializeObject(root, Formatting.None,
+            new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
+            
             request.AddParameter(json, ParameterType.RequestBody);
             IRestResponse response = restClient.Execute(request);
 
@@ -133,6 +155,21 @@ namespace inRiver_LitiumIntegration
             string access_token = jObject.GetValue("access_token").ToString();
 
             return access_token;
+        }
+
+        static List<CVLValue> GetCvlDisplayValues(List<CVLValue> cvlValues, Field f)
+        {
+            var tempStringList = new List<CVLValue>();
+            var tempValues = cvlValues.Where(v => v.CVLId == f.FieldType.CVLId);
+            foreach (var value in tempValues)
+            {
+                //tempStringList.Add(value.Value?.ToString() ?? "");
+                if(value.Value != null)
+                tempStringList.Add(value);
+            }
+            f.Data = tempStringList;
+
+            return tempStringList;
         }
     }
            
