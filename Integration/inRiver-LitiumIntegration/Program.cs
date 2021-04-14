@@ -66,15 +66,19 @@ namespace inRiver_LitiumIntegration
                     {
                         f.Data = GetCvlDisplayValues(cvlValues, f);
                     }
-                   
                     var field = new Connect_classes.Field(f);
                     targetProduct.fields.Add(field);
                 }
+                if (workingProduct == products[5] || workingProduct == products[6] || workingProduct == products[7])
+                {
+                root.products.Add(targetProduct);
 
-               
-               root.products.Add(targetProduct);
+                }
             }
-
+            root.productSettings = new Connect_classes.ProductSettings();
+            root.productSettings.createUrls = false;
+            root.productSettings.fieldTemplateId = "ProductWithVariants";
+            
             foreach (var workingItem in items)
             {
                 var targetVariant = new Connect_classes.Variant();
@@ -91,31 +95,28 @@ namespace inRiver_LitiumIntegration
 
                         if (f.FieldType.DataType == "CVL")
                         {
-                            //f.Data = GetCvlDisplayValues(cvlValues, f);
+                            f.Data = GetCvlDisplayValues(cvlValues, f);
                         }
-
-                     var field = new Connect_classes.Field(f);
-                     targetVariant.fields.Add(field);
+                        var field = new Connect_classes.Field(f);
+                        targetVariant.fields.Add(field);
                     }
 
                 }
-
                // root.variants.Add(targetVariant);
             }
 
-
+            root.variantSettings = new Connect_classes.VariantSettings();
+            root.variantSettings.createBaseProducts = true;
+            root.variantSettings.createUrls = true;
 
             foreach (var workingResource in resources)
             {
                 //var targetResource = new Connect_classes.  .Variant();
             }
 
-
             string jwtToken = GetJWTToken();
 
-           
             //Byt ut porten till den du kör på
-
 
           //  var restClient = new RestClient("http://localhost:51134/Litium/api/connect/erp/imports?api-version=2.0");
             var restClient = new RestClient("http://tengtools.localtest.me:8050/Litium/api/connect/erp/imports?api-version=2.0");
@@ -123,14 +124,14 @@ namespace inRiver_LitiumIntegration
             var request = new RestRequest(Method.POST);
             request.AddHeader("Authorization", "Bearer " + jwtToken);
             request.AddHeader("Content-Type", "application/json");
-            //string json = JsonConvert.SerializeObject(root);
-            
-            string json = JsonConvert.SerializeObject(root, Formatting.None,
+            string json = JsonConvert.SerializeObject(root);
+            /*
+           string json = JsonConvert.SerializeObject(root, Formatting.None,
             new JsonSerializerSettings()
             {
                 NullValueHandling = NullValueHandling.Ignore
             });
-            
+            */ 
             request.AddParameter(json, ParameterType.RequestBody);
             IRestResponse response = restClient.Execute(request);
 
@@ -156,20 +157,62 @@ namespace inRiver_LitiumIntegration
 
             return access_token;
         }
-
-        static List<CVLValue> GetCvlDisplayValues(List<CVLValue> cvlValues, Field f)
+      
+       // static CvlForExport GetCvlDisplayValues( List<CVLValue> cvlValues,  Field f)
+        static List<string> GetCvlDisplayValues( List<CVLValue> cvlValues,  Field f)
         {
-            var tempStringList = new List<CVLValue>();
+            var output = new CvlForExport();
+            var testList = new List<string>();
             var tempValues = cvlValues.Where(v => v.CVLId == f.FieldType.CVLId);
+
             foreach (var value in tempValues)
             {
-                //tempStringList.Add(value.Value?.ToString() ?? "");
-                if(value.Value != null)
-                tempStringList.Add(value);
+                var sb = new StringBuilder();
+                sb.Append("MultiSelect: ");
+                sb.Append(f.FieldType.Multivalue);
+                testList.Add(sb.ToString());
+                 sb.Clear();
+                sb.Append("Value: ");
+                var val = new CvlForExport();
+                testList.Add(sb.ToString());
+                if (value.Value != null)
+                {
+                     sb.Clear();
+                    var testOptionVal = new CvlForExport.Item();
+                    testOptionVal.Value = value.Key;
+                    testOptionVal.Name = value.Value.ToString();
+                    sb.Append("Value: ");
+                    sb.Append(value.Key);
+                    testList.Add(sb.ToString());
+                    sb.Clear();
+                    sb.Append("Name: ");
+                    sb.Append(value.Value.ToString());
+                    testList.Add(sb.ToString());
+                    output.Items.Add(testOptionVal);
+                    
+                }
             }
-            f.Data = tempStringList;
-
-            return tempStringList;
+            output.MultiSelect = f.FieldType.Multivalue;
+            return testList;
+            //return output;
+        }
+     
+    }
+    class CvlForExport
+    {
+        public IList<Item> Items { get; set; }
+        public bool MultiSelect { get; set; }
+        public bool ManualSort { get; set; }
+        public CvlForExport()
+        {
+            ManualSort = true;
+            Items = new List<Item>();
+        }
+        public class Item 
+        {
+           // public IDictionary<string, string> Name { get; set; }
+            public string Name { get; set; }
+            public string Value { get; set; }
         }
     }
            

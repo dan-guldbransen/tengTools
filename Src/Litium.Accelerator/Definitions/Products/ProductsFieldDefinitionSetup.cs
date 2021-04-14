@@ -1574,19 +1574,8 @@ namespace Litium.Accelerator.Definitions.Products
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false,
-
                     Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                Value = "TengTools",
-                                Name = new Dictionary<string, string>{ {"GB", "Teng Tools" }, {"US", "Teng Tools" } }
-                            },
-                        }
-                    }
+                    { }
                 },
 
                 new FieldDefinition<ProductArea>("ProductPublicPlatforms", SystemFieldTypeConstants.TextOption)
@@ -1944,19 +1933,15 @@ namespace Litium.Accelerator.Definitions.Products
                     CanBeGridFilter = true,
                     MultiCulture = false,
 
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                 //TODO: Fyll i när den är godkänd för import i PIM
-                                Value = "",
-                                Name = new Dictionary<string, string>{ {"GB", "" }, {"US", "" } }
-                            },
-                        }
-                    }
+                   
+                },
+                 new FieldDefinition<ProductArea>("ProductGroupDescription", SystemFieldTypeConstants.TextOption)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false,
+
+
                 },
                 new FieldDefinition<ProductArea>("ProductGroupNumber", SystemFieldTypeConstants.TextOption)
                 {
