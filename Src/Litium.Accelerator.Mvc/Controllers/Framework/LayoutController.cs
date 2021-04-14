@@ -3,6 +3,7 @@ using Litium.Accelerator.ViewModels.Framework;
 using Litium.Accelerator.Builders.Framework;
 using Litium.Web.Models.Websites;
 using Litium.Web.Models.Products;
+using System.Web;
 
 namespace Litium.Accelerator.Mvc.Controllers.Framework
 {
@@ -89,14 +90,56 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         }
 
         /// <summary>
-        /// Builds header for the site
+        /// Builds utility menu with marketselector
         /// </summary>
-        /// <returns>Return view for the header</returns>
+        /// <returns>Return utility menu top of site</returns>
         [ChildActionOnly]
         public ActionResult UtilityMenu()
         {
             var viewModel = _utilityMenuViewModelBuilder.Build();
             return PartialView("Framework/UtilityMenu", viewModel);
+        }
+
+        /// <summary>
+        /// Builds utility menu with marketselector
+        /// </summary>
+        /// <returns>Return utility menu top of site</returns>
+        [ChildActionOnly]
+        public ActionResult CookieNotificationMessage()
+        {
+            var accepted = ReadCookieValue();
+
+            return PartialView("Framework/CookieNotificationMessage", accepted);
+        }
+
+        [HttpPost]
+        public ActionResult CookieNotificationMessage(bool accepted)
+        {
+            SetCookieValue(accepted);
+            return new HttpStatusCodeResult(201, accepted.ToString());
+        }
+
+        private bool ReadCookieValue()
+        {
+            var cookiesAcceptedCookie = Request.Cookies[Constants.CookieNotificationMessage.CookieName];
+            if(cookiesAcceptedCookie == null)
+            {
+                cookiesAcceptedCookie = new HttpCookie(Constants.CookieNotificationMessage.CookieName);
+                cookiesAcceptedCookie.Expires.Add(Constants.CookieNotificationMessage.Expires);
+                cookiesAcceptedCookie[Constants.CookieNotificationMessage.UserAcceptedValue] = "false";
+
+                Response.Cookies.Add(cookiesAcceptedCookie);
+            }
+            
+            bool.TryParse(cookiesAcceptedCookie[Constants.CookieNotificationMessage.UserAcceptedValue].ToString(), out var value);
+
+            return value;
+        }
+
+        private bool SetCookieValue(bool accepted = false)
+        {
+            Response.Cookies[Constants.CookieNotificationMessage.CookieName].Value = accepted.ToString();
+            return accepted;
         }
     }
 }

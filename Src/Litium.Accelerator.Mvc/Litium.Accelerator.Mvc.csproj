@@ -213,6 +213,7 @@
     <Content Include="Client\Scripts\Containers\withReactiveStyleBuyButton.js" />
     <Content Include="Client\Scripts\index.js" />
     <Content Include="Client\Scripts\Middlewares\History.middleware.js" />
+    <Content Include="Client\Scripts\NoneReactComponents\cookieNotificationMessage.js" />
     <Content Include="Client\Scripts\NoneReactComponents\utilitymenu.js" />
     <Content Include="Client\Scripts\reducers.js" />
     <Content Include="Client\Scripts\Reducers\Address.reducer.js" />
@@ -399,6 +400,7 @@
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
     <Content Include="Views\Shared\Framework\UtilityMenu.cshtml" />
+    <Content Include="Views\Shared\Framework\CookieNotificationMessage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
