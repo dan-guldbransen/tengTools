@@ -53,15 +53,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\InRiver.cs" />
+    <Compile Include="Constants\LitiumFieldDefinitions.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Models\JwtRequest.cs" />
-    <Compile Include="Models\ProductData.cs" />
+    <Compile Include="Models\Litium\Category.cs" />
+    <Compile Include="Models\Litium\Data.cs" />
+    <Compile Include="Models\Litium\Field.cs" />
+    <Compile Include="Models\Litium\Product.cs" />
+    <Compile Include="Models\Litium\ProductSettings.cs" />
+    <Compile Include="Models\Litium\Variant.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\LitiumCommonService.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\VariantService.cs" />
+    <Compile Include="Utils\LitiumClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
