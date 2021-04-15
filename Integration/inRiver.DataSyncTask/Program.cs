@@ -38,7 +38,8 @@ namespace inRiver.DataSyncTask
 
             var data = new ProductData();
 
-            var product = products.First();
+            //var product = products.First();
+            var product = products[5];
             var multipleVariants = product.OutboundLinks.Where(l => l.LinkType.Id == ProductItemLink).Count() > 1 ? true : false;
 
             var targetProduct = new Product();
@@ -46,13 +47,14 @@ namespace inRiver.DataSyncTask
             targetProduct.ArticleNumber = product.GetField("ProductID").Data?.ToString() ?? "test_" + product.Id.ToString() + "";  // nullkontroll har testId
             targetProduct.FieldTemplateId = multipleVariants ? "ProductWithVariants" : "ProductWithOneVariant";
             targetProduct.TaxClassId = null;
+
             targetProduct.Fields.Add(new Models.Field
             {
                 FieldDefinitionId = "_name",
                 Value = "Produktnamn",
                 Culture = "sv-SE"
             });
-         
+
             targetProduct.Fields.Add(new Models.Field
             {
                 FieldDefinitionId = "_name",
@@ -66,44 +68,110 @@ namespace inRiver.DataSyncTask
                 Value = "Beskrivniiiing US",
                 Culture = "en-US"
             });
+             
+
+
 
             data.Products.Add(targetProduct);
             var link = product.OutboundLinks.FirstOrDefault(l => l.LinkType.Id == ProductItemLink);
             if(link != null)
             {
                 var variant = items.FirstOrDefault(x => x.Id == link.Target.Id);
+                // var value = Convert.ToDecimal(variant.Fields[1].Data); 
+
+                var shortValue = variant.Fields[1].Data.ToString().Substring(0, 9);
+                var value = Convert.ToDecimal(shortValue);
+               
+
+
                 data.Variants.Add(new Variant
                 {
                     ProductArticleNumber = targetProduct.ArticleNumber,
                     ArticleNumber = variant.Id.ToString(),
+                    
                     Fields = new List<Models.Field>
                     {
                         new Models.Field
                         {
-                            FieldDefinitionId = "_name",
-                            Value = "TestVariant",
-                            Culture = "sv-SE"
-                        },
-                        new Models.Field
-                        {
-                            FieldDefinitionId = "_name",
-                            Value = "TestVariant US",
-                            Culture = "en-Us"
-                        },
-                        new Models.Field
-                        {
-                            FieldDefinitionId = "_description",
-                            Value = "Beskrivning US",
-                            Culture = "en-Us"
+                            FieldDefinitionId = variant.Fields[1].FieldType.Id ,
+                            Value = value
+                           // Culture = "sv-SE"
                         }
+                        /*
+                        new Models.Field
+                        {
+                            FieldDefinitionId = variant.Fields[1].FieldType.Id ,
+                            Value = variant.Fields[1].Data,
+                            Culture = "en-Us"
+                        },
+                        new Models.Field
+                        {
+                            FieldDefinitionId = variant.Fields[2].FieldType.Id ,
+                            Value = variant.Fields[2].Data,
+                           // Culture = "sv-SE"
+                        },
+                        */
+                       
                     }
                 });
+
+                /*
+                var fieldList = new List<Models.Field>();
+                int count = 0;
+
+                foreach (var f in variant.Fields)
+                {
+                    count++;
+                    if (f.FieldType.CategoryId != "PriceAdjustmentInfo" && f.FieldType.DataType != "CVL" && f.Data != null && count < 4)
+                    {
+                        var fieldDefinitionId = f.FieldType.Id;
+                        var value = f.Data;
+                        var culture = "sv-SE";
+
+                        if (f.FieldType.DataType == "Double") {
+                            culture = null;
+                            value = Convert.ToDecimal(value);
+                        }
+                        var field = new Models.Field
+                        {
+                            FieldDefinitionId = fieldDefinitionId,
+                            Value = value,
+                            Culture = culture
+                        };
+                        fieldList.Add(field);
+
+                        if (culture != null)
+                        {
+                            culture = "en-US";
+                            if (f.FieldType.DataType == "Double")
+                            {
+                                culture = null;
+                            }
+                            var field2 = new Models.Field
+                            {
+                                FieldDefinitionId = fieldDefinitionId,
+                                Value = value,
+                                Culture = culture
+                            };
+                            fieldList.Add(field2);
+                        }
+                       
+                    }
+
+                }
+                data.Variants.Add(new Variant
+                {
+                    ProductArticleNumber = targetProduct.ArticleNumber,
+                    ArticleNumber = variant.Id.ToString(),
+                    Fields = fieldList 
+                });
+                */
             }
 
             string jwtToken = GetJWTToken().Result;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:56020");
+                client.BaseAddress = new Uri("http://tengtools.localtest.me:8050");
                 // Request headers for auth
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + jwtToken);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -126,14 +194,14 @@ namespace inRiver.DataSyncTask
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:56020");
+                client.BaseAddress = new Uri("http://tengtools.localtest.me:8050");
 
                 var request = new HttpRequestMessage(HttpMethod.Post, "/litium/oauth/token");
 
                 var keyValues = new List<KeyValuePair<string,string>>();
                 keyValues.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
-                keyValues.Add(new KeyValuePair<string, string>("client_id", "IntegrationAccount"));
-                keyValues.Add(new KeyValuePair<string, string>("client_secret", "consid12345"));
+                keyValues.Add(new KeyValuePair<string, string>("client_id", "serviceID"));
+                keyValues.Add(new KeyValuePair<string, string>("client_secret", "servicepw"));
 
                 request.Content = new FormUrlEncodedContent(keyValues);
                 var response = await client.SendAsync(request);

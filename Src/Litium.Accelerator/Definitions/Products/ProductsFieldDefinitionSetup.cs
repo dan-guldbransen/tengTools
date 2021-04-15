@@ -579,7 +579,7 @@ namespace Litium.Accelerator.Definitions.Products
                     CanBeGridFilter = true,
                     MultiCulture = false,
                 },
-                 new FieldDefinition<ProductArea>("Environmental_fee_Y/N", SystemFieldTypeConstants.Boolean)
+                 new FieldDefinition<ProductArea>("ItemEnvironmentalFee", SystemFieldTypeConstants.Boolean)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
@@ -1175,7 +1175,6 @@ namespace Litium.Accelerator.Definitions.Products
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ItemBaseCartonMaterial", SystemFieldTypeConstants.Decimal)
                 {
                     CanBeGridColumn = true,
