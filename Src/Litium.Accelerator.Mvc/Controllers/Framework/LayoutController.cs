@@ -3,6 +3,7 @@ using Litium.Accelerator.ViewModels.Framework;
 using Litium.Accelerator.Builders.Framework;
 using Litium.Web.Models.Websites;
 using Litium.Web.Models.Products;
+using Litium.Accelerator.Constants;
 using System.Web;
 
 namespace Litium.Accelerator.Mvc.Controllers.Framework
@@ -113,7 +114,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         }
 
         [HttpPost]
-        public ActionResult CookieNotificationMessage(bool accepted)
+        public ActionResult CookieNotificationMessage(bool? accepted)
         {
             SetCookieValue(accepted);
             return new HttpStatusCodeResult(201, accepted.ToString());
@@ -136,7 +137,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             return value;
         }
 
-        private bool SetCookieValue(bool accepted = false)
+        private bool? SetCookieValue(bool? accepted = false)
         {
             Response.Cookies[Constants.CookieNotificationMessage.CookieName].Value = accepted.ToString();
             return accepted;

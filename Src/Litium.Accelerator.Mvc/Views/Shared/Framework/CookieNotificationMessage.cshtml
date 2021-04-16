@@ -1,4 +1,8 @@
-﻿<div id="cookieNotificationMessage">
-	<input type="button" id="accept-cookies" value="Accept"/>
-	<input type="button" id="reject-cookies" value="Reject"/>
+﻿@using Litium.Studio.Extenssions;
+@using Litium.Web.Mvc;
+
+<div id="cookieNotificationMessage">
+    <input type="button" onclick="accept" id="accept-cookies" value="@Html.WebSiteString("cookieconsent.Accept")"/>
+    <input type="button" onclick="reject" id="reject-cookies" value="@Html.WebSiteString("cookieconsent.Reject")"/>
+    <input type="button" onclick="close" id="close-cookies" value="x"/>
 </div>
