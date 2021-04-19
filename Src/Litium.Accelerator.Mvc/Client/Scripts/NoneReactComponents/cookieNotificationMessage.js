@@ -7,44 +7,21 @@
         const cookieNotificationMessage = document.getElementById('cookieNotificationMessage');
         const acceptButton = cookieNotificationMessage.getElementById('accept-cookies');
         const rejectButton = cookieNotificationMessage.getElementById('reject-cookies');
-        const closeButton = cookieNotificationMessage.getElementById('close-cookies');
 
-        acceptButton.addEventListener('click', accept);
-        rejectButton.addEventListener('click', reject);
-        closeButton.addEventListener('click', close);
+        acceptButton.addEventListener('click', sendConsentCookies(true));
+        rejectButton.addEventListener('click', sendConsentCookies(false));
     }
 
-    function accept() {
-        console.log('accept');
+    
+    function sendConsentCookies(consent) {
 
         $.ajax({
-            type: "POST",
+            type: "POST"
             url: "Layout/CookieNotificationMessage",
-            data: JSON.stringify(true)
+            data: JSON.stringify(consent)
         });
 
         this.cookieNotificationMessage.style.display = "none";
-    }
 
-    function reject() {
-        console.log('reject');
-
-        $.ajax({
-            type: "POST",
-            url: "Layout/CookieNotificationMessage",
-            data: JSON.stringify(false)
-        });
-
-        this.cookieNotificationMessage.style.display = "none";
-    }
-
-    function close() {
-        $.ajax({
-            type: "POST",
-            url: "Layout/CookieNotificationMessage",
-            data: JSON.stringify(null)
-        });
-
-        this.cookieNotificationMessage.style.display = "none";
     }
 }
