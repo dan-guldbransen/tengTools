@@ -29,7 +29,8 @@ namespace inRiver.DataSyncTask.Models.Litium
 
         public Variant(Entity entity, string productArticleNumber)
         {
-            ArticleNumber = entity.GetField(InRiver.InRiverField.Item.ItemId).Data.ToString();
+            var artNr = entity.GetField(InRiver.InRiverField.Item.ItemId).Data as LocaleString;
+            ArticleNumber = artNr[artNr.Languages.First()].ToString();
             ProductArticleNumber = productArticleNumber;
             SortIndex = 0; // this exist on inRiver item
         }

@@ -16,4 +16,7 @@
     <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="3.1.7" />
     <Reference Include="System.Web" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime.Remoting" />
+  </ItemGroup>
 </Project>

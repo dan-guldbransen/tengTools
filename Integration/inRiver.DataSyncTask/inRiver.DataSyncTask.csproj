@@ -57,6 +57,7 @@
     <Compile Include="Constants\LitiumFieldDefinitions.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Models\JwtRequest.cs" />
+    <Compile Include="Models\LitiumEntities\CategoryEntity.cs" />
     <Compile Include="Models\Litium\Category.cs" />
     <Compile Include="Models\Litium\Data.cs" />
     <Compile Include="Models\Litium\Field.cs" />
