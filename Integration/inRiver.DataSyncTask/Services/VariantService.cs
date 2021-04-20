@@ -25,6 +25,9 @@ namespace inRiver.DataSyncTask.Services
 
                 var litiumVariant = new Variant(item, baseProduct.ArticleNumber);
 
+                var markets = item.GetField(InRiver.InRiverField.Item.ItemApprovedForMarket).Data.ToString();
+                var litiumMarkets = MapToLitiumChannels(markets);
+
                 // Name
                 foreach (var culture in cultures)
                 {
@@ -37,17 +40,53 @@ namespace inRiver.DataSyncTask.Services
                     });
                 }
 
-                // Other Fields
-                foreach (var inRiverField in item.Fields)
+                // Markets -> mapped to channels in the create/update event
+                litiumVariant.Fields.Add(new Models.Litium.Field
                 {
-
-                }
+                    FieldDefinitionId = "ItemApprovedForMarket",
+                    Culture = null,
+                    Value = string.Join(",", litiumMarkets)
+                });
 
                 if (data.Variants == null)
                     data.Variants = new List<Variant>();
 
                 data.Variants.Add(litiumVariant);
             }
+        }
+
+        private static List<string> MapToLitiumChannels(string markets)
+        {
+            var retval = new List<string>() { "International " };
+            var marketList = markets.Split(';');
+            foreach (var market in marketList)
+            {
+                switch (market.ToUpper())
+                {
+                    case "AU":
+                        retval.Add("Australia");
+                        break;
+                    case "IE":
+                        retval.Add("Ireland");
+                        break;
+                    case "GB":
+                        retval.Add("UK");
+                        break;
+                    case "NO":
+                        retval.Add("Norway");
+                        break;
+                    case "PL":
+                        retval.Add("Poland");
+                        break;
+                    case "SE":
+                        retval.Add("Sweden");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return retval;
         }
     }
 }

@@ -42,13 +42,13 @@ namespace inRiver.DataSyncTask
             // Resources ??
 
             // Products
-            //ProductService.ProcessProducts(products, data, cultures, categories);
+            ProductService.ProcessProducts(products, data, cultures, categories);
            
             // Variants
-            //VariantService.ProcessVariants(items, data, cultures);
+            VariantService.ProcessVariants(items, data, cultures);
 
             // Save data to Litium
-            //LitiumCommonService.SaveData(data);
+            LitiumCommonService.SaveData(data);
         }
     }
 }

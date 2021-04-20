@@ -43,17 +43,30 @@ namespace inRiver.DataSyncTask.Services
                 }
 
                 // Category
-                var productCategoryNumber = product.GetField(InRiver.InRiverField.Product.ProductCategoryNumber).Data;
-                var productGroupNumber = product.GetField(InRiver.InRiverField.Product.ProductGroupNumber).Data;
-
-                // Set publish on channels only in produkt market
-
-
-                // Other Fields
-                foreach (var inRiverField in product.Fields)
+                var productCategoryNumber = product.GetField(InRiver.InRiverField.Product.ProductCategoryNumber).Data.ToString();
+                litiumProduct.Fields.Add(new Models.Litium.Field
                 {
+                    FieldDefinitionId = "ProductCategoryNumber",
+                    Culture = null,
+                    Value = productCategoryNumber
+                });
 
-                }
+                // Category level 2
+                var productGroupNumber = product.GetField(InRiver.InRiverField.Product.ProductGroupNumber).Data.ToString();
+                litiumProduct.Fields.Add(new Models.Litium.Field
+                {
+                    FieldDefinitionId = "ProductGroupNumber",
+                    Culture = null,
+                    Value = productGroupNumber
+                });
+
+                // Markets -> mapped to channels in the create/update event
+                litiumProduct.Fields.Add(new Models.Litium.Field
+                {
+                    FieldDefinitionId = "ProductMarket",
+                    Culture = null,
+                    Value = string.Join(",", litiumProduct.Markets)
+                });
 
                 if (data.Products == null)
                     data.Products = new List<Product>();
@@ -96,10 +109,6 @@ namespace inRiver.DataSyncTask.Services
 
             return retval;
         }
-
-        private static void ProductFieldMapper()
-        {
-
-        }
+       
     }
 }

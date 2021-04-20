@@ -77,6 +77,7 @@ namespace inRiver.DataSyncTask.Constants
             {
                 public const string ItemId = "ItemID";
                 public const string ItemShortDescription = "ItemShortDescription";
+                public const string ItemApprovedForMarket = "ItemApprovedForMarket";
             }
 
             public class Category

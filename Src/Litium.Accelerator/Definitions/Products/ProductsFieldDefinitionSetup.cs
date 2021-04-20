@@ -285,117 +285,11 @@ namespace Litium.Accelerator.Definitions.Products
                     CanBeGridFilter = true,
                     MultiCulture = false,
                 },
-                 new FieldDefinition<ProductArea>("ItemApprovedForMarket", SystemFieldTypeConstants.TextOption)
+                 new FieldDefinition<ProductArea>("ItemApprovedForMarket", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
-                    Option = new TextOption
-                    {
-                        MultiSelect = true,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                Value = "AU",
-                                Name = new Dictionary<string, string> { { "en-US", "Australia" }, { "sv-SE", "Australien" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "AT",
-                                Name = new Dictionary<string, string> { { "en-US", "Austria" }, { "sv-SE", "Österrike" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "BE",
-                                Name = new Dictionary<string, string> { { "en-US", "Belgium" }, { "sv-SE", "Belgien" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "DK",
-                                Name = new Dictionary<string, string> { { "en-US", "Denmark" }, { "sv-SE", "Danmark" } }
-                            },
-                             new TextOption.Item
-                            {
-                                Value = "FI",
-                                Name = new Dictionary<string, string> { { "en-US", "Finland" }, { "sv-SE", "Finland" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "FR",
-                                Name = new Dictionary<string, string> { { "en-US", "France" }, { "sv-SE", "Frankrike" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "DE",
-                                Name = new Dictionary<string, string> { { "en-US", "Germany" }, { "sv-SE", "Tyskland" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "IE",
-                                Name = new Dictionary<string, string> { { "en-US", "Ireland" }, { "sv-SE", "Irland" } }
-                            },
-                             new TextOption.Item
-                            {
-                                Value = "LV",
-                                Name = new Dictionary<string, string> { { "en-US", "Latvia" }, { "sv-SE", "Lettland" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "LT",
-                                Name = new Dictionary<string, string> { { "en-US", "Lithuania" }, { "sv-SE", "Litauen" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "NL",
-                                Name = new Dictionary<string, string> { { "en-US", "Netherlands" }, { "sv-SE", "Nederländerna" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "NZ",
-                                Name = new Dictionary<string, string> { { "en-US", "New Zealand" }, { "sv-SE", "Nya Zeeland" } }
-                            },
-                             new TextOption.Item
-                            {
-                                Value = "NO",
-                                Name = new Dictionary<string, string> { { "en-US", "Norway" }, { "sv-SE", "Norge" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "PL",
-                                Name = new Dictionary<string, string> { { "en-US", "Poland" }, { "sv-SE", "Polen" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "PT",
-                                Name = new Dictionary<string, string> { { "en-US", "Portugal" }, { "sv-SE", "Portugal" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "ZA",
-                                Name = new Dictionary<string, string> { { "en-US", "South Africa" }, { "sv-SE", "Syd Afrika" } }
-                            },
-                             new TextOption.Item
-                            {
-                                Value = "ES",
-                                Name = new Dictionary<string, string> { { "en-US", "Spain" }, { "sv-SE", "Spanien" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "SE",
-                                Name = new Dictionary<string, string> { { "en-US", "Sweden" }, { "sv-SE", "Sverige" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "GB",
-                                Name = new Dictionary<string, string> { { "en-US", "UK" }, { "sv-SE", "Storbritannien" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "US",
-                                Name = new Dictionary<string, string> { { "en-US", "USA" }, { "sv-SE", "USA" } }
-                            }
-                        }
-                    }
+                    MultiCulture = false
                 },
                  new FieldDefinition<ProductArea>("ItemOrderType", SystemFieldTypeConstants.TextOption)
                 {
@@ -508,7 +402,7 @@ namespace Litium.Accelerator.Definitions.Products
                                 Value = "CN",
                                 Name = new Dictionary<string, string> { { "en-US", "CN" }, { "sv-SE", "CN" } }
                             },
-                           
+
                             new TextOption.Item
                             {
                                 Value = "GB",
@@ -837,7 +731,6 @@ namespace Litium.Accelerator.Definitions.Products
                     MultiCulture = false,
                 },
 
-
                   // TODO
                  new FieldDefinition<ProductArea>("ItemBaseUnit", SystemFieldTypeConstants.TextOption)
                 {
@@ -935,8 +828,7 @@ namespace Litium.Accelerator.Definitions.Products
                     }
                 },
 
-
-                new FieldDefinition<ProductArea>("ItemMiddle2GrossWeight", SystemFieldTypeConstants.Decimal)
+                 new FieldDefinition<ProductArea>("ItemMiddle2GrossWeight", SystemFieldTypeConstants.Decimal)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
@@ -1076,7 +968,7 @@ namespace Litium.Accelerator.Definitions.Products
                             {
                                 Value = "Fyll i när den är godkänd för import i PIM"
                             }
-                            
+
                         }
                     }
                 },
@@ -1568,8 +1460,7 @@ namespace Litium.Accelerator.Definitions.Products
                         }
                     }
                 },
-
-               new FieldDefinition<ProductArea>("ProductBrand", SystemFieldTypeConstants.TextOption)
+                new FieldDefinition<ProductArea>("ProductBrand", SystemFieldTypeConstants.TextOption)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
@@ -1589,165 +1480,30 @@ namespace Litium.Accelerator.Definitions.Products
                     }
                 },
 
-                new FieldDefinition<ProductArea>("ProductPublicPlatforms", SystemFieldTypeConstants.TextOption)
+                new FieldDefinition<ProductArea>("ProductMarket", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
-                    MultiCulture = false,
-
-                    Option = new TextOption
-                    {
-                        MultiSelect = true,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                Value = "Catalogue",
-                                Name = new Dictionary<string, string>{ {"GB", "Catalogue" }, {"US", "Catalogue" } }
-                            },
-                             new TextOption.Item
-                            {
-                                Value = "Web",
-                                Name = new Dictionary<string, string>{ {"GB", "Web" }, {"US", "Web" } }
-                            },
-                        }
-                    }
+                    MultiCulture = false
                 },
-
-                new FieldDefinition<ProductArea>("ProductMarket", SystemFieldTypeConstants.TextOption)
-                {
-                    CanBeGridColumn = true,
-                    CanBeGridFilter = true,
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                Value = "AU",
-                                Name = new Dictionary<string, string> { { "en-US", "Australia" }, { "sv-SE", "Australien" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "AT",
-                                Name = new Dictionary<string, string> { { "en-US", "Austria" }, { "sv-SE", "Österrike" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "BE",
-                                Name = new Dictionary<string, string> { { "en-US", "Belgium" }, { "sv-SE", "Belgien" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "DK",
-                                Name = new Dictionary<string, string> { { "en-US", "Denmark" }, { "sv-SE", "Danmark" } }
-                            },
-                             new TextOption.Item
-                            {
-                                Value = "FI",
-                                Name = new Dictionary<string, string> { { "en-US", "Finland" }, { "sv-SE", "Finland" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "FR",
-                                Name = new Dictionary<string, string> { { "en-US", "France" }, { "sv-SE", "Frankrike" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "DE",
-                                Name = new Dictionary<string, string> { { "en-US", "Germany" }, { "sv-SE", "Tyskland" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "IE",
-                                Name = new Dictionary<string, string> { { "en-US", "Ireland" }, { "sv-SE", "Irland" } }
-                            },
-                             new TextOption.Item
-                            {
-                                Value = "LV",
-                                Name = new Dictionary<string, string> { { "en-US", "Latvia" }, { "sv-SE", "Lettland" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "LT",
-                                Name = new Dictionary<string, string> { { "en-US", "Lithuania" }, { "sv-SE", "Litauen" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "NL",
-                                Name = new Dictionary<string, string> { { "en-US", "Netherlands" }, { "sv-SE", "Nederländerna" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "NZ",
-                                Name = new Dictionary<string, string> { { "en-US", "New Zealand" }, { "sv-SE", "Nya Zeeland" } }
-                            },
-                             new TextOption.Item
-                            {
-                                Value = "NO",
-                                Name = new Dictionary<string, string> { { "en-US", "Norway" }, { "sv-SE", "Norge" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "PL",
-                                Name = new Dictionary<string, string> { { "en-US", "Poland" }, { "sv-SE", "Polen" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "PT",
-                                Name = new Dictionary<string, string> { { "en-US", "Portugal" }, { "sv-SE", "Portugal" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "ZA",
-                                Name = new Dictionary<string, string> { { "en-US", "South Africa" }, { "sv-SE", "Syd Afrika" } }
-                            },
-                             new TextOption.Item
-                            {
-                                Value = "ES",
-                                Name = new Dictionary<string, string> { { "en-US", "Spain" }, { "sv-SE", "Spanien" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "SE",
-                                Name = new Dictionary<string, string> { { "en-US", "Sweden" }, { "sv-SE", "Sverige" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "GB",
-                                Name = new Dictionary<string, string> { { "en-US", "UK" }, { "sv-SE", "Storbritannien" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "US",
-                                Name = new Dictionary<string, string> { { "en-US", "USA" }, { "sv-SE", "USA" } }
-                            }
-                        }
-                    }
-                },
-
                 new FieldDefinition<ProductArea>("ProductShortDescription", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductLongDescription", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductShortHeading", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductLongHeading", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
@@ -1761,28 +1517,24 @@ namespace Litium.Accelerator.Definitions.Products
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductBullet2", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductBullet3", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductBullet4", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductBullet5", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
@@ -1796,28 +1548,24 @@ namespace Litium.Accelerator.Definitions.Products
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductKeywords", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductMetaTitle", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductMetaDescription", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ProductPriority", SystemFieldTypeConstants.Int)
                 {
                     CanBeGridColumn = true,
@@ -1826,21 +1574,18 @@ namespace Litium.Accelerator.Definitions.Products
                 },
 
                 //Resources ska de vara productarea??
-
                 new FieldDefinition<ProductArea>("ResourceName", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ResourceFileName", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false
                 },
-
                 new FieldDefinition<ProductArea>("ResourceMimeType", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
@@ -1849,7 +1594,6 @@ namespace Litium.Accelerator.Definitions.Products
                 },
 
                // fil, vilken datatype??
-
                 new FieldDefinition<ProductArea>("ResourceField", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
@@ -1918,65 +1662,17 @@ namespace Litium.Accelerator.Definitions.Products
                         }
                     }
                 },
-                new FieldDefinition<ProductArea>("ProductCategoryNumber", SystemFieldTypeConstants.TextOption) 
+                new FieldDefinition<ProductArea>("ProductCategoryNumber", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
                     MultiCulture = false,
-
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                 //TODO: Fyll i när den är godkänd för import i PIM
-                                Value = "",
-                                Name = new Dictionary<string, string>{ {"GB", "" }, {"US", "" } }
-                            },
-                        }
-                    }
                 },
-                new FieldDefinition<ProductArea>("ProductCategoryDescription", SystemFieldTypeConstants.TextOption)
+                new FieldDefinition<ProductArea>("ProductGroupNumber", SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = true,
                     CanBeGridFilter = true,
-                    MultiCulture = false,
-
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                 //TODO: Fyll i när den är godkänd för import i PIM
-                                Value = "",
-                                Name = new Dictionary<string, string>{ {"GB", "" }, {"US", "" } }
-                            },
-                        }
-                    }
-                },
-                new FieldDefinition<ProductArea>("ProductGroupNumber", SystemFieldTypeConstants.TextOption)
-                {
-                    CanBeGridColumn = true,
-                    CanBeGridFilter = true,
-                    MultiCulture = false,
-
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                 //TODO: Fyll i när den är godkänd för import i PIM
-                                Value = "",
-                                Name = new Dictionary<string, string>{ {"GB", "" }, {"US", "" } }
-                            },
-                        }
-                    }
+                    MultiCulture = false
                 },
 
                 // G O O G L E  S H O P P I N G  F I E L D S
