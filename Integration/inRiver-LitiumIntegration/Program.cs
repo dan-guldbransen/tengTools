@@ -32,6 +32,9 @@ namespace inRiver_LitiumIntegration
             const string ProductTypeId = "Product";
             const string ItemTypeId = "Item";
             const string ResourceTypeId = "Resource";
+            string message;
+
+            var logger = new ConsoleLogger();
 
             Console.WriteLine("Connecting...");
             var context = new inRiverContext(RemoteManager.CreateInstance(InRiverRemotingUrl, InRiverUsername, InRiverPassword, InRiverEnvironmentTest), new ConsoleLogger());
@@ -50,8 +53,12 @@ namespace inRiver_LitiumIntegration
             root.variants = new List<Connect_classes.Variant>();
             root.products = new List<Connect_classes.Product>();
 
+            message = $"Incoming products: {products.Count}";
+            logger.Log(inRiver.Remoting.Log.LogLevel.Debug, message);
             foreach (var workingProduct in products)
             {
+
+
                 var targetProduct = new Connect_classes.Product();
                 var sourceProduct = workingProduct;
                 var multipleVariants = workingProduct.OutboundLinks.Count() > 1 ? true : false;
@@ -69,18 +76,23 @@ namespace inRiver_LitiumIntegration
                     var field = new Connect_classes.Field(f);
                     targetProduct.fields.Add(field);
                 }
-                if (workingProduct == products[5] || workingProduct == products[6] || workingProduct == products[7])
-                {
+
+               
                 root.products.Add(targetProduct);
 
-                }
+                var marketList = cvlValues.Where(x => x.CVLId == "Market").Select(x => x.Key).ToList();
+                string markets = string.Join(";", marketList);
+                message = $"Product | Article Number {targetProduct.articleNumber} | " +
+                    $"ProductShortDescription: {targetProduct.fields.Where(x => x.fieldDefinitionId == "ProductShortDescription").Select(x => x.value).FirstOrDefault()} | " +
+                    $"Markets: {markets}";
+                logger.Log(inRiver.Remoting.Log.LogLevel.Information, message);
             }
-            root.productSettings = new Connect_classes.ProductSettings();
-            root.productSettings.createUrls = false;
-            root.productSettings.fieldTemplateId = "ProductWithVariants";
-            
+
+            message = $"Incoming Items: {items.Count}";
+            logger.Log(inRiver.Remoting.Log.LogLevel.Debug, message);
             foreach (var workingItem in items)
             {
+
                 var targetVariant = new Connect_classes.Variant();
                 targetVariant.fields = new List<Connect_classes.Field>();
                 targetVariant.articleNumber = workingItem.GetField("ItemId").Data.ToString();
@@ -102,7 +114,11 @@ namespace inRiver_LitiumIntegration
                     }
 
                 }
-               // root.variants.Add(targetVariant);
+
+                // root.variants.Add(targetVariant);
+                message = $"Item | Article number: {targetVariant.articleNumber}";
+                logger.Log(inRiver.Remoting.Log.LogLevel.Information, message);
+
             }
 
             root.variantSettings = new Connect_classes.VariantSettings();
@@ -116,6 +132,7 @@ namespace inRiver_LitiumIntegration
 
             string jwtToken = GetJWTToken();
 
+           
             //Byt ut porten till den du kör på
 
           //  var restClient = new RestClient("http://localhost:51134/Litium/api/connect/erp/imports?api-version=2.0");
@@ -142,8 +159,8 @@ namespace inRiver_LitiumIntegration
         static string GetJWTToken()
         {
             //Byt ut porten till den du kör på
-           // var restClient = new RestClient("http://localhost:51134/Litium/oauth/token");
-            var restClient = new RestClient("http://tengtools.localtest.me:8050/Litium/oauth/token");
+            var restClient = new RestClient("http://localhost:8080/Litium/oauth/token");
+            //var restClient = new RestClient("http://tengtools.localtest.me:8050/Litium/oauth/token");
             restClient.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
