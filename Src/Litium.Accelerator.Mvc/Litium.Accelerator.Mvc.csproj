@@ -71,6 +71,7 @@
     <Compile Include="Attributes\FromJsonBodyAttribute.cs" />
     <Compile Include="Attributes\OrganizationRoleAttribute.cs" />
     <Compile Include="Attributes\ApiValidateAntiForgeryTokenAttribute.cs" />
+    <Compile Include="Controllers\Api\CommonController.cs" />
     <Compile Include="Extensions\BlockContainerHelperExtension.cs" />
     <Compile Include="Controllers\Api\MyPageAddressController.cs" />
     <Compile Include="Controllers\Api\CheckoutController.cs" />
@@ -396,11 +397,12 @@
     <Content Include="Client\Styles\site.scss" />
     <Content Include="Client\Styles\DefaultTheme\utilitymenu.scss" />
     <Content Include="package.json" />
+    <Content Include="Client\Styles\DefaultTheme\cookieNotification.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
     <Content Include="Views\Shared\Framework\UtilityMenu.cshtml" />
-    <Content Include="Views\Shared\Framework\CookieNotificationMessage.cshtml" />
+    <Content Include="Views\Shared\Framework\CookieNotification.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

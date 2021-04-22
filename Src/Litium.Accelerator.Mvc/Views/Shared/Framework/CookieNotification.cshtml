@@ -1,0 +1,26 @@
+﻿@using Litium.Studio.Extenssions;
+@using Litium.Web.Mvc;
+@model Litium.Accelerator.ViewModels.Framework.CookieNotificationViewModel
+
+@if (Model.ShouldRender)
+{
+
+	<div class="cookieNotification">
+		@if (!string.IsNullOrEmpty(Model.Title))
+		{
+			<h3>@Model.Title</h3>
+		}
+		@if (!string.IsNullOrEmpty(Model.Text))
+		{
+			<p>
+				@Model.Text
+			@if (Model.PolicyPage != null)
+			{
+				<text>-</text><a href="@Model.PolicyPage.Href">@Model.PolicyPage.Text</a>
+			}
+		</p>
+	}
+		<input type="button" class="cookieNotificationBtn" data-accept="true" value="@Html.WebSiteString("cookieconsent.accept")" />
+		<input type="button" class="cookieNotificationBtn" data-accept="false" value="@Html.WebSiteString("cookieconsent.reject")" />
+	</div>
+}

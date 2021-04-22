@@ -9,7 +9,6 @@ namespace Litium.Accelerator.Constants
     public class CookieNotificationMessage
     {
         public const string CookieName = "Tengtools.CookieAccepted";
-        public static TimeSpan Expires = new TimeSpan(365, 0, 0, 0);
-        public const string UserAcceptedValue = "UserAccepted";
+        public const string Expires = "365";
     }
 }

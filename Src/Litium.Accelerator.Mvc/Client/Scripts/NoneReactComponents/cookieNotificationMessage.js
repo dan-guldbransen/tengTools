@@ -1,27 +1,23 @@
-﻿export default class CoookieNotificationMessage {
+﻿import axios from 'axios';
+import Cookies from 'js-cookie'
+
+export default class CoookieNotificationMessage {
     constructor() {
-        this.init();
+        const btns = document.querySelectorAll('.cookieNotificationBtn');
+        btns.forEach(btn => btn.addEventListener('click', this.setCookie));
     }
 
-    init() {
-        const cookieNotificationMessage = document.getElementById('cookieNotificationMessage');
-        const acceptButton = cookieNotificationMessage.getElementById('accept-cookies');
-        const rejectButton = cookieNotificationMessage.getElementById('reject-cookies');
+    setCookie(e) {
+        const url = window.location.origin + "/api/common/cookieinfo";
+        var accepted = e.target.dataset.accept;
+        console.log(accepted);
 
-        acceptButton.addEventListener('click', sendConsentCookies(true));
-        rejectButton.addEventListener('click', sendConsentCookies(false));
-    }
-
-    
-    function sendConsentCookies(consent) {
-
-        $.ajax({
-            type: "POST"
-            url: "Layout/CookieNotificationMessage",
-            data: JSON.stringify(consent)
-        });
-
-        this.cookieNotificationMessage.style.display = "none";
-
+        axios.get(url)
+            .then(resp => {
+                Cookies.set(resp.data.name, accepted, { expires: parseInt(resp.data.expires) });
+                document.querySelector('.cookieNotification').remove();
+            }).catch(ex => {
+                console.log(ex);
+            })
     }
 }

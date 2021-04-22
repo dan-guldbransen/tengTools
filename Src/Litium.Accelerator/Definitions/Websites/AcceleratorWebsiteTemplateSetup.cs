@@ -147,7 +147,18 @@ namespace Litium.Accelerator.Definitions.Websites
                         {
                             AcceleratorWebsiteFieldNameConstants.OrderConfirmationPage
                         }
-                    }
+                    },
+                    new FieldTemplateFieldGroup()
+                    {
+                        Id = "Cookie notification",
+                        Collapsed = false,
+                        Fields =
+                        {
+                            AcceleratorWebsiteFieldNameConstants.CookieNotificationHeader,
+                            AcceleratorWebsiteFieldNameConstants.CookieNotificationText,
+                            AcceleratorWebsiteFieldNameConstants.CookieNotificationPolicyPage
+                        }
+                    },
                 }
             };
             return new List<FieldTemplate>() { template };

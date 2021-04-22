@@ -145,6 +145,24 @@ namespace Litium.Accelerator.Definitions.Websites
                 {
                     Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
                 },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CookieNotificationHeader, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = true,
+                    MultiCulture = true,
+                    Option = new TextOption()
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CookieNotificationText, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = true,
+                    MultiCulture = true,
+                    Option = new TextOption()
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CookieNotificationPolicyPage, SystemFieldTypeConstants.Pointer)
+                {
+                    Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
+                },
             };
             return fields;
         }

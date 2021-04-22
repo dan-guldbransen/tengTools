@@ -28,5 +28,9 @@
         public const string AllowCustomersEditLogin = "AllowCustomersEditLogin";
         public const string SenderEmailAddress = "SenderEmailAddress";
         public const string OrderConfirmationPage = "OrderConfirmationPage";
+
+        public const string CookieNotificationHeader = "CookieNotificationHeader";
+        public const string CookieNotificationText = "CookieNotificationText";
+        public const string CookieNotificationPolicyPage = "CookieNotificationPolicyPage";
     }
 }

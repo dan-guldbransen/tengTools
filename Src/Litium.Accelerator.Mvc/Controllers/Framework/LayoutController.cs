@@ -19,6 +19,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         private readonly FooterViewModelBuilder _footerViewModelBuilder;
         private readonly BodyViewModelBuilder _bodyViewModelBuilder;
         private readonly UtilityMenuViewModelBuilder<UtilityMenuViewModel> _utilityMenuViewModelBuilder;
+        private readonly CookieNotificationViewModelBuilder<CookieNotificationViewModel> _cookieNotificationViewModelBuilder;
 
         public LayoutController(
             BreadCrumbsViewModelBuilder<BreadCrumbsViewModel> breadCrumbsViewModelBuilder,
@@ -26,7 +27,8 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             HeaderViewModelBuilder<HeaderViewModel> headerViewModelBuilder,
             FooterViewModelBuilder footerViewModelBuilder,
             BodyViewModelBuilder bodyViewModelBuilder,
-            UtilityMenuViewModelBuilder<UtilityMenuViewModel> utilityMenuViewModelBuilder)
+            UtilityMenuViewModelBuilder<UtilityMenuViewModel> utilityMenuViewModelBuilder,
+            CookieNotificationViewModelBuilder<CookieNotificationViewModel> cookieNotificationViewModelBuilder)
         {
             _breadCrumbsViewModelBuilder = breadCrumbsViewModelBuilder;
             _headViewModelBuilder = headViewModelBuilder;
@@ -34,6 +36,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             _footerViewModelBuilder = footerViewModelBuilder;
             _bodyViewModelBuilder = bodyViewModelBuilder;
             _utilityMenuViewModelBuilder = utilityMenuViewModelBuilder;
+            _cookieNotificationViewModelBuilder = cookieNotificationViewModelBuilder;
         }
 
         [ChildActionOnly]
@@ -106,41 +109,12 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         /// </summary>
         /// <returns>Return utility menu top of site</returns>
         [ChildActionOnly]
-        public ActionResult CookieNotificationMessage()
+        public ActionResult CookieNotification()
         {
-            var accepted = ReadCookieValue();
+            var viewModel = _cookieNotificationViewModelBuilder.Buid();
+            viewModel.ShouldRender = Request.Cookies[CookieNotificationMessage.CookieName] == null;
 
-            return PartialView("Framework/CookieNotificationMessage", accepted);
-        }
-
-        [HttpPost]
-        public ActionResult CookieNotificationMessage(bool? accepted)
-        {
-            SetCookieValue(accepted);
-            return new HttpStatusCodeResult(201, accepted.ToString());
-        }
-
-        private bool ReadCookieValue()
-        {
-            var cookiesAcceptedCookie = Request.Cookies[Constants.CookieNotificationMessage.CookieName];
-            if(cookiesAcceptedCookie == null)
-            {
-                cookiesAcceptedCookie = new HttpCookie(Constants.CookieNotificationMessage.CookieName);
-                cookiesAcceptedCookie.Expires.Add(Constants.CookieNotificationMessage.Expires);
-                cookiesAcceptedCookie[Constants.CookieNotificationMessage.UserAcceptedValue] = "false";
-
-                Response.Cookies.Add(cookiesAcceptedCookie);
-            }
-            
-            bool.TryParse(cookiesAcceptedCookie[Constants.CookieNotificationMessage.UserAcceptedValue].ToString(), out var value);
-
-            return value;
-        }
-
-        private bool? SetCookieValue(bool? accepted = false)
-        {
-            Response.Cookies[Constants.CookieNotificationMessage.CookieName].Value = accepted.ToString();
-            return accepted;
+            return PartialView("Framework/CookieNotification", viewModel);
         }
     }
 }

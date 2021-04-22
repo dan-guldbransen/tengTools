@@ -1,4 +1,5 @@
 ﻿import UtilityMenu from '../Scripts/NoneReactComponents/utilitymenu';
+import CookieNotificationMessage from '../Scripts/NoneReactComponents/cookieNotificationMessage';
 
 window.addEventListener('DOMContentLoaded', (event) => {
 
@@ -6,4 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         new UtilityMenu();
     }
 
+    if (document.querySelector('.cookieNotification') !== undefined) {
+        new CookieNotificationMessage();
+    }
 });
