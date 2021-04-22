@@ -51,7 +51,7 @@ namespace inRiver.DataSyncTask.Services
                     // Create model level 1 category with existing Id if category is update, else null if new category
                     var litiumCategory = new Models.Litium.Category(
                         assortmentsystemId: assortmentId, 
-                        id: existing != null ? null : cat.Id.ToString(), 
+                        id: cat.Index.ToString(), 
                         parentCategorySystemId: null, 
                         systemId: existing?.SystemId);
 
@@ -59,7 +59,7 @@ namespace inRiver.DataSyncTask.Services
                     litiumCategory.Fields = ExtractCategoryNameFields(cat, cultures);
 
                     // Save to litium
-                    CreateOrUpdateCategory(litiumCategory, cat.Id.ToString(), client, existing);
+                    CreateOrUpdateCategory(litiumCategory, client, existing);
 
                     // save for later? will we if needed
                     retval.Add(litiumCategory);
@@ -86,7 +86,7 @@ namespace inRiver.DataSyncTask.Services
                     // create model level 2 category with parent id
                     var litiumCategory = new Models.Litium.Category(
                         assortmentsystemId: assortmentId,
-                        id: existing != null ? null : cat.Id.ToString(),
+                        id: cat.Index.ToString(),
                         parentCategorySystemId: litiumParentCategory.SystemId,
                         systemId: existing?.SystemId);
 
@@ -94,7 +94,7 @@ namespace inRiver.DataSyncTask.Services
                     litiumCategory.Fields = ExtractCategoryNameFields(cat, cultures);
 
                     // Save to litium
-                    CreateOrUpdateCategory(litiumCategory, cat.Id.ToString(), client, existing);
+                    CreateOrUpdateCategory(litiumCategory, client, existing);
 
                     // save for later? will we if needed
                     retval.Add(litiumCategory);
@@ -105,7 +105,6 @@ namespace inRiver.DataSyncTask.Services
         }
 
         private static void CreateOrUpdateCategory(Models.Litium.Category litiumCategory,
-            string catId, 
             HttpClient client,
             CategoryEntity existing = null)
         {

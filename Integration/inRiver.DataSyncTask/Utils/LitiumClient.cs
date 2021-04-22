@@ -56,7 +56,7 @@ namespace inRiver.DataSyncTask.Utils
         {
             return new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:56020") 
+                BaseAddress = new Uri("http://localhost:58109") 
                 //BaseAddress = new Uri("http://tengtools.test.workplace.nu/")
             };
         }

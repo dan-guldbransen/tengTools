@@ -1,13 +1,8 @@
 ﻿using Litium.Products.Events;
 using Litium.Events;
 using Litium.Runtime;
-using Litium.Runtime.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.MetadataServices;
-using System.Text;
-using System.Threading.Tasks;
 using Litium.Products;
 using Litium.Globalization;
 using Litium.Web;
