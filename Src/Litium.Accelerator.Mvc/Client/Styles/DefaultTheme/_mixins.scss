@@ -119,3 +119,13 @@
 @mixin icon--rotate-arrow($color:333) {
     background: url('../../images/rotate-arrow.svg') center no-repeat;
 }
+@mixin icon--favorites($color: 333) {
+    background: url('../../images/favorites.svg') center no-repeat;
+}
+
+@mixin icon--arrow-down($color: 333) {
+    background: url('../../images/arrow-down.svg') right no-repeat;
+}
+@mixin icon--search($color: 333) {
+    background: url('../../images/search.svg') center no-repeat;
+}

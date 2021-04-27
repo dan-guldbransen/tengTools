@@ -46,14 +46,14 @@ window.onunload = () => {
 }
 
 const bootstrapComponents = () => {
-    if (document.getElementById('miniCart')) {
-        renderReact(
-            <Provider store={store}>
-                <MiniCartContainer />
-            </Provider>,
-            document.getElementById('miniCart')
-        );
-    }
+    //if (document.getElementById('miniCart')) {
+    //    renderReact(
+    //        <Provider store={store}>
+    //            <MiniCartContainer />
+    //        </Provider>,
+    //        document.getElementById('miniCart')
+    //    );
+    //}
     if (document.getElementById('quickSearch')) {
         renderReact(
             <Provider store={store}>

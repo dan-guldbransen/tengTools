@@ -9,29 +9,32 @@ using System.Linq;
 
 namespace Litium.Accelerator.Builders.Framework
 {
-    public class UtilityMenuViewModelBuilder<TViewModel> : IViewModelBuilder<TViewModel>
-        where TViewModel : UtilityMenuViewModel
+    public class MarketSelectorViewModelBuilder<TViewModel> : IViewModelBuilder<TViewModel>
+        where TViewModel : MarketSelectorViewModel
     {
         private readonly UrlService _urlService;
         private readonly RequestModelAccessor _requestModelAccessor;
         private readonly ChannelService _channelService;
         private readonly PageService _pageService;
+        private readonly LanguageService _languagesService;
 
-        public UtilityMenuViewModelBuilder(
+        public MarketSelectorViewModelBuilder(
             UrlService urlService,
             RequestModelAccessor requestModelAccessor,
             ChannelService channelService,
-            PageService pageService)
+            PageService pageService,
+            LanguageService languageService)
         {
             _urlService = urlService;
             _requestModelAccessor = requestModelAccessor;
             _channelService = channelService;
             _pageService = pageService;
+            _languagesService = languageService;
         }
 
-        public UtilityMenuViewModel Build()
+        public MarketSelectorViewModel Build()
         {
-            var viewModel = new UtilityMenuViewModel();
+            var viewModel = new MarketSelectorViewModel();
 
             // Get current culture
             var currentUICulture = _requestModelAccessor.RequestModel.ChannelModel.Channel.Localizations.CurrentUICulture.Name;
@@ -61,13 +64,17 @@ namespace Litium.Accelerator.Builders.Framework
 
             foreach (var channel in channels)
             {
-                viewModel.ChannelLinkList.Add(new ContentLinkModel
+                var lang = channel.WebsiteLanguageSystemId.HasValue ? _languagesService.Get(channel.WebsiteLanguageSystemId.Value) : null;
+
+                var linkModel = new ContentLinkModel
                 {
                     IsSelected = _requestModelAccessor.RequestModel.ChannelModel.Channel.SystemId == channel.SystemId,
-                    Url = _urlService.GetUrl(channel, new ChannelUrlArgs { AbsoluteUrl = true, UsePrimaryDomainName = true }),
-                    Name = channel.Fields.GetFieldContainer(culture.Key).GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Name)
-                    // TODO: SET IMAGE
-                });
+                    Url = _urlService.GetUrl(channel, new ChannelUrlArgs { UsePrimaryDomainName = true }),
+                    Name = channel.Fields.GetFieldContainer(culture.Key).GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Name),
+                    ExtraInfo = lang != null ? lang.CultureInfo.TwoLetterISOLanguageName.ToUpper() : ""
+                };
+
+                viewModel.ChannelLinkList.Add(linkModel);
             }
 
             return viewModel;

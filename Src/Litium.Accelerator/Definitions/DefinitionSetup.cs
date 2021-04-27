@@ -184,7 +184,7 @@ namespace Litium.Accelerator.Definitions
             {
                 if (IsAlreadyExecuted<DisplayTemplate>(displayTemplate.Id))
                 {
-                    //continue;
+                    continue;
                 }
                 var currentField = _displayTemplateService.Get<DisplayTemplate>(displayTemplate.Id);
                 if (currentField != null)

@@ -1,0 +1,56 @@
+﻿@model Litium.Accelerator.ViewModels.Framework.MarketSelectorViewModel
+
+@if (Model.ChannelLinkList.Any() && Model.ChannelLinkList.Count > 1)
+{
+	var current = Model.ChannelLinkList.FirstOrDefault(link => link.IsSelected);
+
+	var half = Model.ChannelLinkList.Count / 2;
+
+	var firstRow = Model.ChannelLinkList.Skip(0).Take(half);
+	var secondRow = Model.ChannelLinkList.Skip(half).Take(half);
+
+	<a href="#" class="nav-link dropdown-toggle" id="navbarMarketsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		@if (current != null)
+		{
+			if (!string.IsNullOrWhiteSpace(current.ExtraInfo))
+			{
+				<text>@current.ExtraInfo.ToLower()</text>
+			}
+			else
+			{
+				<text>@current.Name</text>
+			}
+		}
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="navbarMarketsDropdown">
+		<li>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="list-group list-group-flush">
+							@foreach (var link in firstRow)
+							{
+								if (link != null)
+								{
+									<li class="list-group-item"><a href="@link.Url">@(!string.IsNullOrWhiteSpace(link.ExtraInfo) ? $"{link.ExtraInfo} - {link.Name}" : link.Name)</a></li>
+								}
+							}
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="list-group list-group-flush">
+							@foreach (var link in secondRow)
+							{
+								if (link != null)
+								{
+									<li class="list-group-item"><a href="@link.Url">@(!string.IsNullOrWhiteSpace(link.ExtraInfo) ? $"{link.ExtraInfo} - {link.Name}" : link.Name)</a></li>
+								}
+							}
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</li>
+	</ul>
+}

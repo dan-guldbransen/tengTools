@@ -2,12 +2,10 @@
 @model HeaderViewModel
 
 @{
-    var currentPage = User.Identity.IsAuthenticated ? Model.MyPage : Model.LoginPage;
+	var currentPage = User.Identity.IsAuthenticated ? Model.MyPage : Model.LoginPage;
 }
 
-<div class="profile">
-    <a href="@currentPage.Href" class="profile__link--block">
-        <i class="profile__icon"></i>
-        <span class="profile__title">@currentPage.Text</span>
-    </a>
-</div>
+<a href="@currentPage.Href" title="@currentPage.Text">
+	<div class="profile media">
+	</div>
+</a>

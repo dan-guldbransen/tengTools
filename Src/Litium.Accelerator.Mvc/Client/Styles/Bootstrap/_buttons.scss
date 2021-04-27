@@ -1,0 +1,12 @@
+.btn-cta {
+    padding: 2rem;
+    font-weight: 700;
+    border-radius: 0;
+    
+
+    &:after {
+        display: inline-block;
+        margin-left: 1rem;
+        @include icon--cta-arrow();
+    }
+}

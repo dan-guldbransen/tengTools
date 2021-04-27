@@ -18,7 +18,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         private readonly BreadCrumbsViewModelBuilder<BreadCrumbsViewModel> _breadCrumbsViewModelBuilder;
         private readonly FooterViewModelBuilder _footerViewModelBuilder;
         private readonly BodyViewModelBuilder _bodyViewModelBuilder;
-        private readonly UtilityMenuViewModelBuilder<UtilityMenuViewModel> _utilityMenuViewModelBuilder;
+        private readonly MarketSelectorViewModelBuilder<MarketSelectorViewModel> _marketSelectorViewModelBuilder;
         private readonly CookieNotificationViewModelBuilder<CookieNotificationViewModel> _cookieNotificationViewModelBuilder;
 
         public LayoutController(
@@ -27,7 +27,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             HeaderViewModelBuilder<HeaderViewModel> headerViewModelBuilder,
             FooterViewModelBuilder footerViewModelBuilder,
             BodyViewModelBuilder bodyViewModelBuilder,
-            UtilityMenuViewModelBuilder<UtilityMenuViewModel> utilityMenuViewModelBuilder,
+            MarketSelectorViewModelBuilder<MarketSelectorViewModel> marketSelectorViewModelBuilder,
             CookieNotificationViewModelBuilder<CookieNotificationViewModel> cookieNotificationViewModelBuilder)
         {
             _breadCrumbsViewModelBuilder = breadCrumbsViewModelBuilder;
@@ -35,7 +35,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             _headerViewModelBuilder = headerViewModelBuilder;
             _footerViewModelBuilder = footerViewModelBuilder;
             _bodyViewModelBuilder = bodyViewModelBuilder;
-            _utilityMenuViewModelBuilder = utilityMenuViewModelBuilder;
+            _marketSelectorViewModelBuilder = marketSelectorViewModelBuilder;
             _cookieNotificationViewModelBuilder = cookieNotificationViewModelBuilder;
         }
 
@@ -98,10 +98,10 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         /// </summary>
         /// <returns>Return utility menu top of site</returns>
         [ChildActionOnly]
-        public ActionResult UtilityMenu()
+        public ActionResult MarketSelector()
         {
-            var viewModel = _utilityMenuViewModelBuilder.Build();
-            return PartialView("Framework/UtilityMenu", viewModel);
+            var viewModel = _marketSelectorViewModelBuilder.Build();
+            return PartialView("Framework/MarketSelector", viewModel);
         }
 
         /// <summary>

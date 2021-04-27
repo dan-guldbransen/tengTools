@@ -14,26 +14,6 @@ namespace Litium.Accelerator.Definitions.Websites
             {
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.LogotypeMain, SystemFieldTypeConstants.MediaPointerImage),
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.LogotypeIcon, SystemFieldTypeConstants.MediaPointerImage),
-                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.HeaderLayout, SystemFieldTypeConstants.TextOption)
-                {
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                Value = HeaderLayoutConstants.OneRow,
-                                Name = new Dictionary<string, string> { { "en-US", "One row" }, { "sv-SE", "En rad" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = HeaderLayoutConstants.TwoRows,
-                                Name = new Dictionary<string, string> { { "en-US", "Two rows" }, { "sv-SE", "Två rader" } }
-                            }
-                        }
-                    }
-                },
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CheckoutPage, SystemFieldTypeConstants.Pointer)
                 {
                     Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
@@ -160,6 +140,10 @@ namespace Litium.Accelerator.Definitions.Websites
                     Option = new TextOption()
                 },
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CookieNotificationPolicyPage, SystemFieldTypeConstants.Pointer)
+                {
+                    Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
+                },
+                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.GetOrganisedPage, SystemFieldTypeConstants.Pointer)
                 {
                     Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
                 },

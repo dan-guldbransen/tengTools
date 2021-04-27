@@ -54,6 +54,8 @@ namespace Litium.Accelerator.Builders.Framework
                 return loginPage != null;
             }, true);
 
+            var getOrganisedPage = website.GetValue<PointerPageItem>(AcceleratorWebsiteFieldNameConstants.GetOrganisedPage)?.MapTo<LinkModel>();
+
             var topLinkList = website.GetValue<IList<PointerItem>>(AcceleratorWebsiteFieldNameConstants.AdditionalHeaderLinks)?.OfType<PointerPageItem>().ToList().Select(x => x.MapTo<LinkModel>()).Where(x => x != null).ToList();
             myPage = myPage?.AccessibleByUser == true ? myPage : null;
 
@@ -67,13 +69,11 @@ namespace Litium.Accelerator.Builders.Framework
                 MyPage = myPage ?? new LinkModel(),
                 StartPageUrl = string.IsNullOrWhiteSpace(startPageUrl) ? "/" : startPageUrl,
                 IsLoggedIn = !Thread.CurrentPrincipal.Identity.IsAuthenticated,
-                IsBigHeader = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.HeaderLayout) == HeaderLayoutConstants.TwoRows,
-                HeaderName = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.HeaderLayout),
                 QuickSearch = new QuickSearchViewModel
                 {
-                    IsBigHeader = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.HeaderLayout) == HeaderLayoutConstants.TwoRows,
                     SearchTerm = _requestModelAccessor.RequestModel.SearchQuery.Text
-                }
+                },
+                GetOrganised = getOrganisedPage ?? new LinkModel()
             };
         }
 

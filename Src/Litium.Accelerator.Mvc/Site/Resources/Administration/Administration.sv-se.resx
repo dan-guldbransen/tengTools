@@ -1251,4 +1251,7 @@
   <data name="fieldtemplate.websitearea.acceleratorwebsite.fieldgroup.cookie notification.name" xml:space="preserve">
     <value>Cooke notifikation</value>
   </data>
+  <data name="fielddefinition.websitearea.getorganisedpage.name" xml:space="preserve">
+    <value>Get Organised Sida</value>
+  </data>
 </root>

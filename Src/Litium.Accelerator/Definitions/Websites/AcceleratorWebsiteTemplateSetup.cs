@@ -38,10 +38,10 @@ namespace Litium.Accelerator.Definitions.Websites
                         Collapsed = false,
                         Fields =
                         {
-                            AcceleratorWebsiteFieldNameConstants.HeaderLayout,
                             AcceleratorWebsiteFieldNameConstants.CheckoutPage,
                             AcceleratorWebsiteFieldNameConstants.MyPagesPage,
-                            AcceleratorWebsiteFieldNameConstants.AdditionalHeaderLinks
+                            AcceleratorWebsiteFieldNameConstants.AdditionalHeaderLinks,
+                            AcceleratorWebsiteFieldNameConstants.GetOrganisedPage
                         }
                     },
                     new FieldTemplateFieldGroup()

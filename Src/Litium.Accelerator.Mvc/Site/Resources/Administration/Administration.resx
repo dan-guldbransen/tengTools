@@ -1263,4 +1263,7 @@
   <data name="fielddefinition.websitearea.cookienotificationtext.description" xml:space="preserve">
     <value>Cookie notification text in popup</value>
   </data>
+  <data name="fielddefinition.websitearea.getorganisedpage.name" xml:space="preserve">
+    <value>Get Organised Page</value>
+  </data>
 </root>

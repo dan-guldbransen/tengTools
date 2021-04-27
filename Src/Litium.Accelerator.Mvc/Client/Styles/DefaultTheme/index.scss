@@ -1,4 +1,4 @@
-@import '_variables';
+/*@import '_variables';
 @import '_mixins';
 
 @import 'fonts';
@@ -10,15 +10,15 @@
 
 @import 'breadcrumb';
 @import 'checkout';
-@import 'footer';
+@import 'footer';*/
 @import 'header';
-@import 'headeronerow';
-@import 'navbar';
+@import 'mobile-menu';
+/*@import 'navbar';
 @import 'profile';
-@import 'cart';
+@import 'cart';*/
 @import 'quicksearch';
 @import 'quicksearchresult';
-@import 'facetedsearch';
+/*@import 'facetedsearch';
 @import 'toplink';
 @import 'news';
 @import 'notification';
@@ -30,16 +30,15 @@
 @import 'searchresult';
 @import 'ordersummary';
 @import 'orderhistorydetail';
-@import 'category';
-@import 'utilitymenu';
-@import 'cookieNotification';
+@import 'category';*/
+@import 'marketselector';
 
 
-@import 'Block/teaser';
+/*@import 'Block/teaser';
 @import 'Block/brand';
 @import 'Block/brandinfo';
 @import 'Block/mixedblock';
 @import 'Block/slider';
 @import 'Block/video';
 @import 'Block/banner';
-@import 'Block/productandbanner';
+@import 'Block/productandbanner';*/

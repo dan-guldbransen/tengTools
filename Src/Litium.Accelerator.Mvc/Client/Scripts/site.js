@@ -1,13 +1,15 @@
-﻿import UtilityMenu from '../Scripts/NoneReactComponents/utilitymenu';
-import CookieNotificationMessage from '../Scripts/NoneReactComponents/cookieNotificationMessage';
+﻿import CookieNotificationMessage from '../Scripts/NoneReactComponents/cookieNotificationMessage';
 
 window.addEventListener('DOMContentLoaded', (event) => {
-
-    if (document.querySelector('.utilitymenu') !== undefined) {
-        new UtilityMenu();
-    }
-
-    if (document.querySelector('.cookieNotification') !== undefined) {
+   
+    if (document.querySelector('.cookieNotification') !== null ) {
         new CookieNotificationMessage();
     }
+
+    if (document.querySelector('.mobile-menu') !== null) {
+        new Mmenu('.mobile-menu', {
+            "counters": true
+        });
+    } 
+    
 });

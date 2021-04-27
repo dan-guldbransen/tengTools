@@ -32,5 +32,7 @@
         public const string CookieNotificationHeader = "CookieNotificationHeader";
         public const string CookieNotificationText = "CookieNotificationText";
         public const string CookieNotificationPolicyPage = "CookieNotificationPolicyPage";
+
+        public const string GetOrganisedPage = "GetOrganisedPage";
     }
 }
