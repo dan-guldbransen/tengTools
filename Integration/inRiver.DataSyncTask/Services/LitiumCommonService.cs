@@ -1,4 +1,5 @@
 ﻿using inRiver.DataSyncTask.Models.Litium;
+using inRiver.DataSyncTask.Models.LitiumEntities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -16,19 +17,34 @@ namespace inRiver.DataSyncTask.Services
         {
             using (var client = Utils.LitiumClient.GetAuthorizedClient())
             {
+                var response = client.GetAsync("/Litium/api/admin/websites/websites").Result;
+                var website = JsonConvert.DeserializeObject<List<WebsiteEntity>>(response.Content.ReadAsStringAsync().Result).FirstOrDefault();
+
                 var cultures = new List<string>();
-                var response = client.GetAsync("/Litium/api/admin/globalization/channels").Result;
-                var channels = JsonConvert.DeserializeObject<List<JObject>>(response.Content.ReadAsStringAsync().Result);
-                if(channels != null && channels.Any())
+                if (website != null)
                 {
-                    var firstChannel = channels.First();
-                    var nameFieldValues = firstChannel.SelectTokens("fields").Children().First().First().Children();
-                    foreach(var field in nameFieldValues)
-                    {
-                        cultures.Add(((JProperty)field).Name);
-                    }
+                    cultures = website.Fields.Name.Keys.ToList();
                 }
+
                 return cultures;
+            }
+        }
+
+        public static string GetCategoryTemplateSystemId()
+        {
+            using (var client = Utils.LitiumClient.GetAuthorizedClient())
+            {
+                var response = client.GetAsync("/Litium/api/admin/products/fieldTemplates").Result;
+                var templates = JsonConvert.DeserializeObject<List<Entity>>(response.Content.ReadAsStringAsync().Result);
+
+                if (templates != null && templates.Any())
+                {
+                    var categoryTemplate = templates.FirstOrDefault(x => x.Id == "Category");
+                    if (categoryTemplate != null)
+                        return categoryTemplate.SystemId;
+                }
+
+                throw new Exception("Cant find category template system id");
             }
         }
 

@@ -11,7 +11,7 @@ namespace inRiver.DataSyncTask.Services
 {
     public static class ProductService
     {
-        public static void ProcessProducts(List<Entity> products, Data data, List<string> cultures, List<Models.Litium.Category> categories)
+        public static void ProcessProducts(List<Entity> products, Data data, List<string> cultures, Dictionary<string, List<string>> headCategoryHierarchy)
         {
             foreach (var product in products)
             {
@@ -42,7 +42,19 @@ namespace inRiver.DataSyncTask.Services
                     });
                 }
 
-                // Category
+                // TODO : FIX
+                var productHeadCategory = product.GetField(InRiver.InRiverField.Product.ProductHeadCategory)?.Data as LocaleString;
+                if(productHeadCategory != null)
+                {
+                    litiumProduct.Fields.Add(new Models.Litium.Field
+                    {
+                        FieldDefinitionId = "ProductHeadCategory",
+                        Culture = null,
+                        Value = productHeadCategory
+                    });
+                }
+
+                // Category level 2
                 var productCategoryNumber = product.GetField(InRiver.InRiverField.Product.ProductCategoryNumber).Data.ToString();
                 litiumProduct.Fields.Add(new Models.Litium.Field
                 {
@@ -51,7 +63,7 @@ namespace inRiver.DataSyncTask.Services
                     Value = productCategoryNumber
                 });
 
-                // Category level 2
+                // Category level 3
                 var productGroupNumber = product.GetField(InRiver.InRiverField.Product.ProductGroupNumber).Data.ToString();
                 litiumProduct.Fields.Add(new Models.Litium.Field
                 {

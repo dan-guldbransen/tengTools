@@ -37,18 +37,43 @@ namespace inRiver.DataSyncTask.Services
             }
         }
 
-        public static List<Models.Litium.Category> ProcessCategoryCVLs(List<CVLValue> productCategories, List<CVLValue> productGroups, string assortmentId, List<string> cultures, List<CategoryEntity> existingCategories)
+        public static List<Models.Litium.Category> ProcessCategoryCVLs(List<CVLValue> productHeadCategories, List<CVLValue> productCategories, List<CVLValue> productGroups, string assortmentId, List<string> cultures, List<CategoryEntity> existingCategories)
         {
             var retval = new List<Models.Litium.Category>();
             using (var client = LitiumClient.GetAuthorizedClient())
             {
-                // Category level 1
+                // Category level 1 Head
+                foreach(var cat in productHeadCategories)
+                {
+                    var existing = existingCategories.FirstOrDefault(x => x.Id == cat.Id.ToString());
+                    
+                    // Create model level 2 category with existing Id if category is update, else null if new category
+                    var litiumCategory = new Models.Litium.Category(
+                        assortmentsystemId: assortmentId,
+                        id: cat.Index.ToString(),
+                        parentCategorySystemId: null,
+                        systemId: existing?.SystemId);
+
+                    // Extract the fields we want to sync
+                    litiumCategory.Fields = ExtractCategoryNameFields(cat, cultures);
+
+                    // Save to litium
+                    CreateOrUpdateCategory(litiumCategory, client, existing);
+
+                    // save for later? will we if needed
+                    retval.Add(litiumCategory);
+                }
+
+                // Update existing list if newly created level 1 categories
+                (_, existingCategories) = GetAssortmentIdAndExistingCategoryIds();
+
+                // Category level 2
                 foreach (var cat in productCategories)
                 {
                     // get existing if update / else create
                     var existing = existingCategories.FirstOrDefault(x => x.Id == cat.Id.ToString());
 
-                    // Create model level 1 category with existing Id if category is update, else null if new category
+                    // Create model level 2 category with existing Id if category is update, else null if new category
                     var litiumCategory = new Models.Litium.Category(
                         assortmentsystemId: assortmentId, 
                         id: cat.Index.ToString(), 
@@ -65,13 +90,13 @@ namespace inRiver.DataSyncTask.Services
                     retval.Add(litiumCategory);
                 }
 
-                // Update existing list if newly created level 1 categoryies
+                // Update existing list if newly created level 2 categoryies
                 (_, existingCategories) = GetAssortmentIdAndExistingCategoryIds();
 
-                // Category level 2
+                // Category level 3
                 foreach (var cat in productGroups)
                 {
-                    // check if parent exists, must exist if level 2 category is to be processed
+                    // check if parent exists, must exist if level 3 category is to be processed
                     var parent = productCategories.FirstOrDefault(x => x.Key == cat.ParentKey);
                     if(parent == null)
                         continue;
@@ -83,7 +108,7 @@ namespace inRiver.DataSyncTask.Services
                     // get existing if update / else create
                     var existing = existingCategories.FirstOrDefault(x => x.Id == cat.Id.ToString());
 
-                    // create model level 2 category with parent id
+                    // create model level 3 category with parent id
                     var litiumCategory = new Models.Litium.Category(
                         assortmentsystemId: assortmentId,
                         id: cat.Index.ToString(),

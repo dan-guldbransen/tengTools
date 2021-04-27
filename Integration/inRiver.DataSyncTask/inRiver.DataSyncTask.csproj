@@ -58,6 +58,8 @@
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Models\JwtRequest.cs" />
     <Compile Include="Models\LitiumEntities\CategoryEntity.cs" />
+    <Compile Include="Models\LitiumEntities\Entity.cs" />
+    <Compile Include="Models\LitiumEntities\WebsiteEntity.cs" />
     <Compile Include="Models\Litium\Category.cs" />
     <Compile Include="Models\Litium\Data.cs" />
     <Compile Include="Models\Litium\Field.cs" />

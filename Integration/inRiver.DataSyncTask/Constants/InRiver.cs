@@ -19,6 +19,7 @@ namespace inRiver.DataSyncTask.Constants
 
         public class CVL
         {
+            public const string HeadCategory = "HeadCategory";
             public const string Category = "Category";
             public const string ProductGroup = "ProductGroup";
         }
@@ -46,6 +47,7 @@ namespace inRiver.DataSyncTask.Constants
                 public const string ProductBrand = "ProductBrand";
                 public const string ProductPublicPlatforms = "ProductPublicPlatforms";
 
+                public const string ProductHeadCategory = "ProductHeadCategory";
                 public const string ProductCategoryNumber = "ProductCategoryNumber";
                 public const string ProductCategoryDescription = "ProductCategoryDescription";
                 public const string ProductGroupNumber = "ProductGroupNumber";
