@@ -36,6 +36,14 @@ namespace inRiver.DataSyncTask
             // Get cultures from Litium, we only sync languages we use
             var cultures = LitiumCommonService.GetCulturesInUse();
             
+            // Catgeories last so we get the hierarchy of top level from product
+            var categoryTemplateSystemId = LitiumCommonService.GetCategoryTemplateSystemId();
+
+            // Categories (existing categories may be redundant, will check how save data behaves) 
+            (string assortmentId, List<Models.LitiumEntities.CategoryEntity> existingCategorys) = CategoryService.GetAssortmentIdAndExistingCategoryIds();
+            
+            var categories = CategoryService.ProcessCategoryCVLs(productHeadCategories, productCategories, productGroups, assortmentId, cultures, existingCategorys);
+
             // Container for all data to post
             var data = new Data();
             
@@ -49,17 +57,10 @@ namespace inRiver.DataSyncTask
             VariantService.ProcessVariants(items, data, cultures);
             
             // Resources here or on product/variant ??
-            
-            // Catgeories last so we get the hierarchy of top level from product
-            var categoryTemplateSystemId = LitiumCommonService.GetCategoryTemplateSystemId();
-
-            // Categories (existing categories may be redundant, will check how save data behaves) 
-            (string assortmentId, List<Models.LitiumEntities.CategoryEntity> existingCategorys) = CategoryService.GetAssortmentIdAndExistingCategoryIds();
-            
-            var categories = CategoryService.ProcessCategoryCVLs(productHeadCategories, productCategories, productGroups, assortmentId, cultures, existingCategorys);
-
+           
             // Save data to Litium TODO: in batches!!
             LitiumCommonService.SaveData(data);
+
         }
     }
 }
