@@ -1269,4 +1269,28 @@
   <data name="fielddefinition.websitearea.externalb2blink.name" xml:space="preserve">
     <value>External B2B link</value>
   </data>
+  <data name="fieldtemplate.globalizationarea.defaultchannel.fieldgroup.socialmedia.name" xml:space="preserve">
+    <value>Social Media</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.facebook.name" xml:space="preserve">
+    <value>Facebook link</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.instagramlink.name" xml:space="preserve">
+    <value>Instagram link</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.linkedin.name" xml:space="preserve">
+    <value>LinkedIn link</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.twitter.name" xml:space="preserve">
+    <value>Twitter link</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.youtube.name" xml:space="preserve">
+    <value>Youtube link</value>
+  </data>
+  <data name="fieldtemplate.globalizationarea.defaultchannel.fieldgroup.general.name" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="fieldtemplate.globalizationarea.defaultchannel.name" xml:space="preserve">
+    <value>Default Channel Field Template</value>
+  </data>
 </root>
