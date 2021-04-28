@@ -4,6 +4,7 @@ using Litium.Accelerator.ViewModels.Framework;
 using Litium.FieldFramework.FieldTypes;
 using Litium.Runtime.AutoMapper;
 using Litium.Web.Models;
+using System;
 using System.Globalization;
 
 namespace Litium.Accelerator.Builders.Framework
@@ -26,6 +27,7 @@ namespace Litium.Accelerator.Builders.Framework
             model.Text = website.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.CookieNotificationText, CultureInfo.CurrentUICulture);
             model.Title = website.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.CookieNotificationHeader, CultureInfo.CurrentUICulture);
             model.PolicyPage = website.Fields.GetValue<PointerPageItem>(AcceleratorWebsiteFieldNameConstants.CookieNotificationPolicyPage).MapTo<LinkModel>();
+            model.Logo = website.GetValue<Guid?>(AcceleratorWebsiteFieldNameConstants.LogotypeMain)?.MapTo<ImageModel>();
 
             return model;
         }

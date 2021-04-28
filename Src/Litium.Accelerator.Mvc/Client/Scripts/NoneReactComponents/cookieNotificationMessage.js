@@ -21,6 +21,8 @@ export default class CoookieNotificationMessage {
         axios.get(url)
             .then(resp => {
                 Cookies.set(resp.data.name, accepted, { expires: parseInt(resp.data.expires) });
+                const myModal = bootstrap.Modal.getInstance(document.querySelector('.cookieNotification'));
+                myModal.hide();
             }).catch(ex => {
                 console.log(ex);
             })

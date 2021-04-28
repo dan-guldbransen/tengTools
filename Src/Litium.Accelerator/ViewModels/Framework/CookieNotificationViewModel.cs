@@ -9,5 +9,7 @@ namespace Litium.Accelerator.ViewModels.Framework
         public string Text { get; set; }
         public string Title { get; set; }
         public bool ShouldRender { get; set; }
+        public ImageModel Logo { get; set; }
+
     }
 }
