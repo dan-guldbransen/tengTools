@@ -23,6 +23,11 @@
                 width: 1.5rem;
                 background-size: contain !important;
 
+                @include media-breakpoint-up(lg) {
+                    height: 1rem;
+                    width: 1rem;
+                }
+
                 &.favorites {
                     @include icon--favorites();
                 }
