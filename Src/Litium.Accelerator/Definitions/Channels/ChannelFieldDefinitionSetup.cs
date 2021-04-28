@@ -51,6 +51,7 @@ namespace Litium.Accelerator.Definitions.Channels
                     MultiCulture = false,
                     Option = new TextOption()
                 },
+                new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.FlagIcon, SystemFieldTypeConstants.MediaPointerImage),
             };
 
             return fields;

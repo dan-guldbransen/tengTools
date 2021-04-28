@@ -93,10 +93,6 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             return PartialView("Framework/Footer", viewModel);
         }
 
-        /// <summary>
-        /// Builds utility menu with marketselector
-        /// </summary>
-        /// <returns>Return utility menu top of site</returns>
         [ChildActionOnly]
         public ActionResult MarketSelector()
         {
@@ -104,10 +100,6 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             return PartialView("Framework/MarketSelector", viewModel);
         }
 
-        /// <summary>
-        /// Builds utility menu with marketselector
-        /// </summary>
-        /// <returns>Return utility menu top of site</returns>
         [ChildActionOnly]
         public ActionResult CookieNotification()
         {

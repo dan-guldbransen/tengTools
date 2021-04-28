@@ -401,7 +401,6 @@
     <Content Include="Client\Styles\DefaultTheme\_mixins.scss" />
     <Content Include="Client\Styles\DefaultTheme\_variables.scss" />
     <Content Include="Client\Styles\site.scss" />
-    <Content Include="Client\Styles\DefaultTheme\marketselector.scss" />
     <Content Include="package.json" />
     <Content Include="Client\Styles\Bootstrap\bootstrap.scss" />
     <Content Include="Client\Styles\Bootstrap\_type.scss" />
@@ -419,6 +418,9 @@
     <Content Include="Client\fonts\FuturaPT-Medium.woff" />
     <Content Include="Client\Styles\Bootstrap\_reboot.scss" />
     <Content Include="Client\Styles\DefaultTheme\mobile-menu.scss" />
+    <Content Include="Client\Styles\DefaultTheme\framework.scss" />
+    <Content Include="Client\Styles\DefaultTheme\marketselector.scss" />
+    <Content Include="Client\Styles\hamburgersettings.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />

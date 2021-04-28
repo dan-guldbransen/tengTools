@@ -1,7 +1,10 @@
-﻿using Litium.Accelerator.Routing;
+﻿using Litium.Accelerator.Constants;
+using Litium.Accelerator.Routing;
 using Litium.Accelerator.ViewModels.Framework;
 using Litium.Globalization;
+using Litium.Runtime.AutoMapper;
 using Litium.Web;
+using Litium.Web.Models;
 using Litium.Websites;
 using System;
 using System.Collections.Generic;
@@ -71,7 +74,8 @@ namespace Litium.Accelerator.Builders.Framework
                     IsSelected = _requestModelAccessor.RequestModel.ChannelModel.Channel.SystemId == channel.SystemId,
                     Url = _urlService.GetUrl(channel, new ChannelUrlArgs { UsePrimaryDomainName = true }),
                     Name = channel.Fields.GetFieldContainer(culture.Key).GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Name),
-                    ExtraInfo = lang != null ? lang.CultureInfo.TwoLetterISOLanguageName.ToUpper() : ""
+                    ExtraInfo = lang != null ? lang.CultureInfo.TwoLetterISOLanguageName.ToUpper() : "",
+                    Image = channel.Fields.GetValue<Guid?>(ChannelFieldNameConstants.FlagIcon)?.MapTo<ImageModel>()
                 };
 
                 viewModel.ChannelLinkList.Add(linkModel);

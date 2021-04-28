@@ -1,8 +1,12 @@
 .btn-cta {
-    padding: 2rem;
+    &-sm {
+        padding: 1rem 1.5rem;
+    }
+
+    padding: 1.8rem 2.5rem;
     font-weight: 700;
     border-radius: 0;
-    
+
 
     &:after {
         display: inline-block;

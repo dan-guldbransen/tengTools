@@ -1293,4 +1293,7 @@
   <data name="fieldtemplate.globalizationarea.defaultchannel.name" xml:space="preserve">
     <value>Default Channel Field Template</value>
   </data>
+  <data name="fielddefinition.globalizationarea.flagicon.name" xml:space="preserve">
+    <value>Flag icon</value>
+  </data>
 </root>

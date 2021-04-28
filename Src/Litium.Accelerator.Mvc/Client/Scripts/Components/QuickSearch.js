@@ -18,8 +18,8 @@ class QuickSearch extends Component {
                 </a>
                 <div className={`quick-search__form d-flex align-items-center justify-content-between ${showFullForm ? 'quick-search__form--force-show' : ''}`} role="search">
                     <i className="quick-search__icon" onClick={e => toggleShowFullForm()}></i>
-                    <div className="dropdown">
-                        <input className="quick-search__input" type="search"
+                    <div className={`dropdown ${showResult ? 'quick-search__arrow' : ''} '`}>
+                        <input className="quick-search__input" type="search" placeholder={translate('general.search.placeholder')}
                             autoComplete="off" value={decodeURIComponent(query)} onChange={event => onSearch(encodeURIComponent(event.target.value))}
                             onKeyDown={event => onKeyDown(event, { searchUrl })} ref={(input) => { this.searchInput = input; }}
                             onBlur={() => onBlur()} />

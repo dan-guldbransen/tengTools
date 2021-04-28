@@ -23,7 +23,8 @@ namespace Litium.Accelerator.Definitions.Channels
                         Collapsed = false,
                         Fields =
                         {
-                            SystemFieldDefinitionConstants.Name
+                            SystemFieldDefinitionConstants.Name,
+                            ChannelFieldNameConstants.FlagIcon
                         }
                     },
                     new FieldTemplateFieldGroup()

@@ -13,5 +13,7 @@ namespace Litium.Accelerator.Constants
         public const string Twitter = "Twitter";
         public const string Facebook = "Facebook";
         public const string LinkedIn = "LinkedIn";
+
+        public const string FlagIcon = "FlagIcon";
     }
 }
