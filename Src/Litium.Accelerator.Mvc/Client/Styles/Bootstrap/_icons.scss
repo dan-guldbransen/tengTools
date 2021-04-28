@@ -25,3 +25,7 @@
 @mixin icon--hamburger() {
     content: url('../../images/hamburger.svg');
 }
+
+@mixin icon--close() {
+    content: url('../../images/close.svg');
+}

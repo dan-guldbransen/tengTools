@@ -82,10 +82,10 @@ module.exports = {
         ]
     },
     plugins: [
-        //new CleanWebpackPlugin({
-        //    cleanOnceBeforeBuildPatterns: [BUILD_DIR + '/*.*'],
-        //    verbose: false, todo: fix better solution
-        //}),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [BUILD_DIR + '/*.*'],
+            verbose: false, //todo: fix better solution
+        }),
         new MiniCssExtractPlugin({
             filename: 'css/site.min.css'
         }),
