@@ -147,6 +147,13 @@ namespace Litium.Accelerator.Definitions.Websites
                 {
                     Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
                 },
+                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.ExternalB2BLink, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true,
+                    Option = new TextOption()
+                },
             };
             return fields;
         }

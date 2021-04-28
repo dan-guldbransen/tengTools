@@ -41,7 +41,8 @@ namespace Litium.Accelerator.Definitions.Websites
                             AcceleratorWebsiteFieldNameConstants.CheckoutPage,
                             AcceleratorWebsiteFieldNameConstants.MyPagesPage,
                             AcceleratorWebsiteFieldNameConstants.AdditionalHeaderLinks,
-                            AcceleratorWebsiteFieldNameConstants.GetOrganisedPage
+                            AcceleratorWebsiteFieldNameConstants.GetOrganisedPage,
+                            AcceleratorWebsiteFieldNameConstants.ExternalB2BLink
                         }
                     },
                     new FieldTemplateFieldGroup()

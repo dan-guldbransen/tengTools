@@ -34,5 +34,6 @@
         public const string CookieNotificationPolicyPage = "CookieNotificationPolicyPage";
 
         public const string GetOrganisedPage = "GetOrganisedPage";
+        public const string ExternalB2BLink = "ExternalB2BLink";
     }
 }

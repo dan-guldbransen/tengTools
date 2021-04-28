@@ -55,6 +55,7 @@ namespace Litium.Accelerator.Builders.Framework
             }, true);
 
             var getOrganisedPage = website.GetValue<PointerPageItem>(AcceleratorWebsiteFieldNameConstants.GetOrganisedPage)?.MapTo<LinkModel>();
+            var externalB2Blink = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.ExternalB2BLink);
 
             var topLinkList = website.GetValue<IList<PointerItem>>(AcceleratorWebsiteFieldNameConstants.AdditionalHeaderLinks)?.OfType<PointerPageItem>().ToList().Select(x => x.MapTo<LinkModel>()).Where(x => x != null).ToList();
             myPage = myPage?.AccessibleByUser == true ? myPage : null;
@@ -73,7 +74,8 @@ namespace Litium.Accelerator.Builders.Framework
                 {
                     SearchTerm = _requestModelAccessor.RequestModel.SearchQuery.Text
                 },
-                GetOrganised = getOrganisedPage ?? new LinkModel()
+                GetOrganised = getOrganisedPage ?? new LinkModel(),
+                ExternalB2BLink = externalB2Blink
             };
         }
 
