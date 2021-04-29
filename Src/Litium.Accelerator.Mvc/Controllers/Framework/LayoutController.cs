@@ -3,6 +3,8 @@ using Litium.Accelerator.ViewModels.Framework;
 using Litium.Accelerator.Builders.Framework;
 using Litium.Web.Models.Websites;
 using Litium.Web.Models.Products;
+using Litium.Accelerator.Constants;
+using System.Web;
 
 namespace Litium.Accelerator.Mvc.Controllers.Framework
 {
@@ -14,24 +16,27 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         private readonly HeadViewModelBuilder<HeadViewModel> _headViewModelBuilder;
         private readonly HeaderViewModelBuilder<HeaderViewModel> _headerViewModelBuilder;
         private readonly BreadCrumbsViewModelBuilder<BreadCrumbsViewModel> _breadCrumbsViewModelBuilder;
-        private readonly FooterViewModelBuilder _footerViewModelBuilder;
+        private readonly FooterViewModelBuilder<FooterViewModel> _footerViewModelBuilder;
         private readonly BodyViewModelBuilder _bodyViewModelBuilder;
-        private readonly UtilityMenuViewModelBuilder<UtilityMenuViewModel> _utilityMenuViewModelBuilder;
+        private readonly MarketSelectorViewModelBuilder<MarketSelectorViewModel> _marketSelectorViewModelBuilder;
+        private readonly CookieNotificationViewModelBuilder<CookieNotificationViewModel> _cookieNotificationViewModelBuilder;
 
         public LayoutController(
             BreadCrumbsViewModelBuilder<BreadCrumbsViewModel> breadCrumbsViewModelBuilder,
             HeadViewModelBuilder<HeadViewModel> headViewModelBuilder,
             HeaderViewModelBuilder<HeaderViewModel> headerViewModelBuilder,
-            FooterViewModelBuilder footerViewModelBuilder,
+            FooterViewModelBuilder<FooterViewModel> footerViewModelBuilder,
             BodyViewModelBuilder bodyViewModelBuilder,
-            UtilityMenuViewModelBuilder<UtilityMenuViewModel> utilityMenuViewModelBuilder)
+            MarketSelectorViewModelBuilder<MarketSelectorViewModel> marketSelectorViewModelBuilder,
+            CookieNotificationViewModelBuilder<CookieNotificationViewModel> cookieNotificationViewModelBuilder)
         {
             _breadCrumbsViewModelBuilder = breadCrumbsViewModelBuilder;
             _headViewModelBuilder = headViewModelBuilder;
             _headerViewModelBuilder = headerViewModelBuilder;
             _footerViewModelBuilder = footerViewModelBuilder;
             _bodyViewModelBuilder = bodyViewModelBuilder;
-            _utilityMenuViewModelBuilder = utilityMenuViewModelBuilder;
+            _marketSelectorViewModelBuilder = marketSelectorViewModelBuilder;
+            _cookieNotificationViewModelBuilder = cookieNotificationViewModelBuilder;
         }
 
         [ChildActionOnly]
@@ -88,15 +93,20 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             return PartialView("Framework/Footer", viewModel);
         }
 
-        /// <summary>
-        /// Builds header for the site
-        /// </summary>
-        /// <returns>Return view for the header</returns>
         [ChildActionOnly]
-        public ActionResult UtilityMenu()
+        public ActionResult MarketSelector()
         {
-            var viewModel = _utilityMenuViewModelBuilder.Build();
-            return PartialView("Framework/UtilityMenu", viewModel);
+            var viewModel = _marketSelectorViewModelBuilder.Build();
+            return PartialView("Framework/MarketSelector", viewModel);
+        }
+
+        [ChildActionOnly]
+        public ActionResult CookieNotification()
+        {
+            var viewModel = _cookieNotificationViewModelBuilder.Buid();
+            viewModel.ShouldRender = Request.Cookies[CookieNotificationMessage.CookieName] == null;
+
+            return PartialView("Framework/CookieNotification", viewModel);
         }
     }
 }

@@ -2,12 +2,15 @@
 @model HeaderViewModel
 
 @{
-    var currentPage = User.Identity.IsAuthenticated ? Model.MyPage : Model.LoginPage;
+	var currentPage = User.Identity.IsAuthenticated ? Model.MyPage : Model.LoginPage;
+	var href = User.Identity.IsAuthenticated ? currentPage.Href : Model.ExternalB2BLink;
+	var text = User.Identity.IsAuthenticated ? currentPage.Text : "external b2b";
 }
 
-<div class="profile">
-    <a href="@currentPage.Href" class="profile__link--block">
-        <i class="profile__icon"></i>
-        <span class="profile__title">@currentPage.Text</span>
-    </a>
-</div>
+@if (!string.IsNullOrEmpty(href))
+{
+	<a href="@href" title="@text" target="@(User.Identity.IsAuthenticated ? "_self" : "_blank")">
+		<div class="profile media me-4">
+		</div>
+	</a>
+}

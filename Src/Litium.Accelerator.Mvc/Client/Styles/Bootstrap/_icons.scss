@@ -1,0 +1,45 @@
+﻿@mixin icon--favorites() {
+    background: url('../../images/favorites.svg') center no-repeat;
+}
+
+@mixin icon--arrow-down() {
+    background: url('../../images/arrow-down.svg') right no-repeat;
+}
+
+@mixin icon--search() {
+    content: url('../../images/search.svg');
+}
+
+@mixin icon--profile() {
+    background: url('../../images/profile.svg') center no-repeat;
+}
+
+@mixin icon--wishlist() {
+    background: url('../../images/wishlist.svg') center no-repeat;
+}
+
+@mixin icon--cta-arrow() {
+    content: url('../../images/cta-arrow.svg');
+}
+
+@mixin icon--hamburger() {
+    content: url('../../images/hamburger.svg');
+}
+
+@mixin icon--close() {
+    content: url('../../images/close.svg');
+}
+
+@mixin icon--logo-notext() {
+    content: url('../../images/tengtoolslogo.svg');
+}
+
+@mixin icon--facebook() {
+    background: url('../../images/facebook.svg') center no-repeat;
+}
+@mixin icon--linkedin() {
+    background: url('../../images/linkedin.svg') center no-repeat;
+}
+@mixin icon--twitter() {
+    background: url('../../images/twitter.svg') center no-repeat;
+}

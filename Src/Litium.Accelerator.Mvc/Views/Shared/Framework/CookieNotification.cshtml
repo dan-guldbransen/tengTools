@@ -1,0 +1,46 @@
+﻿@using Litium.Studio.Extenssions;
+@using Litium.Web.Mvc;
+@model Litium.Accelerator.ViewModels.Framework.CookieNotificationViewModel
+
+@if (Model.ShouldRender)
+{
+
+	<div class="cookieNotification modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropCookie" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							@if (!string.IsNullOrEmpty(Model.Title))
+							{
+								<div class="col-12"><h3>@Model.Title</h3></div>
+								<div class="col-3"><hr /></div><div class="col-9"></div>
+							}
+							@if (!string.IsNullOrEmpty(Model.Text))
+							{
+								<div class="col-12 col-lg-6">
+									<p>
+										@Model.Text
+										@if (Model.PolicyPage != null)
+										{
+											<text> - </text><a class="text-decoration-underline" href="@Model.PolicyPage.Href">@Model.PolicyPage.Text</a>
+										}
+									</p>
+								</div>
+								<div class="d-none d-lg-flex col-lg-6">
+									<figure class="cookie-logo">@Html.ImageFor(x => x.Logo)</figure>
+								</div>
+							}
+							<div class="col-12">
+								<div class="input-group">
+									<input type="button" class="cookieNotificationBtn btn btn-dark me-3" data-accept="true" value="@Html.WebSiteString("cookieconsent.accept")" />
+									<input type="button" class="cookieNotificationBtn btn bg-light" data-accept="false" value="@Html.WebSiteString("cookieconsent.reject")" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+}

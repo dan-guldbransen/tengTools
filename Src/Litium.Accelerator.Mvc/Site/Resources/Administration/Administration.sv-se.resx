@@ -157,13 +157,13 @@
     <value>Personnummer</value>
   </data>
   <data name="fielddefinition.customerarea.socialsecuritynumber.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.customerarea.legalregistrationnumber.name" xml:space="preserve">
     <value>Organisationsnummer</value>
   </data>
   <data name="fielddefinition.customerarea.legalregistrationnumber.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.logotypemain.name" xml:space="preserve">
     <value>Logotyp (huvudbild)</value>
@@ -343,169 +343,169 @@
     <value>Titel</value>
   </data>
   <data name="fielddefinition.blockarea.blocktitle.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.blocktext.name" xml:space="preserve">
     <value>Text</value>
   </data>
   <data name="fielddefinition.blockarea.blocktext.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.link.name" xml:space="preserve">
     <value>Länk</value>
   </data>
   <data name="fielddefinition.blockarea.link.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.linktext.name" xml:space="preserve">
     <value>Länktext</value>
   </data>
   <data name="fielddefinition.blockarea.linktext.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.blockvideo.name" xml:space="preserve">
     <value>Video</value>
   </data>
   <data name="fielddefinition.blockarea.blockvideo.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.brandslinklist.name" xml:space="preserve">
     <value>Brands</value>
   </data>
   <data name="fielddefinition.blockarea.brandslinklist.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.banners.name" xml:space="preserve">
     <value>Banners</value>
   </data>
   <data name="fielddefinition.blockarea.banners.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.categorylink.name" xml:space="preserve">
     <value>Kategori</value>
   </data>
   <data name="fielddefinition.blockarea.categorylink.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.productlistlink.name" xml:space="preserve">
     <value>Produktlistor</value>
   </data>
   <data name="fielddefinition.blockarea.productlistlink.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.productslinklist.name" xml:space="preserve">
     <value>Produkter</value>
   </data>
   <data name="fielddefinition.blockarea.productslinklist.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.numberofproducts.name" xml:space="preserve">
     <value>Antal produkter (2-4)</value>
   </data>
   <data name="fielddefinition.blockarea.numberofproducts.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.productsorting.name" xml:space="preserve">
     <value>Sortering</value>
   </data>
   <data name="fielddefinition.blockarea.productsorting.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.linktocategory.name" xml:space="preserve">
     <value>Länk till kategori</value>
   </data>
   <data name="fielddefinition.blockarea.linktocategory.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.linktopage.name" xml:space="preserve">
     <value>Länk till sida</value>
   </data>
   <data name="fielddefinition.blockarea.linktopage.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.showproducttotheright.name" xml:space="preserve">
     <value>Produkter till höger</value>
   </data>
   <data name="fielddefinition.blockarea.showproducttotheright.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.slider.name" xml:space="preserve">
     <value>Slider</value>
   </data>
   <data name="fielddefinition.blockarea.slider.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.blockarea.blockimagepointer.name" xml:space="preserve">
     <value>Bild</value>
   </data>
   <data name="fielddefinition.blockarea.blockimagepointer.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.title.name" xml:space="preserve">
     <value>Rubrik</value>
   </data>
   <data name="fielddefinition.websitearea.title.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.introduction.name" xml:space="preserve">
     <value>Ingress</value>
   </data>
   <data name="fielddefinition.websitearea.introduction.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.text.name" xml:space="preserve">
     <value>Text</value>
   </data>
   <data name="fielddefinition.websitearea.text.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.links.name" xml:space="preserve">
     <value>Länkar</value>
   </data>
   <data name="fielddefinition.websitearea.links.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.image.name" xml:space="preserve">
     <value>Bild</value>
   </data>
   <data name="fielddefinition.websitearea.image.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.files.name" xml:space="preserve">
     <value>Filer</value>
   </data>
   <data name="fielddefinition.websitearea.files.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.pagesize.name" xml:space="preserve">
     <value>Antal produkter som visas per sida</value>
   </data>
   <data name="fielddefinition.websitearea.pagesize.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.titlefilterselector.name" xml:space="preserve">
     <value>Rubrik</value>
   </data>
   <data name="fielddefinition.websitearea.titlefilterselector.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.errormessage.name" xml:space="preserve">
     <value>Felmeddelande</value>
   </data>
   <data name="fielddefinition.websitearea.errormessage.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.numberofnewsperpage.name" xml:space="preserve">
     <value>Antal nyheter som visas per sida</value>
   </data>
   <data name="fielddefinition.websitearea.numberofnewsperpage.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.newsdate.name" xml:space="preserve">
     <value>Nyhetsdatum</value>
   </data>
   <data name="fielddefinition.websitearea.newsdate.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.categorypointer.name" xml:space="preserve">
     <value>Produktkategori pekare</value>
@@ -517,7 +517,7 @@
     <value>Alternativ bildbeskrivning</value>
   </data>
   <data name="fielddefinition.websitearea.alternativeimagedescription.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.welcomeemailsubject.name" xml:space="preserve">
     <value>Ämne</value>
@@ -541,19 +541,19 @@
     <value>Antal beställningar per sida</value>
   </data>
   <data name="fielddefinition.websitearea.numberofordersperpage.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.orderlink.name" xml:space="preserve">
     <value>Beställ länk</value>
   </data>
   <data name="fielddefinition.websitearea.orderlink.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.orderhistorylink.name" xml:space="preserve">
     <value>Orderhistorik länk</value>
   </data>
   <data name="fielddefinition.websitearea.orderhistorylink.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.productlistpointer.name" xml:space="preserve">
     <value>Produktuppsättning pekare</value>
@@ -565,19 +565,19 @@
     <value>Användaren kan ändra användarnamn och lösenord</value>
   </data>
   <data name="fielddefinition.websitearea.mayusereditlogin.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.forgottenpasswordlink.name" xml:space="preserve">
     <value>Länk till glömt lösenord sida</value>
   </data>
   <data name="fielddefinition.websitearea.forgottenpasswordlink.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
-  <data name="fielddefinition.websitearea.redirectlink.name">
+  <data name="fielddefinition.websitearea.redirectlink.name" xml:space="preserve">
     <value>Efter inloggning, gå till denna sida</value>
   </data>
   <data name="fielddefinition.websitearea.redirectlink.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.megamenucategory.name" xml:space="preserve">
     <value>Kategori</value>
@@ -607,7 +607,7 @@
     <value>Kolumnhuvud</value>
   </data>
   <data name="fielddefinition.websitearea.megamenucolumnheader.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.megamenucategories.name" xml:space="preserve">
     <value>Kategorier</value>
@@ -637,67 +637,67 @@
     <value>Extra länk</value>
   </data>
   <data name="fielddefinition.websitearea.megamenuadditionallink.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.megamenulinktocategory.name" xml:space="preserve">
     <value>Länk till kategori</value>
   </data>
   <data name="fielddefinition.websitearea.megamenulinktocategory.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.websitearea.megamenulinktopage.name" xml:space="preserve">
     <value>Länk till sida</value>
   </data>
   <data name="fielddefinition.websitearea.megamenulinktopage.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.productarea.brand.name" xml:space="preserve">
     <value>Märke</value>
   </data>
   <data name="fielddefinition.productarea.brand.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.productarea.color.name" xml:space="preserve">
     <value>Färg</value>
   </data>
   <data name="fielddefinition.productarea.color.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.productarea.news.name" xml:space="preserve">
     <value>Nyhet</value>
   </data>
   <data name="fielddefinition.productarea.news.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.productarea.productsheet.name" xml:space="preserve">
     <value>Produktblad</value>
   </data>
   <data name="fielddefinition.productarea.productsheet.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.productarea.specification.name" xml:space="preserve">
     <value>Produktegenskaper</value>
   </data>
   <data name="fielddefinition.productarea.specification.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.productarea.acceleratorfilterfields.name" xml:space="preserve">
     <value>Visa som filter på sajten</value>
   </data>
   <data name="fielddefinition.productarea.acceleratorfilterfields.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.productarea.size.name" xml:space="preserve">
     <value>Storlek</value>
   </data>
   <data name="fielddefinition.productarea.size.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.productarea.weight.name" xml:space="preserve">
     <value>Vikt</value>
   </data>
   <data name="fielddefinition.productarea.weight.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="fielddefinition.productarea.agegroup.name" xml:space="preserve">
     <value>Åldersgrupp</value>
@@ -780,12 +780,11 @@
   <data name="fieldtemplate.websitearea.acceleratorwebsite.fieldgroup.search.name" xml:space="preserve">
     <value>Sök</value>
   </data>
-  <data name="fielddefinition.websitearea.footer.name">
+  <data name="fielddefinition.websitearea.footer.name" xml:space="preserve">
     <value>Sidfot</value>
   </data>
-  <data name="fielddefinition.websitearea.footer.description">
-    <value>
-    </value>
+  <data name="fielddefinition.websitearea.footer.description" xml:space="preserve">
+    <value />
   </data>
   <data name="fieldtemplate.websitearea.acceleratorwebsite.fieldgroup.footer.name" xml:space="preserve">
     <value>Sidfot</value>
@@ -1129,7 +1128,7 @@
   <data name="accelerator.validation.product.notenoughinstock" xml:space="preserve">
     <value>Det finns inte tillräckligt många {0} i lager. Din kundvagn har uppdaterats med det antal som vi kan leverera.</value>
   </data>
-  <data name="accelerator.deployment.import.header">
+  <data name="accelerator.deployment.import.header" xml:space="preserve">
     <value>Installera Accelerator-paket</value>
   </data>
   <data name="accelerator.deployment.name.label" xml:space="preserve">
@@ -1174,13 +1173,13 @@
   <data name="accelerator.deployment.export.success" xml:space="preserve">
     <value>Filerna har exporterats</value>
   </data>
-  <data name="accelerator.deployment.validation.domainnameexists">
+  <data name="accelerator.deployment.validation.domainnameexists" xml:space="preserve">
     <value>Domännamnet finns redan, var god ange ett annat.</value>
   </data>
   <data name="accelerator.deployment.validation.urlpath" xml:space="preserve">
     <value>Domännamnet får inte innehålla flera "/".</value>
   </data>
-  <data name="accelerator.deployment.validation.channelexists">
+  <data name="accelerator.deployment.validation.channelexists" xml:space="preserve">
     <value>Kanalnamnet  finns redan, vänligen ange ett annat.</value>
   </data>
   <data name="accelerator.deployment.error" xml:space="preserve">
@@ -1202,42 +1201,111 @@
     <value>Huvudmenykolumn</value>
   </data>
   <data name="fielddefinition.websitearea.megamenucolumn.description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
-  <data name="fielddefinition.productarea.organizationspointer.name">
+  <data name="fielddefinition.productarea.organizationspointer.name" xml:space="preserve">
     <value>Lista med organisationer</value>
   </data>
-  <data name="accelerator.settings.searchindexing.headline">
+  <data name="accelerator.settings.searchindexing.headline" xml:space="preserve">
     <value>Inställningar för sökindex</value>
   </data>
-  <data name="accelerator.settings.searchindexing.template.general.templates.headline">
+  <data name="accelerator.settings.searchindexing.template.general.templates.headline" xml:space="preserve">
     <value>Sökning i Acceleratorn baseras på valda fält. Om mallen inte har några valt fält baseras sökningen på alla fält.</value>
   </data>
-  <data name="accelerator.settings.searchindexing.template.template">
+  <data name="accelerator.settings.searchindexing.template.template" xml:space="preserve">
     <value>Mall</value>
   </data>
-  <data name="accelerator.settings.searchindexing.template.fields">
+  <data name="accelerator.settings.searchindexing.template.fields" xml:space="preserve">
     <value>Fält</value>
   </data>
-  <data name="accelerator.settings.searchindexing.template.selectedfields">
+  <data name="accelerator.settings.searchindexing.template.selectedfields" xml:space="preserve">
     <value>Valda fält</value>
   </data>
-  <data name="accelerator.settings.searchindexing.template.product.templates.headline">
+  <data name="accelerator.settings.searchindexing.template.product.templates.headline" xml:space="preserve">
     <value>Produktmallar</value>
   </data>
-  <data name="accelerator.settings.searchindexing.template.category.templates.headline">
+  <data name="accelerator.settings.searchindexing.template.category.templates.headline" xml:space="preserve">
     <value>Kategorimallar</value>
   </data>
-  <data name="accelerator.settings.searchindexing.template.page.templates.headline">
+  <data name="accelerator.settings.searchindexing.template.page.templates.headline" xml:space="preserve">
     <value>Sidmallar</value>
   </data>
-  <data name="accelerator.settings.searchindexing.template.block.templates.headline">
+  <data name="accelerator.settings.searchindexing.template.block.templates.headline" xml:space="preserve">
     <value>Blockmallar</value>
   </data>
-  <data name="accelerator.general.action.removeall">
+  <data name="accelerator.general.action.removeall" xml:space="preserve">
     <value>Ta bort allt</value>
   </data>
-  <data name="index.purchasehistories.queued">
+  <data name="index.purchasehistories.queued" xml:space="preserve">
     <value>All köphistorik är nu i kö.</value>
+  </data>
+  <data name="fielddefinition.websitearea.cookienotificationheader.name" xml:space="preserve">
+    <value>Cookie notifikation titel</value>
+  </data>
+  <data name="fielddefinition.websitearea.cookienotificationpolicypage.name" xml:space="preserve">
+    <value>Cookie Policy sida</value>
+  </data>
+  <data name="fielddefinition.websitearea.cookienotificationtext.name" xml:space="preserve">
+    <value>Cookie notifikation text</value>
+  </data>
+  <data name="fieldtemplate.websitearea.acceleratorwebsite.fieldgroup.cookie notification.name" xml:space="preserve">
+    <value>Cooke notifikation</value>
+  </data>
+  <data name="fielddefinition.websitearea.getorganisedpage.name" xml:space="preserve">
+    <value>Get Organised Sida</value>
+  </data>
+  <data name="fielddefinition.websitearea.externalb2blink.name" xml:space="preserve">
+    <value>Extern b2b sajt</value>
+  </data>
+  <data name="fieldtemplate.globalizationarea.defaultchannel.fieldgroup.socialmedia.name" xml:space="preserve">
+    <value>Social Media</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.facebook.name" xml:space="preserve">
+    <value>Facebook länk</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.instagramlink.name" xml:space="preserve">
+    <value>Instagram länk</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.linkedin.name" xml:space="preserve">
+    <value>LinkedIn länk</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.twitter.name" xml:space="preserve">
+    <value>Twitter länk</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.youtube.name" xml:space="preserve">
+    <value>Youtube länk</value>
+  </data>
+  <data name="fieldtemplate.globalizationarea.defaultchannel.fieldgroup.general.name" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="fieldtemplate.globalizationarea.defaultchannel.name" xml:space="preserve">
+    <value>Default Channel Field Template</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.flagicon.name" xml:space="preserve">
+    <value>Flaggikon</value>
+  </data>
+  <data name="fielddefinition.websitearea.footergetorganised.name" xml:space="preserve">
+    <value>Get Organised knapp</value>
+  </data>
+  <data name="fielddefinition.websitearea.footerlegal.name" xml:space="preserve">
+    <value>Legal</value>
+  </data>
+  <data name="fielddefinition.websitearea.footernewsletter.name" xml:space="preserve">
+    <value>Få nyhetsmail knapp</value>
+  </data>
+  <data name="fielddefinition.websitearea.footersocialmediatext.name" xml:space="preserve">
+    <value>Socialamedier text</value>
+  </data>
+  <data name="fielddefinition.websitearea.footertoptext.name" xml:space="preserve">
+    <value>Footer top text</value>
+  </data>
+  <data name="fielddefinition.websitearea.footervisionheader.name" xml:space="preserve">
+    <value>Vision header</value>
+  </data>
+  <data name="fielddefinition.websitearea.footervisiontextleft.name" xml:space="preserve">
+    <value>Vision text-vänster</value>
+  </data>
+  <data name="fielddefinition.websitearea.footervisiontextright.name" xml:space="preserve">
+    <value>Vision text-höger</value>
   </data>
 </root>

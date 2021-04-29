@@ -1,0 +1,58 @@
+﻿@model Litium.Accelerator.ViewModels.Framework.MarketSelectorViewModel
+
+@if (Model.ChannelLinkList.Any() && Model.ChannelLinkList.Count > 1)
+{
+	var current = Model.ChannelLinkList.FirstOrDefault(link => link.IsSelected);
+
+	var half = Model.ChannelLinkList.Count / 2;
+
+	var firstRow = Model.ChannelLinkList.Skip(0).Take(half);
+	var secondRow = Model.ChannelLinkList.Skip(half).Take(half);
+
+	<a href="#" class="nav-link dropdown-toggle" id="navbarMarketsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		@if (current != null)
+		{
+			if (!string.IsNullOrWhiteSpace(current.ExtraInfo))
+			{
+				<text>@current.ExtraInfo.ToLower()</text>
+			}
+			else
+			{
+				<text>@current.Name</text>
+			}
+		}
+	</a>
+	<ul class="dropdown-menu dropdown-menu-marketselector" aria-labelledby="navbarMarketsDropdown">
+		<li class="bg-white border-bottom border-dark border-1">
+			<div class="container">
+				<div class="clearfix"><div class="media close mt-3 float-end"></div></div>
+				<div class="row"><div class="col-12"><h3 class="px-3">@Html.WebSiteString("marketselector.markets.header")</h3></div></div>
+				<div class="row pb-4">
+					<div class="col-md-6">
+						<ul class="list-group list-group-flush">
+							@foreach (var link in firstRow)
+							{
+								if (link != null)
+								{
+							<li class="list-group-item vertical-align-tb">@Html.ImageFor(x => x.ChannelLinkList.First(channelLink => channelLink == link).Image, maxSize: new System.Drawing.Size(29, 19))<a class="ms-3" href="@link.Url">@(!string.IsNullOrWhiteSpace(link.ExtraInfo) ? $"{link.ExtraInfo} - {link.Name}" : link.Name)</a></li>
+								}
+							}
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="list-group list-group-flush">
+							@foreach (var link in secondRow)
+							{
+								if (link != null)
+								{
+									<li class="list-group-item"><a href="@link.Url">@(!string.IsNullOrWhiteSpace(link.ExtraInfo) ? $"{link.ExtraInfo} - {link.Name}" : link.Name)</a></li>
+								}
+							}
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</li>
+	</ul>
+}

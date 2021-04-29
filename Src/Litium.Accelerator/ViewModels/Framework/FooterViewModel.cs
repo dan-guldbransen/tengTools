@@ -8,12 +8,46 @@ using Litium.Accelerator.Constants;
 using Litium.FieldFramework.FieldTypes;
 using System.Linq;
 using System.Globalization;
+using Litium.Accelerator.Builders;
+using System;
 
 namespace Litium.Accelerator.ViewModels.Framework
 {
-    public class FooterViewModel : PageViewModel
+    public class FooterViewModel : IViewModel
     {
         public virtual List<SectionModel> SectionList { get; set; } = new List<SectionModel>();
+        public string TopText { get; set; }
+        public LinkModel GetOrganised { get; set; } = new LinkModel();
+        public LinkModel Newsletter { get; set; } = new LinkModel();
+        public string SocialMediaText { get; set; }
+        public string VisionHeader { get; set; }
+        public string VisionTextLeft { get; set; }
+        public string VisionTextRight { get; set; }
+        public string Legal { get; set; }
+
+        // Render logic
+        public bool HasCTASection => GetOrganised != null || Newsletter != null;
+        public bool HasVisionSection => !string.IsNullOrEmpty(VisionHeader) || !string.IsNullOrEmpty(VisionTextLeft) || !string.IsNullOrEmpty(VisionTextRight);
+
+        public int SectionCol
+        {
+            get
+            {
+                if(SectionList != null && SectionList.Any())
+                {
+                    return SectionList.Count switch
+                    {
+                        1 => 12,
+                        2 => 6,
+                        3 => 4,
+                        4 => 3,
+                        _ => 0
+                    };
+                }
+
+                return 0;
+            }
+        }
     }
 
     public class SectionModel : IAutoMapperConfiguration

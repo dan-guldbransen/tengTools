@@ -1,42 +1,38 @@
 .footer {
-    margin-top: rem(30px);
-    padding-top: rem(15px);
-    border-top: 1px solid $color-primary ;
-    color: $color-primary ;
-    font-weight: 300;
-    width: 100%;
-    max-width: none;
-    background: $color-tengtools-red;
-    
-    &__section {
-        padding-bottom: rem(15px);
-        word-break: break-word;
+    &:after {
+        @include icon--logo-notext();
+        position: absolute;
+        bottom: 0px;
+        left: 20px;
     }
 
-    a, &__link {
-        &, &:visited, &:hover, &:focus {
-            color: $color-primary ;
-            font-weight: 300;
-            text-decoration: none;
+    div.some {
+        height: 3rem;
+        width: 3rem;
+
+        a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            justify-content: center;
+
+            .media {
+                height: 1rem;
+                width: 1rem;
+                background-size: contain !important;
+
+                &.facebook {
+                    @include icon--facebook();
+                }
+
+                &.twitter {
+                    @include icon--twitter();
+                }
+
+                &.linkedin {
+                    @include icon--linkedin();
+                }
+            }
         }
-    }
-
-    &__header {
-        font-weight: 700;
-        font-size: $fontsize-h4;
-        margin: 4px 0 8px 0;
-    }
-
-    ul {
-        padding-left: 0;
-    }
-
-    li {
-        list-style: none;
-    }
-
-    p {
-        line-height: 1.5em;
-        margin: 0 0 10px 0;
     }
 }

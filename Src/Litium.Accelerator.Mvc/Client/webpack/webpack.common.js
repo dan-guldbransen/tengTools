@@ -84,13 +84,15 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [BUILD_DIR + '/*.*'],
-            verbose: false,
+            verbose: false, //todo: fix better solution
         }),
         new MiniCssExtractPlugin({
             filename: 'css/site.min.css'
         }),
         new CopyWebpackPlugin([
-            { from: path.resolve(ROOT, 'images'), to: path.resolve(BUILD_DIR, 'images') }
+            { from: path.resolve(ROOT, 'images'), to: path.resolve(BUILD_DIR, 'images') },
+            //{ from: path.resolve(ROOT, 'bootstrap'), to: path.resolve(BUILD_DIR, 'bootstrap') },
+            //{ from: path.resolve(ROOT, 'mmenu'), to: path.resolve(BUILD_DIR, 'mmenu') }
         ]),
         // new BundleAnalyzerPlugin(),
     ],

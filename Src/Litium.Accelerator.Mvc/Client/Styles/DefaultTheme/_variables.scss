@@ -10,25 +10,28 @@ $color-black-lighter        : #999 !default;
 $color-white                : #fff !default;
 $color-white-dark           : #fbfbfb !default;
 
-$color-primary              : #111 !default;
+$color-primary              : #F40000 !default;
 $color-primary-dark         : #000 !default;
 $color-error                : #f04124 !default;
 $color-success              : #393 !default;
+$color-secondary            : #FFD400;
 
 $color-link                 : #0099ff !default;
 
 $color-grey-lightest        : #f2f2f2 !default;
 $color-grey-lighter         : #eee !default;
 $color-grey-light           : #ddd !default;
-$color-grey                 : #ccc !default;
+$color-grey                 : #BCBEC0 !default;
 $color-grey-dark            : #bbb !default;
 $color-grey-darker          : #aaa !default;
 $color-grey-darkest         : #999 !default;
 
-$color-tengtools-red        : #F40000;
-$color-tengtools-grey       : #BCBEC0;
-$color-tengtools-yellow     : #FFD400;
-$color-tengtools-red-shadow : #CC0D12;
+$color-tengtools-red: #F40000;
+$color-tengtools-grey: #BCBEC0;
+$color-tengtools-dark-grey: #111111;
+$color-tengtools-yellow: #FFD400;
+$color-tengtools-logo-yellow: #FFD503;
+$color-tengtools-red-shadow: #CC0D12;
 
 /* Font size */
 $fontsize-tiny              : 10px;

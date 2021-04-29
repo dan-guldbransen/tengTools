@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Litium.Accelerator.ViewModels.Framework
 {
-    public class UtilityMenuViewModel : IViewModel
+    public class MarketSelectorViewModel : IViewModel
     {
         public IList<ContentLinkModel> ChannelLinkList { get; set; } = new List<ContentLinkModel>();
     }

@@ -38,10 +38,11 @@ namespace Litium.Accelerator.Definitions.Websites
                         Collapsed = false,
                         Fields =
                         {
-                            AcceleratorWebsiteFieldNameConstants.HeaderLayout,
                             AcceleratorWebsiteFieldNameConstants.CheckoutPage,
                             AcceleratorWebsiteFieldNameConstants.MyPagesPage,
-                            AcceleratorWebsiteFieldNameConstants.AdditionalHeaderLinks
+                            AcceleratorWebsiteFieldNameConstants.AdditionalHeaderLinks,
+                            AcceleratorWebsiteFieldNameConstants.GetOrganisedPage,
+                            AcceleratorWebsiteFieldNameConstants.ExternalB2BLink
                         }
                     },
                     new FieldTemplateFieldGroup()
@@ -59,7 +60,15 @@ namespace Litium.Accelerator.Definitions.Websites
                         Collapsed = false,
                         Fields =
                         {
-                            AcceleratorWebsiteFieldNameConstants.Footer
+                            AcceleratorWebsiteFieldNameConstants.FooterTopText,
+                            AcceleratorWebsiteFieldNameConstants.FooterGetOrganised,
+                            AcceleratorWebsiteFieldNameConstants.FooterNewsletter,
+                            AcceleratorWebsiteFieldNameConstants.Footer,
+                            AcceleratorWebsiteFieldNameConstants.FooterSocialMediaText,
+                            AcceleratorWebsiteFieldNameConstants.FooterVisionHeader,
+                            AcceleratorWebsiteFieldNameConstants.FooterVisionTextLeft,
+                            AcceleratorWebsiteFieldNameConstants.FooterVisionTextRight,
+                            AcceleratorWebsiteFieldNameConstants.FooterLegal
                         }
                     },
                     new FieldTemplateFieldGroup()
@@ -147,7 +156,18 @@ namespace Litium.Accelerator.Definitions.Websites
                         {
                             AcceleratorWebsiteFieldNameConstants.OrderConfirmationPage
                         }
-                    }
+                    },
+                    new FieldTemplateFieldGroup()
+                    {
+                        Id = "Cookie notification",
+                        Collapsed = false,
+                        Fields =
+                        {
+                            AcceleratorWebsiteFieldNameConstants.CookieNotificationHeader,
+                            AcceleratorWebsiteFieldNameConstants.CookieNotificationText,
+                            AcceleratorWebsiteFieldNameConstants.CookieNotificationPolicyPage
+                        }
+                    },
                 }
             };
             return new List<FieldTemplate>() { template };

@@ -1,24 +1,118 @@
-﻿@model Litium.Accelerator.ViewModels.Framework.HeaderViewModel 
+﻿@model Litium.Accelerator.ViewModels.Framework.HeaderViewModel
 @using Litium.Web.Mvc
 
 @{
-    var logoHeight = Model.IsBigHeader ? 60 : 50;
-    var headerClass = Model.IsBigHeader ? "extended-header" : "compact-header";
-    var headerRow = Model.HeaderName == "OneRow" ? "header__row--one-row" : "";
+	var hasGetOrganisedCTA = !string.IsNullOrEmpty(Model.GetOrganised.Href);
 }
 
-<header id="header" role="banner" class="header">
-    <div class="header__row @headerClass @headerRow">
-        <a href="@Model.StartPageUrl" class="header__logo">
-            @Html.ImageFor(x => x.Logo, maxSize: new System.Drawing.Size(-1, logoHeight))
-        </a>
-        <div class="header__components">
-            @Html.Partial("Framework/TopLink", Model)
-            <div id="quickSearch"></div>
-            @Html.Partial("Framework/Profile", Model)
-            <div id="miniCart" class="cart cart--mini"></div>
-        </div>
-        <div class="header__break"></div>
-        <nav role="navigation" class="navbar" id="navbar"></nav>
-    </div>
+<header id="header" role="banner" class="header bg-primary">
+	<nav class="navbar navbar-expand-lg border-bottom border-dark border-1 py-2 d-none d-lg-flex">
+		<div class="container justify-content-end">
+			<div class="collapse navbar-collapse me-auto">
+				<ul class="navbar-nav">
+					@Html.Partial("Framework/TopLink", Model)
+				</ul>
+			</div>
+
+			<div class="d-flex justify-content-around align-items-center">
+				<div class="marketselector dropdown">
+					@Html.Action("MarketSelector", "Layout")
+				</div>
+
+				<div class="ms-5" id="quickSearch"></div>
+			</div>
+		</div>
+	</nav>
+
+	<nav class="navbar navbar-expand-lg py-2 @(hasGetOrganisedCTA ? "p-lg-0": "py-lg-3") px-3 px-lg-0">
+		<div class="container">
+			<a class="navbar-brand me-5" href="@Model.StartPageUrl">
+				@Html.ImageFor(x => x.Logo, maxSize: new System.Drawing.Size(-1, 50))
+			</a>
+
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav">
+					<li class="nav-item px-4">
+						<a href="#" class="nav-link text-uppercase fs-5">Toolkits</a>
+					</li>
+					<li class="nav-item px-4">
+						<a href="#" class="nav-link text-uppercase fs-5">Förvaring</a>
+					</li>
+					<li class="nav-item px-4">
+						<a href="#" class="nav-link text-uppercase fs-5">Verktyg</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="d-flex align-items-center justify-content-around util-items">
+				<a href="#">
+					<div class="favorites media me-4"></div>
+				</a>
+
+				@Html.Partial("Framework/Profile", Model)
+
+				<a href="#">
+					<div class="wishlist media me-lg-4"></div>
+				</a>
+
+				@*<div id="miniCart" class="cart cart--mini"></div>*@
+
+			</div>
+			@if (hasGetOrganisedCTA)
+			{
+				<a class="btn btn-secondary btn-cta ms-3 text-uppercase d-none d-lg-block" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
+					Get Organised
+				</a>
+			}
+
+		</div>
+	</nav>
+
+	<nav class="navbar d-lg-none justify-content-between border-top border-dark border-1 ps-3 @(hasGetOrganisedCTA ? "py-0 pe-0": "")">
+		<div class="container @(hasGetOrganisedCTA ? "pe-0 ": "")">
+			<button class="hamburger hamburger--slider" type="button" id="mobile-menu-toggle">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
+
+			@if (hasGetOrganisedCTA)
+			{
+				<a class="btn btn-secondary btn-cta btn-cta-sm text-uppercase" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
+					Get Organised
+				</a>
+			}
+		</div>
+	</nav>
 </header>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobile-menu">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/work">Our work</a></li>
+		<li>
+			<span>About us</span>
+			<ul>
+				<li><a href="/about/history">History</a></li>
+				<li>
+					<span>The team</span>
+					<ul>
+						<li><a href="/about/team/management">Management</a></li>
+						<li><a href="/about/team/sales">Sales</a></li>
+						<li><a href="/about/team/development">Development</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<span>Services</span>
+			<ul>
+				<li><a href="/services/design">Design</a></li>
+				<li><a href="/services/development">Development</a></li>
+				<li><a href="/services/marketing">Marketing</a></li>
+			</ul>
+		</li>
+		<li><a href="/contact">Contact</a></li>
+	</ul>
+</nav>

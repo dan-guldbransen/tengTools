@@ -5,7 +5,7 @@
     /// </summary>
     public static class HeaderLayoutConstants
     {
-        public const string OneRow = "OneRow";
-        public const string TwoRows = "TwoRows";
+        public const string Red = "Red";
+        public const string Black = "Black";
     }
 }

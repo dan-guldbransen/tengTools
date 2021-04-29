@@ -3,6 +3,7 @@ import * as debounce from 'lodash.debounce';
 import { connect } from 'react-redux';
 import QuickSearch from '../Components/QuickSearch';
 import { query, setSearchQuery, toggleShowFullForm, handleKeyDown } from '../Actions/QuickSearch.action';
+import { show } from '../Actions/LightboxImages.action';
 
 class QuickSearchContainer extends Component {
     constructor(props) {
@@ -43,6 +44,11 @@ class QuickSearchContainer extends Component {
         }
     }
 
+    onClose() {
+        const { onSearch } = this.props;
+        onSearch("");
+    }
+
     componentDidUpdate(prevProps) {
         if (this.props.selectedItem !== prevProps.selectedItem) {
             document.querySelector('.quick-search-result__item--selected').scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
@@ -54,7 +60,7 @@ class QuickSearchContainer extends Component {
         const searchUrl = window.__litium.quickSearchUrl + (query.length > 0 ? `?q=${query}` : '');
         return (
             <div ref={(elem) => this.searchContainer = elem} >
-                <QuickSearch {...{...this.props, searchUrl, onBlur: () => this.onBlur() }} />
+                <QuickSearch {...{...this.props, searchUrl, onBlur: () => this.onBlur(), onClose: () => this.onClose() }} />
             </div>
         )
     }

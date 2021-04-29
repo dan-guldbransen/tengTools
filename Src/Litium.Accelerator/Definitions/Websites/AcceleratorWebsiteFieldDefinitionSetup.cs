@@ -14,26 +14,6 @@ namespace Litium.Accelerator.Definitions.Websites
             {
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.LogotypeMain, SystemFieldTypeConstants.MediaPointerImage),
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.LogotypeIcon, SystemFieldTypeConstants.MediaPointerImage),
-                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.HeaderLayout, SystemFieldTypeConstants.TextOption)
-                {
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                Value = HeaderLayoutConstants.OneRow,
-                                Name = new Dictionary<string, string> { { "en-US", "One row" }, { "sv-SE", "En rad" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = HeaderLayoutConstants.TwoRows,
-                                Name = new Dictionary<string, string> { { "en-US", "Two rows" }, { "sv-SE", "Två rader" } }
-                            }
-                        }
-                    }
-                },
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CheckoutPage, SystemFieldTypeConstants.Pointer)
                 {
                     Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
@@ -50,6 +30,40 @@ namespace Litium.Accelerator.Definitions.Websites
                 {
                     Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
                 },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterTopText, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = true,
+                    MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterGetOrganised, SystemFieldTypeConstants.Pointer)
+                {
+                    Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterNewsletter, SystemFieldTypeConstants.Pointer)
+                {
+                    Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterSocialMediaText, SystemFieldTypeConstants.Text)
+                {
+                   MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterVisionHeader, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterVisionTextLeft, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterVisionTextRight, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterLegal, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true
+                },
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterHeader, SystemFieldTypeConstants.LimitedText)
                 {
                     MultiCulture = true,
@@ -64,7 +78,7 @@ namespace Litium.Accelerator.Definitions.Websites
                 },
                  new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.Footer, SystemFieldTypeConstants.MultiField)
                 {
-                    Option = new MultiFieldOption { IsArray = true, Fields = new List<string>(){ AcceleratorWebsiteFieldNameConstants.FooterHeader, AcceleratorWebsiteFieldNameConstants.FooterLinkList, AcceleratorWebsiteFieldNameConstants.FooterText } }
+                    Option = new MultiFieldOption { IsArray = true, Fields = new List<string>(){AcceleratorWebsiteFieldNameConstants.FooterHeader, AcceleratorWebsiteFieldNameConstants.FooterLinkList } }
                 },
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.NavigationTheme, SystemFieldTypeConstants.TextOption)
                 {
@@ -144,6 +158,35 @@ namespace Litium.Accelerator.Definitions.Websites
                 new FieldDefinition<WebsiteArea>(CheckoutPageFieldNameConstants.TermsAndConditionsPage, SystemFieldTypeConstants.Pointer)
                 {
                     Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CookieNotificationHeader, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = true,
+                    MultiCulture = true,
+                    Option = new TextOption()
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CookieNotificationText, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = true,
+                    MultiCulture = true,
+                    Option = new TextOption()
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CookieNotificationPolicyPage, SystemFieldTypeConstants.Pointer)
+                {
+                    Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
+                },
+                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.GetOrganisedPage, SystemFieldTypeConstants.Pointer)
+                {
+                    Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
+                },
+                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.ExternalB2BLink, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true,
+                    Option = new TextOption()
                 },
             };
             return fields;

@@ -1,0 +1,99 @@
+trigger:
+  branches:
+    include:
+    - develop
+    - master
+    - feature/*
+    - hotfix/*
+variables:
+- name: solution
+  value: '**/*.sln'
+- name: buildPlatform
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+name: $(date:yyyyMMdd)$(rev:.r)
+stages:
+- stage: __default
+  jobs:
+  - job: Job
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: GitVersion@5
+      inputs:
+        runtime: 'full'
+        preferBundledVersion: false
+    - task: NuGetAuthenticate@0
+      displayName: 'Litium Nuget Authenticate'
+      inputs:
+        nuGetServiceConnections: 'Litium Nuget Feed'
+        forceReinstallCredentialProvider: true
+    - task: NuGetToolInstaller@1
+      displayName: 'Install Nuget'
+    - task: NodeTool@0
+      displayName: 'Use Node Version 14.x'
+      inputs:
+        versionSpec: '14.x'
+    - task: YarnInstaller@3
+      inputs:
+        versionSpec: '1.x'
+        checkLatest: true
+    - task: Yarn@3
+      displayName: 'Yarn Install'
+      inputs:
+        projectDirectory: 'Src\Litium.Accelerator.Mvc\'
+        arguments: 'install'
+    - task: Yarn@3
+      displayName: 'Yarn run prod'
+      inputs:
+        projectDirectory: 'Src\Litium.Accelerator.Mvc\'
+        arguments: 'run prod'
+    - task: NuGetCommand@2
+      displayName: Restore Nugets
+      inputs:
+        restoreSolution: '$(solution)'
+        feedsToUse: 'config'
+        nugetConfigPath: 'NuGet.config'
+        externalFeedCredentials: 'Litium Nuget Feed'
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'
+        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+    - task: OctopusPack@4
+      condition: and( 	succeeded(),  	 	or(  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/develop'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/master'),  		 		startsWith(variables['Build.SourceBranchName'], 'develop'),  		 		startsWith(variables['Build.SourceBranchName'], 'master'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'), 		startsWith(variables['Build.SourceBranchName'], 'upgrade') 	) 		 )
+      inputs:
+        PackageId: 'Tengtools.Web'
+        PackageFormat: 'NuPkg'
+        PackageVersion: '$(Build.BuildNumber)'
+        SourcePath: '$(Build.ArtifactStagingDirectory)'
+        OutputPath: '$(System.ArtifactsDirectory)'
+    - task: OctopusPush@4
+      condition: and( 	succeeded(),  	 	or(  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/develop'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/master'),  		 		startsWith(variables['Build.SourceBranchName'], 'develop'),  		 		startsWith(variables['Build.SourceBranchName'], 'master'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'), 		startsWith(variables['Build.SourceBranchName'], 'upgrade') 	) 		 )
+      inputs:
+        OctoConnectedServiceName: 'Octopus'
+        Space: 'Spaces-1'
+        Package: '$(System.ArtifactsDirectory)/Tengtools.Web.$(Build.BuildNumber).nupkg'
+        Replace: 'true'
+    - task: OctopusMetadata@4
+      condition: and( 	succeeded(),  	 	or(  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/develop'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/master'),  		 		startsWith(variables['Build.SourceBranchName'], 'develop'),  		 		startsWith(variables['Build.SourceBranchName'], 'master'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'), 		startsWith(variables['Build.SourceBranchName'], 'upgrade') 	) 		 )
+      inputs:
+        OctoConnectedServiceName: 'Octopus'
+        Space: 'Spaces-1'
+        PackageId: 'Tengtools.Web'
+        PackageVersion: '$(GitVersion.SemVer)'
+        Replace: 'IgnoreIfExists'
+    - task: OctopusCreateRelease@4
+      condition: and( 	succeeded(),  	 	or(  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/develop'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/master'),  		 		startsWith(variables['Build.SourceBranchName'], 'develop'),  		 		startsWith(variables['Build.SourceBranchName'], 'master'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/release/'),  		 		startsWith(variables['Build.SourceBranch'], 'refs/heads/hotfix/'), 		startsWith(variables['Build.SourceBranchName'], 'upgrade') 	) 		 )
+      inputs:
+        OctoConnectedServiceName: 'Octopus'
+        Space: 'Spaces-1'
+        ProjectGroup: 'ProjectGroups-203'
+        ProjectName: 'Projects-402'
+        ReleaseNumber: '$(GitVersion.SemVer).$(Build.BuildId)+$(GitVersion.ShortSha)'
+        Channel: '$(Build.SourceBranchName)'
+        ChangesetCommentReleaseNotes: true
+        AdditionalArguments: '--packageversion=$(GitVersion.SemVer)'
+
