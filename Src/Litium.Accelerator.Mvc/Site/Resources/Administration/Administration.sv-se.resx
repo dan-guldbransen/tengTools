@@ -1284,4 +1284,28 @@
   <data name="fielddefinition.globalizationarea.flagicon.name" xml:space="preserve">
     <value>Flaggikon</value>
   </data>
+  <data name="fielddefinition.websitearea.footergetorganised.name" xml:space="preserve">
+    <value>Get Organised knapp</value>
+  </data>
+  <data name="fielddefinition.websitearea.footerlegal.name" xml:space="preserve">
+    <value>Legal</value>
+  </data>
+  <data name="fielddefinition.websitearea.footernewsletter.name" xml:space="preserve">
+    <value>Få nyhetsmail knapp</value>
+  </data>
+  <data name="fielddefinition.websitearea.footersocialmediatext.name" xml:space="preserve">
+    <value>Socialamedier text</value>
+  </data>
+  <data name="fielddefinition.websitearea.footertoptext.name" xml:space="preserve">
+    <value>Footer top text</value>
+  </data>
+  <data name="fielddefinition.websitearea.footervisionheader.name" xml:space="preserve">
+    <value>Vision header</value>
+  </data>
+  <data name="fielddefinition.websitearea.footervisiontextleft.name" xml:space="preserve">
+    <value>Vision text-vänster</value>
+  </data>
+  <data name="fielddefinition.websitearea.footervisiontextright.name" xml:space="preserve">
+    <value>Vision text-höger</value>
+  </data>
 </root>

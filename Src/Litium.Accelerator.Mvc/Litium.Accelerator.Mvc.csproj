@@ -149,6 +149,8 @@
     <Content Include="Client\images\checked.svg" />
     <Content Include="Client\images\cross.svg" />
     <Content Include="Client\images\cta-arrow.svg" />
+    <Content Include="Client\images\Divider.svg" />
+    <Content Include="Client\images\facebook.svg" />
     <Content Include="Client\images\Favicon_litium_transp.16x16.ico" />
     <Content Include="Client\images\Favicon_litium_transp.16x16.png" />
     <Content Include="Client\images\Favicon_litium_transp.180x180.png" />
@@ -157,6 +159,7 @@
     <Content Include="Client\images\Favicon_litium_transp.96x96.png" />
     <Content Include="Client\images\favorites.svg" />
     <Content Include="Client\images\hamburger.svg" />
+    <Content Include="Client\images\linkedin.svg" />
     <Content Include="Client\images\Logo-B2C.png" />
     <Content Include="Client\images\magnifier.svg" />
     <Content Include="Client\images\menu.svg" />
@@ -165,6 +168,8 @@
     <Content Include="Client\images\rotate-arrow.svg" />
     <Content Include="Client\images\search.svg" />
     <Content Include="Client\images\shopping-bag.png" />
+    <Content Include="Client\images\tengtoolslogo.svg" />
+    <Content Include="Client\images\twitter.svg" />
     <Content Include="Client\images\user.png" />
     <Content Include="Client\images\user.svg" />
     <Content Include="Client\images\wishlist.svg" />

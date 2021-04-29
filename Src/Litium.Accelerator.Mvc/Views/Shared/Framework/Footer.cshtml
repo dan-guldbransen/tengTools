@@ -1,24 +1,86 @@
 @model Litium.Accelerator.ViewModels.Framework.FooterViewModel
-<footer class="footer">
-    <div class="row">
-    @if (Model.SectionList.Any()) {
-        foreach (var sectionItem in Model.SectionList)
-        {
-            <section class="columns small-10 small-offset-1 medium-offset-0 medium-5 large-3 footer__section">
-                <h4 class="footer__header">@sectionItem.SectionTitle</h4>
-                @if (sectionItem.SectionLinkList != null)
-                {
-                    foreach (var linkItem in sectionItem.SectionLinkList)
-                    {
-                        <p><a class="footer__link" href="@linkItem.Href">@linkItem.Text</a></p>
-                    }
-                }
-                @if (!string.IsNullOrWhiteSpace(sectionItem.SectionText?.Value))
-                {
-                    <p>@sectionItem.SectionText</p>
-                }
-            </section>
-        }
-    }
-    </div>
+<footer class="footer bg-dark pt-5 mt-5">
+	<div class="container">
+
+		@if (!string.IsNullOrEmpty(Model.TopText))
+		{
+			<h2 class="text-white my-5 text-center">
+				@Model.TopText
+			</h2>
+		}
+
+		@if (Model.HasCTASection)
+		{
+			<div class="my-5 py-3 fs-6 text-uppercase d-flex justify-content-center">
+				<a class="mx-3 btn btn-primary @(Model.Newsletter != null ? "" : "d-none")" href="@Model.Newsletter.Href">@Model.Newsletter.Text</a>
+				<a class="mx-3 btn btn-secondary @(Model.GetOrganised != null ? "" : "d-none")" href="@Model.GetOrganised.Href">@Model.GetOrganised.Text</a>
+			</div>
+		}
+
+		@if (Model.SectionList.Any())
+		{
+			<div class="row my-5 pb-3 text-white">
+				@foreach (var sectionItem in Model.SectionList)
+				{
+					<div class="col-6 text-center col-lg-@(Model.SectionCol)">
+
+						<h2 class="text-uppercase fw-bold fs-6 mt-4 @(!string.IsNullOrEmpty(sectionItem.SectionTitle) ? "" : "d-none")">@sectionItem.SectionTitle</h2>
+
+						<div class="text-left mt-2">
+							@if (sectionItem.SectionLinkList != null)
+							{
+								foreach (var linkItem in sectionItem.SectionLinkList)
+								{
+									<a class="menu-item d-block text-decoration-none text-white light-text" href="#">@linkItem.Text</a>
+								}
+							}
+						</div>
+					</div>
+				}
+			</div>
+		}
+
+		<!-- SoMe TODO: Logic here for rendering-->
+		<div class="row mt-5 pt-3 justify-content-center text-center">
+			<div class=" col-12 col-md-3 text-white text-uppercase light-text fs-5 @(string.IsNullOrEmpty(@Model.SocialMediaText) ? "d-none" : "")">@Model.SocialMediaText</div>
+			
+		</div>
+		<div class="d-flex my-5 py-3 align-items-center justify-content-center">
+			<div class="mx-4 some rounded-circle border border-1 border-white">
+				<a href="#">
+					<div class="facebook media rounded-circle round-button"></div>
+				</a>
+			</div>
+			<div class="mx-4 some rounded-circle border border-1 border-white">
+				<a href="#">
+					<div class="linkedin media"></div>
+				</a>
+			</div>
+			<div class="mx-4 some rounded-circle border border-1 border-white">
+				<a href="#">
+					<div class="twitter media rounded-circle round-button"></div>
+				</a>
+			</div>
+		</div>
+
+		<div class="row"><div class="col-12"><hr /></div></div>
+
+		<!-- "Vision" -->
+		@if (Model.HasVisionSection)
+		{
+
+			<div class="row mt-5 pb-5 justify-content-center">
+				<div class="w-25 text-white fw-bold fs-6 text-center @(!string.IsNullOrEmpty(Model.VisionHeader) ? "" : "d-none")">@Model.VisionHeader</div>
+				<div class="row mt-4 justify-content-center text-left">
+					<div class="col-3 vision-text text-white-50 @(!string.IsNullOrEmpty(Model.VisionTextLeft) ? "" : "d-none")">@Model.VisionTextLeft</div>
+					<div class="col-3 vision-text text-white-50 @(!string.IsNullOrEmpty(Model.VisionTextRight) ? "" : "d-none")">@Model.VisionTextRight</div>
+				</div>
+			</div>
+		}
+
+		<!-- Disclaimer -->
+		<div class="row text-center py-5">
+			<div class="col-12"><p class="text-white-50 fw-lighter legal-text">© @DateTime.Now.Year @Model.Legal</p></div>
+		</div>
+	</div>
 </footer>

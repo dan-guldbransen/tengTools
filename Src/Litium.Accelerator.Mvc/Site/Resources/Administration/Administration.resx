@@ -1296,4 +1296,28 @@
   <data name="fielddefinition.globalizationarea.flagicon.name" xml:space="preserve">
     <value>Flag icon</value>
   </data>
+  <data name="fielddefinition.websitearea.footergetorganised.name" xml:space="preserve">
+    <value>Get Organised button</value>
+  </data>
+  <data name="fielddefinition.websitearea.footerlegal.name" xml:space="preserve">
+    <value>Legal</value>
+  </data>
+  <data name="fielddefinition.websitearea.footernewsletter.name" xml:space="preserve">
+    <value>Newsletter signup button</value>
+  </data>
+  <data name="fielddefinition.websitearea.footersocialmediatext.name" xml:space="preserve">
+    <value>Social media text</value>
+  </data>
+  <data name="fielddefinition.websitearea.footertoptext.name" xml:space="preserve">
+    <value>Footer top text</value>
+  </data>
+  <data name="fielddefinition.websitearea.footervisionheader.name" xml:space="preserve">
+    <value>Vision header</value>
+  </data>
+  <data name="fielddefinition.websitearea.footervisiontextleft.name" xml:space="preserve">
+    <value>Vision left text</value>
+  </data>
+  <data name="fielddefinition.websitearea.footervisiontextright.name" xml:space="preserve">
+    <value>Vision right text</value>
+  </data>
 </root>

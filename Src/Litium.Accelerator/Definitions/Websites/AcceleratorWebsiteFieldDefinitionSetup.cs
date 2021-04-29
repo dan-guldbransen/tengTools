@@ -30,6 +30,40 @@ namespace Litium.Accelerator.Definitions.Websites
                 {
                     Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
                 },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterTopText, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = true,
+                    MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterGetOrganised, SystemFieldTypeConstants.Pointer)
+                {
+                    Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterNewsletter, SystemFieldTypeConstants.Pointer)
+                {
+                    Option = new PointerOption { EntityType = PointerTypeConstants.WebsitesPage }
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterSocialMediaText, SystemFieldTypeConstants.Text)
+                {
+                   MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterVisionHeader, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterVisionTextLeft, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterVisionTextRight, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true,
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterLegal, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true
+                },
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterHeader, SystemFieldTypeConstants.LimitedText)
                 {
                     MultiCulture = true,
@@ -44,7 +78,7 @@ namespace Litium.Accelerator.Definitions.Websites
                 },
                  new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.Footer, SystemFieldTypeConstants.MultiField)
                 {
-                    Option = new MultiFieldOption { IsArray = true, Fields = new List<string>(){ AcceleratorWebsiteFieldNameConstants.FooterHeader, AcceleratorWebsiteFieldNameConstants.FooterLinkList, AcceleratorWebsiteFieldNameConstants.FooterText } }
+                    Option = new MultiFieldOption { IsArray = true, Fields = new List<string>(){AcceleratorWebsiteFieldNameConstants.FooterHeader, AcceleratorWebsiteFieldNameConstants.FooterLinkList } }
                 },
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.NavigationTheme, SystemFieldTypeConstants.TextOption)
                 {

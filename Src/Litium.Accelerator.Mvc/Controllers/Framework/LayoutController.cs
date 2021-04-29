@@ -16,7 +16,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         private readonly HeadViewModelBuilder<HeadViewModel> _headViewModelBuilder;
         private readonly HeaderViewModelBuilder<HeaderViewModel> _headerViewModelBuilder;
         private readonly BreadCrumbsViewModelBuilder<BreadCrumbsViewModel> _breadCrumbsViewModelBuilder;
-        private readonly FooterViewModelBuilder _footerViewModelBuilder;
+        private readonly FooterViewModelBuilder<FooterViewModel> _footerViewModelBuilder;
         private readonly BodyViewModelBuilder _bodyViewModelBuilder;
         private readonly MarketSelectorViewModelBuilder<MarketSelectorViewModel> _marketSelectorViewModelBuilder;
         private readonly CookieNotificationViewModelBuilder<CookieNotificationViewModel> _cookieNotificationViewModelBuilder;
@@ -25,7 +25,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             BreadCrumbsViewModelBuilder<BreadCrumbsViewModel> breadCrumbsViewModelBuilder,
             HeadViewModelBuilder<HeadViewModel> headViewModelBuilder,
             HeaderViewModelBuilder<HeaderViewModel> headerViewModelBuilder,
-            FooterViewModelBuilder footerViewModelBuilder,
+            FooterViewModelBuilder<FooterViewModel> footerViewModelBuilder,
             BodyViewModelBuilder bodyViewModelBuilder,
             MarketSelectorViewModelBuilder<MarketSelectorViewModel> marketSelectorViewModelBuilder,
             CookieNotificationViewModelBuilder<CookieNotificationViewModel> cookieNotificationViewModelBuilder)

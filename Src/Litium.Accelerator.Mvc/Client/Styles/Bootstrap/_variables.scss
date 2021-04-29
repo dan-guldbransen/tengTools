@@ -25,6 +25,7 @@ $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #d63384 !default;
 $red:     #f40000;
+$grey:    #111111;
 $orange:  #fd7e14 !default;
 $yellow:  #FFD503;
 $green:   #198754 !default;
@@ -40,7 +41,7 @@ $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         #a9a9a9;
-$dark:          $gray-900 !default;
+$dark:          #111111;
 // scss-docs-end theme-color-variables
 
 // Options
@@ -48,7 +49,7 @@ $dark:          $gray-900 !default;
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-caret: true !default;
-$enable-rounded: true !default;
+$enable-rounded: false;
 $enable-shadows: false !default;
 $enable-gradients: false !default;
 $enable-transitions: true !default;

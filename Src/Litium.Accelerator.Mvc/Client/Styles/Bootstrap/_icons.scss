@@ -29,3 +29,17 @@
 @mixin icon--close() {
     content: url('../../images/close.svg');
 }
+
+@mixin icon--logo-notext() {
+    content: url('../../images/tengtoolslogo.svg');
+}
+
+@mixin icon--facebook() {
+    background: url('../../images/facebook.svg') center no-repeat;
+}
+@mixin icon--linkedin() {
+    background: url('../../images/linkedin.svg') center no-repeat;
+}
+@mixin icon--twitter() {
+    background: url('../../images/twitter.svg') center no-repeat;
+}

@@ -60,7 +60,15 @@ namespace Litium.Accelerator.Definitions.Websites
                         Collapsed = false,
                         Fields =
                         {
-                            AcceleratorWebsiteFieldNameConstants.Footer
+                            AcceleratorWebsiteFieldNameConstants.FooterTopText,
+                            AcceleratorWebsiteFieldNameConstants.FooterGetOrganised,
+                            AcceleratorWebsiteFieldNameConstants.FooterNewsletter,
+                            AcceleratorWebsiteFieldNameConstants.Footer,
+                            AcceleratorWebsiteFieldNameConstants.FooterSocialMediaText,
+                            AcceleratorWebsiteFieldNameConstants.FooterVisionHeader,
+                            AcceleratorWebsiteFieldNameConstants.FooterVisionTextLeft,
+                            AcceleratorWebsiteFieldNameConstants.FooterVisionTextRight,
+                            AcceleratorWebsiteFieldNameConstants.FooterLegal
                         }
                     },
                     new FieldTemplateFieldGroup()

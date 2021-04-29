@@ -10,6 +10,14 @@
         public const string AdditionalHeaderLinks = "AdditionalHeaderLinks";
         public const string SearchResultPage = "SearchResultPage";
         public const string Footer = "Footer";
+        public const string FooterTopText = "FooterTopText";
+        public const string FooterGetOrganised = "FooterGetOrganised";
+        public const string FooterNewsletter = "FooterNewsletter";
+        public const string FooterSocialMediaText = "FooterSocialMediaText";
+        public const string FooterVisionHeader = "FooterVisionHeader";
+        public const string FooterVisionTextLeft = "FooterVisionTextLeft";
+        public const string FooterVisionTextRight = "FooterVisionTextRight";
+        public const string FooterLegal = "FooterLegal";
         public const string FooterHeader = "FooterHeader";
         public const string FooterLinkList = "FooterLinkList";
         public const string FooterText = "FooterText";
