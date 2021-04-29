@@ -1,4 +1,8 @@
-﻿using inRiver.DataSyncTask.Models.Litium;
+﻿using inRiver.DataSyncTask.Constants;
+using inRiver.DataSyncTask.Models.Litium;
+using inRiver.Remoting;
+using inRiver.Remoting.Extension;
+using inRiver.Remoting.Objects;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -48,5 +52,59 @@ namespace inRiver.DataSyncTask.Services
                 result.EnsureSuccessStatusCode();
             }
         }
+
+
+        public static void SaveCategories(Models.Litium.Category category)
+        {
+            using (var client = Utils.LitiumClient.GetAuthorizedClient())
+            {
+                string json = JsonConvert.SerializeObject(category, Formatting.None,
+                                    new JsonSerializerSettings
+                                        {
+                                            NullValueHandling = NullValueHandling.Ignore
+                                        });
+                var content = new StringContent(
+                  json,
+                  Encoding.UTF8,
+                  "application/json"
+                  );
+                var result = client.PostAsync("litium/api/admin/products/categories", content).Result;
+                Console.WriteLine(result.Content);
+
+                result.EnsureSuccessStatusCode();
+            }
+        }
+
+        public static void UpdateCategories(Models.Litium.Category category)
+        {
+            using (var client = Utils.LitiumClient.GetAuthorizedClient())
+            {
+                string json = JsonConvert.SerializeObject(category);
+                var content = new StringContent(
+                  json,
+                  Encoding.UTF8,
+                  "application/json"
+                  );
+                var result = client.PutAsync($"litium/api/admin/products/categories/{category.SystemId}", content).Result;
+                Console.WriteLine(result.Content);
+
+                result.EnsureSuccessStatusCode();
+            }
+        }
+
+        public static List<Entity> GetProducts()
+        {
+            var context = GetContext();
+            var products = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, InRiver.EntityType.ProductTypeId, LoadLevel.DataAndLinks);
+            return products;
+        }
+        public static inRiverContext GetContext()
+        {
+            var context = new inRiverContext(RemoteManager.CreateInstance(InRiver.Remoting.InRiverRemotingUrl, InRiver.Remoting.InRiverUsername, InRiver.Remoting.InRiverPassword, InRiver.Remoting.InRiverEnvironmentTest), new ConsoleLogger());
+            return context;
+
+        }
+
+
     }
 }

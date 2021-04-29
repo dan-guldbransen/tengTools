@@ -2016,4 +2016,10 @@
   <data name="fielddefinition.productarea.ProductSymbols.name" xml:space="preserve">
     <value>Symbols</value>
   </data>
+  <data name="fielddefinition.productarea.ProductHeadCategory.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductHeadCategory.name" xml:space="preserve">
+    <value>Head category</value>
+  </data>
 </root>

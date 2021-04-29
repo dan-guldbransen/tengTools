@@ -36,8 +36,14 @@ namespace inRiver.DataSyncTask.Services
                 }
 
                 // Category
+             
                 var productCategoryNumbers = product.GetField("ProductCategoryNumber").Data as LocaleString;
-                var productCategoryNumber = productCategoryNumbers[productCategoryNumbers.Languages.First()];
+                string productCategoryNumber;
+                if (productCategoryNumbers != null)
+                {
+                     productCategoryNumber = productCategoryNumbers[productCategoryNumbers.Languages.First()];
+                }
+               
 
 
                 // Other Fields

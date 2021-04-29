@@ -14,27 +14,18 @@ namespace inRiver.DataSyncTask
     {
         static void Main(string[] args)
         {
-            const string InRiverRemotingUrl = "https://remoting.productmarketingcloud.com";
-            const string InRiverUsername = "inriver-tengtools@consid.se";
-            const string InRiverPassword = "544%%IdkwDWHk\"XgbeU3pdD"; //notera escapat " i lösen... Autogenerat :)
-            const string InRiverEnvironmentProd = "prod";
-            const string InRiverEnvironmentTest = "test";
-            const string ProductTypeId = "Product";
-            const string ItemTypeId = "Item";
-            const string ResourceTypeId = "Resource";
-            const string CategoryTypeId = "Category";
-            const string ProductItemLink = "ProductItem";
-
             Console.WriteLine("Connecting...");
-            var context = new inRiverContext(RemoteManager.CreateInstance(InRiver.Remoting.InRiverRemotingUrl, InRiver.Remoting.InRiverUsername, InRiver.Remoting.InRiverPassword, InRiver.Remoting.InRiverEnvironmentTest), new ConsoleLogger());
+            var context = LitiumCommonService.GetContext();
+             context = new inRiverContext(RemoteManager.CreateInstance(InRiver.Remoting.InRiverRemotingUrl, InRiver.Remoting.InRiverUsername, InRiver.Remoting.InRiverPassword, InRiver.Remoting.InRiverEnvironmentTest), new ConsoleLogger());
             Console.WriteLine("Connected!");
 
-            var products = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, InRiver.EntityType.ProductTypeId, LoadLevel.DataAndLinks);
+            var products = LitiumCommonService.GetProducts();
             var items = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, InRiver.EntityType.ItemTypeId, LoadLevel.DataAndLinks);
-            
+
             var cvlValues = context.ExtensionManager.ModelService.GetAllCVLValues().ToList();
 
-            //Get inRiver Categories lvl 1 and 2
+            //Get inRiver Categories lvl 1 and 2  
+            var headCategory = cvlValues.Where(c => c.CVLId == InRiver.CVL.HeadCategory).ToList();
             var productCategories = cvlValues.Where(c => c.CVLId == InRiver.CVL.Category).ToList();
             var productGroups = cvlValues.Where(c => c.CVLId == InRiver.CVL.ProductGroup).ToList();
 
@@ -45,22 +36,28 @@ namespace inRiver.DataSyncTask
             var data = new Data();
 
             // Categories (existing categories may be redundant, will check how save data behaves) 
+            var categories = new List<Models.Litium.Category>();
+
+            categories = CategoryService.ProcessCategoryCVLsProductCategories(headCategory, 1, categories);
+            categories = CategoryService.ProcessCategoryCVLsProductCategories(productCategories, 2, categories, headCategory);
+            categories = CategoryService.ProcessCategoryCVLsProductCategories(productGroups, 3, categories, productCategories);
+           
+
             (string assortmentId, List<string> existingCategorys) = CategoryService.GetAssortmentIdAndExistingCategoryIds();
-            
-            var categories = CategoryService.ProcessCategoryCVLs(productCategories, productGroups);
 
             // Resources ??
 
-                var keyValues = new List<KeyValuePair<string,string>>();
-                keyValues.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
-                keyValues.Add(new KeyValuePair<string, string>("client_id", "IntegrationAccount"));
-                keyValues.Add(new KeyValuePair<string, string>("client_secret", "consid12345"));
+            // Products
+            ProductService.ProcessProducts(products, data, cultures, assortmentId, existingCategorys, categories);
 
-                request.Content = new FormUrlEncodedContent(keyValues);
-                var response = await client.SendAsync(request);
+            // Variants
+            VariantService.ProcessVariants(items, data, cultures);
 
             // Save data to Litium
             LitiumCommonService.SaveData(data);
+
+           
         }
+        
     }
 }

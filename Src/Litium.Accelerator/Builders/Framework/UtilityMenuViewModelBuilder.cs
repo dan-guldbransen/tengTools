@@ -26,7 +26,7 @@ namespace Litium.Accelerator.Builders.Framework
             _urlService = urlService;
             _requestModelAccessor = requestModelAccessor;
             _channelService = channelService;
-            _pageService = pageService;
+            _pageService = pageService; 
         }
 
         public UtilityMenuViewModel Build()

@@ -33,8 +33,8 @@ namespace inRiver.DataSyncTask.Utils
 
                 var keyValues = new List<KeyValuePair<string, string>>();
                 keyValues.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
-                keyValues.Add(new KeyValuePair<string, string>("client_id", "IntegrationAccount"));
-                keyValues.Add(new KeyValuePair<string, string>("client_secret", "consid12345"));
+                keyValues.Add(new KeyValuePair<string, string>("client_id", "serviceID"));
+                keyValues.Add(new KeyValuePair<string, string>("client_secret", "servicepw"));
 
                 request.Content = new FormUrlEncodedContent(keyValues);
                 var response = client.SendAsync(request).Result;
@@ -49,7 +49,7 @@ namespace inRiver.DataSyncTask.Utils
         {
             return new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:56020")
+                BaseAddress = new Uri("http://localhost:51134")
             };
         }
     }

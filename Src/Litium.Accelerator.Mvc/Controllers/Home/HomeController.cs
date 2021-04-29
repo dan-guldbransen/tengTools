@@ -3,6 +3,12 @@ using Litium.Web.Models.Websites;
 using System;
 using System.Web.Mvc;
 using Litium.Accelerator.Builders.Home;
+using Litium.Web;
+using Litium.Accelerator.Routing;
+using Litium.Websites;
+using Litium.Globalization;
+using Litium.Products;
+using Litium.Accelerator.Services;
 
 namespace Litium.Accelerator.Mvc.Controllers.Home
 {
@@ -19,7 +25,6 @@ namespace Litium.Accelerator.Mvc.Controllers.Home
 
         public ActionResult Index(PageModel currentPageModel)
         {
-
             var previewBlockId = Request.QueryString["previewGlobalBlock"];
             if (!string.IsNullOrEmpty(previewBlockId) && Guid.TryParse(previewBlockId, out var blockId) && _authorizationService.HasOperation(Operations.Function.Websites.UI))
             {

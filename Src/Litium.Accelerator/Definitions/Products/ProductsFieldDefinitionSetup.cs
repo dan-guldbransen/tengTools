@@ -1533,6 +1533,13 @@ namespace Litium.Accelerator.Definitions.Products
                     MultiCulture = false
                 },
 
+                 new FieldDefinition<ProductArea>("ProductHeadCategory", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = true,
+                    CanBeGridFilter = true,
+                    MultiCulture = false
+                },
+
                 new FieldDefinition<ProductArea>("ProductItemType", SystemFieldTypeConstants.TextOption)
                 {
                     CanBeGridColumn = true,
