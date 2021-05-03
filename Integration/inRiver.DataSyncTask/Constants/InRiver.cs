@@ -26,6 +26,7 @@ namespace inRiver.DataSyncTask.Constants
 
         public class EntityType
         {
+            public const string ChannelTypeId = "Channel";
             public const string ProductTypeId = "Product";
             public const string ItemTypeId = "Item";
             public const string ResourceTypeId = "Resource";

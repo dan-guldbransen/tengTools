@@ -48,7 +48,7 @@ namespace inRiver.DataSyncTask.Services
             }
         }
 
-        public static void SaveData(Data data)
+        public static string SaveData(Data data)
         {
             using (var client = Utils.LitiumClient.GetAuthorizedClient())
             {
@@ -61,7 +61,17 @@ namespace inRiver.DataSyncTask.Services
 
                 var result = client.PostAsync("litium/api/connect/erp/imports", content).Result;
 
-                result.EnsureSuccessStatusCode();
+                return JsonConvert.DeserializeObject<ImportReportId>(result.Content.ReadAsStringAsync().Result).ImportReportIdValue;
+            }
+        }
+
+        public static ImportReport GetImportReport(string importReportId)
+        {
+            using (var client = Utils.LitiumClient.GetAuthorizedClient())
+            {
+                var result = client.GetAsync($"litium/api/connect/erp/imports/{importReportId}").Result;
+
+                return JsonConvert.DeserializeObject<ImportReport>(result.Content.ReadAsStringAsync().Result);
             }
         }
     }

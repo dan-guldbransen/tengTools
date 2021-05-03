@@ -1,4 +1,5 @@
-﻿using inRiver.DataSyncTask.Models.Litium;
+﻿using inRiver.DataSyncTask.Models.inRiver;
+using inRiver.DataSyncTask.Models.Litium;
 using inRiver.DataSyncTask.Models.LitiumEntities;
 using inRiver.DataSyncTask.Utils;
 using inRiver.Remoting.Objects;
@@ -27,7 +28,7 @@ namespace inRiver.DataSyncTask.Services
                 var existingCategoryIds = JsonConvert.DeserializeObject<List<string>>(responseMessage.Content.ReadAsStringAsync().Result);
 
                 var existingCategories = new List<CategoryEntity>();
-                foreach(var id in existingCategoryIds)
+                foreach (var id in existingCategoryIds)
                 {
                     var categoryResponse = client.GetAsync($"/Litium/api/admin/products/categories/{id}").Result;
                     existingCategories.Add(JsonConvert.DeserializeObject<CategoryEntity>(categoryResponse.Content.ReadAsStringAsync().Result));
@@ -37,99 +38,80 @@ namespace inRiver.DataSyncTask.Services
             }
         }
 
-        public static List<Models.Litium.Category> ProcessCategoryCVLs(List<CVLValue> productHeadCategories, List<CVLValue> productCategories, List<CVLValue> productGroups, string assortmentId, List<string> cultures, List<CategoryEntity> existingCategories)
+        public static void ProcessCategoryCVLs(CategoryStructure categoryStructure, List<CVLValue> productCategories, List<CVLValue> productGroups, List<string> cultures, string categoryTemplateId)
         {
-            var retval = new List<Models.Litium.Category>();
             using (var client = LitiumClient.GetAuthorizedClient())
             {
-                // Category level 1 Head
-                foreach(var cat in productHeadCategories)
-                {
-                    var existing = existingCategories.FirstOrDefault(x => x.Id == cat.Id.ToString());
-                    
-                    // Create model level 2 category with existing Id if category is update, else null if new category
-                    var litiumCategory = new Models.Litium.Category(
-                        assortmentsystemId: assortmentId,
-                        id: cat.Index.ToString(),
-                        parentCategorySystemId: null,
-                        systemId: existing?.SystemId);
+                // Get assortmensystemid and existing categories
+                (var assortmentSystemId, var existingCategories) = GetAssortmentIdAndExistingCategoryIds();
 
-                    // Extract the fields we want to sync
-                    litiumCategory.Fields = ExtractCategoryNameFields(cat, cultures);
-
-                    // Save to litium
-                    CreateOrUpdateCategory(litiumCategory, client, existing);
-
-                    // save for later? will we if needed
-                    retval.Add(litiumCategory);
-                }
-
-                // Update existing list if newly created level 1 categories
-                (_, existingCategories) = GetAssortmentIdAndExistingCategoryIds();
-
-                // Category level 2
-                foreach (var cat in productCategories)
+                foreach (var headCat in categoryStructure.HeadCategories)
                 {
                     // get existing if update / else create
-                    var existing = existingCategories.FirstOrDefault(x => x.Id == cat.Id.ToString());
+                    var existing = existingCategories.FirstOrDefault(x => x.Id == headCat.Id.ToString());
 
-                    // Create model level 2 category with existing Id if category is update, else null if new category
+                    // create head category, systemid if existing
                     var litiumCategory = new Models.Litium.Category(
-                        assortmentsystemId: assortmentId, 
-                        id: cat.Index.ToString(), 
-                        parentCategorySystemId: null, 
-                        systemId: existing?.SystemId);
+                       assortmentsystemId: assortmentSystemId,
+                       fieldTemplateSystemId: categoryTemplateId,
+                       id: headCat.Id.ToString(),
+                       parentCategorySystemId: null,
+                       systemId: existing?.SystemId);
 
-                    // Extract the fields we want to sync
-                    litiumCategory.Fields = ExtractCategoryNameFields(cat, cultures);
+                    // Extract the fields we want to sync // TODO : LOCALISED NAME
+                    litiumCategory.Fields = ExtractHeadCategoryName(headCat.Name, cultures);
 
                     // Save to litium
-                    CreateOrUpdateCategory(litiumCategory, client, existing);
+                    var headCategoryEntity = CreateOrUpdateCategory(litiumCategory, client, existing);
 
-                    // save for later? will we if needed
-                    retval.Add(litiumCategory);
+                    // Product Categories - Subcategory level 1
+                    if (headCat.Categories != null && headCat.Categories.Any())
+                    {
+                        foreach (var productCategory in headCat.Categories)
+                        {
+                            // get existing if update / else create
+                            var existingProductCategory = existingCategories.FirstOrDefault(x => x.Id == productCategory.ProductCategoryNumber.ToString());
+
+                            var litiumProductCategory = new Models.Litium.Category(
+                               assortmentsystemId: assortmentSystemId,
+                               fieldTemplateSystemId: categoryTemplateId,
+                               id: productCategory.ProductCategoryNumber.ToString(),
+                               parentCategorySystemId: headCategoryEntity?.SystemId,
+                               systemId: existingProductCategory?.SystemId);
+
+                            // TODO: GET LOCALISED NAME
+                            litiumProductCategory.Fields = ExtractHeadCategoryName(productCategory.Name, cultures);
+
+                            // Save to litium
+                            var produtCategoryEntity = CreateOrUpdateCategory(litiumProductCategory, client, existingProductCategory);
+
+                            if (productCategory.Categories != null && productCategory.Categories.Any())
+                            {
+                                foreach (var productGroup in productCategory.Categories)
+                                {
+                                    var existingProductGroup = existingCategories.FirstOrDefault(x => x.Id == productGroup.ProductGroupNumber.ToString());
+
+                                    var litiumProductGroup = new Models.Litium.Category(
+                                       assortmentsystemId: assortmentSystemId,
+                                       fieldTemplateSystemId: categoryTemplateId,
+                                       id: productGroup.ProductGroupNumber.ToString(),
+                                       parentCategorySystemId: produtCategoryEntity?.SystemId,
+                                       systemId: existingProductGroup?.SystemId);
+
+                                    // TODO: GET LOCALISED NAME
+                                    litiumProductGroup.Fields = ExtractHeadCategoryName(productGroup.Name, cultures);
+
+                                    // Save to litium
+                                    var produtGroupEntity = CreateOrUpdateCategory(litiumProductGroup, client, existingProductGroup);
+                                }
+                            }
+                        }
+                    }
                 }
-
-                // Update existing list if newly created level 2 categoryies
-                (_, existingCategories) = GetAssortmentIdAndExistingCategoryIds();
-
-                // Category level 3
-                foreach (var cat in productGroups)
-                {
-                    // check if parent exists, must exist if level 3 category is to be processed
-                    var parent = productCategories.FirstOrDefault(x => x.Key == cat.ParentKey);
-                    if(parent == null)
-                        continue;
-
-                    var litiumParentCategory = existingCategories.FirstOrDefault(x => x.Id == parent.Id.ToString());
-                    if(litiumParentCategory == null)
-                        continue;
-
-                    // get existing if update / else create
-                    var existing = existingCategories.FirstOrDefault(x => x.Id == cat.Id.ToString());
-
-                    // create model level 3 category with parent id
-                    var litiumCategory = new Models.Litium.Category(
-                        assortmentsystemId: assortmentId,
-                        id: cat.Index.ToString(),
-                        parentCategorySystemId: litiumParentCategory.SystemId,
-                        systemId: existing?.SystemId);
-
-                    // Extract the fields we want to sync
-                    litiumCategory.Fields = ExtractCategoryNameFields(cat, cultures);
-
-                    // Save to litium
-                    CreateOrUpdateCategory(litiumCategory, client, existing);
-
-                    // save for later? will we if needed
-                    retval.Add(litiumCategory);
-                }
-
             }
-            return retval;
         }
 
-        private static void CreateOrUpdateCategory(Models.Litium.Category litiumCategory,
+        private static CategoryEntity CreateOrUpdateCategory(Models.Litium.Category litiumCategory,
             HttpClient client,
             CategoryEntity existing = null)
         {
@@ -152,7 +134,22 @@ namespace inRiver.DataSyncTask.Services
                 response = client.PostAsync("/Litium/api/admin/products/categories", content).Result;
             }
 
-            //TODO: Handle response with logging ??
+            if (response.StatusCode == System.Net.HttpStatusCode.Created || response.StatusCode == System.Net.HttpStatusCode.OK)
+                return JsonConvert.DeserializeObject<CategoryEntity>(response.Content.ReadAsStringAsync().Result);
+
+            return new CategoryEntity();
+        }
+
+        private static CategoryField ExtractHeadCategoryName(string name, List<string> cultures)
+        {
+            var fields = new CategoryField();
+
+            foreach (var culture in cultures)
+            {
+                fields.Name.Add(culture, name);
+            }
+
+            return fields;
         }
 
         private static CategoryField ExtractCategoryNameFields(CVLValue cateNames, List<string> cultures)

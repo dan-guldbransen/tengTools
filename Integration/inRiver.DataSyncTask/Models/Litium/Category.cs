@@ -32,12 +32,12 @@ namespace inRiver.DataSyncTask.Models.Litium
         [JsonProperty(PropertyName = "channelLinks", NullValueHandling = NullValueHandling.Ignore)]
         public List<ChannelLink> ChannelLinks { get; set; }
 
-        //[JsonProperty(PropertyName = "productLinks")]
-        //public List<ProductLink> ProductLinks { get; set; } = new List<ProductLink>();
+        [JsonProperty(PropertyName = "productLinks")]
+        public List<ProductLink> ProductLinks { get; set; } = new List<ProductLink>();
 
-        public Category(string assortmentsystemId, string id = null, string parentCategorySystemId = null, string systemId = null)
+        public Category(string assortmentsystemId, string fieldTemplateSystemId, string id = null, string parentCategorySystemId = null, string systemId = null)
         {
-            FieldTemplateSystemId = "793a09cb-aaec-437d-a2eb-7e23ff9cee31";
+            FieldTemplateSystemId = fieldTemplateSystemId;
             AssortmentSystemId = assortmentsystemId;
             Id = id;
             ParentCategorySystemId = parentCategorySystemId;
@@ -68,6 +68,6 @@ namespace inRiver.DataSyncTask.Models.Litium
         public string BaseProductSystemId { get; set; }
 
         [JsonProperty(PropertyName = "mainCategory")]
-        public bool MainCategory { get; set; }
+        public bool MainCategory { get; set; } = true;
     }
 }

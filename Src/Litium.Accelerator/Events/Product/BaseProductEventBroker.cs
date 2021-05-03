@@ -19,14 +19,17 @@ namespace Litium.Accelerator.Events.Product
 
         private readonly CategoryService _categoryService;
         private readonly BaseProductService _baseProductService;
+        private readonly VariantService _variantService;
         private readonly SecurityContextService _securityContextService;
 
         public BaseProductEventBroker(EventBroker eventBroker,
              BaseProductService baseProductService,
+             VariantService variantService,
              CategoryService categoryService,
              SecurityContextService securityContextService)
         {
             _baseProductService = baseProductService;
+            _variantService = variantService;
             _securityContextService = securityContextService;
             _categoryService = categoryService;
 
@@ -46,47 +49,7 @@ namespace Litium.Accelerator.Events.Product
 
         private void SetupCategories(Guid baseProductSystemId)
         {
-            // Set category link (on baseproduct)
-            var baseProduct = _baseProductService.Get(baseProductSystemId);
-            var productCategoryNumber = baseProduct.Fields.GetValue<string>("ProductCategoryNumber");
-            var productGroupNumber = baseProduct.Fields.GetValue<string>("ProductGroupNumber");
-
-            Products.Category mainCategory, subCategory;
-            if (!string.IsNullOrEmpty(productCategoryNumber))
-            {
-                mainCategory = _categoryService.Get(productCategoryNumber);
-                if (mainCategory != null)
-                {
-                    var mainClone = mainCategory.MakeWritableClone();
-                    var link = new CategoryToProductLink(baseProduct.SystemId);
-
-                    if (!mainClone.ProductLinks.Contains(link))
-                    {
-                        mainClone.ProductLinks.Add(new CategoryToProductLink(baseProduct.SystemId));
-
-                        using (_securityContextService.ActAsSystem())
-                            _categoryService.Update(mainClone);
-                    }
-                }
-            }
-
-            if (!string.IsNullOrEmpty(productGroupNumber))
-            {
-                subCategory = _categoryService.Get(productGroupNumber);
-                if (subCategory != null)
-                {
-                    var subClone = subCategory.MakeWritableClone();
-                    var link = new CategoryToProductLink(baseProduct.SystemId);
-
-                    if (!subClone.ProductLinks.Contains(link))
-                    {
-                        subClone.ProductLinks.Add(link);
-
-                        using (_securityContextService.ActAsSystem())
-                            _categoryService.Update(subClone);
-                    }
-                }
-            }
+            
         }
 
         public void Dispose()

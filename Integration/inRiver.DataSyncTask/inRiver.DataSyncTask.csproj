@@ -56,9 +56,12 @@
     <Compile Include="Constants\InRiver.cs" />
     <Compile Include="Constants\LitiumFieldDefinitions.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Models\inRiver\CategoryStructure.cs" />
     <Compile Include="Models\JwtRequest.cs" />
     <Compile Include="Models\LitiumEntities\CategoryEntity.cs" />
     <Compile Include="Models\LitiumEntities\Entity.cs" />
+    <Compile Include="Models\LitiumEntities\ImportReport.cs" />
+    <Compile Include="Models\LitiumEntities\ImportReportId.cs" />
     <Compile Include="Models\LitiumEntities\WebsiteEntity.cs" />
     <Compile Include="Models\Litium\Category.cs" />
     <Compile Include="Models\Litium\Data.cs" />
@@ -69,6 +72,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\ChannelBuilder.cs" />
     <Compile Include="Services\LitiumCommonService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\VariantService.cs" />

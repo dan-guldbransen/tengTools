@@ -11,7 +11,7 @@ namespace inRiver.DataSyncTask.Services
 {
     public static class ProductService
     {
-        public static void ProcessProducts(List<Entity> products, Data data, List<string> cultures, Dictionary<string, List<string>> headCategoryHierarchy)
+        public static void ProcessProducts(List<Entity> products, Data data, List<string> cultures)
         {
             foreach (var product in products)
             {
@@ -39,18 +39,6 @@ namespace inRiver.DataSyncTask.Services
                         FieldDefinitionId = LitiumFieldDefinitions.Name,
                         Culture = culture,
                         Value = description[new System.Globalization.CultureInfo(culture)] ?? description[description.Languages.First()]
-                    });
-                }
-
-                // TODO : FIX
-                var productHeadCategory = product.GetField(InRiver.InRiverField.Product.ProductHeadCategory)?.Data as LocaleString;
-                if(productHeadCategory != null)
-                {
-                    litiumProduct.Fields.Add(new Models.Litium.Field
-                    {
-                        FieldDefinitionId = "ProductHeadCategory",
-                        Culture = null,
-                        Value = productHeadCategory
                     });
                 }
 

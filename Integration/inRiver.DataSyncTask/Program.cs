@@ -19,15 +19,16 @@ namespace inRiver.DataSyncTask
             var context = new inRiverContext(RemoteManager.CreateInstance(InRiver.Remoting.InRiverRemotingUrl, InRiver.Remoting.InRiverUsername, InRiver.Remoting.InRiverPassword, InRiver.Remoting.InRiverEnvironmentTest), new ConsoleLogger());
             Console.WriteLine("Connected!");
 
+
             // Get products and items from inRiver
             var products = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, InRiver.EntityType.ProductTypeId, LoadLevel.DataAndLinks);
             var items = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, InRiver.EntityType.ItemTypeId, LoadLevel.DataAndLinks);
             
+            // Get e-com channel structure for catgories
+            var catgeoryStructure = ChannelBuilder.GetChannelStructure(context, products);
+
             // Get CVL values from inRiver e.g. Categories
             var cvlValues = context.ExtensionManager.ModelService.GetAllCVLValues().ToList();
-
-            // Get main categories
-            var productHeadCategories = cvlValues.Where(c => c.CVLId == InRiver.CVL.HeadCategory).ToList();
 
             // Get inRiver Categories lvl 2 and 3
             var productCategories = cvlValues.Where(c => c.CVLId == InRiver.CVL.Category).ToList();
@@ -38,29 +39,21 @@ namespace inRiver.DataSyncTask
             
             // Catgeories last so we get the hierarchy of top level from product
             var categoryTemplateSystemId = LitiumCommonService.GetCategoryTemplateSystemId();
-
-            // Categories (existing categories may be redundant, will check how save data behaves) 
-            (string assortmentId, List<Models.LitiumEntities.CategoryEntity> existingCategorys) = CategoryService.GetAssortmentIdAndExistingCategoryIds();
+            CategoryService.ProcessCategoryCVLs(catgeoryStructure, productCategories, productGroups, cultures, categoryTemplateSystemId);
             
-            var categories = CategoryService.ProcessCategoryCVLs(productHeadCategories, productCategories, productGroups, assortmentId, cultures, existingCategorys);
-
             // Container for all data to post
             var data = new Data();
-            
-            // Key is head category id and values are a list of productcategories that should exist beneath
-            var headCategoryHierarchy = new Dictionary<string, List<string>>();
 
             // Products
-            ProductService.ProcessProducts(products, data, cultures, headCategoryHierarchy);
+            ProductService.ProcessProducts(products, data, cultures);
            
             // Variants
             VariantService.ProcessVariants(items, data, cultures);
             
-            // Resources here or on product/variant ??
-           
-            // Save data to Litium TODO: in batches!!
-            LitiumCommonService.SaveData(data);
+            // Resources TODO.
 
+            // Save data to Litium TODO: in batches!!
+            var importReportId = LitiumCommonService.SaveData(data);
         }
     }
 }
