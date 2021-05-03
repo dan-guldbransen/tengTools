@@ -13,7 +13,7 @@ namespace Litium.Accelerator.Definitions.Channels
     {
         public override IEnumerable<FieldTemplate> GetTemplates()
         {
-            var template = new ChannelFieldTemplate("DefaultChannel")
+            var template = new ChannelFieldTemplate("DefaultChannel") 
             {
                 FieldGroups = new[]
                 {
@@ -38,6 +38,25 @@ namespace Litium.Accelerator.Definitions.Channels
                             ChannelFieldNameConstants.Twitter,
                             ChannelFieldNameConstants.Facebook,
                             ChannelFieldNameConstants.LinkedIn
+                        }
+                    },
+                     new FieldTemplateFieldGroup()
+                    {
+                        Id = "ContactInformation",
+                        Collapsed = true,
+                        Fields =
+                        {
+                            ChannelFieldNameConstants.ContactName,
+                            ChannelFieldNameConstants.ContactStreet,
+                            ChannelFieldNameConstants.ContactAddressLine2,
+                            ChannelFieldNameConstants.ContactZipCode,
+                            ChannelFieldNameConstants.ContactCity,
+                            ChannelFieldNameConstants.ContactCounty,
+                            ChannelFieldNameConstants.ContactPhone,
+                            ChannelFieldNameConstants.ContactEmail,
+                            ChannelFieldNameConstants.ContactWebsite,
+                            ChannelFieldNameConstants.ContactLat,
+                            ChannelFieldNameConstants.ContactLong
                         }
                     },
                 }
