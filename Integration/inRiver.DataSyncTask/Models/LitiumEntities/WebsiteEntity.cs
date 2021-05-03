@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace inRiver.DataSyncTask.Models.LitiumEntities
 {
-    public class WebsiteEntity : Entity
+    public class WebsiteEntity : BaseModel
     {
         [JsonProperty("fields")]
         public Field Fields { get; set; }

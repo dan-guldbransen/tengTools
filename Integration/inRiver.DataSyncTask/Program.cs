@@ -4,9 +4,7 @@ using inRiver.DataSyncTask.Services;
 using inRiver.Remoting;
 using inRiver.Remoting.Extension;
 using inRiver.Remoting.Objects;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace inRiver.DataSyncTask

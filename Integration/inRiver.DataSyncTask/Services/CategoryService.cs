@@ -1,4 +1,5 @@
-﻿using inRiver.DataSyncTask.Models.inRiver;
+﻿using inRiver.DataSyncTask.Constants;
+using inRiver.DataSyncTask.Models.inRiver;
 using inRiver.DataSyncTask.Models.Litium;
 using inRiver.DataSyncTask.Models.LitiumEntities;
 using inRiver.DataSyncTask.Utils;
@@ -16,22 +17,26 @@ namespace inRiver.DataSyncTask.Services
 {
     public static class CategoryService
     {
-        public static (string, List<CategoryEntity>) GetAssortmentIdAndExistingCategoryIds()
+        public static (string, List<BaseModel>) GetAssortmentIdAndExistingCategoryIds()
         {
             using (var client = LitiumClient.GetAuthorizedClient())
             {
-                var response = client.GetAsync("/Litium/api/admin/products/assortments").Result;
-                var assortment = JObject.Parse(JsonConvert.DeserializeObject<List<object>>(response.Content.ReadAsStringAsync().Result).First().ToString());
-                var assortmentSystemId = assortment.Value<string>("systemId");
+                var response = client.GetAsync(LitiumConstants.API.GetAssortments).Result;
+                var assortments = JsonConvert.DeserializeObject<List<BaseModel>>(response.Content.ReadAsStringAsync().Result);
 
-                var responseMessage = client.GetAsync($"/Litium/api/admin/products/assortments/{assortmentSystemId}/categories").Result;
+                if(assortments == null || !assortments.Any())
+                    throw new Exception("No assortment was found");
+
+                var assortmentSystemId = assortments.First().SystemId;
+
+                var responseMessage = client.GetAsync(LitiumConstants.API.GetCategoriesByAssortment(assortmentSystemId)).Result;
                 var existingCategoryIds = JsonConvert.DeserializeObject<List<string>>(responseMessage.Content.ReadAsStringAsync().Result);
 
-                var existingCategories = new List<CategoryEntity>();
+                var existingCategories = new List<BaseModel>();
                 foreach (var id in existingCategoryIds)
                 {
-                    var categoryResponse = client.GetAsync($"/Litium/api/admin/products/categories/{id}").Result;
-                    existingCategories.Add(JsonConvert.DeserializeObject<CategoryEntity>(categoryResponse.Content.ReadAsStringAsync().Result));
+                    var categoryResponse = client.GetAsync(LitiumConstants.API.GetCategoryById(id)).Result;
+                    existingCategories.Add(JsonConvert.DeserializeObject<BaseModel>(categoryResponse.Content.ReadAsStringAsync().Result));
                 }
 
                 return (assortmentSystemId, existingCategories);
@@ -111,9 +116,9 @@ namespace inRiver.DataSyncTask.Services
             }
         }
 
-        private static CategoryEntity CreateOrUpdateCategory(Models.Litium.Category litiumCategory,
+        private static BaseModel CreateOrUpdateCategory(Models.Litium.Category litiumCategory,
             HttpClient client,
-            CategoryEntity existing = null)
+            BaseModel existing = null)
         {
             string json = JsonConvert.SerializeObject(litiumCategory);
             var content = new StringContent(
@@ -127,17 +132,17 @@ namespace inRiver.DataSyncTask.Services
             HttpResponseMessage response;
             if (existing != null)
             {
-                response = client.PutAsync($"/Litium/api/admin/products/categories/{existing.SystemId}", content).Result;
+                response = client.PutAsync(LitiumConstants.API.PutCategory(existing.SystemId), content).Result;
             }
             else
             {
-                response = client.PostAsync("/Litium/api/admin/products/categories", content).Result;
+                response = client.PostAsync(LitiumConstants.API.PostCategory, content).Result;
             }
 
             if (response.StatusCode == System.Net.HttpStatusCode.Created || response.StatusCode == System.Net.HttpStatusCode.OK)
-                return JsonConvert.DeserializeObject<CategoryEntity>(response.Content.ReadAsStringAsync().Result);
+                return JsonConvert.DeserializeObject<BaseModel>(response.Content.ReadAsStringAsync().Result);
 
-            return new CategoryEntity();
+            return new BaseModel();
         }
 
         private static CategoryField ExtractHeadCategoryName(string name, List<string> cultures)

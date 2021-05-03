@@ -1,12 +1,14 @@
 ﻿using inRiver.DataSyncTask.Models;
 using Newtonsoft.Json;
 using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using inRiver.DataSyncTask.Constants;
 
 namespace inRiver.DataSyncTask.Utils
 {
@@ -33,15 +35,14 @@ namespace inRiver.DataSyncTask.Utils
             var retval = string.Empty;
             using (var client = GetBaseClient())
             {
-                var request = new HttpRequestMessage(HttpMethod.Post, "/litium/oauth/token");
+                var request = new HttpRequestMessage(HttpMethod.Post, LitiumConstants.API.GetToken);
 
-                var keyValues = new List<KeyValuePair<string, string>>();
-                keyValues.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
-                keyValues.Add(new KeyValuePair<string, string>("client_id", "IntegrationAccount"));
-                keyValues.Add(new KeyValuePair<string, string>("client_secret", "consid12345"));
-
-                //keyValues.Add(new KeyValuePair<string, string>("client_id", "integration-user"));
-                //keyValues.Add(new KeyValuePair<string, string>("client_secret", "a7a17390aa5348588c92f0bd55d705e6617fa3419dab4340a0c8ff634082e50c"));
+                var keyValues = new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("grant_type", LitiumConstants.GrantType),
+                    new KeyValuePair<string, string>("client_id", LitiumConstants.ClientId),
+                    new KeyValuePair<string, string>("client_secret", LitiumConstants.ClientSecret)
+                };
 
                 request.Content = new FormUrlEncodedContent(keyValues);
                 var response = client.SendAsync(request).Result;
@@ -56,8 +57,7 @@ namespace inRiver.DataSyncTask.Utils
         {
             return new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:58109") 
-                //BaseAddress = new Uri("http://tengtools.test.workplace.nu/")
+                BaseAddress = new Uri(LitiumConstants.BaseUrl) 
             };
         }
     }

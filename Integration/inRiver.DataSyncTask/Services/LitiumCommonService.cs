@@ -35,7 +35,7 @@ namespace inRiver.DataSyncTask.Services
             using (var client = Utils.LitiumClient.GetAuthorizedClient())
             {
                 var response = client.GetAsync("/Litium/api/admin/products/fieldTemplates").Result;
-                var templates = JsonConvert.DeserializeObject<List<Entity>>(response.Content.ReadAsStringAsync().Result);
+                var templates = JsonConvert.DeserializeObject<List<BaseModel>>(response.Content.ReadAsStringAsync().Result);
 
                 if (templates != null && templates.Any())
                 {
