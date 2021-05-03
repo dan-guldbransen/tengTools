@@ -34,7 +34,7 @@
 							{
 								if (link != null)
 								{
-							<li class="list-group-item vertical-align-tb">@Html.ImageFor(x => x.ChannelLinkList.First(channelLink => channelLink == link).Image, maxSize: new System.Drawing.Size(29, 19))<a class="ms-3" href="@link.Url">@(!string.IsNullOrWhiteSpace(link.ExtraInfo) ? $"{link.ExtraInfo} - {link.Name}" : link.Name)</a></li>
+							<li class="list-group-item vertical-align-tb">@Html.ImageFor(x => x.ChannelLinkList.First(channelLink => channelLink == link).Image, maxSize: new System.Drawing.Size(29, 19))<a class="ms-3" href="@link.Url">@link.Name</a></li>
 								}
 							}
 						</ul>
@@ -45,7 +45,7 @@
 							{
 								if (link != null)
 								{
-									<li class="list-group-item"><a href="@link.Url">@(!string.IsNullOrWhiteSpace(link.ExtraInfo) ? $"{link.ExtraInfo} - {link.Name}" : link.Name)</a></li>
+									<li class="list-group-item vertical-align-tb">@Html.ImageFor(x => x.ChannelLinkList.First(channelLink => channelLink == link).Image, maxSize: new System.Drawing.Size(29, 19))<a class="ms-3" href="@link.Url">@link.Name</a></li>
 								}
 							}
 						</ul>

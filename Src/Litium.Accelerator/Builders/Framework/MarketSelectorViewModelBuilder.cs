@@ -74,7 +74,6 @@ namespace Litium.Accelerator.Builders.Framework
                     IsSelected = _requestModelAccessor.RequestModel.ChannelModel.Channel.SystemId == channel.SystemId,
                     Url = _urlService.GetUrl(channel, new ChannelUrlArgs { UsePrimaryDomainName = true }),
                     Name = channel.Fields.GetFieldContainer(culture.Key).GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Name),
-                    ExtraInfo = lang != null ? lang.CultureInfo.TwoLetterISOLanguageName.ToUpper() : "",
                     Image = channel.Fields.GetValue<Guid?>(ChannelFieldNameConstants.FlagIcon)?.MapTo<ImageModel>()
                 };
 
