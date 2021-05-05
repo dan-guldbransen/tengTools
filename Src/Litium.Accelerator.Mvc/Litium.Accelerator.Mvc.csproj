@@ -166,7 +166,6 @@
     <Content Include="Client\images\menu.svg" />
     <Content Include="Client\images\pencil.svg" />
     <Content Include="Client\images\profile.svg" />
-    <Content Include="Client\images\rightarrow.svg" />
     <Content Include="Client\images\rotate-arrow.svg" />
     <Content Include="Client\images\search.svg" />
     <Content Include="Client\images\shopping-bag.png" />

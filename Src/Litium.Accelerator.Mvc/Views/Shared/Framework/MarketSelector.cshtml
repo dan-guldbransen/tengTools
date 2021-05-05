@@ -4,10 +4,11 @@
 {
 	var current = Model.ChannelLinkList.FirstOrDefault(link => link.IsSelected);
 
+	var uneven = Model.ChannelLinkList.Count % 2 == 1;
 	var half = Model.ChannelLinkList.Count / 2;
 
-	var firstRow = Model.ChannelLinkList.Skip(0).Take(half);
-	var secondRow = Model.ChannelLinkList.Skip(half).Take(half);
+	var firstRow = uneven ? Model.ChannelLinkList.Skip(0).Take(half + 1) : Model.ChannelLinkList.Skip(0).Take(half);
+	var secondRow = uneven ? Model.ChannelLinkList.Skip(half + 1).Take(half) : Model.ChannelLinkList.Skip(half).Take(half);
 
 	<a href="#" class="nav-link dropdown-toggle" id="navbarMarketsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 		@if (current != null)
