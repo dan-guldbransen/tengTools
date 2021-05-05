@@ -35,7 +35,7 @@ namespace inRiver.DataSyncTask.Utils
             var retval = string.Empty;
             using (var client = GetBaseClient())
             {
-                var request = new HttpRequestMessage(HttpMethod.Post, LitiumConstants.API.GetToken);
+                var request = new HttpRequestMessage(HttpMethod.Post, "/litium/oauth/token");
 
                 var keyValues = new List<KeyValuePair<string, string>>
                 {

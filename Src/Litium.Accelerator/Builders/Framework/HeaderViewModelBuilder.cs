@@ -7,9 +7,11 @@ using Litium.Accelerator.Constants;
 using Litium.Accelerator.Routing;
 using Litium.Accelerator.ViewModels.Framework;
 using Litium.FieldFramework.FieldTypes;
+using Litium.Products;
 using Litium.Runtime.AutoMapper;
 using Litium.Web;
 using Litium.Web.Models;
+using Litium.Web.Models.Websites;
 using Litium.Web.Routing;
 using Litium.Websites;
 
@@ -23,19 +25,25 @@ namespace Litium.Accelerator.Builders.Framework
         private readonly PageByFieldTemplateCache<LoginPageByFieldTemplateCache> _pageByFieldType;
         private readonly PageService _pageService;
         private readonly RouteRequestLookupInfoAccessor _routeRequestLookupInfoAccessor;
+        private readonly CategoryService _categoryService;
+        private readonly AssortmentService _assortmentService;
 
         public HeaderViewModelBuilder(
             UrlService urlService,
             RequestModelAccessor requestModelAccessor,
             PageByFieldTemplateCache<LoginPageByFieldTemplateCache> pageByFieldType,
             PageService pageService,
-            RouteRequestLookupInfoAccessor routeRequestLookupInfoAccessor)
+            RouteRequestLookupInfoAccessor routeRequestLookupInfoAccessor,
+            CategoryService categoryService,
+            AssortmentService assortmentService)
         {
             _urlService = urlService;
             _requestModelAccessor = requestModelAccessor;
             _pageByFieldType = pageByFieldType;
             _pageService = pageService;
             _routeRequestLookupInfoAccessor = routeRequestLookupInfoAccessor;
+            _categoryService = categoryService;
+            _assortmentService = assortmentService;
         }
 
         public HeaderViewModel Build()
@@ -62,6 +70,7 @@ namespace Litium.Accelerator.Builders.Framework
 
             var startPage = _pageService.GetChildPages(Guid.Empty, website.SystemId).FirstOrDefault();
             var startPageUrl = _urlService.GetUrl(startPage, new PageUrlArgs(_requestModelAccessor.RequestModel.ChannelModel.SystemId));
+
             return new HeaderViewModel
             {
                 Logo = website.GetValue<Guid?>(AcceleratorWebsiteFieldNameConstants.LogotypeMain)?.MapTo<ImageModel>(),

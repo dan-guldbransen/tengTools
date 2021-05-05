@@ -9,7 +9,7 @@ namespace inRiver.DataSyncTask.Models.inRiver
     public class CategoryStructure
     {
         public List<inRiverCat> HeadCategories { get; set; } = new List<inRiverCat>();
-    }
+    } 
 
     public class inRiverCat
     {

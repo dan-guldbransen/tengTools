@@ -21,7 +21,7 @@ namespace inRiver.DataSyncTask.Services
         {
             using (var client = LitiumClient.GetAuthorizedClient())
             {
-                var response = client.GetAsync(LitiumConstants.API.GetAssortments).Result;
+                var response = client.GetAsync("/Litium/api/admin/products/assortments").Result;
                 var assortments = JsonConvert.DeserializeObject<List<BaseModel>>(response.Content.ReadAsStringAsync().Result);
 
                 if(assortments == null || !assortments.Any())
@@ -29,13 +29,13 @@ namespace inRiver.DataSyncTask.Services
 
                 var assortmentSystemId = assortments.First().SystemId;
 
-                var responseMessage = client.GetAsync(LitiumConstants.API.GetCategoriesByAssortment(assortmentSystemId)).Result;
+                var responseMessage = client.GetAsync($"/Litium/api/admin/products/assortments/{assortmentSystemId}/categories").Result;
                 var existingCategoryIds = JsonConvert.DeserializeObject<List<string>>(responseMessage.Content.ReadAsStringAsync().Result);
 
                 var existingCategories = new List<BaseModel>();
                 foreach (var id in existingCategoryIds)
                 {
-                    var categoryResponse = client.GetAsync(LitiumConstants.API.GetCategoryById(id)).Result;
+                    var categoryResponse = client.GetAsync($"/Litium/api/admin/products/categories/{id}").Result;
                     existingCategories.Add(JsonConvert.DeserializeObject<BaseModel>(categoryResponse.Content.ReadAsStringAsync().Result));
                 }
 
@@ -132,11 +132,11 @@ namespace inRiver.DataSyncTask.Services
             HttpResponseMessage response;
             if (existing != null)
             {
-                response = client.PutAsync(LitiumConstants.API.PutCategory(existing.SystemId), content).Result;
+                response = client.PutAsync($"/Litium/api/admin/products/categories/{existing.SystemId}", content).Result;
             }
             else
             {
-                response = client.PostAsync(LitiumConstants.API.PostCategory, content).Result;
+                response = client.PostAsync("/Litium/api/admin/products/categories", content).Result;
             }
 
             if (response.StatusCode == System.Net.HttpStatusCode.Created || response.StatusCode == System.Net.HttpStatusCode.OK)

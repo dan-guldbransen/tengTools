@@ -285,12 +285,12 @@ namespace Litium.Accelerator.Definitions.Products
                 //    CanBeGridFilter = true,
                 //    MultiCulture = false,
                 //},
-                // new FieldDefinition<ProductArea>("ItemApprovedForMarket", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
+                 new FieldDefinition<ProductArea>("ItemApprovedForMarket", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
                 // new FieldDefinition<ProductArea>("ItemOrderType", SystemFieldTypeConstants.TextOption)
                 //{
                 //    CanBeGridColumn = true,
@@ -1603,18 +1603,18 @@ namespace Litium.Accelerator.Definitions.Products
                 //        }
                 //    }
                 //},
-                //new FieldDefinition<ProductArea>("ProductCategoryNumber", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false,
-                //},
-                //new FieldDefinition<ProductArea>("ProductGroupNumber", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
+                new FieldDefinition<ProductArea>("ProductCategoryNumber", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                },
+                new FieldDefinition<ProductArea>("ProductGroupNumber", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
 
                 // G O O G L E  S H O P P I N G  F I E L D S
                 new FieldDefinition<ProductArea>("AgeGroup", SystemFieldTypeConstants.TextOption)
