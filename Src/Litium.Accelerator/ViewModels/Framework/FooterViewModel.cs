@@ -10,6 +10,7 @@ using System.Linq;
 using System.Globalization;
 using Litium.Accelerator.Builders;
 using System;
+using Litium.Accelerator.Models;
 
 namespace Litium.Accelerator.ViewModels.Framework
 {
@@ -24,6 +25,7 @@ namespace Litium.Accelerator.ViewModels.Framework
         public string VisionTextLeft { get; set; }
         public string VisionTextRight { get; set; }
         public string Legal { get; set; }
+        public SocialMediaLinks SocialMediaLinks { get; set; } = new SocialMediaLinks();
 
         // Render logic
         public bool HasCTASection => GetOrganised != null || Newsletter != null;

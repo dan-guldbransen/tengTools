@@ -93,7 +93,7 @@ namespace Litium.Accelerator.Definitions.Channels
                     Option = new TextOption()
                 },
 
-                 new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.InstagramLink, SystemFieldTypeConstants.Text)
+                 new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.Instagram, SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = false,
                     CanBeGridFilter = false,

@@ -33,11 +33,12 @@ namespace Litium.Accelerator.Definitions.Channels
                         Collapsed = false,
                         Fields =
                         {
-                            ChannelFieldNameConstants.InstagramLink,
+                            ChannelFieldNameConstants.Instagram,
                             ChannelFieldNameConstants.Youtube,
                             ChannelFieldNameConstants.Twitter,
                             ChannelFieldNameConstants.Facebook,
                             ChannelFieldNameConstants.LinkedIn
+
                         }
                     },
                      new FieldTemplateFieldGroup()

@@ -1,0 +1,45 @@
+﻿@model  Litium.Accelerator.Models.SocialMediaLinks
+
+<div class="d-flex my-5 py-3 align-items-center justify-content-sm-start justify-content-md-center flex-wrap">
+    @if (!string.IsNullOrEmpty(Model.FacebookURL))
+    {
+        <div class="mx-4 some rounded-circle border border-1 border-white my-3 my-sm-0">
+            <a href="@Model.FacebookURL">
+                <div class="facebook media rounded-circle round-button"></div>
+            </a>
+        </div>
+
+    }
+    @if (!string.IsNullOrEmpty(Model.LinkedInURL))
+    {
+        <div class="mx-4 some rounded-circle border border-1 border-white my-3 my-sm-0">
+            <a href="@Model.LinkedInURL">
+                <div class="linkedin media"></div>
+            </a>
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(Model.TwitterURL))
+    {
+        <div class="mx-4 some rounded-circle border border-1 border-white my-3 my-sm-0">
+            <a href="@Model.TwitterURL">
+                <div class="twitter media rounded-circle round-button"></div>
+            </a>
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(Model.InstagramURL))
+    {
+        <div class="mx-4 some rounded-circle border border-1 border-white my-3 my-sm-0">
+            <a href="@Model.InstagramURL">
+                <div class="instagram media rounded-circle round-button"></div>
+            </a>
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(Model.YoutubeURL))
+    {
+        <div class="mx-4 some rounded-circle border border-1 border-white my-3 my-sm-0">
+            <a href="@Model.YoutubeURL">
+                <div class="youtube media rounded-circle round-button"></div>
+            </a>
+        </div>
+    }
+</div>

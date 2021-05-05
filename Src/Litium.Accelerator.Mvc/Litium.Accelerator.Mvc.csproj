@@ -159,6 +159,7 @@
     <Content Include="Client\images\Favicon_litium_transp.96x96.png" />
     <Content Include="Client\images\favorites.svg" />
     <Content Include="Client\images\hamburger.svg" />
+    <Content Include="Client\images\Instagram.svg" />
     <Content Include="Client\images\linkedin.svg" />
     <Content Include="Client\images\Logo-B2C.png" />
     <Content Include="Client\images\magnifier.svg" />
@@ -173,6 +174,7 @@
     <Content Include="Client\images\user.png" />
     <Content Include="Client\images\user.svg" />
     <Content Include="Client\images\wishlist.svg" />
+    <Content Include="Client\images\Youtube.svg" />
     <Content Include="Client\Scripts\Actions\Address.action.js" />
     <Content Include="Client\Scripts\Actions\Cart.action.js" />
     <Content Include="Client\Scripts\Actions\Checkout.action.js" />
@@ -426,6 +428,7 @@
     <Content Include="Client\Styles\DefaultTheme\framework.scss" />
     <Content Include="Client\Styles\DefaultTheme\marketselector.scss" />
     <Content Include="Client\Styles\hamburgersettings.scss" />
+    <Content Include="Client\Styles\DefaultTheme\socialmedialinks.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
@@ -434,6 +437,7 @@
     <Content Include="Client\bootstrap\bootstrap.min.js.map" />
     <Content Include="Client\bootstrap\popper.min.js.flow" />
     <Content Include="Client\bootstrap\popper.min.js.map" />
+    <Content Include="Views\Shared\Framework\SocialMediaLinks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

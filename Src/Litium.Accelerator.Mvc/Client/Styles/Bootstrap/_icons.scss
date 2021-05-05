@@ -43,3 +43,9 @@
 @mixin icon--twitter() {
     background: url('../../images/twitter.svg') center no-repeat;
 }
+@mixin icon--instagram() {
+    background: url('../../images/Instagram.svg') center no-repeat;
+}
+@mixin icon--youtube() {
+    background: url('../../images/Youtube.svg') center no-repeat
+}
