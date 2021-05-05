@@ -5,6 +5,7 @@ using Litium.Globalization;
 using Litium.Runtime.AutoMapper;
 using Litium.Web;
 using Litium.Web.Models;
+using Litium.Web.Models.Globalization;
 using Litium.Websites;
 using System;
 using System.Collections.Generic;
@@ -39,10 +40,6 @@ namespace Litium.Accelerator.Builders.Framework
         {
             var viewModel = new MarketSelectorViewModel();
 
-            // Get current culture
-            var currentUICulture = _requestModelAccessor.RequestModel.ChannelModel.Channel.Localizations.CurrentUICulture.Name;
-            var culture = _requestModelAccessor.RequestModel.ChannelModel.Channel.Localizations.First(x => x.Value.Name == currentUICulture);
-
             // Only active channels so get channellinks to startpage
             var website = _requestModelAccessor.RequestModel.WebsiteModel;
             var startPage = _pageService.GetChildPages(Guid.Empty, website.SystemId).FirstOrDefault();
@@ -67,18 +64,31 @@ namespace Litium.Accelerator.Builders.Framework
 
             foreach (var channel in channels)
             {
-                var lang = channel.WebsiteLanguageSystemId.HasValue ? _languagesService.Get(channel.WebsiteLanguageSystemId.Value) : null;
+                var channelModel = channel.MapTo<ChannelModel>();
 
                 var linkModel = new ContentLinkModel
                 {
                     IsSelected = _requestModelAccessor.RequestModel.ChannelModel.Channel.SystemId == channel.SystemId,
                     Url = _urlService.GetUrl(channel, new ChannelUrlArgs { UsePrimaryDomainName = true }),
-                    Name = channel.Fields.GetFieldContainer(culture.Key).GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Name),
-                    Image = channel.Fields.GetValue<Guid?>(ChannelFieldNameConstants.FlagIcon)?.MapTo<ImageModel>()
+                    Name = channelModel.GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Name),
+                    Image = channelModel.GetValue<Guid?>(ChannelFieldNameConstants.FlagIcon)?.MapTo<ImageModel>(),
+                    ExtraInfo = channelModel.GetValue<bool>(ChannelFieldNameConstants.IsInternational).ToString()
                 };
 
                 viewModel.ChannelLinkList.Add(linkModel);
             }
+            
+            // order by name
+            viewModel.ChannelLinkList = viewModel.ChannelLinkList.OrderBy(x => x.Name).ToList();
+
+            // move international first
+            var international = viewModel.ChannelLinkList.FirstOrDefault(x => x.ExtraInfo.Equals("true", StringComparison.OrdinalIgnoreCase));
+            if(international != null)
+            {
+                viewModel.ChannelLinkList.Remove(international);
+                viewModel.ChannelLinkList.Insert(0, international);
+            }
+
 
             return viewModel;
         }

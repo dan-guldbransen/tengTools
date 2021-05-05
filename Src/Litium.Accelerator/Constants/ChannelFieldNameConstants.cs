@@ -27,5 +27,6 @@ namespace Litium.Accelerator.Constants
         public const string ContactLat = "Lat";
         public const string ContactLong = "Long";
 
+        public const string IsInternational = "IsInternational";
     }
 }

@@ -129,6 +129,7 @@ namespace Litium.Accelerator.Definitions.Channels
                     Option = new TextOption()
                 },
                 new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.FlagIcon, SystemFieldTypeConstants.MediaPointerImage),
+                new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.IsInternational, SystemFieldTypeConstants.Boolean),
             };
 
             return fields;

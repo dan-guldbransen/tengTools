@@ -24,7 +24,8 @@ namespace Litium.Accelerator.Definitions.Channels
                         Fields =
                         {
                             SystemFieldDefinitionConstants.Name,
-                            ChannelFieldNameConstants.FlagIcon
+                            ChannelFieldNameConstants.FlagIcon,
+                            ChannelFieldNameConstants.IsInternational
                         }
                     },
                     new FieldTemplateFieldGroup()
