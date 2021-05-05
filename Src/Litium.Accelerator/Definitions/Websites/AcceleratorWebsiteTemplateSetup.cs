@@ -66,8 +66,7 @@ namespace Litium.Accelerator.Definitions.Websites
                             AcceleratorWebsiteFieldNameConstants.Footer,
                             AcceleratorWebsiteFieldNameConstants.FooterSocialMediaText,
                             AcceleratorWebsiteFieldNameConstants.FooterVisionHeader,
-                            AcceleratorWebsiteFieldNameConstants.FooterVisionTextLeft,
-                            AcceleratorWebsiteFieldNameConstants.FooterVisionTextRight,
+                            AcceleratorWebsiteFieldNameConstants.FooterVisionText,
                             AcceleratorWebsiteFieldNameConstants.FooterLegal
                         }
                     },

@@ -22,14 +22,13 @@ namespace Litium.Accelerator.ViewModels.Framework
         public LinkModel Newsletter { get; set; } = new LinkModel();
         public string SocialMediaText { get; set; }
         public string VisionHeader { get; set; }
-        public string VisionTextLeft { get; set; }
-        public string VisionTextRight { get; set; }
+        public string VisionText { get; set; }
         public string Legal { get; set; }
         public SocialMediaLinks SocialMediaLinks { get; set; } = new SocialMediaLinks();
 
         // Render logic
         public bool HasCTASection => GetOrganised != null || Newsletter != null;
-        public bool HasVisionSection => !string.IsNullOrEmpty(VisionHeader) || !string.IsNullOrEmpty(VisionTextLeft) || !string.IsNullOrEmpty(VisionTextRight);
+        public bool HasVisionSection => !string.IsNullOrEmpty(VisionHeader) || !string.IsNullOrEmpty(VisionText);
 
         public int SectionCol
         {

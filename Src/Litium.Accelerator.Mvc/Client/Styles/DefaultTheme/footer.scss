@@ -5,4 +5,19 @@
         bottom: 0px;
         left: 20px;
     }
+
+    @include media-breakpoint-up(md){
+
+        .vision-text {
+            column-count: 2;
+        }
+    }
+
+    .cta-arrow {
+        &:after {
+            display: inline-block;
+            margin-left: 1rem;
+            @include icon--cta-arrow();
+        }
+    }
 }

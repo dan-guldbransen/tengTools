@@ -35,8 +35,7 @@ namespace Litium.Accelerator.Builders.Framework
             model.Newsletter = website.GetValue<PointerPageItem>(AcceleratorWebsiteFieldNameConstants.FooterNewsletter)?.MapTo<LinkModel>();
             model.SocialMediaText = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.FooterSocialMediaText) ?? string.Empty;
             model.VisionHeader = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.FooterVisionHeader) ?? string.Empty;
-            model.VisionTextLeft = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.FooterVisionTextLeft) ?? string.Empty;
-            model.VisionTextRight = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.FooterVisionTextRight) ?? string.Empty;
+            model.VisionText = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.FooterVisionText) ?? string.Empty;
             model.Legal = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.FooterLegal) ?? string.Empty;
 
             model.SocialMediaLinks.TwitterURL = channel.GetValue<string>(ChannelFieldNameConstants.Twitter) ?? string.Empty;

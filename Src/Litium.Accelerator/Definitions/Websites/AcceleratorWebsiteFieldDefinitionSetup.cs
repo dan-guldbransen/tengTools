@@ -52,11 +52,7 @@ namespace Litium.Accelerator.Definitions.Websites
                 {
                     MultiCulture = true,
                 },
-                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterVisionTextLeft, SystemFieldTypeConstants.Text)
-                {
-                    MultiCulture = true,
-                },
-                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterVisionTextRight, SystemFieldTypeConstants.Text)
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.FooterVisionText, SystemFieldTypeConstants.Text)
                 {
                     MultiCulture = true,
                 },

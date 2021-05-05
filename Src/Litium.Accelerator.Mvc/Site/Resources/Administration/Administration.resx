@@ -1314,11 +1314,8 @@
   <data name="fielddefinition.websitearea.footervisionheader.name" xml:space="preserve">
     <value>Vision header</value>
   </data>
-  <data name="fielddefinition.websitearea.footervisiontextleft.name" xml:space="preserve">
-    <value>Vision left text</value>
-  </data>
-  <data name="fielddefinition.websitearea.footervisiontextright.name" xml:space="preserve">
-    <value>Vision right text</value>
+  <data name="fielddefinition.websitearea.footervisiontext.name" xml:space="preserve">
+    <value>Vision text</value>
   </data>
   <data name="fielddefinition.globalizationarea.contactaddressLine2.description" xml:space="preserve">
     <value />
