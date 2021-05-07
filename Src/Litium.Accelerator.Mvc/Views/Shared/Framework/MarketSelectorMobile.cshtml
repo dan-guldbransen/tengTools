@@ -1,0 +1,19 @@
+﻿@model Litium.Accelerator.ViewModels.Framework.MarketSelectorViewModel
+@if (Model.ChannelLinkList.Any() && Model.ChannelLinkList.Count > 1)
+{
+	var current = Model.ChannelLinkList.FirstOrDefault(link => link.IsSelected);
+
+	<a href="#" class="nav-link dropdown-toggle" id="navbarMarketsMobileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		@if (current != null)
+		{
+			<span>@current.Name</span>
+		}
+		<i class="arrow arrow-up arrow-primary"></i>
+	</a>
+	<ul class="dropdown-menu dropdown-mobilemenu-marketselector" aria-labelledby="navbarMarketsMobileDropdown">
+		@foreach (var link in Model.ChannelLinkList)
+		{
+			<li class="vertical-align-tb py-3">@Html.ImageFor(x => x.ChannelLinkList.First(channelLink => channelLink == link).Image, maxSize: new System.Drawing.Size(29, 19))<a class="ms-3" href="@link.Url">@link.Name</a></li>
+		}
+	</ul>
+}

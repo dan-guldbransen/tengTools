@@ -1,11 +1,4 @@
 .footer {
-    &:after {
-        @include icon--logo-notext();
-        position: absolute;
-        bottom: 0px;
-        left: 20px;
-    }
-
     @include media-breakpoint-up(md){
         .vision-text {
             column-count: 2;
@@ -18,5 +11,11 @@
             margin-left: 1rem;
             @include icon--cta-arrow();
         }
+    }
+
+    .footer-logo{
+        position:absolute;
+        bottom:0;
+        left: 16px;
     }
 }

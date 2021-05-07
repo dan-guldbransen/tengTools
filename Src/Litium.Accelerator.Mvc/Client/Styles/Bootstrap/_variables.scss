@@ -121,3 +121,14 @@ $nav-link-font-size: 1rem;
 $nav-link-font-weight: 500;
 $nav-link-color: $black;
 $nav-link-hover-color: $white;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+
+$headings-font-weight: 700;
+
+// scss-docs-start btn-variables
+$btn-font-weight: 700;
+
+$breadcrumb-divider: quote(">");

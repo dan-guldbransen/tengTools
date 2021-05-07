@@ -29,6 +29,7 @@ namespace Litium.Accelerator.Definitions.Websites
                         Fields =
                         {
                             AcceleratorWebsiteFieldNameConstants.LogotypeMain,
+                            AcceleratorWebsiteFieldNameConstants.LogotypeAlt,
                             AcceleratorWebsiteFieldNameConstants.LogotypeIcon
                         }
                     },

@@ -2,13 +2,14 @@
     background: url('../../images/favorites.svg') center no-repeat;
 }
 
-@mixin icon--arrow-down() {
-    background: url('../../images/arrow-down.svg') right no-repeat;
-}
-
 @mixin icon--search() {
     content: url('../../images/search.svg');
 }
+
+@mixin icon--searchbg() {
+    background: url('../../images/search.svg') center no-repeat;
+}
+
 
 @mixin icon--profile() {
     background: url('../../images/profile.svg') center no-repeat;
@@ -28,10 +29,6 @@
 
 @mixin icon--close() {
     content: url('../../images/close.svg');
-}
-
-@mixin icon--logo-notext() {
-    content: url('../../images/tengtoolslogo.svg');
 }
 
 @mixin icon--facebook() {

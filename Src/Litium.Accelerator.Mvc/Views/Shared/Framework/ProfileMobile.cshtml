@@ -1,0 +1,17 @@
+﻿@using Litium.Accelerator.ViewModels.Framework;
+@model HeaderViewModel
+
+@{
+	var currentPage = User.Identity.IsAuthenticated ? Model.MyPage : Model.LoginPage;
+	var href = User.Identity.IsAuthenticated ? currentPage.Href : Model.ExternalB2BLink;
+	var text = User.Identity.IsAuthenticated ? currentPage.Text : "external b2b";
+}
+
+@if (!string.IsNullOrEmpty(href))
+{
+	<li class="list-group-item border-0">
+		<a href="@href" title="@text" target="@(User.Identity.IsAuthenticated ? "_self" : "_blank")">
+			<i class="bi bi-person me-2"></i>@Html.WebSiteString("general.mobilenavigation.profile") (3)
+		</a>
+	</li>
+}

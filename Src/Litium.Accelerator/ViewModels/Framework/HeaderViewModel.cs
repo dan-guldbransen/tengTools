@@ -13,6 +13,7 @@ namespace Litium.Accelerator.ViewModels.Framework
         public LinkModel GetOrganised { get; set; }
         public string StartPageUrl { get; set; }
         public IList<LinkModel> TopLinkList { get; set; }
+        public IList<ContentLinkModel> Categories { get; set; }
         public QuickSearchViewModel QuickSearch { get; set; }
         public string ExternalB2BLink { get; set; }
     }
