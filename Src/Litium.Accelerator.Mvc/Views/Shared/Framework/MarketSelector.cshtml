@@ -13,8 +13,9 @@
 	<a href="#" class="nav-link dropdown-toggle" id="navbarMarketsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 		@if (current != null)
 		{
-			<text>@current.Name</text>
+		<span>@current.Name</span>
 		}
+		<i class="arrow arrow-down arrow-secondary"></i>
 	</a>
 	<ul class="dropdown-menu dropdown-menu-marketselector" aria-labelledby="navbarMarketsDropdown">
 		<li class="bg-white border-bottom border-dark border-1">

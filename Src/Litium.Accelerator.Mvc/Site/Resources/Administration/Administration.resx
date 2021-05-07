@@ -2154,4 +2154,7 @@
   <data name="fielddefinition.productarea.ProductSymbols.name" xml:space="preserve">
     <value>Symbols</value>
   </data>
+  <data name="fielddefinition.websitearea.logotypealt.name" xml:space="preserve">
+    <value>Logotype (alt)</value>
+  </data>
 </root>

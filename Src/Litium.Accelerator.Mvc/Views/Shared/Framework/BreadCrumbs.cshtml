@@ -2,14 +2,14 @@
 
 @if (Model.ContentLinks != null && Model.ContentLinks.Any())
 {
-    <nav class="breadcrumbs-container--hide-on-mobile">
-        <ul class="breadcrumbs">
+    <nav aria-label="breadcrumb" class="d-none d-md-block">
+        <ol class="breadcrumb">
             @foreach (var contentLink in Model.ContentLinks)
             {
-                <li class="breadcrumbs__item @(contentLink.Disabled? $"breadcrumbs__item--disabled" : $"")" >
-                    <a class="breadcrumbs__link" href="@contentLink.Url">@contentLink.Name</a>
+                <li class="breadcrumb-item @(contentLink.IsSelected? $"active" : $"")" @(contentLink.IsSelected ? "aria-current='page'" : string.Empty)>
+                    <a href="@contentLink.Url">@contentLink.Name</a>
                 </li>
             }
-        </ul>
+        </ol>
     </nav>
 }

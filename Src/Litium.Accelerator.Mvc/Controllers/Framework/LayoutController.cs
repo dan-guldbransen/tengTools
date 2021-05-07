@@ -94,10 +94,12 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         }
 
         [ChildActionOnly]
-        public ActionResult MarketSelector()
+        public ActionResult MarketSelector(bool isMobile = false)
         {
             var viewModel = _marketSelectorViewModelBuilder.Build();
-            return PartialView("Framework/MarketSelector", viewModel);
+
+            var viewPath = isMobile ? "Framework/MarketSelectorMobile" : "Framework/MarketSelector";
+            return PartialView(viewPath, viewModel);
         }
 
         [ChildActionOnly]

@@ -1368,4 +1368,7 @@
   <data name="fielddefinition.globalizationarea.isinternational.name" xml:space="preserve">
     <value>Är international</value>
   </data>
+  <data name="fielddefinition.websitearea.logotypealt.name" xml:space="preserve">
+    <value>Logotyp (alternativ)</value>
+  </data>
 </root>

@@ -25,7 +25,7 @@ namespace Litium.Accelerator.ViewModels.Framework
         public string VisionText { get; set; }
         public string Legal { get; set; }
         public SocialMediaLinks SocialMediaLinks { get; set; } = new SocialMediaLinks();
-
+        public ImageModel Logo { get; set; }
         // Render logic
         public bool HasCTASection => GetOrganised != null || Newsletter != null;
         public bool HasVisionSection => !string.IsNullOrEmpty(VisionHeader) || !string.IsNullOrEmpty(VisionText);

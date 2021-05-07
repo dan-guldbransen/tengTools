@@ -3,6 +3,7 @@
     public static class AcceleratorWebsiteFieldNameConstants
     {
         public const string LogotypeMain = "LogotypeMain";
+        public const string LogotypeAlt = "LogotypeAlt";
         public const string LogotypeIcon = "LogotypeIcon";
         public const string HeaderLayout = "HeaderLayout";
         public const string CheckoutPage = "CheckoutPage";

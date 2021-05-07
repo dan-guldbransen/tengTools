@@ -10,7 +10,6 @@
     white-space: nowrap;
     padding-right: 1rem !important;
     // Generate the caret automatically
-    @include icon--arrow-down();
 
     &#navbarMarketsDropdown.show {
         &:after {
@@ -61,8 +60,8 @@
 
     &.dropdown-menu-arrow {
         top: 41px;
-        left:0;
-        right:0;
+        left: 0;
+        right: 0;
 
         li.dropdown-header {
             padding-left: 0px;
@@ -114,10 +113,6 @@
         margin-top: 0;
         margin-bottom: $dropdown-spacer;
     }
-
-    .dropdown-toggle {
-        @include icon--arrow-down();
-    }
 }
 
 .dropend {
@@ -133,8 +128,6 @@
     }
 
     .dropdown-toggle {
-        @include icon--arrow-down();
-
         &::after {
             vertical-align: 0;
         }
@@ -154,8 +147,6 @@
     }
 
     .dropdown-toggle {
-        @include icon--arrow-down();
-
         &::before {
             vertical-align: 0;
         }

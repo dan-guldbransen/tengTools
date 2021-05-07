@@ -1,3 +1,51 @@
-﻿.mm-menu_offcanvas {
-    z-index: 1;
+﻿.mobile-utils {
+    .bi {
+        color: $primary;
+    }
+}
+.offcanvas-body {
+    .input-group {
+        input, .btn {
+            background-color: #E1E1E1;
+        }
+
+        .btn {
+            height: 100%;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        input {
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+
+    .dropup {
+        width: 80px;
+        float: right;
+
+        a {
+            &.dropdown-toggle {
+                position: fixed;
+                bottom: 15px;
+            }
+
+            color: $black;
+
+            &:hover, :focus, :visited, :active {
+                color: $black;
+            }
+        }
+
+        .dropdown-menu {
+            width: $offcanvas-horizontal-width - 3px;
+            padding-left: $offcanvas-padding-y;
+            padding-right: $offcanvas-padding-y;
+            inset: auto auto 0px -1px !important;
+        }
+    }
 }
