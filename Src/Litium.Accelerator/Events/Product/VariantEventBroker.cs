@@ -1,10 +1,14 @@
-﻿using Litium.Events;
+﻿using Litium.Accelerator.Constants;
+using Litium.Events;
 using Litium.Globalization;
 using Litium.Products;
 using Litium.Products.Events;
 using Litium.Runtime;
+using Litium.Runtime.AutoMapper;
 using Litium.Security;
+using Litium.Studio.FieldFramework.FieldConverters;
 using Litium.Web;
+using Litium.Web.Models.Globalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +29,7 @@ namespace Litium.Accelerator.Events.Product
         private readonly ChannelService _channelService;
         private readonly SlugifyService _slugService;
         private readonly SecurityContextService _securityContextService;
+        private readonly LanguageService _lanugageService;
 
         public VariantEventBroker(EventBroker eventBroker,
              BaseProductService baseProductService,
@@ -32,7 +37,8 @@ namespace Litium.Accelerator.Events.Product
              CategoryService categoryService,
             ChannelService channelService,
             SlugifyService slugService,
-            SecurityContextService securityContextService)
+            SecurityContextService securityContextService,
+            LanguageService languageService)
         {
             _baseProductService = baseProductService;
             _categoryService = categoryService;
@@ -40,6 +46,7 @@ namespace Litium.Accelerator.Events.Product
             _channelService = channelService;
             _slugService = slugService;
             _securityContextService = securityContextService;
+            _lanugageService = languageService;
 
             _createdSubscription = eventBroker.Subscribe<VariantCreated>(variantCreatedEvent => SetupNewVariant(variantCreatedEvent));
             _updatedSubscription = eventBroker.Subscribe<VariantUpdated>(variantCreatedEvent => SetupUpdatedVariant(variantCreatedEvent));
@@ -50,21 +57,23 @@ namespace Litium.Accelerator.Events.Product
         {
             // Publish to channels based on markets
             var channels = _channelService.GetAll().ToList();
-            var variant = _variantService.Get(variantCreatedEvent.SystemId);
+            var variant = variantCreatedEvent.Item;
 
             // Categories
             var baseProduct = _baseProductService.Get(variant.BaseProductSystemId);
             var productCategoryNumber = baseProduct.Fields.GetValue<string>("ProductCategoryNumber");
             var productGroupNumber = baseProduct.Fields.GetValue<string>("ProductGroupNumber");
 
+            // Get existing categories if set
             var categories = _categoryService.GetByBaseProduct(variant.BaseProductSystemId);
             
+            // Get categories to add/update based on baseproduct attributes
             var mainCat = _categoryService.Get(productCategoryNumber);
             var subCat = _categoryService.Get(productGroupNumber);
 
             if(categories == null || !categories.Any())
             {
-                // if we get here we need initial link to baseproduct also
+                // if we get here we need set link to baseproduct also
                 var mainClone = mainCat.MakeWritableClone();
                 var subClone = subCat.MakeWritableClone();
                 
@@ -74,6 +83,8 @@ namespace Litium.Accelerator.Events.Product
 
                 var subLink = new CategoryToProductLink(baseProduct.SystemId);
                 subLink.ActiveVariantSystemIds.Add(variant.SystemId);
+
+                // lowest categoy in tree is main category
                 subLink.MainCategory = true;
                 subClone.ProductLinks.Add(subLink);
 
@@ -88,6 +99,7 @@ namespace Litium.Accelerator.Events.Product
                 var main = categories.FirstOrDefault(x => x.Id == mainCat.Id);
                 var sub = categories.FirstOrDefault(x => x.Id == subCat.Id);
 
+                // set main category if doesnt exist
                 if(main != null)
                 {
                     var link = main.ProductLinks.First(c => c.BaseProductSystemId == baseProduct.SystemId);
@@ -101,6 +113,7 @@ namespace Litium.Accelerator.Events.Product
                     }
                 }
 
+                // set sub category if doesnt exist
                 if(sub != null)
                 {
                     var link = sub.ProductLinks.First(c => c.BaseProductSystemId == baseProduct.SystemId);
@@ -115,7 +128,7 @@ namespace Litium.Accelerator.Events.Product
                 }
             }
 
-
+            // get markets where variant should be published
             var marketField = variant.Fields.GetValue<string>("ItemApprovedForMarket");
             var marketList = new List<string>();
             if (!string.IsNullOrEmpty(marketField))
@@ -124,14 +137,33 @@ namespace Litium.Accelerator.Events.Product
             }
 
             var clone = variant.MakeWritableClone();
-            foreach (var market in marketList)
+            
+            // check each channel if variant should have link
+            foreach(var channel in channels)
             {
-                var channel = channels.FirstOrDefault(x => x.Fields.GetValue<string>("_name", "en-US") == market);
-                if (channel == null)
-                    continue;
+                var isInternational = channel.Fields.GetValue<bool>(ChannelFieldNameConstants.IsInternational);
 
-                // add channellink
-                clone.ChannelLinks.Add(new VariantToChannelLink(channel.SystemId));
+                // international gets all
+                if (isInternational)
+                {
+                    // add channellink
+                    clone.ChannelLinks.Add(new VariantToChannelLink(channel.SystemId));
+                }
+                else
+                {
+                    // based on language on channel we set active channellinks, channel should have a correct set language in litium
+                    var languageId = channel.ProductLanguageSystemId ?? channel.WebsiteLanguageSystemId ?? null;
+                    if(!languageId.HasValue)
+                        continue;
+
+                    var language = _lanugageService.Get(languageId.Value);
+                    if(marketList.Contains(language.CultureInfo.Name.ToLower()))
+                    {
+                        // add channellink
+                        clone.ChannelLinks.Add(new VariantToChannelLink(channel.SystemId));
+                    }
+                    
+                }
             }
 
             // Create url
@@ -153,9 +185,11 @@ namespace Litium.Accelerator.Events.Product
 
         private void SetupUpdatedVariant(VariantUpdated variantCreatedEvent)
         {
+            var hasChanges = false;
+
             // update publish to channels based on markets if missmatch
 
-            // update category link if changed category ids
+            // update category link if changed category ids TODO Move this to base produt updated and move all variants if category changed
 
             // update url if name changed
 

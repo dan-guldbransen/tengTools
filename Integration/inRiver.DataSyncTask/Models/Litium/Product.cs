@@ -26,8 +26,6 @@ namespace inRiver.DataSyncTask.Models.Litium
         // Fields to keep track of variants and markets, not mapped to Json
         [JsonIgnore]
         public List<int> ProductÍtemIds { get; set; } = new List<int>();
-        [JsonIgnore]
-        public List<string> Markets { get; set; } = new List<string>();
 
         public Product(Entity entity, bool multipleVariants)
         {

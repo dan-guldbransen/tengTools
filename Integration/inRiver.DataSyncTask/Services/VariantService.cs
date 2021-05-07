@@ -28,33 +28,36 @@ namespace inRiver.DataSyncTask.Services
                 var markets = item.GetField(InRiver.InRiverField.Item.ItemApprovedForMarket).Data.ToString();
                 var litiumMarkets = MapToLitiumChannelCultures(markets);
 
-                // TODO: REFACTOR field extraction to seperate methods when doing rest of fields
-
-                // Name
-                foreach (var culture in cultures)
-                {
-                    var description = item.GetField(InRiver.InRiverField.Item.ItemShortDescription).Data as LocaleString;
-                    litiumVariant.Fields.Add(new Models.Litium.Field
-                    {
-                        FieldDefinitionId = LitiumFieldDefinitions.Name,
-                        Culture = culture,
-                        Value = description[new System.Globalization.CultureInfo(culture)] ?? description[description.Languages.First()]
-                    });
-                }
-
-                // Markets -> mapped to channels in the create/update event
-                litiumVariant.Fields.Add(new Models.Litium.Field
-                {
-                    FieldDefinitionId = "ItemApprovedForMarket",
-                    Culture = null,
-                    Value = string.Join(",", litiumMarkets)
-                });
+                ExtractFieldData(item, litiumVariant, cultures, litiumMarkets);
 
                 if (data.Variants == null)
                     data.Variants = new List<Variant>();
 
                 data.Variants.Add(litiumVariant);
             }
+        }
+
+        private static void ExtractFieldData(Entity item, Variant litiumVariant, List<string> cultures, List<string> litiumMarkets)
+        {
+            // Name
+            foreach (var culture in cultures)
+            {
+                var description = item.GetField(InRiver.InRiverField.Item.ItemShortDescription).Data as LocaleString;
+                litiumVariant.Fields.Add(new Models.Litium.Field
+                {
+                    FieldDefinitionId = LitiumFieldDefinitions.Name,
+                    Culture = culture,
+                    Value = description[new System.Globalization.CultureInfo(culture)] ?? description[description.Languages.First()]
+                });
+            }
+
+            // Markets -> published to channels in the create/update event
+            litiumVariant.Fields.Add(new Models.Litium.Field
+            {
+                FieldDefinitionId = "ItemApprovedForMarket",
+                Culture = null,
+                Value = string.Join(",", litiumMarkets)
+            });
         }
 
         // TODO refactor to json for quickadd

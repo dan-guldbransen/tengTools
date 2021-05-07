@@ -14,6 +14,7 @@ namespace Litium.Accelerator.Events.Category
     public class CategoryEventBroker : IDisposable
     {
         private readonly ISubscription<CategoryCreated> _createdSubscription;
+        private readonly ISubscription<CategoryUpdated> _updatedSubscription;
 
         private readonly CategoryService _categoryService;
         private readonly ChannelService _channelService;
@@ -27,6 +28,8 @@ namespace Litium.Accelerator.Events.Category
             SecurityContextService securityContextService)
         {
             _createdSubscription = eventBroker.Subscribe<CategoryCreated>(categoryCreatedEvent => SetupNewCategory(categoryCreatedEvent));
+            _updatedSubscription = eventBroker.Subscribe<CategoryUpdated>(categoryUpdatedEvent => SetupUpdatedCategory(categoryUpdatedEvent));
+
 
             _categoryService = categoryService;
             _channelService = channelService;
@@ -34,12 +37,49 @@ namespace Litium.Accelerator.Events.Category
             _securityContextService = securityContextService;
         }
 
+        private void SetupUpdatedCategory(CategoryUpdated categoryUpdatedEvent)
+        {
+            var hasChanges = false;
+
+            var channels = _channelService.GetAll().ToList();
+            var clone = categoryUpdatedEvent.Item.MakeWritableClone();
+
+            // Channels
+            foreach (var channel in channels)
+            {
+                var link = new CategoryToChannelLink(channel.SystemId);
+
+                if (!clone.ChannelLinks.Contains(link))
+                {
+                    clone.ChannelLinks.Add(link);
+                    hasChanges = true;
+                }
+            }
+
+            // URL - Slugify
+            foreach (var localization in clone.Localizations)
+            {
+                var name = clone.Fields.GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Name, localization.Key);
+                var slug = _slugService.Slugify(new System.Globalization.CultureInfo(localization.Key), name);
+
+                var currentSlug = clone.Fields.GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Url, localization.Key);
+
+                if(currentSlug != slug)
+                {
+                    clone.Fields.AddOrUpdateValue(FieldFramework.SystemFieldDefinitionConstants.Url, localization.Key, slug);
+                    hasChanges = true;
+                }
+            }
+
+            if(hasChanges)
+                using (_securityContextService.ActAsSystem())
+                    _categoryService.Update(clone);
+        }
+
         private void SetupNewCategory(CategoryCreated categoryCreatedEvent)
         {
             var channels = _channelService.GetAll().ToList();
-            var category = _categoryService.Get(categoryCreatedEvent.SystemId);
-
-            var clone = category.MakeWritableClone();
+            var clone = categoryCreatedEvent.Item.MakeWritableClone();
 
             // Channels
             foreach (var channel in channels)
@@ -57,17 +97,14 @@ namespace Litium.Accelerator.Events.Category
             }
 
             using(_securityContextService.ActAsSystem())
-            {
-                // Update entity
                 _categoryService.Update(clone);
-            }
-
         }
 
         public void Dispose()
         {
             // unregister the event from event broker
             _createdSubscription.Dispose();
+            _updatedSubscription.Dispose();
         }
     }
 }
