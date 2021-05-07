@@ -13,7 +13,7 @@ namespace Litium.Accelerator.Definitions.Channels
     {
         public override IEnumerable<FieldTemplate> GetTemplates()
         {
-            var template = new ChannelFieldTemplate("DefaultChannel")
+            var template = new ChannelFieldTemplate("DefaultChannel") 
             {
                 FieldGroups = new[]
                 {
@@ -24,7 +24,8 @@ namespace Litium.Accelerator.Definitions.Channels
                         Fields =
                         {
                             SystemFieldDefinitionConstants.Name,
-                            ChannelFieldNameConstants.FlagIcon
+                            ChannelFieldNameConstants.FlagIcon,
+                            ChannelFieldNameConstants.IsInternational
                         }
                     },
                     new FieldTemplateFieldGroup()
@@ -33,11 +34,31 @@ namespace Litium.Accelerator.Definitions.Channels
                         Collapsed = false,
                         Fields =
                         {
-                            ChannelFieldNameConstants.InstagramLink,
+                            ChannelFieldNameConstants.Instagram,
                             ChannelFieldNameConstants.Youtube,
                             ChannelFieldNameConstants.Twitter,
                             ChannelFieldNameConstants.Facebook,
                             ChannelFieldNameConstants.LinkedIn
+
+                        }
+                    },
+                     new FieldTemplateFieldGroup()
+                    {
+                        Id = "ContactInformation",
+                        Collapsed = true,
+                        Fields =
+                        {
+                            ChannelFieldNameConstants.ContactName,
+                            ChannelFieldNameConstants.ContactStreet,
+                            ChannelFieldNameConstants.ContactAddressLine2,
+                            ChannelFieldNameConstants.ContactZipCode,
+                            ChannelFieldNameConstants.ContactCity,
+                            ChannelFieldNameConstants.ContactCounty,
+                            ChannelFieldNameConstants.ContactPhone,
+                            ChannelFieldNameConstants.ContactEmail,
+                            ChannelFieldNameConstants.ContactWebsite,
+                            ChannelFieldNameConstants.ContactLat,
+                            ChannelFieldNameConstants.ContactLong
                         }
                     },
                 }

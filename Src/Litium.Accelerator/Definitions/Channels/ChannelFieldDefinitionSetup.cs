@@ -16,7 +16,84 @@ namespace Litium.Accelerator.Definitions.Channels
         {
             var fields = new[]
             {
-                 new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.InstagramLink, SystemFieldTypeConstants.Text)
+                  new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactName, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+                    new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactStreet, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+                    new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactAddressLine2, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+                    new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactZipCode, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+                    new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactCity, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+                    new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactCounty, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+                    new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactPhone, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+                    new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactEmail, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+                    new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactWebsite, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+                     new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactLat, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                }, new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.ContactLong, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false,
+                    Option = new TextOption()
+                },
+
+                 new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.Instagram, SystemFieldTypeConstants.Text)
                 {
                     CanBeGridColumn = false,
                     CanBeGridFilter = false,
@@ -52,6 +129,7 @@ namespace Litium.Accelerator.Definitions.Channels
                     Option = new TextOption()
                 },
                 new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.FlagIcon, SystemFieldTypeConstants.MediaPointerImage),
+                new FieldDefinition<GlobalizationArea>(ChannelFieldNameConstants.IsInternational, SystemFieldTypeConstants.Boolean),
             };
 
             return fields;

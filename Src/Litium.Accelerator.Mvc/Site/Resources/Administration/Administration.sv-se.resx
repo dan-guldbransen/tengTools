@@ -1302,10 +1302,70 @@
   <data name="fielddefinition.websitearea.footervisionheader.name" xml:space="preserve">
     <value>Vision header</value>
   </data>
-  <data name="fielddefinition.websitearea.footervisiontextleft.name" xml:space="preserve">
-    <value>Vision text-vänster</value>
+  <data name="fielddefinition.websitearea.footervisiontext.name" xml:space="preserve">
+    <value>Vision text</value>
   </data>
-  <data name="fielddefinition.websitearea.footervisiontextright.name" xml:space="preserve">
-    <value>Vision text-höger</value>
+  <data name="fielddefinition.globalizationarea.contactaddressLine2.description" xml:space="preserve">
+    <value>Eventuell andra adressrad</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactaddressLine2.name" xml:space="preserve">
+    <value>Adressrad 2</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactcity.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.globalizationarea.contactcity.name" xml:space="preserve">
+    <value>Stad</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactemail.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.globalizationarea.contactemail.name" xml:space="preserve">
+    <value>Epost</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactname.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.globalizationarea.contactname.name" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactphone.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.globalizationarea.contactphone.name" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactstreet.description" xml:space="preserve">
+    <value>Gata och gatunummer</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactstreet.name" xml:space="preserve">
+    <value>Gatuadress</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactwebsite.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.globalizationarea.contactwebsite.name" xml:space="preserve">
+    <value>Webbadress</value>
+  </data>
+  <data name="fieldtemplate.globalizationarea.defaultchannel.fieldgroup.contactinformation.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.globalizationarea.defaultchannel.fieldgroup.contactinformation.name" xml:space="preserve">
+    <value>Kontaktinformation</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactlat.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.globalizationarea.contactlat.name" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.contactlong.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.globalizationarea.contactlong.name" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="fielddefinition.globalizationarea.isinternational.name" xml:space="preserve">
+    <value>Är international</value>
   </data>
 </root>
