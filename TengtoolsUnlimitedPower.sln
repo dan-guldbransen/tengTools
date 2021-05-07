@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Litium.Accelerator.Mvc", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Litium.Accelerator.Elasticsearch", "Src\Litium.Accelerator.Elasticsearch\Litium.Accelerator.Elasticsearch.csproj", "{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{805A2A6A-E222-4E61-987E-1538092118AC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inRiver.DataSyncTask", "Integration\inRiver.DataSyncTask\inRiver.DataSyncTask.csproj", "{49969120-6E9A-4011-8543-1C8E7166A019}"
 EndProject
 Global
@@ -44,9 +42,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{49969120-6E9A-4011-8543-1C8E7166A019} = {805A2A6A-E222-4E61-987E-1538092118AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFB8E599-2219-412D-8561-CF94E219F133}

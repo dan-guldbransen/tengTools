@@ -30,6 +30,8 @@ namespace inRiver.DataSyncTask.Services
                 var markets = product.GetField(InRiver.InRiverField.Product.ProductMarket).Data.ToString();
                 litiumProduct.Markets = MapToLitiumChannels(markets);
                 
+                // TODO: REFACTOR field extraction to seperate methods when doing rest of fields
+
                 // Name
                 foreach (var culture in cultures)
                 {

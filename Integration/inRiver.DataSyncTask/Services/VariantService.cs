@@ -26,7 +26,9 @@ namespace inRiver.DataSyncTask.Services
                 var litiumVariant = new Variant(item, baseProduct.ArticleNumber);
 
                 var markets = item.GetField(InRiver.InRiverField.Item.ItemApprovedForMarket).Data.ToString();
-                var litiumMarkets = MapToLitiumChannels(markets);
+                var litiumMarkets = MapToLitiumChannelCultures(markets);
+
+                // TODO: REFACTOR field extraction to seperate methods when doing rest of fields
 
                 // Name
                 foreach (var culture in cultures)
@@ -55,7 +57,8 @@ namespace inRiver.DataSyncTask.Services
             }
         }
 
-        private static List<string> MapToLitiumChannels(string markets)
+        // TODO refactor to json for quickadd
+        private static List<string> MapToLitiumChannelCultures(string markets)
         {
             var retval = new List<string>() { "International " };
             var marketList = markets.Split(';');
@@ -64,22 +67,22 @@ namespace inRiver.DataSyncTask.Services
                 switch (market.ToUpper())
                 {
                     case "AU":
-                        retval.Add("Australia");
+                        retval.Add("en-au");
                         break;
                     case "IE":
-                        retval.Add("Ireland");
+                        retval.Add("en-ie");
                         break;
                     case "GB":
-                        retval.Add("UK");
+                        retval.Add("en-gb");
                         break;
                     case "NO":
-                        retval.Add("Norway");
+                        retval.Add("nb-no");
                         break;
                     case "PL":
-                        retval.Add("Poland");
+                        retval.Add("pl-pl");
                         break;
                     case "SE":
-                        retval.Add("Sweden");
+                        retval.Add("sv-se");
                         break;
                     default:
                         break;
