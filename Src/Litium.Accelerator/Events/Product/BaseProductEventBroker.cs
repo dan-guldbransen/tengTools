@@ -14,7 +14,6 @@ namespace Litium.Accelerator.Events.Product
     [Autostart]
     public class BaseProductEventBroker : IDisposable
     {
-        private readonly ISubscription<BaseProductCreated> _createdSubscription;
         private readonly ISubscription<BaseProductUpdated> _updatedSubscription;
 
         private readonly CategoryService _categoryService;
@@ -32,14 +31,8 @@ namespace Litium.Accelerator.Events.Product
             _variantService = variantService;
             _securityContextService = securityContextService;
             _categoryService = categoryService;
-
-            _createdSubscription = eventBroker.Subscribe<BaseProductCreated>(baseProductCreatedEvent => SetupNewBaseProduct(baseProductCreatedEvent));
+            
             _updatedSubscription = eventBroker.Subscribe<BaseProductUpdated>(baseProductUpdatedEvent => SetupUpdatedBaseProduct(baseProductUpdatedEvent));
-        }
-
-        private void SetupNewBaseProduct(BaseProductCreated baseProductCreatedEvent)
-        {
-            SetupCategories(baseProductCreatedEvent.SystemId);
         }
 
         private void SetupUpdatedBaseProduct(BaseProductUpdated baseProductUpdatedEvent)
@@ -49,13 +42,12 @@ namespace Litium.Accelerator.Events.Product
 
         private void SetupCategories(Guid baseProductSystemId)
         {
-            
+            // update all variants if baseproduct category change
         }
 
         public void Dispose()
         {
             // unregister the event from event broker
-            _createdSubscription.Dispose();
             _updatedSubscription.Dispose();
         }
     }
