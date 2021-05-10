@@ -38,6 +38,8 @@ namespace inRiver.DataSyncTask.Constants
             public const string ProductItem = "ProductItem";
         }
 
+
+        // None dynamic field, not mapped over from inRiver to Litium as datafields per se. Used for validation etc
         public class InRiverField
         {
             public class Product
@@ -45,32 +47,8 @@ namespace inRiver.DataSyncTask.Constants
                 public const string ProductId = "ProductID";
                 
                 //CVLS BELOW
-                public const string ProductBrand = "ProductBrand";
                 public const string ProductPublicPlatforms = "ProductPublicPlatforms";
-
-                public const string ProductHeadCategory = "ProductHeadCategory";
-                public const string ProductCategoryNumber = "ProductCategoryNumber";
-                public const string ProductCategoryDescription = "ProductCategoryDescription";
-                public const string ProductGroupNumber = "ProductGroupNumber";
-                public const string ProductGroupDescription = "ProductGroupDescription";
                 public const string ProductMarket = "ProductMarket";
-
-                // LOCALESTRING BELOW
-                public const string ProductShortDescription = "ProductShortDescription";
-                public const string ProductLongDescription = "ProductLongDescription";
-                public const string ProductShortHeading = "ProductShortHeading";
-                public const string ProductLongHeading = "ProductLongHeading";
-                
-                public const string ProductBullet1 = "ProductBullet1";
-                public const string ProductBullet2 = "ProductBullet2";
-                public const string ProductBullet3 = "ProductBullet3";
-                public const string ProductBullet4 = "ProductBullet4";
-                public const string ProductBullet5 = "ProductBullet5";
-
-                public const string ProductMaterial = "ProductMaterial";
-                public const string ProductKeywords = "ProductKeywords"; //; separated list
-                public const string ProductMetaTitle = "ProductMetaTitle";
-                public const string ProductMetaDescription = "ProductMetaDescription";
 
                 // INT
                 public const string ProductPriority = "ProductPriority";
@@ -79,13 +57,11 @@ namespace inRiver.DataSyncTask.Constants
             public class Item
             {
                 public const string ItemId = "ItemID";
-                public const string ItemShortDescription = "ItemShortDescription";
                 public const string ItemApprovedForMarket = "ItemApprovedForMarket";
             }
 
             public class Category
             {
-                
             }
         }
     }

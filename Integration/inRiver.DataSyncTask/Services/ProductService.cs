@@ -1,5 +1,6 @@
 ﻿using inRiver.DataSyncTask.Constants;
 using inRiver.DataSyncTask.Models.Litium;
+using inRiver.DataSyncTask.Utils;
 using inRiver.Remoting.Objects;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace inRiver.DataSyncTask.Services
 {
     public static class ProductService
     {
-        public static void ProcessProducts(List<Entity> products, Data data, List<string> cultures)
+        public static void ProcessProducts(List<Entity> products, Data data, List<string> cultures, List<PimLitiumFieldMap> productFields)
         {
             foreach (var product in products)
             {
@@ -33,7 +34,7 @@ namespace inRiver.DataSyncTask.Services
                 var litiumMarkets = MapToLitiumChannelCultures(markets);
 
                 // Get all data from Litium entity and set on Litium product
-                ExtractFieldData(product, litiumProduct, cultures, litiumMarkets);
+                ExtractFieldData(product, litiumProduct, cultures, litiumMarkets, productFields);
 
                 if (data.Products == null)
                     data.Products = new List<Product>();
@@ -43,38 +44,8 @@ namespace inRiver.DataSyncTask.Services
             }
         }
 
-        private static void ExtractFieldData(Entity product, Product litiumProduct, List<string> cultures, List<string> litiumMarkets)
+        private static void ExtractFieldData(Entity product, Product litiumProduct, List<string> cultures, List<string> litiumMarkets, List<PimLitiumFieldMap> productFields)
         {
-            // Name
-            foreach (var culture in cultures)
-            {
-                var description = product.GetField(InRiver.InRiverField.Product.ProductShortDescription).Data as LocaleString;
-                litiumProduct.Fields.Add(new Models.Litium.Field
-                {
-                    FieldDefinitionId = LitiumFieldDefinitions.Name,
-                    Culture = culture,
-                    Value = description[new System.Globalization.CultureInfo(culture)] ?? description[description.Languages.First()]
-                });
-            }
-
-            // Category level 2
-            var productCategoryNumber = product.GetField(InRiver.InRiverField.Product.ProductCategoryNumber).Data.ToString();
-            litiumProduct.Fields.Add(new Models.Litium.Field
-            {
-                FieldDefinitionId = "ProductCategoryNumber",
-                Culture = null,
-                Value = productCategoryNumber
-            });
-
-            // Category level 3
-            var productGroupNumber = product.GetField(InRiver.InRiverField.Product.ProductGroupNumber).Data.ToString();
-            litiumProduct.Fields.Add(new Models.Litium.Field
-            {
-                FieldDefinitionId = "ProductGroupNumber",
-                Culture = null,
-                Value = productGroupNumber
-            });
-
             // Markets -> mapped to channels in the create/update event
             litiumProduct.Fields.Add(new Models.Litium.Field
             {
@@ -82,6 +53,66 @@ namespace inRiver.DataSyncTask.Services
                 Culture = null,
                 Value = string.Join(",", litiumMarkets)
             });
+
+            // Map fields dynamically
+            foreach(var field in productFields)
+            {
+                if(field.IsMultiLingual)
+                    MapLocaleStringField(product, litiumProduct, field, cultures);
+                else
+                    MapField(product, litiumProduct, field);
+            }
+        }
+
+        private static void MapField(Entity product, Product litiumProduct, PimLitiumFieldMap field)
+        {
+            var inRiverData = product.GetField(field.InRiverFieldId)?.Data?.ToString();
+
+            if (string.IsNullOrEmpty(inRiverData))
+                return;
+
+            litiumProduct.Fields.Add(new Models.Litium.Field
+            {
+                FieldDefinitionId = field.LitiumFieldId,
+                Culture = null,
+                Value = inRiverData
+            });
+        }
+
+        private static void MapLocaleStringField(Entity product, Product litiumProduct, PimLitiumFieldMap field, List<string> cultures)
+        {
+            var inRiverData = product.GetField(field.InRiverFieldId)?.Data;
+            
+            if(inRiverData ==null)
+                return;
+
+            if (!(inRiverData is LocaleString values))
+                return;
+
+            // Foreach culture in Litium we try map over values from inRiver localestring
+            foreach (var culture in cultures)
+            {
+                // all english mapped from en-UK in inRiver
+                if (culture.Contains("en"))
+                {
+                    litiumProduct.Fields.Add(new Models.Litium.Field
+                    {
+                        FieldDefinitionId = field.LitiumFieldId,
+                        Culture = culture,
+                        Value = values[new System.Globalization.CultureInfo("en-GB")]
+                    });
+                }
+                else
+                {
+                    var value = values[new System.Globalization.CultureInfo(culture)] ?? values[new System.Globalization.CultureInfo("en-GB")];
+                    litiumProduct.Fields.Add(new Models.Litium.Field
+                    {
+                        FieldDefinitionId = field.LitiumFieldId,
+                        Culture = culture,
+                        Value = value
+                    });
+                }
+            }
         }
 
         // TODO refactor to json for quickadd

@@ -72,6 +72,23 @@ namespace Litium.Accelerator.Definitions.Products
                                 "_name",
                                 ProductFieldNameConstants.OrganizationsPointer
                             }
+                        },
+                        new FieldTemplateFieldGroup
+                        {
+                            Id = "InRiver Information",
+                            Collapsed = false,
+                            Fields =
+                            {
+                                "ProductLongDescription",
+                                "ProductShortHeading",
+                                "ProductLongHeading",
+                                "ProductBullet1",
+                                "ProductBullet2",
+                                "ProductBullet3",
+                                "ProductBullet4",
+                                "ProductBullet5",
+                                "ProductMaterial"
+                            }
                         }
                     },
                     VariantFieldGroups = new[]
@@ -105,10 +122,6 @@ namespace Litium.Accelerator.Definitions.Products
                             },
                             Fields =
                             {
-                                "News",
-                                "Brand",
-                                "Color",
-                                "Size",
                                 "ProductSheet"
                             }
                         },
@@ -123,8 +136,19 @@ namespace Litium.Accelerator.Definitions.Products
                             },
                             Fields =
                             {
-                                "Specification",
-                                "Weight"
+                                "Specification"
+                            }
+                        },
+                        new FieldTemplateFieldGroup
+                        {
+                            Id = "InRiver Information",
+                            Collapsed = false,
+                            Fields =
+                            {
+                               "ItemWorkingDescription",
+                               "ItemShortDescription",
+                               "ItemLongDescription",
+                               "ItemStatus"
                             }
                         }
                     }
@@ -160,9 +184,24 @@ namespace Litium.Accelerator.Definitions.Products
                             },
                             Fields =
                             {
-                                "News",
-                                "Brand",
                                 "ProductSheet"
+                            }
+                        },
+                        new FieldTemplateFieldGroup
+                        {
+                            Id = "InRiver Information",
+                            Collapsed = false,
+                            Fields =
+                            {
+                                "ProductLongDescription",
+                                "ProductShortHeading",
+                                "ProductLongHeading",
+                                "ProductBullet1",
+                                "ProductBullet2",
+                                "ProductBullet3",
+                                "ProductBullet4",
+                                "ProductBullet5",
+                                "ProductMaterial"
                             }
                         }
                     },
@@ -188,17 +227,14 @@ namespace Litium.Accelerator.Definitions.Products
                         },
                         new FieldTemplateFieldGroup
                         {
-                            Id = "Product information",
+                            Id = "InRiver Information",
                             Collapsed = false,
-                            Localizations =
-                            {
-                                ["sv-SE"] = { Name = "Produktinformation" },
-                                ["en-US"] = { Name = "Product information" }
-                            },
                             Fields =
                             {
-                                "Color",
-                                "Size"
+                               "ItemWorkingDescription",
+                               "ItemShortDescription",
+                               "ItemLongDescription",
+                               "ItemStatus"
                             }
                         }
                     }
@@ -218,7 +254,6 @@ namespace Litium.Accelerator.Definitions.Products
                             },
                             Fields =
                             {
-                                "Brand",
                                 "_name",
                                 "_description",
                                 "_url",
@@ -241,6 +276,23 @@ namespace Litium.Accelerator.Definitions.Products
                                 "Specification",
                                 "ProductSheet"
                             }
+                        },
+                        new FieldTemplateFieldGroup
+                        {
+                            Id = "InRiver Information",
+                            Collapsed = false,
+                            Fields =
+                            {
+                                "ProductLongDescription",
+                                "ProductShortHeading",
+                                "ProductLongHeading",
+                                "ProductBullet1",
+                                "ProductBullet2",
+                                "ProductBullet3",
+                                "ProductBullet4",
+                                "ProductBullet5",
+                                "ProductMaterial"
+                            }
                         }
                     },
                     VariantFieldGroups = new[]
@@ -256,9 +308,7 @@ namespace Litium.Accelerator.Definitions.Products
                             },
                             Fields =
                             {
-                                "_name",
-                                "Color",
-                                "Size"
+                                "_name"
                             }
                         }
                     }
