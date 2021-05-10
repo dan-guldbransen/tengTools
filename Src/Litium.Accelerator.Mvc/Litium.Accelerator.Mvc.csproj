@@ -328,8 +328,6 @@
     <Content Include="UI\8.a1c29a05d4c6115cb54e.js.map" />
     <Content Include="UI\9.1a8ff83544f4d7398f79.js" />
     <Content Include="UI\9.1a8ff83544f4d7398f79.js.map" />
-    <Content Include="UI\app.8961c7fa29592dbcc19a.js" />
-    <Content Include="UI\app.8961c7fa29592dbcc19a.js.map" />
     <Content Include="UI\Bootstrap\bootstrap.min.js" />
     <Content Include="UI\Bootstrap\bootstrap.min.js.map" />
     <Content Include="UI\Bootstrap\popper.min.js" />
@@ -378,7 +376,6 @@
     <Content Include="UI\images\user.svg" />
     <Content Include="UI\images\wishlist.svg" />
     <Content Include="UI\images\Youtube.svg" />
-    <Content Include="UI\mmenu\mmenu.js" />
     <Content Include="Views\Shared\Framework\Profile.cshtml" />
     <Content Include="Views\Shared\Framework\ClientContext.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
