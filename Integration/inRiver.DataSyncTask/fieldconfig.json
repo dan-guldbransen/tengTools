@@ -3,93 +3,93 @@
 		{
 			"inRiverFieldId": "ProductCategoryNumber",
 			"litiumFieldId": "ProductCategoryNumber",
-			"isNumber": false,
 			"isMultiLingual": false
 		},
 		{
 			"inRiverFieldId": "ProductGroupNumber",
 			"litiumFieldId": "ProductGroupNumber",
-			"isNumber": false,
 			"isMultiLingual": false
 		},
 		{
 			"inRiverFieldId": "ProductShortDescription",
 			"litiumFieldId": "_description",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductLongDescription",
 			"litiumFieldId": "ProductLongDescription",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductShortHeading",
 			"litiumFieldId": "ProductShortHeading",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductLongHeading",
 			"litiumFieldId": "ProductLongHeading",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductBullet1",
 			"litiumFieldId": "ProductBullet1",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductBullet2",
 			"litiumFieldId": "ProductBullet2",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductBullet3",
 			"litiumFieldId": "ProductBullet3",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductBullet4",
 			"litiumFieldId": "ProductBullet4",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductBullet5",
 			"litiumFieldId": "ProductBullet5",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductMaterial",
 			"litiumFieldId": "ProductMaterial",
-			"isNumber": false,
 			"isMultiLingual": true
 		},// Below SEO should be on variant, misplaced in inRiver -> maybe map on Variant Created? Does google like uiqoe title and description better
 		{
 			"inRiverFieldId": "ProductMetaTitle",
 			"litiumFieldId": "_seoTitle",
-			"isNumber": false,
 			"isMultiLingual": true
 		},
 		{
 			"inRiverFieldId": "ProductMetaDescription",
 			"litiumFieldId": "_seoDescription",
-			"isNumber": false,
 			"isMultiLingual": true
 		}
 	],
 	"variantFields": [
 		{
-			"inRiverFieldId": "",
-			"litiumFieldId": "",
-			"isNumber": false,
+			"inRiverFieldId": "ItemWorkingDescription",
+			"litiumFieldId": "ItemWorkingDescription",
+			"isMultiLingual": true
+		},
+		{
+			"inRiverFieldId": "ItemShortDescription",
+			"litiumFieldId": "ItemShortDescription",
+			"isMultiLingual": true
+		},
+		{
+			"inRiverFieldId": "ItemLongDescription",
+			"litiumFieldId": "ItemLongDescription",
+			"isMultiLingual": true
+		},
+		{
+			"inRiverFieldId": "ItemStatus",
+			"litiumFieldId": "ItemStatus",
 			"isMultiLingual": false
 		}
 	]

@@ -47,6 +47,7 @@ namespace inRiver.DataSyncTask.Constants
                 public const string ProductId = "ProductID";
                 
                 //CVLS BELOW
+                public const string ProductPublicPlatforms = "ProductPublicPlatforms";
                 public const string ProductMarket = "ProductMarket";
 
                 // INT

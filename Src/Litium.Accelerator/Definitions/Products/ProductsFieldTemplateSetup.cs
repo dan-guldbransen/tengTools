@@ -122,7 +122,6 @@ namespace Litium.Accelerator.Definitions.Products
                             },
                             Fields =
                             {
-                                "News",
                                 "ProductSheet"
                             }
                         },
@@ -138,6 +137,18 @@ namespace Litium.Accelerator.Definitions.Products
                             Fields =
                             {
                                 "Specification"
+                            }
+                        },
+                        new FieldTemplateFieldGroup
+                        {
+                            Id = "InRiver Information",
+                            Collapsed = false,
+                            Fields =
+                            {
+                               "ItemWorkingDescription",
+                               "ItemShortDescription",
+                               "ItemLongDescription",
+                               "ItemStatus"
                             }
                         }
                     }
@@ -173,7 +184,6 @@ namespace Litium.Accelerator.Definitions.Products
                             },
                             Fields =
                             {
-                                "News",
                                 "ProductSheet"
                             }
                         },
@@ -217,16 +227,14 @@ namespace Litium.Accelerator.Definitions.Products
                         },
                         new FieldTemplateFieldGroup
                         {
-                            Id = "Product information",
+                            Id = "InRiver Information",
                             Collapsed = false,
-                            Localizations =
-                            {
-                                ["sv-SE"] = { Name = "Produktinformation" },
-                                ["en-US"] = { Name = "Product information" }
-                            },
                             Fields =
                             {
-                               
+                               "ItemWorkingDescription",
+                               "ItemShortDescription",
+                               "ItemLongDescription",
+                               "ItemStatus"
                             }
                         }
                     }

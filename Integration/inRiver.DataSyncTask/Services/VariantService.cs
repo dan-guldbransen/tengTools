@@ -1,5 +1,6 @@
 ﻿using inRiver.DataSyncTask.Constants;
 using inRiver.DataSyncTask.Models.Litium;
+using inRiver.DataSyncTask.Utils;
 using inRiver.Remoting.Objects;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace inRiver.DataSyncTask.Services
 {
     public static class VariantService
     {
-        public static void ProcessVariants(List<Entity> items, Data data, List<string> cultures)
+        public static void ProcessVariants(List<Entity> items, Data data, List<string> cultures, List<PimLitiumFieldMap> variantFields)
         {
             foreach(var item in items)
             {
@@ -28,7 +29,7 @@ namespace inRiver.DataSyncTask.Services
                 var markets = item.GetField(InRiver.InRiverField.Item.ItemApprovedForMarket).Data.ToString();
                 var litiumMarkets = MapToLitiumChannelCultures(markets);
 
-                ExtractFieldData(item, litiumVariant, cultures, litiumMarkets);
+                ExtractFieldData(item, litiumVariant, cultures, litiumMarkets, variantFields);
 
                 if (data.Variants == null)
                     data.Variants = new List<Variant>();
@@ -37,20 +38,8 @@ namespace inRiver.DataSyncTask.Services
             }
         }
 
-        private static void ExtractFieldData(Entity item, Variant litiumVariant, List<string> cultures, List<string> litiumMarkets)
+        private static void ExtractFieldData(Entity item, Variant litiumVariant, List<string> cultures, List<string> litiumMarkets, List<PimLitiumFieldMap> variantFields)
         {
-            // Name
-            foreach (var culture in cultures)
-            {
-                var description = item.GetField(InRiver.InRiverField.Item.ItemShortDescription).Data as LocaleString;
-                litiumVariant.Fields.Add(new Models.Litium.Field
-                {
-                    FieldDefinitionId = LitiumFieldDefinitions.Name,
-                    Culture = culture,
-                    Value = description[new System.Globalization.CultureInfo(culture)] ?? description[description.Languages.First()]
-                });
-            }
-
             // Markets -> published to channels in the create/update event
             litiumVariant.Fields.Add(new Models.Litium.Field
             {
@@ -58,6 +47,66 @@ namespace inRiver.DataSyncTask.Services
                 Culture = null,
                 Value = string.Join(",", litiumMarkets)
             });
+
+            // Map fields dynamically
+            foreach (var field in variantFields)
+            {
+                if (field.IsMultiLingual)
+                    MapLocaleStringField(item, litiumVariant, field, cultures);
+                else
+                    MapField(item, litiumVariant, field);
+            }
+        }
+
+        private static void MapField(Entity item, Variant litiumVariant, PimLitiumFieldMap field)
+        {
+            var inRiverData = item.GetField(field.InRiverFieldId)?.Data?.ToString();
+
+            if (string.IsNullOrEmpty(inRiverData))
+                return;
+
+            litiumVariant.Fields.Add(new Models.Litium.Field
+            {
+                FieldDefinitionId = field.LitiumFieldId,
+                Culture = null,
+                Value = inRiverData
+            });
+        }
+
+        private static void MapLocaleStringField(Entity item, Variant litiumVariant, PimLitiumFieldMap field, List<string> cultures)
+        {
+            var inRiverData = item.GetField(field.InRiverFieldId)?.Data;
+
+            if (inRiverData == null)
+                return;
+
+            if (!(inRiverData is LocaleString values))
+                return;
+
+            // Foreach culture in Litium we try map over values from inRiver localestring
+            foreach (var culture in cultures)
+            {
+                // all english mapped from en-UK in inRiver
+                if (culture.Contains("en"))
+                {
+                    litiumVariant.Fields.Add(new Models.Litium.Field
+                    {
+                        FieldDefinitionId = field.LitiumFieldId,
+                        Culture = culture,
+                        Value = values[new System.Globalization.CultureInfo("en-GB")]
+                    });
+                }
+                else
+                {
+                    var value = values[new System.Globalization.CultureInfo(culture)] ?? values[new System.Globalization.CultureInfo("en-GB")];
+                    litiumVariant.Fields.Add(new Models.Litium.Field
+                    {
+                        FieldDefinitionId = field.LitiumFieldId,
+                        Culture = culture,
+                        Value = value
+                    });
+                }
+            }
         }
 
         // TODO refactor to json for quickadd

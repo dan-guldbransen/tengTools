@@ -17,16 +17,15 @@ namespace inRiver.DataSyncTask.Services
         {
             using (var client = Utils.LitiumClient.GetAuthorizedClient())
             {
-                var response = client.GetAsync("/Litium/api/admin/websites/websites").Result;
-                var website = JsonConvert.DeserializeObject<List<WebsiteEntity>>(response.Content.ReadAsStringAsync().Result).FirstOrDefault();
+                var response = client.GetAsync("/Litium/api/admin/globalization/languages").Result;
+                var languages = JsonConvert.DeserializeObject<List<LanguageEntity>>(response.Content.ReadAsStringAsync().Result);
 
-                var cultures = new List<string>();
-                if (website != null)
+                if (languages != null && languages.Any())
                 {
-                    cultures = website.Fields.Name.Keys.ToList();
+                    return languages.Select(l => l.Id).ToList();
                 }
 
-                return cultures;
+                return new List<string>();
             }
         }
 

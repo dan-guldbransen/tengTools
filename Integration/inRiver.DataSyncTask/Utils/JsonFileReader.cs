@@ -11,12 +11,15 @@ namespace inRiver.DataSyncTask.Utils
 {
     public class JsonFileReader
     {
-       public static List<PimLitiumFieldMap> Read(string path)
+        public static FieldMapper Read()
         {
-            using (StreamReader file = new StreamReader(path))
+            var path = Directory.GetCurrentDirectory();
+
+            using (StreamReader file = new StreamReader(path + "/fieldconfig.json"))
             {
                 try
                 {
+
                     string json = file.ReadToEnd();
 
                     var serializerSettings = new JsonSerializerSettings
@@ -24,7 +27,7 @@ namespace inRiver.DataSyncTask.Utils
                         ContractResolver = new CamelCasePropertyNamesContractResolver()
                     };
 
-                    return JsonConvert.DeserializeObject<List<PimLitiumFieldMap>>(json, serializerSettings);
+                    return JsonConvert.DeserializeObject<FieldMapper>(json, serializerSettings);
                 }
                 catch (Exception)
                 {

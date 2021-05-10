@@ -43,13 +43,13 @@ namespace inRiver.DataSyncTask
             var data = new Data();
 
             // Get fields to map
-            var fieldsToMap = JsonFileReader.Read("~/fieldconfig");
+            var fieldsToMap = JsonFileReader.Read();
 
             // Products
-            ProductService.ProcessProducts(products, data, cultures);
+            ProductService.ProcessProducts(products, data, cultures, fieldsToMap.ProductFields);
            
             // Variants
-            VariantService.ProcessVariants(items, data, cultures);
+            VariantService.ProcessVariants(items, data, cultures, fieldsToMap.VariantFields);
             
             // Resources TODO.
 
