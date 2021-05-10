@@ -227,6 +227,17 @@ namespace Litium.Accelerator.Definitions.Products
                         },
                         new FieldTemplateFieldGroup
                         {
+                            Id = "Product information",
+                            Collapsed = false,
+                            Localizations =
+                            {
+                                ["sv-SE"] = { Name = "Produktinformation" },
+                                ["en-US"] = { Name = "Product information" }
+                            },
+                            Fields = {}
+                        },
+                        new FieldTemplateFieldGroup
+                        {
                             Id = "InRiver Information",
                             Collapsed = false,
                             Fields =
