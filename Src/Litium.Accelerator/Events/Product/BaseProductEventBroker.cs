@@ -1,4 +1,5 @@
 ﻿using Litium.Events;
+using Litium.Media;
 using Litium.Products;
 using Litium.Products.Events;
 using Litium.Runtime;
@@ -20,16 +21,19 @@ namespace Litium.Accelerator.Events.Product
         private readonly BaseProductService _baseProductService;
         private readonly VariantService _variantService;
         private readonly SecurityContextService _securityContextService;
+        private readonly FileService _fileService;
 
         public BaseProductEventBroker(EventBroker eventBroker,
              BaseProductService baseProductService,
              VariantService variantService,
              CategoryService categoryService,
-             SecurityContextService securityContextService)
+             SecurityContextService securityContextService,
+             FileService fileService)
         {
             _baseProductService = baseProductService;
             _variantService = variantService;
             _securityContextService = securityContextService;
+            _fileService = fileService;
             _categoryService = categoryService;
             
             _updatedSubscription = eventBroker.Subscribe<BaseProductUpdated>(baseProductUpdatedEvent => SetupUpdatedBaseProduct(baseProductUpdatedEvent));

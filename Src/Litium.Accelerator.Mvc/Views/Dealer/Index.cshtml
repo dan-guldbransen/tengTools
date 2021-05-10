@@ -1,0 +1,32 @@
+﻿@model Litium.Accelerator.ViewModels.Dealer.DealerViewModel
+@using Litium.Studio.Extenssions
+
+@{
+	ViewContext.RouteData.DataTokens["BareLayout"] = true;
+	var importButton = "accelerator.dealer.import.button".AsAngularResourceString();
+	var exportButton = "accelerator.dealer.export.button".AsAngularResourceString();
+	var header = "accelerator.dealer.header".AsAngularResourceString();
+}
+
+<main>
+	<h2>@header</h2>
+
+	@if (!string.IsNullOrEmpty(Model.ImportMessage))
+	{<h3>@Model.ImportMessage</h3>}
+
+	@using (Html.BeginForm("ImportFile", "Dealer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+	{
+		@Html.AntiForgeryToken()
+		@Html.LabelFor(x => x.ImportForm.DealerFile, "accelerator.dealer.importname.label".AsAngularResourceString()) <br />
+		<input type="file" name="ImportForm.DealerFile" />
+		<button type="submit">@importButton</button>
+	}
+
+	@using (Html.BeginForm("ExportFile", "Dealer", FormMethod.Post))
+	{
+		@Html.AntiForgeryToken()
+		@Html.LabelFor(x => x.ImportForm.DealerFile, "accelerator.dealer.importname.label".AsAngularResourceString()) <br />
+		<button type="submit">@exportButton</button>
+	}
+
+</main>

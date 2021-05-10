@@ -72,6 +72,7 @@
     <Compile Include="Attributes\OrganizationRoleAttribute.cs" />
     <Compile Include="Attributes\ApiValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Controllers\Api\CommonController.cs" />
+    <Compile Include="Controllers\Dealers\DealerController.cs" />
     <Compile Include="Extensions\BlockContainerHelperExtension.cs" />
     <Compile Include="Controllers\Api\MyPageAddressController.cs" />
     <Compile Include="Controllers\Api\CheckoutController.cs" />
@@ -513,6 +514,7 @@
     <Content Include="Views\Shared\Framework\SocialMediaLinks.cshtml" />
     <Content Include="Views\Shared\Framework\ProfileMobile.cshtml" />
     <Content Include="Views\Shared\Framework\MarketSelectorMobile.cshtml" />
+    <Content Include="Views\Dealer\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
