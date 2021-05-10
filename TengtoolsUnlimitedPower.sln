@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Litium.Accelerator.Mvc", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Litium.Accelerator.Elasticsearch", "Src\Litium.Accelerator.Elasticsearch\Litium.Accelerator.Elasticsearch.csproj", "{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inRiver.DataSyncTask", "Integration\inRiver.DataSyncTask\inRiver.DataSyncTask.csproj", "{49969120-6E9A-4011-8543-1C8E7166A019}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DCED699-0D1E-44EC-B336-61F7A95BCBAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49969120-6E9A-4011-8543-1C8E7166A019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49969120-6E9A-4011-8543-1C8E7166A019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49969120-6E9A-4011-8543-1C8E7166A019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49969120-6E9A-4011-8543-1C8E7166A019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

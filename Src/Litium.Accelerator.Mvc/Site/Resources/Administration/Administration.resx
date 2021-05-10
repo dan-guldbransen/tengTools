@@ -1380,6 +1380,780 @@
   <data name="fielddefinition.globalizationarea.isinternational.name" xml:space="preserve">
     <value>Is International</value>
   </data>
+  <data name="fielddefinition.websitearea.ItemMiddle1Volume.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBaseCartonMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBaseCartonMaterial.name" xml:space="preserve">
+    <value>Carton material - Base</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBaseMetalMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBaseMetalMaterial.name" xml:space="preserve">
+    <value>Metal material - Base</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBasePlasticMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBasePlasticMaterial.name" xml:space="preserve">
+    <value>Plastic material - Base</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBaseWoodenMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBaseWoodenMaterial.name" xml:space="preserve">
+    <value>Wooden material - Base</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBCPriceUSD.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemBCPriceUSD.name" xml:space="preserve">
+    <value>BC price (USD)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemCartonMaterialTop.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemCartonMaterialTop.name" xml:space="preserve">
+    <value>Carton material - Top</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemCompleteProductPrice.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemCompleteProductPrice.name" xml:space="preserve">
+    <value>Complete product price</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemCompleteProductPriceUSD.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemCompleteProductPriceUSD.name" xml:space="preserve">
+    <value>Complete product price (USD)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemCompleteProductPurchasingCurrency.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemCompleteProductPurchasingCurrency.name" xml:space="preserve">
+    <value>Complete product purchasing currency</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMarginPRBNet.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMarginPRBNet.name" xml:space="preserve">
+    <value>Margin PRB net (%)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMetalMaterialTop.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMetalMaterialTop.name" xml:space="preserve">
+    <value>Metal material - Top</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle1CartonMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle1CartonMaterial.name" xml:space="preserve">
+    <value>Carton material - Middle 1</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle1MetalMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle1MetalMaterial.name" xml:space="preserve">
+    <value>Metal material - Middle 1</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle1PlasticMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle1PlasticMaterial.name" xml:space="preserve">
+    <value>Plastic material - Middle 1</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle1Volume.name" xml:space="preserve">
+    <value>Volume Unit - Middle 1</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle1WoodenMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle1WoodenMaterial.name" xml:space="preserve">
+    <value>Wooden material - Middle 1</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2CartonMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2CartonMaterial.name" xml:space="preserve">
+    <value>Carton material - Middle 2</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2GrossWeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2GrossWeight.name" xml:space="preserve">
+    <value>Gross weight - Middle 2 (g)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2Height.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2Height.name" xml:space="preserve">
+    <value>Height - Middle 2 (mm)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2Length.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2Length.name" xml:space="preserve">
+    <value>Length - Middle 2 (mm)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2MetalMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2MetalMaterial.name" xml:space="preserve">
+    <value>Metal material - Middle 2</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2NetWeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2NetWeight.name" xml:space="preserve">
+    <value>Net weight - Middle 2 (g)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2PlasticMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2PlasticMaterial.name" xml:space="preserve">
+    <value>Plastic material - Middle 2</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2Volume.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2Volume.name" xml:space="preserve">
+    <value>Volume - Middle 2 (dm3)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2VolumeUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2VolumeUnit.name" xml:space="preserve">
+    <value>Volume Unit - Middle 2</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2WeightUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2WeightUnit.name" xml:space="preserve">
+    <value>Weight Unit - Middle 2</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2Width.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2Width.name" xml:space="preserve">
+    <value>Width - Middle 2 (mm)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2WoodenMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemMiddle2WoodenMaterial.name" xml:space="preserve">
+    <value>Wooden material - Middle 2</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPackagingPrice.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPackagingPrice.name" xml:space="preserve">
+    <value>Packaging price</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPackagingPurchasingCurrency.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPackagingPurchasingCurrency.name" xml:space="preserve">
+    <value>Packaging purchasing currency</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPackagingText.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPackagingText.name" xml:space="preserve">
+    <value>Packaging text</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPlasticMaterialTop.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPlasticMaterialTop.name" xml:space="preserve">
+    <value>Plastic material - Top</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPRBPriceUSD.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPRBPriceUSD.name" xml:space="preserve">
+    <value>PRB price (USD)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPriceList.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPriceList.name" xml:space="preserve">
+    <value>Price list</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemProductionLeadTime.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemProductionLeadTime.name" xml:space="preserve">
+    <value>Production lead time (days)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemProductPrice.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemProductPrice.name" xml:space="preserve">
+    <value>Product price</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemProductPriceCurrency.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemProductPriceCurrency.name" xml:space="preserve">
+    <value>Product purchasing currency</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPurchasingMinimumOrderQuantity.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemPurchasingMinimumOrderQuantity.name" xml:space="preserve">
+    <value>Purchasing minimum order quantity</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemSupplierNumber.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemSupplierNumber.name" xml:space="preserve">
+    <value>Supplier No</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopBarcode.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopBarcode.name" xml:space="preserve">
+    <value>Barcode - Top</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopGrossWeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopGrossWeight.name" xml:space="preserve">
+    <value>Gross weight - Top (g)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopHeigth.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopHeigth.name" xml:space="preserve">
+    <value>Heigth - Top (mm)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopLength.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopLength.name" xml:space="preserve">
+    <value>Length - Top (mm)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemtopNetWeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopNetWeight.name" xml:space="preserve">
+    <value>Net weight - Top (g)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopPackageUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopPackageUnit.name" xml:space="preserve">
+    <value>Package unit - Top</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopQuantity.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopQuantity.name" xml:space="preserve">
+    <value>Quantity - Top</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopVolume.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopVolume.name" xml:space="preserve">
+    <value>Length - Top (dm3)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopWeightUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopWeightUnit.name" xml:space="preserve">
+    <value>Weight Unit - Top</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopWidth.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemTopWidth.name" xml:space="preserve">
+    <value>Width - Top (mm)</value>
+  </data>
+  <data name="fieldtemplate.websitearea.ItemWoodenMaterialTop.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fieldtemplate.websitearea.ItemWoodenMaterialTop.name" xml:space="preserve">
+    <value>Wooden material - Top</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemApprovedForMarket.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemApprovedForMarket.name" xml:space="preserve">
+    <value>Approved for market</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseBarcode.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseBarcode.name" xml:space="preserve">
+    <value>Barcode - Base</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseGrossWeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseGrossWeight.name" xml:space="preserve">
+    <value>Gross weight - Base (g)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseHeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseHeight.name" xml:space="preserve">
+    <value>Height - Base (mm)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseLength.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseLength.name" xml:space="preserve">
+    <value>Length - Base (mm)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseNetWeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseNetWeight.name" xml:space="preserve">
+    <value>Net weight - Base (g)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseNumberOfPcsInUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseNumberOfPcsInUnit.name" xml:space="preserve">
+    <value>No of pcs in unit - Base</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBasePackageType.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBasePackageType.name" xml:space="preserve">
+    <value>Package type - Base</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBasePackageUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBasePackageUnit.name" xml:space="preserve">
+    <value>Package unit - Base</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseQuantity.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseQuantity.name" xml:space="preserve">
+    <value>Quantity - Base</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseUnit.name" xml:space="preserve">
+    <value>Unit - Base</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseVolume.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseVolume.name" xml:space="preserve">
+    <value>Volume - Base (dm3)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseVolumeUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseVolumeUnit.name" xml:space="preserve">
+    <value>Volume Unit - Base</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseWeightUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseWeightUnit.name" xml:space="preserve">
+    <value>Weight Unit - Base</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseWidth.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemBaseWidth.name" xml:space="preserve">
+    <value>Width - Base (mm)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemCertificates.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemCertificates.name" xml:space="preserve">
+    <value>Certificates</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemCountryOfOrigin.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemCountryOfOrigin.name" xml:space="preserve">
+    <value>Country of origin</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemDiscontinuedDate.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemDiscontinuedDate.name" xml:space="preserve">
+    <value>Discontinued date</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemElectricRecycling.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemElectricRecycling.name" xml:space="preserve">
+    <value>Recycle of product with electric components</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemEnvironmentalFee.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemEnvironmentalFee.name" xml:space="preserve">
+    <value>Environmental fee Y/N</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemId.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemId.name" xml:space="preserve">
+    <value>Item ID</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemLongDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemLongDescription.name" xml:space="preserve">
+    <value>Long description</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemLunaArticleNumber.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemLunaArticleNumber.name" xml:space="preserve">
+    <value>Luna article no</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Barcode.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Barcode.name" xml:space="preserve">
+    <value>Barcode - Middle 1</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1GrossWeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1GrossWeight.name" xml:space="preserve">
+    <value>Gross weight - Middle 1 (g)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Height.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Height.name" xml:space="preserve">
+    <value>Height - Middle 1 (mm)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Length.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Length.name" xml:space="preserve">
+    <value>Length - Middle 1 (mm)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1NetWeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1NetWeight.name" xml:space="preserve">
+    <value>Net weight - Middle 1 (g)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1PackageUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1PackageUnit.name" xml:space="preserve">
+    <value>Package unit - Middle 1</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Quantity.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Quantity.name" xml:space="preserve">
+    <value>Quantity - Middle 1</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Volume.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Volume.name" xml:space="preserve">
+    <value>Volume - Middle 1 (dm3)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1VolumeUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1VolumeUnit.name" xml:space="preserve">
+    <value>Volume Unit - Middle 1</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Width.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle1Width.name" xml:space="preserve">
+    <value>Width - Middle 1 (mm)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle2Barcode.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle2Barcode.name" xml:space="preserve">
+    <value>Barcode - Middle 2</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle2NetWeight.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle2NetWeight.name" xml:space="preserve">
+    <value>Net weight - Middle 2 (g)</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle2PackageUnit.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle2PackageUnit.name" xml:space="preserve">
+    <value>Package unit - Middle 2</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle2Quantity.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemMiddle2Quantity.name" xml:space="preserve">
+    <value>Quantity - Middle 2</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemNSN.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemNSN.name" xml:space="preserve">
+    <value>NSN</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemOnlyFromUKforEU.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemOnlyFromUKforEU.name" xml:space="preserve">
+    <value>Only available from UK for European customer</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemOperation.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemOperation.name" xml:space="preserve">
+    <value>Operation</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemOrderMultipleTW.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemOrderMultipleTW.name" xml:space="preserve">
+    <value>Order multiple TW</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemOrderType.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemOrderType.name" xml:space="preserve">
+    <value>Order type</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemProductOwner.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemProductOwner.name" xml:space="preserve">
+    <value>Product Owner</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemRegistrationDate.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemRegistrationDate.name" xml:space="preserve">
+    <value>Registration date</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemReplacementsItems.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemReplacementsItems.name" xml:space="preserve">
+    <value>Replacement item</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemSellingMinQuantityTW.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemSellingMinQuantityTW.name" xml:space="preserve">
+    <value>Selling min qty TW</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemShortDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemShortDescription.name" xml:space="preserve">
+    <value>Short Description</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemStandardType.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemStandardType.name" xml:space="preserve">
+    <value>Standard type</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemStatus.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemStatus.name" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemTarriffCodeEurope.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemTarriffCodeEurope.name" xml:space="preserve">
+    <value>Tarriff code Europe</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemToBeDiscontinuedDate.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemToBeDiscontinuedDate.name" xml:space="preserve">
+    <value>To Be Discontinued date</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemUNSPSC.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemUNSPSC.name" xml:space="preserve">
+    <value>UNSPC</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemWarehouse.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemWarehouse.name" xml:space="preserve">
+    <value>Warehouse</value>
+  </data>
+  <data name="fielddefinition.productarea.ItemWorkingDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ItemWorkingDescription.name" xml:space="preserve">
+    <value>Working description</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBranchFocused.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBranchFocused.name" xml:space="preserve">
+    <value>Branch focused</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBrand.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBrand.name" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet1.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet1.name" xml:space="preserve">
+    <value>Bullet 1</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet2.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet2.name" xml:space="preserve">
+    <value>Bullet 2</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet3.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet3.name" xml:space="preserve">
+    <value>Bullet 3</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet4.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet4.name" xml:space="preserve">
+    <value>Bullet 4</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet5.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductBullet5.name" xml:space="preserve">
+    <value>Bullet 5</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductCategoryDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductCategoryDescription.name" xml:space="preserve">
+    <value>Product category description</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductCategoryNumber.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductCategoryNumber.name" xml:space="preserve">
+    <value>Product category no.</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductGroupNumber.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductGroupNumber.name" xml:space="preserve">
+    <value>Product group no.</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductId.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductId.name" xml:space="preserve">
+    <value>ProductID</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductItemType.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductItemType.name" xml:space="preserve">
+    <value>Item type</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductKeywords.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductKeywords.name" xml:space="preserve">
+    <value>Keywords</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductLongDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductLongDescription.name" xml:space="preserve">
+    <value>Long description</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductLongHeading.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductLongHeading.name" xml:space="preserve">
+    <value>Long heading</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductMarket.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductMarket.name" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductMaterial.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductMaterial.name" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductMetaDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductMetaDescription.name" xml:space="preserve">
+    <value>Meta description</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductMetaTitle.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductMetaTitle.name" xml:space="preserve">
+    <value>Meta title</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductPriority.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductPriority.name" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductProfessionFocused.descriptiuon" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductProfessionFocused.name" xml:space="preserve">
+    <value>Yrkes focused</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductPublicPlatforms.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductPublicPlatforms.name" xml:space="preserve">
+    <value>Public platforms</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductShortDescription.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductShortDescription.name" xml:space="preserve">
+    <value>Short description</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductShortHeading.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductShortHeading.name" xml:space="preserve">
+    <value>Short heading</value>
+  </data>
+  <data name="fielddefinition.productarea.ProductSymbols.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.ProductSymbols.name" xml:space="preserve">
+    <value>Symbols</value>
+  </data>
   <data name="fielddefinition.websitearea.logotypealt.name" xml:space="preserve">
     <value>Logotype (alt)</value>
   </data>
