@@ -12,130 +12,8 @@ namespace Litium.Accelerator.Definitions.Products
         {
             var fields = new List<FieldDefinition>
             {
-                new FieldDefinition<ProductArea>("Brand", SystemFieldTypeConstants.TextOption)
-                {
-                    CanBeGridColumn = true,
-                    CanBeGridFilter = true,
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                Value = "Adrian Hammond",
-                                Name = new Dictionary<string, string> { { "en-US", "Adrian Hammond" }, { "sv-SE", "Adrian Hammond" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Dolce & Gabbana",
-                                Name = new Dictionary<string, string> { { "en-US", "Dolce & Gabbana" }, { "sv-SE", "Dolce & Gabbana" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Le specs",
-                                Name = new Dictionary<string, string> { { "en-US", "Le specs" }, { "sv-SE", "Le specs" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "MaQ",
-                                Name = new Dictionary<string, string> { { "en-US", "MaQ" }, { "sv-SE", "MaQ" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Nolita",
-                                Name = new Dictionary<string, string> { { "en-US", "Nolita" }, { "sv-SE", "Nolita" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Odd Molly",
-                                Name = new Dictionary<string, string> { { "en-US", "Odd Molly" }, { "sv-SE", "Odd Molly" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Saint Tropez",
-                                Name = new Dictionary<string, string> { { "en-US", "Saint Tropez" }, { "sv-SE", "Saint Tropez" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Vila",
-                                Name = new Dictionary<string, string> { { "en-US", "Vila" }, { "sv-SE", "Vila" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "HÅG",
-                                Name = new Dictionary<string, string> { { "en-US", "HÅG" }, { "sv-SE", "HÅG" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "RBM",
-                                Name = new Dictionary<string, string> { { "en-US", "RBM" }, { "sv-SE", "RBM" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "RH",
-                                Name = new Dictionary<string, string> { { "en-US", "RH" }, { "sv-SE", "RH" } }
-                            }
-                        }
-                    }
-                },
-                new FieldDefinition<ProductArea>("Color", SystemFieldTypeConstants.TextOption)
-                {
-                    CanBeGridColumn = true,
-                    CanBeGridFilter = true,
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                Value = "White",
-                                Name = new Dictionary<string, string> { { "en-US", "White" }, { "sv-SE", "Vit" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Beige",
-                                Name = new Dictionary<string, string> { { "en-US", "Beige" }, { "sv-SE", "Beige" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Black",
-                                Name = new Dictionary<string, string> { { "en-US", "Black" }, { "sv-SE", "Svart" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Grey",
-                                Name = new Dictionary<string, string> { { "en-US", "Grey" }, { "sv-SE", "Grå" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Rose",
-                                Name = new Dictionary<string, string> { { "en-US", "Rose" }, { "sv-SE", "Rosa" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Brown",
-                                Name = new Dictionary<string, string> { { "en-US", "Brown" }, { "sv-SE", "Brun" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Red",
-                                Name = new Dictionary<string, string> { { "en-US", "Red" }, { "sv-SE", "Röd" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Blue",
-                                Name = new Dictionary<string, string> { { "en-US", "Blue" }, { "sv-SE", "Blå" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "Green",
-                                Name = new Dictionary<string, string> { { "en-US", "Green" }, { "sv-SE", "Grön" } }
-                            }
-                        }
-                    }
-                },
+                
+                #region Litium Defaults - Removed some. Keep any??
                 new FieldDefinition<ProductArea>("News", SystemFieldTypeConstants.Date)
                 {
                     CanBeGridColumn = true,
@@ -160,44 +38,97 @@ namespace Litium.Accelerator.Definitions.Products
                     CanBeGridFilter = false,
                     MultiCulture = false,
                 },
-                new FieldDefinition<ProductArea>("Size", SystemFieldTypeConstants.TextOption)
+                #endregion
+
+                #region Shared fields product and variant req by inRiver
+                #endregion
+
+                #region ProductFields req by mapping inRiver 
+                  new FieldDefinition<ProductArea>("ProductMarket", SystemFieldTypeConstants.Text)
                 {
-                    CanBeGridColumn = true,
-                    CanBeGridFilter = true,
-                    Option = new TextOption
-                    {
-                        MultiSelect = false,
-                        Items = new List<TextOption.Item>
-                        {
-                            new TextOption.Item
-                            {
-                                Value = "S",
-                                Name = new Dictionary<string, string> { { "en-US", "S" }, { "sv-SE", "S" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "One Size",
-                                Name = new Dictionary<string, string> { { "en-US", "One Size" }, { "sv-SE", "One Size" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "M",
-                                Name = new Dictionary<string, string> { { "en-US", "M" }, { "sv-SE", "M" } }
-                            },
-                            new TextOption.Item
-                            {
-                                Value = "L",
-                                Name = new Dictionary<string, string> { { "en-US", "L" }, { "sv-SE", "L" } }
-                            }
-                        }
-                    }
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
                 },
-                new FieldDefinition<ProductArea>("Weight", SystemFieldTypeConstants.Decimal)
+                // Sets number for product category level 2
+                 new FieldDefinition<ProductArea>("ProductCategoryNumber", SystemFieldTypeConstants.Text)
                 {
-                    CanBeGridColumn = true,
-                    CanBeGridFilter = true,
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
                     MultiCulture = false,
                 },
+                 // Sets number for product category level 3
+                new FieldDefinition<ProductArea>("ProductGroupNumber", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                new FieldDefinition<ProductArea>("ProductLongDescription", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                new FieldDefinition<ProductArea>("ProductShortHeading", SystemFieldTypeConstants.Text)
+                {
+                   CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                new FieldDefinition<ProductArea>("ProductLongHeading", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                new FieldDefinition<ProductArea>("ProductBullet1", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                new FieldDefinition<ProductArea>("ProductBullet2", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                new FieldDefinition<ProductArea>("ProductBullet3", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                new FieldDefinition<ProductArea>("ProductBullet4", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                new FieldDefinition<ProductArea>("ProductBullet5", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                new FieldDefinition<ProductArea>("ProductMaterial", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                #endregion
+
+                #region VariantFields req by mapping inRiver
+                // Non visible field, saves markets where variant should be visible
+                new FieldDefinition<ProductArea>("ItemApprovedForMarket", SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                #endregion
 
                 //new fields  
                 // new FieldDefinition<ProductArea>("ItemWorkingDescription", SystemFieldTypeConstants.Text)
@@ -285,12 +216,7 @@ namespace Litium.Accelerator.Definitions.Products
                 //    CanBeGridFilter = true,
                 //    MultiCulture = false,
                 //},
-                 new FieldDefinition<ProductArea>("ItemApprovedForMarket", SystemFieldTypeConstants.Text)
-                {
-                    CanBeGridColumn = false,
-                    CanBeGridFilter = false,
-                    MultiCulture = false
-                },
+               
                 // new FieldDefinition<ProductArea>("ItemOrderType", SystemFieldTypeConstants.TextOption)
                 //{
                 //    CanBeGridColumn = true,
@@ -1363,260 +1289,8 @@ namespace Litium.Accelerator.Definitions.Products
                 //    CanBeGridFilter = true,
                 //    MultiCulture = false
                 //},
-                
-                //new FieldDefinition<ProductArea>("ProductId", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductItemType", SystemFieldTypeConstants.TextOption)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false,
 
-                //    Option = new TextOption
-                //    {
-                //        MultiSelect = false,
-                //        Items = new List<TextOption.Item>
-                //        {
-                //            new TextOption.Item
-                //            {
-                //                Value = "StandardItem",
-                //                Name = new Dictionary<string, string>{ {"GB", "Standard item" }, {"US", "Standard item" } }
-                //            },
-                //            new TextOption.Item
-                //            {
-                //                Value = "SparePart",
-                //                Name = new Dictionary<string, string>{ {"GB", "Spare part" }, {"US", "Spare part" } }
-                //            },
-                //            new TextOption.Item
-                //            {
-                //                Value = "MarketingMaterial",
-                //                Name = new Dictionary<string, string>{ {"GB", "Marketing material" }, {"US", "Marketing material" } }
-                //            },
-                //            new TextOption.Item
-                //            {
-                //                Value = "BrandingProduct",
-                //                Name = new Dictionary<string, string>{ {"GB", "Branding product" }, {"US", "Branding product" } }
-                //            },
-                //        }
-                //    }
-                //},
-                //new FieldDefinition<ProductArea>("ProductBrand", SystemFieldTypeConstants.TextOption)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false,
-
-                //    Option = new TextOption
-                //    {
-                //        MultiSelect = false,
-                //        Items = new List<TextOption.Item>
-                //        {
-                //            new TextOption.Item
-                //            {
-                //                Value = "TengTools",
-                //                Name = new Dictionary<string, string>{ {"GB", "Teng Tools" }, {"US", "Teng Tools" } }
-                //            },
-                //        }
-                //    }
-                //},
-                new FieldDefinition<ProductArea>("ProductMarket", SystemFieldTypeConstants.Text)
-                {
-                    CanBeGridColumn = false,
-                    CanBeGridFilter = false,
-                    MultiCulture = false
-                },
-                //new FieldDefinition<ProductArea>("ProductShortDescription", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductLongDescription", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductShortHeading", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductLongHeading", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductBullet1", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductBullet2", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductBullet3", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductBullet4", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductBullet5", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductMaterial", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductKeywords", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductMetaTitle", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductMetaDescription", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ProductPriority", SystemFieldTypeConstants.Int)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-
-                //Resources ska de vara productarea??
-                //new FieldDefinition<ProductArea>("ResourceName", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ResourceFileName", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-                //new FieldDefinition<ProductArea>("ResourceMimeType", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-
-               // fil, vilken datatype??
-                //new FieldDefinition<ProductArea>("ResourceField", SystemFieldTypeConstants.Text)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false
-                //},
-
-                // TODO  
-                //new FieldDefinition<ProductArea>("ProductSymbols", SystemFieldTypeConstants.TextOption)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false,
-
-                //    Option = new TextOption
-                //    {
-                //        MultiSelect = false,
-                //        Items = new List<TextOption.Item>
-                //        {
-                //            new TextOption.Item
-                //            {
-                //                 //TODO: Fyll i när den är godkänd för import i PIM
-                //                Value = "",
-                //                Name = new Dictionary<string, string>{ {"GB", "" }, {"US", "" } }
-                //            },
-                //        }
-                //    }
-                //},
-                //new FieldDefinition<ProductArea>("ProductBranchFocused", SystemFieldTypeConstants.TextOption)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false,
-
-                //    Option = new TextOption
-                //    {
-                //        MultiSelect = false,
-                //        Items = new List<TextOption.Item>
-                //        {
-                //            new TextOption.Item
-                //            {
-                //                 //TODO: Fyll i när den är godkänd för import i PIM
-                //                Value = "",
-                //                Name = new Dictionary<string, string>{ {"GB", "" }, {"US", "" } }
-                //            },
-                //        }
-                //    }
-                //},
-                //new FieldDefinition<ProductArea>("ProductProfessionFocused", SystemFieldTypeConstants.TextOption)
-                //{
-                //    CanBeGridColumn = true,
-                //    CanBeGridFilter = true,
-                //    MultiCulture = false,
-
-                //    Option = new TextOption
-                //    {
-                //        MultiSelect = false,
-                //        Items = new List<TextOption.Item>
-                //        {
-                //            new TextOption.Item
-                //            {
-                //                 //TODO: Fyll i när den är godkänd för import i PIM
-                //                Value = "",
-                //                Name = new Dictionary<string, string>{ {"GB", "" }, {"US", "" } }
-                //            },
-                //        }
-                //    }
-                //},
-                new FieldDefinition<ProductArea>("ProductCategoryNumber", SystemFieldTypeConstants.Text)
-                {
-                    CanBeGridColumn = false,
-                    CanBeGridFilter = false,
-                    MultiCulture = false,
-                },
-                new FieldDefinition<ProductArea>("ProductGroupNumber", SystemFieldTypeConstants.Text)
-                {
-                    CanBeGridColumn = false,
-                    CanBeGridFilter = false,
-                    MultiCulture = false
-                },
-
-                // G O O G L E  S H O P P I N G  F I E L D S
+                // G O O G L E  S H O P P I N G  F I E L D S LITIUM STANDARD
                 new FieldDefinition<ProductArea>("AgeGroup", SystemFieldTypeConstants.TextOption)
                 {
                     CanBeGridColumn = true,

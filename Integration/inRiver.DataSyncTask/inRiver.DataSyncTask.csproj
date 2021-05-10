@@ -97,11 +97,13 @@
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\VariantService.cs" />
     <Compile Include="Utils\FieldMapper.cs" />
+    <Compile Include="Utils\JsonFileReader.cs" />
     <Compile Include="Utils\LitiumClient.cs" />
     <Compile Include="Utils\PimLitiumFieldMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="fieldconfig.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
