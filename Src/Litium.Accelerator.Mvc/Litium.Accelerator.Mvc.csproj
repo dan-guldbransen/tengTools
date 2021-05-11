@@ -519,6 +519,7 @@
     <Content Include="Views\Shared\Framework\MarketSelectorMobile.cshtml" />
     <Content Include="Views\Dealer\Index.cshtml" />
     <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\ContactUs\ContactAccordion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

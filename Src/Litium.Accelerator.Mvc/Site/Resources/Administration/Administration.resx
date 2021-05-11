@@ -2160,6 +2160,15 @@
   <data name="fielddefinition.websitearea.logotypealt.name" xml:space="preserve">
     <value>Logotype (alt)</value>
   </data>
+  <data name="fielddefinition.websitearea.partners.name" xml:space="preserve">
+    <value>Partners</value>
+  </data>
+  <data name="fielddefinition.websitearea.partnertitle.name" xml:space="preserve">
+    <value>Page title</value>
+  </data>
+  <data name="fieldtemplate.websitearea.acceleratorwebsite.fieldgroup.partners.name" xml:space="preserve">
+    <value>External Partners</value>
+  </data>
   <data name="fielddefinition.websitearea.blogtags.description" xml:space="preserve">
     <value />
   </data>

@@ -168,6 +168,16 @@ namespace Litium.Accelerator.Definitions.Websites
                             AcceleratorWebsiteFieldNameConstants.CookieNotificationPolicyPage
                         }
                     },
+                    new FieldTemplateFieldGroup()
+                    {
+                        Id = "Partners",
+                        Collapsed = true,
+                        Fields =
+                        {
+                            AcceleratorWebsiteFieldNameConstants.PartnerTitle,
+                            AcceleratorWebsiteFieldNameConstants.Partners
+                        }
+                    }
                 }
             };
             return new List<FieldTemplate>() { template };

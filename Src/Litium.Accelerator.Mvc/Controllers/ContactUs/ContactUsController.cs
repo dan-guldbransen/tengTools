@@ -20,16 +20,17 @@ namespace Litium.Accelerator.Mvc.Controllers.ContactUs
         private readonly ContactUsViewModelBuilder _contactUsViewModelBuilder;
         private readonly MailService _mailService;
         private readonly RequestModelAccessor _requestModelAccessor;
+        private readonly ContactAccordionViewModelBuilder<ContactAccordionViewModel> _contactAccordionViewModelBuilder;
 
-        public ContactUsController(ContactUsViewModelBuilder contactUsViewModelBuilder, MailService mailService, RequestModelAccessor requestModelAccessor)
+        public ContactUsController(ContactUsViewModelBuilder contactUsViewModelBuilder, MailService mailService, RequestModelAccessor requestModelAccessor,
+            ContactAccordionViewModelBuilder<ContactAccordionViewModel> contactAccordionViewModelBuilder)
         {
             _contactUsViewModelBuilder = contactUsViewModelBuilder;
             _mailService = mailService;
             _requestModelAccessor = requestModelAccessor;
+            _contactAccordionViewModelBuilder = contactAccordionViewModelBuilder;
         }
-        
-
-        [HttpGet]
+       
         public ActionResult Index(PageModel currentPageModel)
         {
             var model = _contactUsViewModelBuilder.Build(currentPageModel);
@@ -80,6 +81,14 @@ namespace Litium.Accelerator.Mvc.Controllers.ContactUs
             }
 
             return View("Index", model);
+        }
+
+
+        [ChildActionOnly]
+        public ActionResult ContactAccordion(bool isPartners = false)
+        {
+            var model = _contactAccordionViewModelBuilder.Build(isPartners);
+            return PartialView("ContactAccordion", model);
         }
     }
 }

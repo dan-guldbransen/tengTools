@@ -10,11 +10,11 @@
 		<div class="col-5">
 
 			@if (!string.IsNullOrEmpty(Model.Title))
-            {
+			{
 				<h2 class="text-uppercase">@Model.Title</h2>
 
 				<hr id="contactUsHr" />
-            }
+			}
 
 			@if (!string.IsNullOrWhiteSpace(Model.Introduction))
 
@@ -59,6 +59,18 @@
 		</div>
 		<div class="col-5">
 
+		</div>
+	</div>
+
+	<div class="row mt-5 py-3">
+		<div class="col-12">
+			@Html.Action("ContactAccordion", "ContactUs")
+		</div>
+	</div>
+
+	<div class="row mt-5 py-3">
+		<div class="col-12">
+			@Html.Action("ContactAccordion", "ContactUs", new { isPartners = true })
 		</div>
 	</div>
 </div>

@@ -185,6 +185,115 @@ namespace Litium.Accelerator.Definitions.Websites
                     MultiCulture = true,
                     Option = new TextOption()
                 },
+
+
+                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerTitle, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                  new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerName, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                   new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerPhone, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                    new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerEmail, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                     new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerWebsite, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                      new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerStreetAddress, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                       new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerZipcode, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                        new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerCity, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                         new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerInstagram, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                          new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerFacebook, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                           new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerLinkedIn, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                            new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerTwitter, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                             new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerYoutube, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerCountry, SystemFieldTypeConstants.Text)
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = true
+                },
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.PartnerFlagIcon, SystemFieldTypeConstants.MediaPointerImage),
+                   new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.Partners, SystemFieldTypeConstants.MultiField)
+                {
+                    Option = new MultiFieldOption { IsArray = true,
+                    Fields = new List<string>()
+                    {
+                        AcceleratorWebsiteFieldNameConstants.PartnerCountry, 
+                        AcceleratorWebsiteFieldNameConstants.PartnerFlagIcon,
+                        AcceleratorWebsiteFieldNameConstants.PartnerPhone,
+                        AcceleratorWebsiteFieldNameConstants.PartnerEmail,
+                        AcceleratorWebsiteFieldNameConstants.PartnerWebsite,
+                        AcceleratorWebsiteFieldNameConstants.PartnerName,
+                        AcceleratorWebsiteFieldNameConstants.PartnerStreetAddress,
+                        AcceleratorWebsiteFieldNameConstants.PartnerZipcode,
+                        AcceleratorWebsiteFieldNameConstants.PartnerCity,
+                        AcceleratorWebsiteFieldNameConstants.PartnerInstagram,
+                        AcceleratorWebsiteFieldNameConstants.PartnerFacebook,
+                        AcceleratorWebsiteFieldNameConstants.PartnerLinkedIn,
+                        AcceleratorWebsiteFieldNameConstants.PartnerTwitter,
+                        AcceleratorWebsiteFieldNameConstants.PartnerYoutube,
+                    }
+                 }
+                },
             };
             return fields;
         }

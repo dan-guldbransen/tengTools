@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Litium.Accelerator.Constants;
-using Litium.Accelerator.Models;
 using Litium.Accelerator.Routing;
 using Litium.Accelerator.ViewModels.Framework;
 using Litium.FieldFramework;
@@ -42,11 +41,11 @@ namespace Litium.Accelerator.Builders.Framework
 
             var channel = _requestModelAccessor.RequestModel.ChannelModel;
             
-            model.SocialMediaLinks.TwitterURL = channel.GetValue<string>(ChannelFieldNameConstants.Twitter);
-            model.SocialMediaLinks.FacebookURL = channel.GetValue<string>(ChannelFieldNameConstants.Facebook);
-            model.SocialMediaLinks.InstagramURL = channel.GetValue<string>(ChannelFieldNameConstants.Instagram);
-            model.SocialMediaLinks.YoutubeURL = channel.GetValue<string>(ChannelFieldNameConstants.Youtube);
-            model.SocialMediaLinks.LinkedInURL = channel.GetValue<string>(ChannelFieldNameConstants.LinkedIn);
+            model.SocialMedia.TwitterURL = channel.GetValue<string>(ChannelFieldNameConstants.Twitter);
+            model.SocialMedia.FacebookURL = channel.GetValue<string>(ChannelFieldNameConstants.Facebook);
+            model.SocialMedia.InstagramURL = channel.GetValue<string>(ChannelFieldNameConstants.Instagram);
+            model.SocialMedia.YoutubeURL = channel.GetValue<string>(ChannelFieldNameConstants.Youtube);
+            model.SocialMedia.LinkedInURL = channel.GetValue<string>(ChannelFieldNameConstants.LinkedIn);
 
             var footer = website.GetValue<IList<MultiFieldItem>>(AcceleratorWebsiteFieldNameConstants.Footer);
             if (footer != null)
