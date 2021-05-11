@@ -21,20 +21,30 @@ namespace Litium.Accelerator.Mvc.Controllers.ContactUs
         private readonly MailService _mailService;
         private readonly RequestModelAccessor _requestModelAccessor;
         private readonly ContactAccordionViewModelBuilder<ContactAccordionViewModel> _contactAccordionViewModelBuilder;
+        private readonly ContactInformationViewModelBuilder<ContactInformationViewModel> _contactInformationViewModelBuilder;
 
         public ContactUsController(ContactUsViewModelBuilder contactUsViewModelBuilder, MailService mailService, RequestModelAccessor requestModelAccessor,
-            ContactAccordionViewModelBuilder<ContactAccordionViewModel> contactAccordionViewModelBuilder)
+            ContactAccordionViewModelBuilder<ContactAccordionViewModel> contactAccordionViewModelBuilder,
+            ContactInformationViewModelBuilder<ContactInformationViewModel> contactInformationViewModelBuilder)
         {
             _contactUsViewModelBuilder = contactUsViewModelBuilder;
             _mailService = mailService;
             _requestModelAccessor = requestModelAccessor;
             _contactAccordionViewModelBuilder = contactAccordionViewModelBuilder;
+            _contactInformationViewModelBuilder = contactInformationViewModelBuilder;
         }
        
         public ActionResult Index(PageModel currentPageModel)
         {
             var model = _contactUsViewModelBuilder.Build(currentPageModel);
             return View(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult ContactInformation()
+        {
+            var model = _contactInformationViewModelBuilder.Build();
+            return PartialView("ContactInformation", model);
         }
 
         [HttpPost]
@@ -49,7 +59,7 @@ namespace Litium.Accelerator.Mvc.Controllers.ContactUs
                 var emailAddress = channel.GetValue<string>(ChannelFieldNameConstants.ContactEmail);
 
                 _mailService.SendEmail(model.ContacterEmail, emailAddress, subject, model.ContacterMessage, false, false);
-               model.ThankYouMessage = website.Texts.GetValue("contactus.thankyoumessage") ?? "contactus.thankyoumessage";
+                model.ThankYouMessage = website.Texts.GetValue("contactus.thankyoumessage") ?? "contactus.thankyoumessage";
             }
             else
             {

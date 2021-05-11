@@ -11,9 +11,18 @@
 		<i class="arrow arrow-up arrow-primary"></i>
 	</a>
 	<ul class="dropdown-menu dropdown-mobilemenu-marketselector" aria-labelledby="navbarMarketsMobileDropdown">
+		<li><h4>@Html.WebSiteString("mobilemarket.channels.title")</h4></li>
 		@foreach (var link in Model.ChannelLinkList)
 		{
 			<li class="vertical-align-tb py-3">@Html.ImageFor(x => x.ChannelLinkList.First(channelLink => channelLink == link).Image, maxSize: new System.Drawing.Size(29, 19))<a class="ms-3" href="@link.Url">@link.Name</a></li>
+		}
+
+		<li><hr /></li>
+		<li><h4>@Html.WebSiteString("mobilemarket.partner.title")</h4></li>
+		
+		@foreach (var partner in Model.PartnerLinkList)
+		{
+			<li class="vertical-align-tb py-3">@Html.ImageFor(x => x.PartnerLinkList.First(partnerLink => partnerLink == partner).Image, maxSize: new System.Drawing.Size(29, 19))<a class="ms-3" href="@partner.Url">@partner.Name</a></li>
 		}
 	</ul>
 }

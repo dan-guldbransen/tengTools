@@ -28,7 +28,7 @@ namespace Litium.Accelerator.ViewModels.ContactUs
         [EmailAddress]
         [DataType(DataType.EmailAddress)]
         public string ContacterEmail { get; set; }
-        
+
         [DataType(DataType.PhoneNumber)]
         public string ContacterPhone { get; set; }
 
@@ -36,9 +36,6 @@ namespace Litium.Accelerator.ViewModels.ContactUs
         public string ContacterMessage { get; set; }
 
         public string ThankYouMessage { get; set; }
-
-        public ChannelContactInformation CurrentChannelContactInformation { get; set; }
-
 
         [UsedImplicitly]
         public void Configure(IMapperConfigurationExpression cfg)
@@ -51,32 +48,7 @@ namespace Litium.Accelerator.ViewModels.ContactUs
                  .ForMember(x => x.ContacterPhone, m => m.MapFromField(ContactUsFieldNameConstants.ContactUsPhone))
                  .ForMember(x => x.ContacterMessage, m => m.MapFromField(ContactUsFieldNameConstants.ContactUsMessage));
         }
-        }
-
-    
-   
     }
-public class ChannelContactInformation
-{
-    public string ContactName { get; set; }
-    public string ContactStreet { get; set; }
-    public string ContactAddressLine2 { get; set; }
-    public string ContactZipCode { get; set; }
-    public string ContactCity { get; set; }
-    public string ContactCounty { get; set; }
-    public string ContactPhone { get; set; }
-    public string ContactEmails { get; set; }
-    public string ContactWebsite { get; set; }
-    public string ContactLat { get; set; }
-    public string ContactLong { get; set; }
-    public string ContactTwitterURL { get; set; }
-    public string ContactFacebookURL { get; set; }
-    public string ContactInstagremURL { get; set; }
-    public string ContactLinkedInURL { get; set; }
-    public string ContactYoutubeURL { get; set; }
-
 }
-
-
 
 

@@ -10,6 +10,7 @@ using Litium.Web.Models.Globalization;
 using Litium.Websites;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,7 @@ namespace Litium.Accelerator.Builders.ContactUs
             };
 
             var website = _requestModelAccessor.RequestModel.WebsiteModel;
-
+            
             if (isPartners)
             {
                 model.PageTitle = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerTitle);
@@ -60,9 +61,9 @@ namespace Litium.Accelerator.Builders.ContactUs
 
                     model.Content.Add(new ContentViewModel
                     {
-                        Country = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCountry),
+                        Country = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCountry, CultureInfo.CurrentUICulture),
                         StreetAddress = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerStreetAddress),
-                        City = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCity),
+                        City = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCity, CultureInfo.CurrentUICulture),
                         Email = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerEmail),
                         Name = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerName),
                         ZipCode = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerZipcode),

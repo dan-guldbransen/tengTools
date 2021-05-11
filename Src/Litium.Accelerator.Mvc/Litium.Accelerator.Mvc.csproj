@@ -523,7 +523,7 @@
     <Content Include="Views\ContactUs\Index.cshtml" />
     <Content Include="Views\ContactUs\ContactAccordion.cshtml" />
     <Content Include="Views\ContactUs\ContactUsForm.cshtml" />
-    <Content Include="Views\ContactUs\ChannelContactInfo.cshtml" />
+    <Content Include="Views\ContactUs\ContactInformation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
