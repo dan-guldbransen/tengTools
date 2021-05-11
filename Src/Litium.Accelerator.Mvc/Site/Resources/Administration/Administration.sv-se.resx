@@ -1365,6 +1365,12 @@
   <data name="fielddefinition.globalizationarea.contactlong.name" xml:space="preserve">
     <value>Longitude</value>
   </data>
+  <data name="fielddefinition.websitearea.blogtags.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.websitearea.blogtags.name" xml:space="preserve">
+    <value>Blogtaggar</value>
+  </data>
   <data name="fielddefinition.globalizationarea.isinternational.name" xml:space="preserve">
     <value>Är international</value>
   </data>

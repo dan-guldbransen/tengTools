@@ -147,6 +147,7 @@
     <Content Include="Client\images\arrow-down.svg" />
     <Content Include="Client\images\bag.svg" />
     <Content Include="Client\images\bin.svg" />
+    <Content Include="Client\images\.svg" />
     <Content Include="Client\images\caret-down.svg" />
     <Content Include="Client\images\checked.svg" />
     <Content Include="Client\images\close.svg" />
@@ -464,7 +465,7 @@
     <Content Include="Client\Styles\DefaultTheme\form.scss" />
     <Content Include="Client\Styles\DefaultTheme\index.scss" />
     <Content Include="Client\Styles\DefaultTheme\navbar.scss" />
-    <Content Include="Client\Styles\DefaultTheme\news.scss" />
+    <Content Include="Client\Styles\DefaultTheme\blog.scss" />
     <Content Include="Client\Styles\DefaultTheme\normalize.scss" />
     <Content Include="Client\Styles\DefaultTheme\notification.scss" />
     <Content Include="Client\Styles\DefaultTheme\orderhistorydetail.scss" />

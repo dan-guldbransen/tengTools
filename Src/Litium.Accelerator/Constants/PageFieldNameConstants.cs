@@ -12,6 +12,7 @@
         public const string PageSize = "PageSize";
         public const string TitleFilterSelector = "TitleFilterSelector";
         public const string NumberOfNewsPerPage = "NumberOfNewsPerPage";
+        public const string BlogListTags = "BlogListTags";
         public const string NewsDate = "NewsDate";
         public const string CategoryPointer = "CategoryPointer";
         public const string AlternativeImageDescription = "AlternativeImageDescription";
