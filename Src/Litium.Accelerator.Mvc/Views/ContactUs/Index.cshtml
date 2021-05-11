@@ -6,53 +6,44 @@
 
 
 <div class="container">
-	<div class="row">
-		<div class="col-5">
+	@if (!string.IsNullOrEmpty(Model.Title))
+	{
+		<h2 class="text-uppercase mt-5">@Model.Title</h2>
 
-			@if (!string.IsNullOrEmpty(Model.Title))
-			{
-				<h2 class="text-uppercase">@Model.Title</h2>
+		<hr class="hr" />
+	}
 
-				<hr id="contactUsHr" />
-			}
+	@if (!string.IsNullOrWhiteSpace(Model.Introduction))
 
-			@if (!string.IsNullOrWhiteSpace(Model.Introduction))
+	{
+		<p>@Model.Introduction</p>
 
-			{
-				<p>@Model.Introduction</p>
+	}
+	@if (!string.IsNullOrEmpty(Model.ThankYouMessage))
+	{
+		@:<div class="alert alert-success"> <h4> @Model.ThankYouMessage</h4> </div>
+	}
 
-			}
-			@if (!string.IsNullOrEmpty(Model.ThankYouMessage))
-			{
-				@:<div class="alert alert-success"> <h4> @Model.ThankYouMessage</h4> </div>
-			}
+	<div class="row mb-5 pb-5 pt-3">
+		<div class="col-12 col-md-6 col-lg-5">
+			@Html.Partial("ContactUsForm", Model)
 		</div>
-
-    </div>
-    <div class="row">
-        <div class="col-5">
-            @Html.Partial("ContactUsForm", Model)
-        </div>
-        <div class="col-5">
-            @Html.Partial("ChannelContactInfo", Model)
-
-            <div class="col">
-
+		<div class="col-12 col-md-6 offset-lg-1 col-lg-5">
+			@Html.Partial("ChannelContactInfo", Model)
 		</div>
 	</div>
 
-	<div class="row mt-5 py-3">
+	<div class="row mt-5 py-md-3 py-lg-5">
 		<div class="col-12">
 			@Html.Action("ContactAccordion", "ContactUs")
 		</div>
 	</div>
 
-	<div class="row mt-5 py-3">
+	<div class="row mt-5 py-md-3 py-lg-5">
 		<div class="col-12">
 			@Html.Action("ContactAccordion", "ContactUs", new { isPartners = true })
 		</div>
 	</div>
-</div>
 </div>
 
 
