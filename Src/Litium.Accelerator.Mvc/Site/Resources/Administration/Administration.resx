@@ -1377,6 +1377,9 @@
   <data name="fielddefinition.globalizationarea.contactlong.name" xml:space="preserve">
     <value>Longitude</value>
   </data>
+  <data name="fieldtemplate.websitearea.contactus.name" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
   <data name="fielddefinition.globalizationarea.isinternational.name" xml:space="preserve">
     <value>Is International</value>
   </data>

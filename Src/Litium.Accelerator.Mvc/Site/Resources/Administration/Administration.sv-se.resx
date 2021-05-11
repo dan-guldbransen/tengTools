@@ -1371,4 +1371,7 @@
   <data name="fielddefinition.websitearea.logotypealt.name" xml:space="preserve">
     <value>Logotyp (alternativ)</value>
   </data>
+  <data name="fieldtemplate.websitearea.contactus.name" xml:space="preserve">
+    <value>Kontakta oss</value>
+  </data>
 </root>

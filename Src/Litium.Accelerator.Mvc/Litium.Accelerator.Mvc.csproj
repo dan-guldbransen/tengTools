@@ -73,6 +73,7 @@
     <Compile Include="Attributes\ApiValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Controllers\Api\CommonController.cs" />
     <Compile Include="Controllers\Dealers\DealerController.cs" />
+    <Compile Include="Controllers\ContactUs\ContactUsController.cs" />
     <Compile Include="Extensions\BlockContainerHelperExtension.cs" />
     <Compile Include="Controllers\Api\MyPageAddressController.cs" />
     <Compile Include="Controllers\Api\CheckoutController.cs" />
@@ -248,6 +249,7 @@
     <Content Include="Client\Scripts\Services\http.js" />
     <Content Include="Client\Scripts\Services\translation.js" />
     <Content Include="Client\Scripts\site.js" />
+    <Content Include="Client\Styles\DefaultTheme\contactUs.css" />
     <Content Include="Client\webpack\webpack.common.js" />
     <Content Include="Client\webpack\webpack.dev.js" />
     <Content Include="Client\webpack\webpack.prod.js" />
@@ -515,6 +517,7 @@
     <Content Include="Views\Shared\Framework\ProfileMobile.cshtml" />
     <Content Include="Views\Shared\Framework\MarketSelectorMobile.cshtml" />
     <Content Include="Views\Dealer\Index.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
