@@ -250,7 +250,6 @@
     <Content Include="Client\Scripts\Services\http.js" />
     <Content Include="Client\Scripts\Services\translation.js" />
     <Content Include="Client\Scripts\site.js" />
-    <Content Include="Client\Styles\DefaultTheme\contactUs.css" />
     <Content Include="Client\webpack\webpack.common.js" />
     <Content Include="Client\webpack\webpack.dev.js" />
     <Content Include="Client\webpack\webpack.prod.js" />
@@ -506,6 +505,7 @@
     <Content Include="Client\Styles\hamburgersettings.scss" />
     <Content Include="Client\Styles\DefaultTheme\socialmedialinks.scss" />
     <Content Include="Client\Styles\DefaultTheme\arrow.scss" />
+    <Content Include="Client\Styles\DefaultTheme\contactus.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
