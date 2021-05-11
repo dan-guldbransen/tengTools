@@ -1,0 +1,48 @@
+﻿@model Litium.Accelerator.ViewModels.ContactUs.ContactUsViewModel
+
+<div class="col chanelContactInfo">
+    <table style="width:50%">
+        <tr>
+            <td>
+                <i class="bi bi-house-door"></i>
+            </td>
+            <td>@Model.CurrentChannelContactInformation.ContactName</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Model.CurrentChannelContactInformation.ContactStreet</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Model.CurrentChannelContactInformation.ContactAddressLine2</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Model.CurrentChannelContactInformation.ContactZipCode + @Model.CurrentChannelContactInformation.ContactCity</td>
+        </tr>
+    </table>
+    <table class="comtactInfoPhoneTable">
+        <tr>
+            <td>
+                <i class="bi bi-telephone"></i>
+            </td>
+            <td>@Model.CurrentChannelContactInformation.ContactPhone</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <i class="bi bi-envelope"></i>
+            </td>
+            <td>@Model.CurrentChannelContactInformation.ContactEmails</td>
+        </tr>
+    </table>
+    <table class="comtactInfoWebTable">
+    <tr>
+        <td>
+            <i class="bi bi-globe2"></i>
+        </td>
+        <td>@Model.CurrentChannelContactInformation.ContactWebsite</td>
+    </tr>
+    </table>
+</div>

@@ -1,0 +1,51 @@
+﻿
+#contactUsHr {
+    width: 11.875rem;
+    height: 0.125rem;
+    Top: 17.938rem;
+    Left: 10.375rem;
+    background-color: black;
+    border: none;
+    opacity: 1;
+}
+
+.contactusFormFields {
+    Width: 31.516rem;
+    height: 3.551rem;
+}
+
+.emailError {
+    Width: 31.516rem;
+    background-color: none;
+    color : red;
+}
+
+
+#contactUsForm {
+    Height: 30.758rem;
+    Top: 24.313rem;
+    Left: 10.313rem;
+    margin-bottom : 10.055rem;
+}
+
+#contactUsName {
+    margin-bottom : 1.705rem;
+}
+
+#contactUsEmail {
+    margin-bottom: 1.705rem;
+}
+
+#contactUsPhone {
+    margin-bottom: 1.705rem;
+}
+
+#contactUsMessage {
+    height: 9.731rem;
+    margin-bottom: 1.705rem;
+}
+
+#contactUsSubmitBtn {
+}
+
+

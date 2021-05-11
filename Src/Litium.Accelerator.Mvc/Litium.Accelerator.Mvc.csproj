@@ -147,7 +147,6 @@
     <Content Include="Client\images\arrow-down.svg" />
     <Content Include="Client\images\bag.svg" />
     <Content Include="Client\images\bin.svg" />
-    <Content Include="Client\images\.svg" />
     <Content Include="Client\images\caret-down.svg" />
     <Content Include="Client\images\checked.svg" />
     <Content Include="Client\images\close.svg" />
@@ -168,8 +167,10 @@
     <Content Include="Client\images\Logo-B2C.png" />
     <Content Include="Client\images\logo.svg" />
     <Content Include="Client\images\magnifier.svg" />
+    <Content Include="Client\images\mail.svg" />
     <Content Include="Client\images\menu.svg" />
     <Content Include="Client\images\pencil.svg" />
+    <Content Include="Client\images\Phone.svg" />
     <Content Include="Client\images\profile.svg" />
     <Content Include="Client\images\rotate-arrow.svg" />
     <Content Include="Client\images\search.svg" />
@@ -178,6 +179,7 @@
     <Content Include="Client\images\twitter.svg" />
     <Content Include="Client\images\user.png" />
     <Content Include="Client\images\user.svg" />
+    <Content Include="Client\images\web.svg" />
     <Content Include="Client\images\wishlist.svg" />
     <Content Include="Client\images\Youtube.svg" />
     <Content Include="Client\Scripts\Actions\Address.action.js" />
@@ -520,6 +522,8 @@
     <Content Include="Views\Dealer\Index.cshtml" />
     <Content Include="Views\ContactUs\Index.cshtml" />
     <Content Include="Views\ContactUs\ContactAccordion.cshtml" />
+    <Content Include="Views\ContactUs\ContactUsForm.cshtml" />
+    <Content Include="Views\ContactUs\ChannelContactInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

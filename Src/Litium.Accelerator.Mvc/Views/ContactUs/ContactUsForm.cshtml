@@ -1,0 +1,30 @@
+﻿@model Litium.Accelerator.ViewModels.ContactUs.ContactUsViewModel
+
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+                <div class="d-grid gap-4" id="contactUsForm">
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.ContacterName, new { @class = "form-control", id = "contactUsName", @Placeholder = Html.WebSiteString("contactus.contactername") + " *" })
+                        @Html.ValidationMessageFor(model => model.ContacterName, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.ContacterEmail, new { @class = "form-control", @id = "contactUsEmail", @Placeholder = Html.WebSiteString("contactus.contacteremail") + " *" })
+                        @Html.ValidationMessage("contactUs.email.notValid", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.ContacterEmail, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.ContacterPhone, new { @class = "form-control", @id = "contactUsPhone", @Placeholder = Html.WebSiteString("contactus.contacterphone") })
+                    </div>
+                    <div div class="form-group">
+                        @Html.TextAreaFor(model => model.ContacterMessage, new { @class = "form-control", @rows = "5", @id = "contactUsMessage", @Placeholder = Html.WebSiteString("contactUs.contacterMessage") + " *" })
+                        @Html.ValidationMessageFor(model => model.ContacterMessage, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div>
+                        <input type="submit" value="@Html.WebSiteString("general.send")" id="contactUsSubmitBtn" class=" btn btn-primary w-100" />
+                    </div>
+                </div>}

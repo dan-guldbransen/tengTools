@@ -46,3 +46,12 @@
 @mixin icon--youtube() {
     background: url('../../images/Youtube.svg') center no-repeat
 }
+@mixin icon--phone() {
+    background: url('../../images/Phone.svg') center no-repeat
+}
+@mixin icon--mail() {
+    background: url('../../images/mail.svg') center no-repeat
+}
+@mixin icon--web() {
+    background: url('../../images/web.svg') center no-repeat
+}
