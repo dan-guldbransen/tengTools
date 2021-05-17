@@ -5,5 +5,6 @@
 <p class="ps-4">@Model.ContactAddressLine2</p>
 <p class="ps-4">@Model.ContactZipCode @Model.ContactCity</p>
 <p><i class="bi bi-telephone me-2"></i>@Model.ContactPhone</p>
-<p><i class="bi bi-envelope me-2"></i>@Model.ContactEmail</p>
-<p><i class="bi bi-globe2 me-2"></i>@Model.ContactWebsite</p>
+<p><i class="bi bi-envelope me-2"></i><a href="mailto: @Model.ContactEmail"> @Model.ContactEmail</a> </p>
+<p><i class="bi bi-globe2 me-2"></i><a href="@Model.ContactWebsite" target="_blank">@Model.ContactWebsite</a> </p>
+

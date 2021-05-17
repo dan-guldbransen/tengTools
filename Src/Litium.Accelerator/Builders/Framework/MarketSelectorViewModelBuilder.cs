@@ -95,16 +95,19 @@ namespace Litium.Accelerator.Builders.Framework
             var culture = CultureInfo.CurrentUICulture;
             var partners = website.GetValue<IList<MultiFieldItem>>(AcceleratorWebsiteFieldNameConstants.Partners);
 
-            foreach (var partner in partners)
+            if (partners != null)
             {
-                var linkModel = new ContentLinkModel
+                foreach (var partner in partners)
                 {
-                    Url = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerWebsite),
-                    Name = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCountry, CultureInfo.CurrentUICulture),
-                    Image = partner.Fields.GetValue<Guid?>(AcceleratorWebsiteFieldNameConstants.PartnerFlagIcon)?.MapTo<ImageModel>()
-                };
+                    var linkModel = new ContentLinkModel
+                    {
+                        Url = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerWebsite),
+                        Name = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCountry, CultureInfo.CurrentUICulture),
+                        Image = partner.Fields.GetValue<Guid?>(AcceleratorWebsiteFieldNameConstants.PartnerFlagIcon)?.MapTo<ImageModel>()
+                    };
 
-                viewModel.PartnerLinkList.Add(linkModel);
+                    viewModel.PartnerLinkList.Add(linkModel);
+                }
             }
 
             return viewModel;
