@@ -49,28 +49,31 @@ namespace Litium.Accelerator.Builders.ContactUs
                 model.PageTitle = website.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerTitle);
                 var partners = website.GetValue<IList<MultiFieldItem>>(AcceleratorWebsiteFieldNameConstants.Partners);
 
-                foreach(var partner in partners)
+                if (partners != null)
                 {
-                    var sociailMediaViewModel = new SocialMediaViewModel();
-
-                    sociailMediaViewModel.TwitterURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerTwitter);
-                    sociailMediaViewModel.FacebookURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerFacebook);
-                    sociailMediaViewModel.InstagramURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerInstagram);
-                    sociailMediaViewModel.YoutubeURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerYoutube);
-                    sociailMediaViewModel.LinkedInURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerLinkedIn);
-
-                    model.Content.Add(new ContentViewModel
+                    foreach (var partner in partners)
                     {
-                        Country = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCountry, CultureInfo.CurrentUICulture),
-                        StreetAddress = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerStreetAddress),
-                        City = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCity, CultureInfo.CurrentUICulture),
-                        Email = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerEmail),
-                        Name = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerName),
-                        ZipCode = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerZipcode),
-                        PhoneNumber = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerPhone),
-                        Website = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerWebsite),
-                        SocialMedia = sociailMediaViewModel
-                    });
+                        var sociailMediaViewModel = new SocialMediaViewModel();
+
+                        sociailMediaViewModel.TwitterURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerTwitter);
+                        sociailMediaViewModel.FacebookURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerFacebook);
+                        sociailMediaViewModel.InstagramURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerInstagram);
+                        sociailMediaViewModel.YoutubeURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerYoutube);
+                        sociailMediaViewModel.LinkedInURL = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerLinkedIn);
+
+                        model.Content.Add(new ContentViewModel
+                        {
+                            Country = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCountry, CultureInfo.CurrentUICulture),
+                            StreetAddress = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerStreetAddress),
+                            City = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCity, CultureInfo.CurrentUICulture),
+                            Email = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerEmail),
+                            Name = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerName),
+                            ZipCode = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerZipcode),
+                            PhoneNumber = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerPhone),
+                            Website = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerWebsite),
+                            SocialMedia = sociailMediaViewModel
+                        });
+                    }
                 }
             }
             else
