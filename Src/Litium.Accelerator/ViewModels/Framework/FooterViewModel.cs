@@ -9,8 +9,6 @@ using Litium.FieldFramework.FieldTypes;
 using System.Linq;
 using System.Globalization;
 using Litium.Accelerator.Builders;
-using System;
-using Litium.Accelerator.Models;
 
 namespace Litium.Accelerator.ViewModels.Framework
 {
@@ -24,7 +22,7 @@ namespace Litium.Accelerator.ViewModels.Framework
         public string VisionHeader { get; set; }
         public string VisionText { get; set; }
         public string Legal { get; set; }
-        public SocialMediaLinks SocialMediaLinks { get; set; } = new SocialMediaLinks();
+        public SocialMediaViewModel SocialMedia { get; set; } = new SocialMediaViewModel();
         public ImageModel Logo { get; set; }
         // Render logic
         public bool HasCTASection => GetOrganised != null || Newsletter != null;

@@ -1,0 +1,49 @@
+﻿@model Litium.Accelerator.ViewModels.ContactUs.ContactUsViewModel
+
+@using Litium.Web.Models;
+@using Litium.Accelerator.Constants;
+@using System.Drawing;
+
+
+<div class="container">
+	@if (!string.IsNullOrEmpty(Model.Title))
+	{
+		<h2 class="text-uppercase mt-5">@Model.Title</h2>
+
+		<hr class="hr" />
+	}
+
+	@if (!string.IsNullOrWhiteSpace(Model.Introduction))
+
+	{
+		<p>@Model.Introduction</p>
+
+	}
+	@if (!string.IsNullOrEmpty(Model.ThankYouMessage))
+	{
+		@:<div class="alert alert-success"> <h4> @Model.ThankYouMessage</h4> </div>
+	}
+
+	<div class="row mb-5 pb-5 pt-3">
+		<div class="col-12 col-md-6 col-lg-5">
+			@Html.Partial("ContactUsForm", Model)
+		</div>
+		<div class="col-12 col-md-6 offset-lg-1 col-lg-5">
+			@Html.Action("ContactInformation")
+		</div>
+	</div>
+
+	<div class="row mt-5 py-md-3 py-lg-5">
+		<div class="col-12">
+			@Html.Action("ContactAccordion", "ContactUs")
+		</div>
+	</div>
+
+	<div class="row mt-5 py-md-3 py-lg-5">
+		<div class="col-12">
+			@Html.Action("ContactAccordion", "ContactUs", new { isPartners = true })
+		</div>
+	</div>
+</div>
+
+

@@ -1,6 +1,7 @@
 ﻿using inRiver.DataSyncTask.Constants;
 using inRiver.DataSyncTask.Models.Litium;
 using inRiver.DataSyncTask.Services;
+using inRiver.DataSyncTask.Utils;
 using inRiver.Remoting;
 using inRiver.Remoting.Extension;
 using inRiver.Remoting.Objects;
@@ -16,7 +17,6 @@ namespace inRiver.DataSyncTask
             Console.WriteLine("Connecting...");
             var context = new inRiverContext(RemoteManager.CreateInstance(InRiver.Remoting.InRiverRemotingUrl, InRiver.Remoting.InRiverUsername, InRiver.Remoting.InRiverPassword, InRiver.Remoting.InRiverEnvironmentTest), new ConsoleLogger());
             Console.WriteLine("Connected!");
-
 
             // Get products and items from inRiver
             var products = context.ExtensionManager.DataService.GetEntitiesForEntityType(0, InRiver.EntityType.ProductTypeId, LoadLevel.DataAndLinks);
@@ -42,11 +42,14 @@ namespace inRiver.DataSyncTask
             // Container for all data to post
             var data = new Data();
 
+            // Get fields to map
+            var fieldsToMap = JsonFileReader.Read();
+
             // Products
-            ProductService.ProcessProducts(products, data, cultures);
+            ProductService.ProcessProducts(products, data, cultures, fieldsToMap.ProductFields);
            
             // Variants
-            VariantService.ProcessVariants(items, data, cultures);
+            VariantService.ProcessVariants(items, data, cultures, fieldsToMap.VariantFields);
             
             // Resources TODO.
 

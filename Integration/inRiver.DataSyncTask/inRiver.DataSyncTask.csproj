@@ -82,7 +82,7 @@
     <Compile Include="Models\LitiumEntities\BaseModel.cs" />
     <Compile Include="Models\LitiumEntities\ImportReport.cs" />
     <Compile Include="Models\LitiumEntities\ImportReportId.cs" />
-    <Compile Include="Models\LitiumEntities\WebsiteEntity.cs" />
+    <Compile Include="Models\LitiumEntities\LanguageEntity.cs" />
     <Compile Include="Models\Litium\Category.cs" />
     <Compile Include="Models\Litium\Data.cs" />
     <Compile Include="Models\Litium\Field.cs" />
@@ -96,12 +96,17 @@
     <Compile Include="Services\LitiumCommonService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\VariantService.cs" />
-    <Compile Include="Utils\FieldMapper.cs" />
+    <Compile Include="Utils\JsonFileReader.cs" />
     <Compile Include="Utils\LitiumClient.cs" />
     <Compile Include="Utils\PimLitiumFieldMap.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Content Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fieldconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

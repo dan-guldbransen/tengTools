@@ -72,6 +72,8 @@
     <Compile Include="Attributes\OrganizationRoleAttribute.cs" />
     <Compile Include="Attributes\ApiValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Controllers\Api\CommonController.cs" />
+    <Compile Include="Controllers\Dealers\DealerController.cs" />
+    <Compile Include="Controllers\ContactUs\ContactUsController.cs" />
     <Compile Include="Extensions\BlockContainerHelperExtension.cs" />
     <Compile Include="Controllers\Api\MyPageAddressController.cs" />
     <Compile Include="Controllers\Api\CheckoutController.cs" />
@@ -165,8 +167,10 @@
     <Content Include="Client\images\Logo-B2C.png" />
     <Content Include="Client\images\logo.svg" />
     <Content Include="Client\images\magnifier.svg" />
+    <Content Include="Client\images\mail.svg" />
     <Content Include="Client\images\menu.svg" />
     <Content Include="Client\images\pencil.svg" />
+    <Content Include="Client\images\Phone.svg" />
     <Content Include="Client\images\profile.svg" />
     <Content Include="Client\images\rotate-arrow.svg" />
     <Content Include="Client\images\search.svg" />
@@ -175,6 +179,7 @@
     <Content Include="Client\images\twitter.svg" />
     <Content Include="Client\images\user.png" />
     <Content Include="Client\images\user.svg" />
+    <Content Include="Client\images\web.svg" />
     <Content Include="Client\images\wishlist.svg" />
     <Content Include="Client\images\Youtube.svg" />
     <Content Include="Client\Scripts\Actions\Address.action.js" />
@@ -461,7 +466,7 @@
     <Content Include="Client\Styles\DefaultTheme\form.scss" />
     <Content Include="Client\Styles\DefaultTheme\index.scss" />
     <Content Include="Client\Styles\DefaultTheme\navbar.scss" />
-    <Content Include="Client\Styles\DefaultTheme\news.scss" />
+    <Content Include="Client\Styles\DefaultTheme\blog.scss" />
     <Content Include="Client\Styles\DefaultTheme\normalize.scss" />
     <Content Include="Client\Styles\DefaultTheme\notification.scss" />
     <Content Include="Client\Styles\DefaultTheme\orderhistorydetail.scss" />
@@ -502,6 +507,7 @@
     <Content Include="Client\Styles\hamburgersettings.scss" />
     <Content Include="Client\Styles\DefaultTheme\socialmedialinks.scss" />
     <Content Include="Client\Styles\DefaultTheme\arrow.scss" />
+    <Content Include="Client\Styles\DefaultTheme\contactus.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
@@ -513,6 +519,11 @@
     <Content Include="Views\Shared\Framework\SocialMediaLinks.cshtml" />
     <Content Include="Views\Shared\Framework\ProfileMobile.cshtml" />
     <Content Include="Views\Shared\Framework\MarketSelectorMobile.cshtml" />
+    <Content Include="Views\Dealer\Index.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\ContactUs\ContactAccordion.cshtml" />
+    <Content Include="Views\ContactUs\ContactUsForm.cshtml" />
+    <Content Include="Views\ContactUs\ContactInformation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

@@ -1,0 +1,55 @@
+﻿@model Litium.Accelerator.ViewModels.ContactUs.ContactAccordionViewModel
+@{
+	var accordionId = Model.IsPartnerList ? "accordionPartners" : "accordionChannels";
+	var prefix = Model.IsPartnerList ? "partnerItem" : "channelItem";
+}
+
+@if (Model.Content != null && Model.Content.Any())
+{
+	<h2 class="text-uppercase">
+		@Model.PageTitle
+	</h2>
+
+	<hr class="hr" />
+
+	<div class="accordion accordion-flush" id="@accordionId">
+
+		@{ var counter = 0; }
+
+		@foreach (var item in Model.Content)
+		{
+			counter++;
+			var id = prefix + counter;
+
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="flush-heading@(id)">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse@(id)" aria-expanded="false" aria-controls="flush-collapse@(id)">
+						@item.Country
+					</button>
+				</h2>
+				<div id="flush-collapse@(id)" class="accordion-collapse collapse" aria-labelledby="flush-heading@(id)" data-bs-parent="#@accordionId">
+					<div class="accordion-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6 col-lg-3">
+									<p><i class="bi-telephone me-2"></i> @item.PhoneNumber</p>
+									<p><i class="bi-envelope me-2"></i> @item.Email</p>
+									<p><i class="bi-globe2 me-2"></i> @item.Website</p>
+								</div>
+								<div class="col-12 col-md-6 col-lg-3">
+									<p class="mb-1"><i class="bi-house-door me-2"></i> @item.Name</p>
+									<p class="mb-1 ps-4">@item.StreetAddress</p>
+									<p class="ps-4">@item.ZipCode @item.City</p>
+								</div>
+								<div class="col-12 col-md-6 col-lg-6">
+									@Html.Partial("Framework/SocialMediaLinks", item.SocialMedia)
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+		
+	</div>
+}

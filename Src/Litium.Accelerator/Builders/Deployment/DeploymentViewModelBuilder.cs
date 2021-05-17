@@ -15,7 +15,7 @@ namespace Litium.Accelerator.Builders.Deployment
 {
     public class DeploymentViewModelBuilder : IViewModelBuilder<DeploymentViewModel>
     {
-        private readonly ChannelService _channelService;
+        private readonly ChannelService _channelService; 
         private readonly FolderService _folderService;
         private readonly IPackage _package;
         private readonly AuthorizationService _authorizationService;

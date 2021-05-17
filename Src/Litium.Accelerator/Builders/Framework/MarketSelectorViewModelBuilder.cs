@@ -1,6 +1,7 @@
 ﻿using Litium.Accelerator.Constants;
 using Litium.Accelerator.Routing;
 using Litium.Accelerator.ViewModels.Framework;
+using Litium.FieldFramework;
 using Litium.Globalization;
 using Litium.Runtime.AutoMapper;
 using Litium.Web;
@@ -9,6 +10,7 @@ using Litium.Web.Models.Globalization;
 using Litium.Websites;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Litium.Accelerator.Builders.Framework
@@ -89,6 +91,21 @@ namespace Litium.Accelerator.Builders.Framework
                 viewModel.ChannelLinkList.Insert(0, international);
             }
 
+            // partners
+            var culture = CultureInfo.CurrentUICulture;
+            var partners = website.GetValue<IList<MultiFieldItem>>(AcceleratorWebsiteFieldNameConstants.Partners);
+
+            foreach (var partner in partners)
+            {
+                var linkModel = new ContentLinkModel
+                {
+                    Url = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerWebsite),
+                    Name = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCountry, CultureInfo.CurrentUICulture),
+                    Image = partner.Fields.GetValue<Guid?>(AcceleratorWebsiteFieldNameConstants.PartnerFlagIcon)?.MapTo<ImageModel>()
+                };
+
+                viewModel.PartnerLinkList.Add(linkModel);
+            }
 
             return viewModel;
         }

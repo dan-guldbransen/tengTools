@@ -130,11 +130,7 @@ namespace Litium.Accelerator.Definitions
                 {
                     var filters = new List<String>
                     {
-                        "Size",
-                        "#Price",
-                        "Color",
-                        "Brand",
-                        "#News"
+                        "#Price"
                     };
                     _filterService.SaveProductFilteringFields(filters);
                     SetAlreadyExecuted<FieldTemplate>("ProductFilters:Settings");

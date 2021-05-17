@@ -43,5 +43,25 @@
 
         public const string GetOrganisedPage = "GetOrganisedPage";
         public const string ExternalB2BLink = "ExternalB2BLink";
+
+        // Partner fields for Teng tools partners
+        public const string PartnerTitle = "PartnerTitle";
+        public const string Partners = "Partners";
+        public const string PartnerCountry = "PartnerCountry";
+        public const string PartnerFlagIcon = "PartnerFlagIcon";
+
+        public const string PartnerName = "PartnerName";
+        public const string PartnerPhone = "PartnerPhone";
+        public const string PartnerEmail = "PartnerEmail"; 
+        public const string PartnerWebsite = "PartnerWebsite";
+        public const string PartnerStreetAddress = "PartnerStreetAddress";
+        public const string PartnerZipcode = "PartnerZipcode";
+        public const string PartnerCity = "PartnerCity";
+
+        public const string PartnerInstagram = "PartnerInstagram";
+        public const string PartnerFacebook = "PartnerFacebook";
+        public const string PartnerLinkedIn = "PartnerLinkedIn";
+        public const string PartnerTwitter = "PartnerTwitter";
+        public const string PartnerYoutube = "PartnerYoutube";
     }
 }

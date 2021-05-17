@@ -20,7 +20,7 @@ namespace Litium.Accelerator.Builders.ContactUs
             _requestModelAccessor = requestModelAccessor;
         }
 
-        public virtual ContactUsViewModel Build(PageModel pageModel)
+        public virtual ContactUsViewModel Build(PageModel pageModel )
         {
             var model = pageModel.MapTo<ContactUsViewModel>();
             return model;

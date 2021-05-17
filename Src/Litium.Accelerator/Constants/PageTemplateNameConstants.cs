@@ -23,5 +23,6 @@
         public const string WelcomeEmail = "WelcomeEmail";
         public const string OrderConfirmationEmail = "OrderConfirmationEmail";
         public const string OrderConfirmation = "OrderConfirmation";
+        public const string ContactUs = "ContactUs";
     }
 }

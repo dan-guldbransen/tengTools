@@ -1074,22 +1074,22 @@
   <data name="fieldtemplate.websitearea.newslist.fieldgroup.filelist.name" xml:space="preserve">
     <value>File list</value>
   </data>
-  <data name="fieldtemplate.websitearea.news.name" xml:space="preserve">
-    <value>News page</value>
+  <data name="fieldtemplate.websitearea.blog.name" xml:space="preserve">
+    <value>Blog page</value>
   </data>
-  <data name="fieldtemplate.websitearea.news.fieldgroup.general.name" xml:space="preserve">
+  <data name="fieldtemplate.websitearea.blog.fieldgroup.general.name" xml:space="preserve">
     <value>General</value>
   </data>
-  <data name="fieldtemplate.websitearea.news.fieldgroup.contents.name" xml:space="preserve">
+  <data name="fieldtemplate.websitearea.blog.fieldgroup.contents.name" xml:space="preserve">
     <value>Main Contents</value>
   </data>
-  <data name="fieldtemplate.websitearea.news.fieldgroup.linklist.name" xml:space="preserve">
+  <data name="fieldtemplate.websitearea.blog.fieldgroup.linklist.name" xml:space="preserve">
     <value>List</value>
   </data>
-  <data name="fieldtemplate.websitearea.news.fieldgroup.filelist.name" xml:space="preserve">
+  <data name="fieldtemplate.websitearea.blog.fieldgroup.filelist.name" xml:space="preserve">
     <value>File list</value>
   </data>
-  <data name="fieldtemplate.websitearea.news.fieldgroup.image.name" xml:space="preserve">
+  <data name="fieldtemplate.websitearea.blog.fieldgroup.image.name" xml:space="preserve">
     <value>Image</value>
   </data>
   <data name="fieldtemplate.websitearea.orderconfirmationemail.name" xml:space="preserve">
@@ -1376,6 +1376,9 @@
   </data>
   <data name="fielddefinition.globalizationarea.contactlong.name" xml:space="preserve">
     <value>Longitude</value>
+  </data>
+  <data name="fieldtemplate.websitearea.contactus.name" xml:space="preserve">
+    <value>Contact us</value>
   </data>
   <data name="fielddefinition.globalizationarea.isinternational.name" xml:space="preserve">
     <value>Is International</value>
@@ -2156,5 +2159,20 @@
   </data>
   <data name="fielddefinition.websitearea.logotypealt.name" xml:space="preserve">
     <value>Logotype (alt)</value>
+  </data>
+  <data name="fielddefinition.websitearea.partners.name" xml:space="preserve">
+    <value>Partners</value>
+  </data>
+  <data name="fielddefinition.websitearea.partnertitle.name" xml:space="preserve">
+    <value>Page title</value>
+  </data>
+  <data name="fieldtemplate.websitearea.acceleratorwebsite.fieldgroup.partners.name" xml:space="preserve">
+    <value>External Partners</value>
+  </data>
+  <data name="fielddefinition.websitearea.blogtags.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.websitearea.blogtags.name" xml:space="preserve">
+    <value>Blog Tags</value>
   </data>
 </root>
