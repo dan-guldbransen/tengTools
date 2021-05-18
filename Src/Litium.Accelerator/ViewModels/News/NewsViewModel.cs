@@ -19,6 +19,7 @@ namespace Litium.Accelerator.ViewModels.News
         public Guid SystemId { get; set; }
         public string Title { get; set; }
         public string BlogTags { get; set; }
+        public bool FeaturedBlog { get; set; }
         public DateTime NewsDate { get; set; }
         public string Introduction { get; set; }
         public EditorString Text { get; set; }
@@ -35,6 +36,7 @@ namespace Litium.Accelerator.ViewModels.News
                .ForMember(x => x.Title, m => m.MapFromField(PageFieldNameConstants.Title))
                .ForMember(x => x.Introduction, m => m.MapFromField(PageFieldNameConstants.Introduction))
                .ForMember(x => x.BlogTags, m => m.MapFromField(PageFieldNameConstants.BlogListTags))
+               .ForMember(x => x.FeaturedBlog, m => m.MapFromField(PageFieldNameConstants.FeaturedBlog))
                .ForMember(x => x.Text, m => m.MapFrom(newsPage => newsPage.GetValue<string>(PageFieldNameConstants.Text)))
                .ForMember(x => x.NewsDate, m => m.MapFrom(newspage => newspage.GetValue<DateTimeOffset>(PageFieldNameConstants.NewsDate)))
                .ForMember(x => x.Links, m => m.MapFrom(newsPage => newsPage.GetValue<IList<PointerItem>>(PageFieldNameConstants.Links) != null ? newsPage.GetValue<IList<PointerItem>>(PageFieldNameConstants.Links).OfType<PointerPageItem>().ToList().Select(x => x.MapTo<LinkModel>()).Where(x => x != null) : new List<LinkModel>()))

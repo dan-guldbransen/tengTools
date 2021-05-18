@@ -38,3 +38,23 @@
         height: 11em;
     }
 }
+
+.blogList{
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+.cta-arrow-red {
+    &:after {
+        display: inline-block;
+        @include icon--cta-arrow-red();
+    }
+}
+
+.cta-arrow-red-small {
+    &:after {
+        display: inline-block;
+        margin-top: 1.5rem;
+        @include icon--cta-arrow-red-small();
+    }
+}

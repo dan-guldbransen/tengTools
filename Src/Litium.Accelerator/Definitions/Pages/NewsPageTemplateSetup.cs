@@ -25,7 +25,8 @@ namespace Litium.Accelerator.Definitions.Pages
                             {
                                 SystemFieldDefinitionConstants.Name,
                                 SystemFieldDefinitionConstants.Url,
-                                PageFieldNameConstants.BlogListTags
+                                PageFieldNameConstants.BlogListTags,
+                                PageFieldNameConstants.FeaturedBlog
                             }
                         },
                         new FieldTemplateFieldGroup()

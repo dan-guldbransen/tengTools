@@ -151,6 +151,8 @@
     <Content Include="Client\images\checked.svg" />
     <Content Include="Client\images\close.svg" />
     <Content Include="Client\images\cross.svg" />
+    <Content Include="Client\images\cta-arrow-red-small.svg" />
+    <Content Include="Client\images\cta-arrow-red.svg" />
     <Content Include="Client\images\cta-arrow.svg" />
     <Content Include="Client\images\Divider.svg" />
     <Content Include="Client\images\facebook-black.svg" />
