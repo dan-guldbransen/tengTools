@@ -12,7 +12,7 @@ namespace inRiver.DataSyncTask.Constants
         {
             public const string InRiverRemotingUrl = "https://remoting.productmarketingcloud.com";
             public const string InRiverUsername = "inriver-tengtools@consid.se";
-            public const string InRiverPassword = "544%%IdkwDWHk\"XgbeU3pdD"; //notera escapat " i lösen... Autogenerat :)
+            public const string InRiverPassword = "41HE%%powadwIq234ziJwddaHk\"XgbeUb1z"; //notera escapat " i lösen... Autogenerat :)
             public const string InRiverEnvironmentProd = "prod";
             public const string InRiverEnvironmentTest = "test";
         }
