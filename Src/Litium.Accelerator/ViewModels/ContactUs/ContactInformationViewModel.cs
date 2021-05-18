@@ -16,10 +16,8 @@ namespace Litium.Accelerator.ViewModels.ContactUs
     {
         public string ContactName { get; set; }
         public string ContactStreet { get; set; }
-        public string ContactAddressLine2 { get; set; }
         public string ContactZipCode { get; set; }
         public string ContactCity { get; set; }
-        public string ContactCounty { get; set; }
         public string ContactPhone { get; set; }
         public string ContactEmail { get; set; }
         public string ContactWebsite { get; set; }
@@ -36,10 +34,8 @@ namespace Litium.Accelerator.ViewModels.ContactUs
             cfg.CreateMap<ChannelModel, ContactInformationViewModel>()
                  .ForMember(x => x.ContactName, m => m.MapFromField(ChannelFieldNameConstants.ContactName))
                  .ForMember(x => x.ContactStreet, m => m.MapFromField(ChannelFieldNameConstants.ContactStreet))
-                 .ForMember(x => x.ContactAddressLine2, m => m.MapFromField(ChannelFieldNameConstants.ContactAddressLine2))
                  .ForMember(x => x.ContactZipCode, m => m.MapFromField(ChannelFieldNameConstants.ContactZipCode))
                  .ForMember(x => x.ContactCity, m => m.MapFromField(ChannelFieldNameConstants.ContactCity))
-                 .ForMember(x => x.ContactCounty, m => m.MapFromField(ChannelFieldNameConstants.ContactCounty))
                  .ForMember(x => x.ContactPhone, m => m.MapFromField(ChannelFieldNameConstants.ContactPhone))
                  .ForMember(x => x.ContactEmail, m => m.MapFromField(ChannelFieldNameConstants.ContactEmail))
                  .ForMember(x => x.ContactWebsite, m => m.MapFromField(ChannelFieldNameConstants.ContactWebsite))

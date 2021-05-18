@@ -65,7 +65,7 @@ namespace Litium.Accelerator.Builders.ContactUs
                         {
                             Country = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCountry, CultureInfo.CurrentUICulture),
                             StreetAddress = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerStreetAddress),
-                            City = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCity, CultureInfo.CurrentUICulture),
+                            City = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerCity),
                             Email = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerEmail),
                             Name = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerName),
                             ZipCode = partner.Fields.GetValue<string>(AcceleratorWebsiteFieldNameConstants.PartnerZipcode),

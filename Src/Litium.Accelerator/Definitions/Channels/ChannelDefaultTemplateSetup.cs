@@ -50,10 +50,8 @@ namespace Litium.Accelerator.Definitions.Channels
                         {
                             ChannelFieldNameConstants.ContactName,
                             ChannelFieldNameConstants.ContactStreet,
-                            ChannelFieldNameConstants.ContactAddressLine2,
                             ChannelFieldNameConstants.ContactZipCode,
                             ChannelFieldNameConstants.ContactCity,
-                            ChannelFieldNameConstants.ContactCounty,
                             ChannelFieldNameConstants.ContactPhone,
                             ChannelFieldNameConstants.ContactEmail,
                             ChannelFieldNameConstants.ContactWebsite,

@@ -8,7 +8,7 @@
 	<div class="cookieNotification modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropCookie" aria-hidden="true">
 		<div class="modal-dialog modal-lg modal-dialog-centered">
 			<div class="modal-content">
-				<div class="modal-body">
+				<div class="modal-body border border-2 border-secondary p-4">
 					<div class="container-fluid">
 						<div class="row">
 							@if (!string.IsNullOrEmpty(Model.Title))
@@ -18,7 +18,7 @@
 							}
 							@if (!string.IsNullOrEmpty(Model.Text))
 							{
-								<div class="col-12 col-lg-6">
+								<div class="col-12 col-lg-9">
 									<p>
 										@Model.Text
 										@if (Model.PolicyPage != null)
@@ -27,14 +27,14 @@
 										}
 									</p>
 								</div>
-								<div class="d-none d-lg-flex col-lg-6">
-									<figure class="cookie-logo">@Html.ImageFor(x => x.Logo)</figure>
+								<div class="d-none d-lg-flex col-lg-3">
+									<figure class="cookie-logo">@Html.ImageFor(x => x.Logo, maxSize: new Size(160, 100))</figure>
 								</div>
 							}
 							<div class="col-12">
 								<div class="input-group">
 									<input type="button" class="cookieNotificationBtn btn btn-dark me-3" data-accept="true" value="@Html.WebSiteString("cookieconsent.accept")" />
-									<input type="button" class="cookieNotificationBtn btn bg-light" data-accept="false" value="@Html.WebSiteString("cookieconsent.reject")" />
+									<input type="button" class="cookieNotificationBtn btn btn-info text-white" data-accept="false" value="@Html.WebSiteString("cookieconsent.reject")" />
 								</div>
 							</div>
 						</div>

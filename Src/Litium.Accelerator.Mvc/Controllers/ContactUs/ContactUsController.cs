@@ -98,6 +98,7 @@ namespace Litium.Accelerator.Mvc.Controllers.ContactUs
         public ActionResult ContactAccordion(bool isPartners = false)
         {
             var model = _contactAccordionViewModelBuilder.Build(isPartners);
+            
             return PartialView("ContactAccordion", model);
         }
     }

@@ -23,6 +23,9 @@ namespace Litium.Accelerator.ViewModels.News
         public IList<FileModel> Files { get; set; }
         public IList<NewsViewModel> News { get; set; }
         public PaginationViewModel Pagination { get; set; }
+        public IList<string> BlogTags { get; set; }
+
+        public NewsViewModel FeaturedBlog => News.Where(x => x.FeaturedBlog == true).FirstOrDefault();
 
         [UsedImplicitly]
         void IAutoMapperConfiguration.Configure(IMapperConfigurationExpression cfg)

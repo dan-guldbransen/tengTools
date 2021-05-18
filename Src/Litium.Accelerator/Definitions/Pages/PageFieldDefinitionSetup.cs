@@ -59,6 +59,7 @@ namespace Litium.Accelerator.Definitions.Pages
                         MultiSelect = false
                     }
                 },
+                new FieldDefinition<WebsiteArea>(PageFieldNameConstants.FeaturedBlog, SystemFieldTypeConstants.Boolean),
                 new FieldDefinition<WebsiteArea>(PageFieldNameConstants.NewsDate, SystemFieldTypeConstants.DateTime),
                 new FieldDefinition<WebsiteArea>(PageFieldNameConstants.CategoryPointer, SystemFieldTypeConstants.Pointer)
                 {
