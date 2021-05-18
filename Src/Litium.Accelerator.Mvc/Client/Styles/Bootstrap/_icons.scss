@@ -55,3 +55,18 @@
 @mixin icon--web() {
     background: url('../../images/web.svg') center no-repeat
 }
+@mixin icon--facebookBlack() {
+    background: url('../../images/facebook-black.svg') center no-repeat
+}
+@mixin icon--twitterBlack() {
+    background: url('../../images/twitter-black.svg') center no-repeat
+}
+@mixin icon--linkedinBlack() {
+    background: url('../../images/linkedin-black.svg') center no-repeat
+}
+@mixin icon--youtubeBlack() {
+    background: url('../../images/youtube-black.svg') center no-repeat
+}
+@mixin icon--instagramBlack() {
+    background: url('../../images/instagram-black.svg') center no-repeat
+}

@@ -25,11 +25,33 @@ div.some {
             &.linkedin {
                 @include icon--linkedin();
             }
-            &.instagram{
+
+            &.instagram {
                 @include icon--instagram();
             }
-            &.youtube{
+
+            &.youtube {
                 @include icon--youtube();
+            }
+
+            &.facebookBlack {
+                @include icon--facebookBlack();
+            }
+
+            &.instagramBlack {
+                @include icon--instagramBlack();
+            }
+
+            &.twitterBlack {
+                @include icon--twitterBlack();
+            }
+
+            &.linkedinBlack {
+                @include icon--linkedinBlack();
+            }
+
+            &.youtubeBlack {
+                @include icon--youtubeBlack();
             }
         }
     }

@@ -4,6 +4,7 @@ using Litium.Accelerator.Builders;
 using Litium.Accelerator.Constants;
 using Litium.Accelerator.Extensions;
 using Litium.Accelerator.Routing;
+using Litium.Accelerator.ViewModels.Framework;
 using Litium.Runtime.AutoMapper;
 using Litium.Web.Models.Blocks;
 using Litium.Web.Models.Websites;
@@ -36,6 +37,7 @@ namespace Litium.Accelerator.ViewModels.ContactUs
         public string ContacterMessage { get; set; }
 
         public string ThankYouMessage { get; set; }
+        public SocialMediaViewModel SocialMedia { get; set; } = new SocialMediaViewModel();
 
         [UsedImplicitly]
         public void Configure(IMapperConfigurationExpression cfg)
