@@ -10,10 +10,17 @@
 
 		@if (Model.HasCTASection)
 		{
-<div class="my-5 py-3 fs-6 text-uppercase d-flex justify-content-center">
-	<a class="mx-3 btn px-5 py-3 btn-primary @(Model.Newsletter != null ? "" : "d-none")" href="@Model.Newsletter.Href">@Model.Newsletter.Text</a>
-	<a class="mx-3 btn px-5 py-3 btn-secondary cta-arrow @(Model.GetOrganised != null ? "" : "d-none")" href="@Model.GetOrganised.Href">@Model.GetOrganised.Text</a>
-</div>}
+    <div class="my-5 py-3 fs-6 text-uppercase d-flex justify-content-center">
+        @if (Model.Newsletter != null)
+        {
+            @: <a class="mx-3 btn px-5 py-3 btn-primary @(Model.Newsletter != null ? "" : "d-none")" href="@Model.Newsletter.Href">@Model.Newsletter.Text</a>
+        }
+        @if (Model.GetOrganised != null)
+        {
+            @: <a class="mx-3 btn px-5 py-3 btn-secondary cta-arrow @(Model.GetOrganised != null ? "" : "d-none")" href="@Model.GetOrganised.Href">@Model.GetOrganised.Text</a>
+        }
+
+    </div>}
 
 		@if (Model.SectionList.Any())
 		{
