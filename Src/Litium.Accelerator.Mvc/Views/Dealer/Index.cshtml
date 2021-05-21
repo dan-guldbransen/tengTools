@@ -9,24 +9,37 @@
 }
 
 <main>
-	<h2>@header</h2>
+    <div class="container">
+        <h2>@header</h2>
 
-	@if (!string.IsNullOrEmpty(Model.ImportMessage))
-	{<h3>@Model.ImportMessage</h3>}
-
-	@using (Html.BeginForm("ImportFile", "Dealer", FormMethod.Post, new { enctype = "multipart/form-data" }))
-	{
-		@Html.AntiForgeryToken()
-		@Html.LabelFor(x => x.ImportForm.DealerFile, "accelerator.dealer.importname.label".AsAngularResourceString()) <br />
-		<input type="file" name="ImportForm.DealerFile" />
-		<button type="submit">@importButton</button>
-	}
-
-	@using (Html.BeginForm("ExportFile", "Dealer", FormMethod.Post))
-	{
-		@Html.AntiForgeryToken()
-		@Html.LabelFor(x => x.ImportForm.DealerFile, "accelerator.dealer.importname.label".AsAngularResourceString()) <br />
-		<button type="submit">@exportButton</button>
-	}
-
+        @if (!string.IsNullOrEmpty(Model.ImportMessage))
+        {<h3>@Model.ImportMessage</h3>}
+        <div class="row">
+            <div class=" col">
+                @using (Html.BeginForm("ImportFile", "Dealer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div>
+                        @Html.AntiForgeryToken()
+                        @Html.LabelFor(x => x.ImportForm.DealerFile, "accelerator.dealer.importname.label".AsAngularResourceString()) <br />
+                        <input type="file" name="ImportForm.DealerFile" />
+                    </div>
+                    <div>
+                        <button type="submit">@importButton</button>
+                    </div>
+                }
+            </div>
+            <div class=" col">
+                @using (Html.BeginForm("ExportFile", "Dealer", FormMethod.Post))
+                {
+                    <div>
+                        @Html.AntiForgeryToken()
+                        @Html.LabelFor(x => x.ImportForm.DealerFile, "accelerator.dealer.exportname.label".AsAngularResourceString())
+                    </div>
+                    <div>
+                        <button type="submit">@exportButton</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </main>
