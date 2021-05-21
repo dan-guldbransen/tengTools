@@ -462,6 +462,7 @@
     <Content Include="Views\ContactUs\ContactUsForm.cshtml" />
     <Content Include="Views\ContactUs\ContactInformation.cshtml" />
     <Content Include="Views\Shared\Framework\SocialMediaLinksWhite.cshtml" />
+    <Content Include="Views\Dealer\DealerList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
