@@ -1,4 +1,5 @@
 ﻿using Litium.Accelerator.ViewModels.Dealer;
+using Litium.Web.Models.Websites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,12 @@ namespace Litium.Accelerator.Mvc.Controllers.Dealers
         public ActionResult ExportFile()
         {
             return View(nameof(Index));
+        }
+
+        public ActionResult DealerList(PageModel currentPageModel)
+        {
+            //var model = _contactUsViewModelBuilder.Build(currentPageModel);
+            return View();
         }
     }
 }

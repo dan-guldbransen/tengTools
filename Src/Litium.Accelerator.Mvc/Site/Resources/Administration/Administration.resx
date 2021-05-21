@@ -2175,4 +2175,10 @@
   <data name="fielddefinition.websitearea.blogtags.name" xml:space="preserve">
     <value>Blog Tags</value>
   </data>
+  <data name="fieldtemplate.websitearea.dealerlist.name" xml:space="preserve">
+    <value>Dealer list</value>
+  </data>
+  <data name="fieldtemplate.websitearea.dealerlist.fieldgroup.general.name" xml:space="preserve">
+    <value>General</value>
+  </data>
 </root>

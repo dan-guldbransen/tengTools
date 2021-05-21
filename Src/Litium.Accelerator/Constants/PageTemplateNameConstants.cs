@@ -24,5 +24,6 @@
         public const string OrderConfirmationEmail = "OrderConfirmationEmail";
         public const string OrderConfirmation = "OrderConfirmation";
         public const string ContactUs = "ContactUs";
+        public const string DealerList = "DealerList";
     }
 }

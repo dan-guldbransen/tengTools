@@ -1389,4 +1389,10 @@
   <data name="fieldtemplate.websitearea.acceleratorwebsite.fieldgroup.partners.name" xml:space="preserve">
     <value>Externa partners</value>
   </data>
+  <data name="fieldtemplate.websitearea.dealerlist.name" xml:space="preserve">
+    <value>Dealerlista</value>
+  </data>
+  <data name="fieldtemplate.websitearea.dealerlist.fieldgroup.general.name" xml:space="preserve">
+    <value>General</value>
+  </data>
 </root>
