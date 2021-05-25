@@ -17,7 +17,7 @@ namespace Litium.Accelerator.ViewModels.Dealer
     {
         public string PageTitle { get; set; }
 
-        public IList<DealerItemViewModel> Dealers { get; set; } = new List<DealerItemViewModel>();
+        public List<IGrouping<char, DealerItemViewModel>> Dealers { get; set; }
 
         [UsedImplicitly]
         public void Configure(IMapperConfigurationExpression cfg)

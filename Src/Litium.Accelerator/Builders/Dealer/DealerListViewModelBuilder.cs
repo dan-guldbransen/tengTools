@@ -1,4 +1,5 @@
-﻿using Litium.Accelerator.ViewModels.Dealer;
+﻿using Litium.Accelerator.Services;
+using Litium.Accelerator.ViewModels.Dealer;
 using Litium.Runtime.AutoMapper;
 using Litium.Web.Models.Websites;
 using System.Collections.Generic;
@@ -7,24 +8,41 @@ namespace Litium.Accelerator.Builders.Dealer
 {
     public class DealerListViewModelBuilder : IViewModelBuilder<DealerListViewModel>
     {
+        private readonly DealerService _dealerService;
+
+        public DealerListViewModelBuilder(DealerService dealerService)
+        { 
+            _dealerService = dealerService;
+        }
+
         public DealerListViewModel Build(PageModel pageModel)
         {
             var model = pageModel.MapTo<DealerListViewModel>();
             
-            var dealers = new List<DealerItemViewModel>();
+            var dealers = GetDealers();
 
             if(dealers != null && dealers.Any())
             {
-                model.Dealers = dealers;
+                model.Dealers = dealers.GroupBy(c => c.CompanyName.ToCharArray().First()).ToList();
             }
 
             return model;
         }
 
         // For backoffice list
-        public DealerListViewModel Build()
+        public List<DealerItemViewModel> Build()
         {
-            return new DealerListViewModel();
+            return GetDealers().OrderBy(c => c.CompanyName).ToList();
+        }
+
+        private List<DealerItemViewModel> GetDealers()
+        {
+            var retval = new List<DealerItemViewModel>();
+            var file = _dealerService.GetDealerFileBytes();
+            
+
+
+            return retval;
         }
     }
 }
