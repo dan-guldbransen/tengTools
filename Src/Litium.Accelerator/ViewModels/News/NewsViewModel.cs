@@ -28,6 +28,8 @@ namespace Litium.Accelerator.ViewModels.News
         public ImageModel Image { get; set; }
         public Dictionary<string, List<BlockModel>> Blocks { get; set; }
         public string Url { get; set; }
+        public IList<NewsViewModel> News { get; set; }
+        public int Group;
 
         [UsedImplicitly]
         void IAutoMapperConfiguration.Configure(IMapperConfigurationExpression cfg)
