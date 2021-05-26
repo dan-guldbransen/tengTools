@@ -147,7 +147,10 @@
     <Content Include="Client\images\arrow-down.svg" />
     <Content Include="Client\images\bag.svg" />
     <Content Include="Client\images\bin.svg" />
+    <Content Include="Client\images\.svg" />
     <Content Include="Client\images\caret-down.svg" />
+    <Content Include="Client\images\carousel-arrow-left.svg" />
+    <Content Include="Client\images\carousel-arrow-right.svg" />
     <Content Include="Client\images\checked.svg" />
     <Content Include="Client\images\close.svg" />
     <Content Include="Client\images\cross.svg" />
