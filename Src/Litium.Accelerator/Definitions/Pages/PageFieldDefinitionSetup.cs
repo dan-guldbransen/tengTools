@@ -51,14 +51,6 @@ namespace Litium.Accelerator.Definitions.Pages
                     MultiCulture = true,
                 },
                 new FieldDefinition<WebsiteArea>(PageFieldNameConstants.NumberOfNewsPerPage, SystemFieldTypeConstants.Int),
-                new FieldDefinition<WebsiteArea>(PageFieldNameConstants.BlogListTags, SystemFieldTypeConstants.TextOption)
-                {
-                    MultiCulture = true,
-                    Option = new TextOption()
-                    {
-                        MultiSelect = false
-                    }
-                },
                 new FieldDefinition<WebsiteArea>(PageFieldNameConstants.FeaturedBlog, SystemFieldTypeConstants.Boolean),
                 new FieldDefinition<WebsiteArea>(PageFieldNameConstants.NewsDate, SystemFieldTypeConstants.DateTime),
                 new FieldDefinition<WebsiteArea>(PageFieldNameConstants.CategoryPointer, SystemFieldTypeConstants.Pointer)
