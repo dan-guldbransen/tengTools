@@ -26,6 +26,8 @@ namespace inRiver.DataSyncTask.Services
 
                 var litiumVariant = new Variant(item, baseProduct.ArticleNumber);
 
+                if (string.IsNullOrEmpty(item.GetField(InRiver.InRiverField.Item.ItemApprovedForMarket).Data?.ToString()))
+                    continue;
                 var markets = item.GetField(InRiver.InRiverField.Item.ItemApprovedForMarket).Data.ToString();
                 var litiumMarkets = MapToLitiumChannelCultures(markets);
 
