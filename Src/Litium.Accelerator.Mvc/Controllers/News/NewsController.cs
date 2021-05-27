@@ -29,42 +29,10 @@ namespace Litium.Accelerator.Mvc.Controllers.News
         }
 
         [HttpGet]
-        public ActionResult List(int page = 1)
+        public ActionResult List(string tags, int page = 1)
         {
-            var model = _newsListViewModelBuilder.Build(page);
-            return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult List(string tag)
-        {
-            List<string> tagsToLoad;
-            if (Session["TagsToLoad"] != null)
-            {
-                tagsToLoad = (List<string>)Session["TagsToLoad"];
-            }
-            else
-            {
-                tagsToLoad = new List<string>();
-            };
-
-            var model = _newsListViewModelBuilder.Build(1);
-
-            if (tag == "Clear selection")
-            {
-                tagsToLoad.Clear();
-                Session["TagsToLoad"] = tagsToLoad;
-                model.TagsToLoad = model.BlogTags;
-                return View(model);
-            }
-            if (!tagsToLoad.Contains(tag))
-            {
-                tagsToLoad.Add(tag);
-            }
-
-            Session["TagsToLoad"] = tagsToLoad;
-            model.TagsToLoad = tagsToLoad;
-
+            var tagsList = !string.IsNullOrEmpty(tags) ? tags.Split(',') : new string[0];
+            var model = _newsListViewModelBuilder.Build(tagsList, page);
             return View(model);
         }
     }
