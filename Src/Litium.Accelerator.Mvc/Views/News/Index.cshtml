@@ -1,16 +1,26 @@
 ﻿@using Litium.Accelerator.Constants;
 @model Litium.Accelerator.ViewModels.News.NewsViewModel
 
+@{
+    var groups = Model.News.Count / 3 + 1;
+    var rest = Model.News.Count % 3;
 
-@Html.ImageFor(x => x.Image)
+    if(rest == 0)
+    {
+        groups -= 1;
+    }
+
+}
+
+
+<img class="img-fluid d-block mx-auto my-0" src="@Model.Image.GetUrlToImage(new System.Drawing.Size(1920,742), new System.Drawing.Size(1920,742)).Url" />
 <div class="container">
     <div class="align-content-center text-left">
         <div class="mt-3 text-uppercase">
             <p class="mb-1 text-primary">@Model.BlogTags/@Model.NewsDate.ToShortDateString()</p>
-            <p class="mb-1 font-weight-bold fs-1 w-50">@Model.Title</p>
+            <h1 class="mb-1 font-weight-bold fs-1 w-50">@Model.Title</h1>
         </div>
-        @*Fixa till tjocklek och längd*@
-        <hr class="bg-dark" />
+        <hr class="bg-dark border border-1 border-dark w-25" />
 
         <div class="mt-2 w-75">
             <div class="font-weight-bold fs-5">
@@ -19,7 +29,7 @@
             <div class="mt-2 fs-6">
                 @Model.Text
             </div>
-        </div>        
+        </div>
 
         <!--Taggar-->
         <div class="mt-5 text-uppercase">
@@ -28,180 +38,53 @@
             </h5>
             <p class="text-primary">@Model.BlogTags</p>
         </div>
-    </div>    
-</div>
-
-<!--Slider-->
-<div class="bg-light">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="cards-wrapper">
-
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary text-white">Go somewhere</a>
-                        </div>
-                    </div>
-
-                    <div class="card d-none d-md-block">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary text-white">Go somewhere</a>
-                        </div>
-                    </div>
-
-                    <div class="card d-none d-md-block">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary text-white">Go somewhere</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <div class="cards-wrapper">
-
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary text-white">Go somewhere</a>
-                        </div>
-                    </div>
-
-                    <div class="card d-none d-md-block">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary text-white">Go somewhere</a>
-                        </div>
-                    </div>
-
-                    <div class="card d-none d-md-block">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary text-white">Go somewhere</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <div class="cards-wrapper">
-
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary text-white">Go somewhere</a>
-                        </div>
-                    </div>
-
-                    <div class="card d-none d-md-block">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary text-white">Go somewhere</a>
-                        </div>
-                    </div>
-
-                    <div class="card d-none d-md-block">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary text-white">Go somewhere</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-
     </div>
 </div>
-<!--Slider-->
 
 
 
+<div id="carouselExampleControls" class="carousel slide car-height bg-light border-0 mt-5 pl-auto" data-bs-ride="carousel">
+    <div class="carousel-inner container px-0">
+        <h3 class="fw-bold mt-4 mx-2">In scelerisque convallis arcu pellentesque nam sed</h3>
+
+        @for (int i = 0; i < groups; i++)
+        {
+            var take = i == groups ? rest : 3;
+            var list = Model.News.Skip(3 * i).Take(take);
+
+            <div class="carousel-item @(i == 0 ? "active" : "")">
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-@*@if (Model.Blocks.Any())
-{
-    <h1 class="structural">@Html.DisplayFor(x => x.Title)</h1>
-    @Html.BlockContainer(Model.Blocks, BlockContainerNameConstant.Header)
-}
-<div class="row">
-    <div class="small-12 medium-9 large-10 columns">
-        <div class="row">
-            <div class="small-12 medium-8 columns">
-                @if (Model.Image != null)
-                {
-                    var ImageUrl = Model.Image.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(786, -1)).Url;
-                    <figure class="news__figure">
-                        <img src="@ImageUrl" class="news__image" />
-                        @if (!string.IsNullOrWhiteSpace(Model.Image.Alt))
-                        {
-                        <figcaption class="news__figcaption">@Model.Image.Alt</figcaption>
-                        }
-                    </figure>
-                }
-                <p class="news__date">@Model.NewsDate.ToString("d")</p>
-
-                <h1 class="news__title">@Model.Title</h1>
-
-                @if (!string.IsNullOrWhiteSpace(Model.Introduction))
-                {
-                <p class="news__intro">@Model.Introduction</p>
-                }
-
-                @Model.Text
-
+                <div class="row justify-content-between my-5 mx-2">
+                    @foreach (var item in list)
+                    {
+                        <div class="card col-10 col-md-4 col-lg-3 rounded-3 px-0 shadow">
+                            @if (item.Image != null)
+                            {
+                                <img src="@item.Image.GetUrlToImage(new System.Drawing.Size(475,245), new System.Drawing.Size(475,245)).Url" class="card-img-top rounded-top" alt="Blog card image">
+                            }
+                            <div class="card-body">
+                                <p class="text-primary text-uppercase">@item.BlogTags/@DateTime.Now.ToShortDateString()</p>
+                                <h5 class="card-title fw-bold">@item.Title</h5>
+                                <p class="card-text">@item.Introduction</p>
+                                <a href="@item.Url" class="cta-arrow-red-small"></a>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
-
-            <div class="small-12 medium-4 columns">
-                @Html.Partial("_LinkList", Model.Links)
-                @Html.Partial("_FileList", Model.Files)
-            </div>
-        </div>
+        }
     </div>
-</div>*@
+
+
+    <!--Controls-->
+    <button class="carousel-control-prev float-start" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-arrow-left bg-white shadow px-3 py-2" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-arrow-right bg-white shadow px-3 py-2" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

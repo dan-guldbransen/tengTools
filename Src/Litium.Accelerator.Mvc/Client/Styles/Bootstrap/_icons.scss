@@ -22,7 +22,6 @@
 @mixin icon--cta-arrow() {
     content: url('../../images/cta-arrow.svg');
 }
-
 @mixin icon--cta-arrow-red() {
     content: url('../../images/cta-arrow-red.svg');
 }
@@ -77,4 +76,11 @@
 }
 @mixin icon--instagramBlack() {
     background: url('../../images/instagram-black.svg') center no-repeat
+}
+
+@mixin icon--carousel-arrow-right(){
+    content: url('../../images//carousel-arrow-right.svg');
+}
+@mixin icon--carousel-arrow-left() {
+    content: url('../../images//carousel-arrow-left.svg');
 }

@@ -294,6 +294,14 @@ namespace Litium.Accelerator.Definitions.Websites
                     }
                  }
                 },
+                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.BlogTagList, SystemFieldTypeConstants.TextOption)
+                {
+                    MultiCulture = true,
+                    Option = new TextOption()
+                    {
+                        MultiSelect = false
+                    }
+                },
             };
             return fields;
         }

@@ -64,9 +64,11 @@ namespace Litium.Accelerator.Builders.Menu
                         showleftColumn = filterNavigation == NavigationType.Filter;
                         break;
                     case PageTemplateNameConstants.Article:
+                        showleftColumn = website.InArticlePages();
+                        break;
                     case PageTemplateNameConstants.NewsList:
                     case PageTemplateNameConstants.News:
-                        showleftColumn = website.InArticlePages();
+                        showleftColumn = false;
                         break;
                 }
             }

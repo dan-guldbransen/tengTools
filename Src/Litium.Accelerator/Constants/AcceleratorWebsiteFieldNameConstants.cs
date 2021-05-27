@@ -63,5 +63,7 @@
         public const string PartnerLinkedIn = "PartnerLinkedIn";
         public const string PartnerTwitter = "PartnerTwitter";
         public const string PartnerYoutube = "PartnerYoutube";
+
+        public const string BlogTagList = "BlogTagList";
     }
 }

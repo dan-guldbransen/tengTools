@@ -28,6 +28,8 @@ namespace Litium.Accelerator.ViewModels.News
         public ImageModel Image { get; set; }
         public Dictionary<string, List<BlockModel>> Blocks { get; set; }
         public string Url { get; set; }
+        public IList<NewsViewModel> News { get; set; }
+        public int Group;
 
         [UsedImplicitly]
         void IAutoMapperConfiguration.Configure(IMapperConfigurationExpression cfg)
@@ -35,7 +37,7 @@ namespace Litium.Accelerator.ViewModels.News
             cfg.CreateMap<PageModel, NewsViewModel>()
                .ForMember(x => x.Title, m => m.MapFromField(PageFieldNameConstants.Title))
                .ForMember(x => x.Introduction, m => m.MapFromField(PageFieldNameConstants.Introduction))
-               .ForMember(x => x.BlogTags, m => m.MapFromField(PageFieldNameConstants.BlogListTags))
+               .ForMember(x => x.BlogTags, m => m.MapFromField(AcceleratorWebsiteFieldNameConstants.BlogTagList))
                .ForMember(x => x.FeaturedBlog, m => m.MapFromField(PageFieldNameConstants.FeaturedBlog))
                .ForMember(x => x.Text, m => m.MapFrom(newsPage => newsPage.GetValue<string>(PageFieldNameConstants.Text)))
                .ForMember(x => x.NewsDate, m => m.MapFrom(newspage => newspage.GetValue<DateTimeOffset>(PageFieldNameConstants.NewsDate)))
