@@ -7,7 +7,7 @@
 }
 
 <header id="header" role="banner" class="header @(isDark ? "dark" : "red")">
-	<nav class="navbar navbar-expand-lg border-bottom border-dark border-1 py-2 d-none d-lg-flex @(isDark ? "bg-dark border border-bottom border-dashed border-light" : "bg-primary")">
+	<nav class="navbar navbar-expand-lg border-bottom border-dark border-1 py-2 d-none d-lg-flex @(isDark ? "bg-dark" : "bg-primary")">
 		<div class="container justify-content-end">
 			<div class="collapse navbar-collapse me-auto">
 				<ul class="navbar-nav">
@@ -25,7 +25,7 @@
 		</div>
 	</nav>
 
-	<nav class="navbar navbar-expand-lg py-2 @(hasGetOrganisedCTA ? "p-lg-0": "py-lg-3") px-3 px-lg-0 @(isDark ? "linear-bg" : "bg-primary")">
+	<nav class="navbar navbar-expand-lg py-2 px-3 px-lg-0 @(isDark ? "linear-bg" : "bg-primary")">
 		<div class="container">
 			<a class="navbar-brand me-5" href="@Model.StartPageUrl">
 				@Html.ImageFor(x => x.Logo, maxSize: new System.Drawing.Size(-1, 50))
@@ -37,11 +37,11 @@
 					<ul class="navbar-nav">
 						@foreach (var category in Model.Categories)
 						{
-                        <li class="nav-item px-4">
-                            <div class="megamenu dropdown text-uppercase">
-								@Html.Partial("Framework/Subcategory", category)
-                            </div>
-                        </li>
+							<li class="nav-item px-4">
+								<div class="megamenu dropdown text-uppercase">
+									@Html.Partial("Framework/Subcategory", category)
+								</div>
+							</li>
 						}
 					</ul>
 				</div>
@@ -63,15 +63,15 @@
 			</div>
 			@if (hasGetOrganisedCTA)
 			{
-				<a class="btn @(isDark ? "btn-primary text-white" : "btn-secondary") btn-cta ms-3 text-uppercase d-none d-lg-block" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
-					Get Organised
+				<a class="btn btn-link btn-cta-link ms-3 text-uppercase d-none d-lg-block" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
+					@Model.GetOrganised.Text
 				</a>
 			}
 		</div>
 	</nav>
 
-	<nav class="navbar d-lg-none justify-content-between border-top border-dark border-1 ps-3 @(hasGetOrganisedCTA ? "py-0 pe-0": "") @(isDark ? "bg-dark" : "bg-primary")">
-		<div class="container @(hasGetOrganisedCTA ? "pe-0 ": "")">
+	<nav class="navbar d-lg-none justify-content-between border-top border-dark border-1 p-3 @(isDark ? "linear-bg-small" : "bg-primary")">
+		<div class="container">
 			<button class="hamburger hamburger--slider" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
 				<span class="hamburger-box">
 					<span class="hamburger-inner"></span>
@@ -80,7 +80,7 @@
 
 			@if (hasGetOrganisedCTA)
 			{
-				<a class="btn @(isDark ? "btn-primary text-white" : "btn-secondary") btn-cta btn-cta-sm text-uppercase" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
+				<a class="btn btn-link btn-cta-link text-uppercase" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
 					@Model.GetOrganised.Text
 				</a>
 			}
@@ -92,7 +92,7 @@
 <!-- MOBILE MENU -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
 	<!-- Header -->
-	<div class="offcanvas-header bg-primary">
+	<div class="offcanvas-header @(isDark ? "bg-dark" : "bg-primary")">
 		<a class="navbar-brand me-5" href="@Model.StartPageUrl">
 			@Html.ImageFor(x => x.Logo, maxSize: new System.Drawing.Size(-1, 50))
 		</a>

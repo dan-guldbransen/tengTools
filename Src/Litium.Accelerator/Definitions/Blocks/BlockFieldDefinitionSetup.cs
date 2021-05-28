@@ -82,6 +82,10 @@ namespace Litium.Accelerator.Definitions.Blocks
             var fields = new List<FieldDefinition>
             {
                 new FieldDefinition<BlockArea>(BlockFieldNameConstants.BackgroundImage, SystemFieldTypeConstants.MediaPointerImage),
+                 new FieldDefinition<BlockArea>(BlockFieldNameConstants.BlockSubTitle, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true,
+                },
                 new FieldDefinition<BlockArea>(BlockFieldNameConstants.ContentPosition, SystemFieldTypeConstants.TextOption)
                 {
                     Option = new TextOption
@@ -104,6 +108,26 @@ namespace Litium.Accelerator.Definitions.Blocks
                                 Value = "right",
                                 Name = new Dictionary<string, string> { { "en-US", "Content right" }, { "sv-SE", "Innehåll höger" } }
                             }
+                        }
+                    }
+                },
+                 new FieldDefinition<BlockArea>(BlockFieldNameConstants.ContentColor, SystemFieldTypeConstants.TextOption)
+                {
+                    Option = new TextOption
+                    {
+                        MultiSelect = false,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "white",
+                                Name = new Dictionary<string, string> { { "en-US", "White" }, { "sv-SE", "Vitt" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "black",
+                                Name = new Dictionary<string, string> { { "en-US", "Black" }, { "sv-SE", "Svart" } }
+                            },
                         }
                     }
                 },

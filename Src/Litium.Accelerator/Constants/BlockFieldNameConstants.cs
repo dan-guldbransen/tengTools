@@ -17,7 +17,9 @@
         
         // Using in hero
         public const string ContentPosition = "ContentPosition";
+        public const string ContentColor = "ContentColor";
         public const string BackgroundImage = "BackgroundImage";
+        public const string BlockSubTitle = "BlockSubTitle";
 
         // Using in product block template
         public const string CategoryLink= "CategoryLink";

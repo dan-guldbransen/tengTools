@@ -11,7 +11,22 @@
     padding-right: 1rem !important;
     // Generate the caret automatically
 
-    &#navbarMarketsDropdown.show, &#navbarSubCategoryDropdown.show {
+    &#navbarSubCategoryDropdown.show {
+        &:after {
+            content: "";
+            width: 0;
+            height: 0;
+            z-index: 1001;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid $dropdown-bg;
+            position: absolute;
+            top: 66px;
+            transform: translateX(-50%);
+        }
+    }
+
+    &#navbarMarketsDropdown.show {
         &:after {
             content: "";
             width: 0;
@@ -51,7 +66,14 @@
         margin-top: $dropdown-spacer;
     }
 
-    &.dropdown-menu-marketselector, &.dropdown-menu-megamenu {
+    &.dropdown-menu-megamenu {
+        top: 73px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+
+    &.dropdown-menu-marketselector {
         top: 54px;
         right: 0;
         left: 0;

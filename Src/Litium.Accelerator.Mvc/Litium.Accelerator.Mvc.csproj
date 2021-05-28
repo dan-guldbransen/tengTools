@@ -148,6 +148,7 @@
     <Compile Include="ModelStates\ApiModelState.cs" />
     <Compile Include="ModelStates\MvcModelState.cs" />
     <Content Include="Client\images\arrow-down.svg" />
+    <Content Include="Client\images\arrow-white.svg" />
     <Content Include="Client\images\bag.svg" />
     <Content Include="Client\images\bin.svg" />
     <Content Include="Client\images\caret-down.svg" />
@@ -169,7 +170,6 @@
     <Content Include="Client\images\Favicon_litium_transp.32x32.png" />
     <Content Include="Client\images\Favicon_litium_transp.96x96.png" />
     <Content Include="Client\images\favorites.svg" />
-    <Content Include="Client\images\hamburger.svg" />
     <Content Include="Client\images\Instagram-black.svg" />
     <Content Include="Client\images\Instagram.svg" />
     <Content Include="Client\images\linkedin-black.svg" />
@@ -178,7 +178,6 @@
     <Content Include="Client\images\logo.svg" />
     <Content Include="Client\images\magnifier.svg" />
     <Content Include="Client\images\mail.svg" />
-    <Content Include="Client\images\menu.svg" />
     <Content Include="Client\images\pencil.svg" />
     <Content Include="Client\images\Phone.svg" />
     <Content Include="Client\images\profile.svg" />
@@ -191,6 +190,9 @@
     <Content Include="Client\images\user.png" />
     <Content Include="Client\images\user.svg" />
     <Content Include="Client\images\web.svg" />
+    <Content Include="Client\images\white-bag.svg" />
+    <Content Include="Client\images\white-dude.svg" />
+    <Content Include="Client\images\white-heart.svg" />
     <Content Include="Client\images\wishlist.svg" />
     <Content Include="Client\images\Youtube-black.svg" />
     <Content Include="Client\images\Youtube.svg" />
@@ -451,6 +453,7 @@
     <Content Include="Client\Styles\DefaultTheme\arrow.scss" />
     <Content Include="Client\Styles\DefaultTheme\contactus.scss" />
     <Content Include="Client\Styles\DefaultTheme\megamenu.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\hero.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />

@@ -22,6 +22,7 @@ namespace Litium.Accelerator.Builders.Block
             model.LinkUrl = blockModel.GetValue<PointerPageItem>(BlockFieldNameConstants.Link)?.MapTo<LinkModel>();
 
             model.ContentPosition = blockModel.GetValue<string>(BlockFieldNameConstants.ContentPosition);
+            model.ContentColor = blockModel.GetValue<string>(BlockFieldNameConstants.ContentColor);
 
             return model;
         }

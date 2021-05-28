@@ -47,10 +47,12 @@ namespace Litium.Accelerator.Definitions.Blocks
                             Fields =
                             {
                                BlockFieldNameConstants.BlockTitle,
+                               BlockFieldNameConstants.BlockSubTitle,
                                BlockFieldNameConstants.BlockText,
                                BlockFieldNameConstants.Link,
                                BlockFieldNameConstants.LinkText,
                                BlockFieldNameConstants.ContentPosition,
+                               BlockFieldNameConstants.ContentColor,
                                BlockFieldNameConstants.BackgroundImage
                             }
                         }
