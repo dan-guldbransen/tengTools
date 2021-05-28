@@ -25,8 +25,8 @@ namespace Litium.Accelerator.ViewModels.News
         public PaginationViewModel Pagination { get; set; }
         public IList<BlogTag> BlogTags { get; set; } = new List<BlogTag>();
         private IList<string> BlogTagValues { get; set; } = new List<string>();
-
-        public NewsViewModel FeaturedBlog => News.FirstOrDefault(x => x.FeaturedBlog); // TODO: Hämta feature innan filtrerade nyheter
+        public NewsViewModel FeaturedBlog { get; set; }
+        public string BaseUrl { get; set; }
 
         [UsedImplicitly]
         void IAutoMapperConfiguration.Configure(IMapperConfigurationExpression cfg)
