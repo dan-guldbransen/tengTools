@@ -29,13 +29,13 @@ namespace Litium.Accelerator.ViewModels.Block
                 switch (ContentPosition)
                 {
                     case "left":
-                        return "mr-auto";
+                        return "start";
                     case "center":
-                        return "m-auto";
+                        return "center";
                     case "right":
-                        return "ml-auto";
+                        return "end";
                     default:
-                        return "mr-auto";
+                        return "start";
                 }
             }
         }

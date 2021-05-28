@@ -5,13 +5,14 @@
 	var textColor = Model.ContentColor ?? "white";
 
 	var btnOutline = textColor == "white" ? "light" : "dark";
+	var centerText = Model.Offset == "center";
 }
-<section class="hero">
+<section class="hero position-relative">
 	<img src="@url" />
 	<div class="position-absolute top-50 w-100 text-@textColor px-5">
 
-		<div class="mx-5">
-			<div class="hero-content @Model.Offset mx-5">
+		<div class="mx-5 d-flex justify-content-@(Model.Offset)">
+			<div class="hero-content mx-5 @(centerText ? "text-center" : "")">
 				<h2 class="text-primary text-uppercase">@Model.SubTitle</h2>
 				<h1 class="text-uppercase display-3">@Model.Title</h1>
 				<p class="fs-4">@Model.Text</p>
