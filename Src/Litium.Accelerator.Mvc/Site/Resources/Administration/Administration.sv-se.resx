@@ -1395,4 +1395,22 @@
   <data name="fieldtemplate.websitearea.dealerlist.fieldgroup.general.name" xml:space="preserve">
     <value>General</value>
   </data>
+  <data name="accelerator.dealer.export.button" xml:space="preserve">
+    <value>Exportera</value>
+  </data>
+  <data name="accelerator.dealer.exportname.label" xml:space="preserve">
+    <value>Exportera återförsäljare</value>
+  </data>
+  <data name="accelerator.dealer.header" xml:space="preserve">
+    <value>Återförsäljare</value>
+  </data>
+  <data name="accelerator.dealer.import.button" xml:space="preserve">
+    <value>Importera</value>
+  </data>
+  <data name="accelerator.dealer.importname.label" xml:space="preserve">
+    <value>Importera återförsäljare</value>
+  </data>
+  <data name="panels.DealerUploadPanel.title" xml:space="preserve">
+    <value>Återförsäljare</value>
+  </data>
 </root>

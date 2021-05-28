@@ -28,9 +28,16 @@ namespace Litium.Accelerator.Definitions.Pages
                             Fields =
                             {
                                 SystemFieldDefinitionConstants.Name,
-                                SystemFieldDefinitionConstants.Url,
-                                PageFieldNameConstants.PageSize,
-                                PageFieldNameConstants.TitleFilterSelector,
+                                SystemFieldDefinitionConstants.Url
+                            }
+                        },
+                          new FieldTemplateFieldGroup()
+                        {
+                            Id = "Contents",
+                            Collapsed = false,
+                            Fields =
+                            {
+                               PageFieldNameConstants.Title
                             }
                         }
                     }

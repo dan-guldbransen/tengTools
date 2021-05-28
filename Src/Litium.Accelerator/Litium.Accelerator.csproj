@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Litium.Accelerator.FieldTypes\Litium.Accelerator.FieldTypes.csproj" />
+    <PackageReference Include="EPPlus" Version="4.5.3.3" />
     <PackageReference Include="Litium.Web.WebApi.Abstractions" Version="7.6.1" />
   </ItemGroup>
   <ItemGroup>

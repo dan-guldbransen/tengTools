@@ -37,7 +37,7 @@ namespace Litium.Accelerator.Services
         public (byte[], string) GetDealerFileBytes()
         {
             
-            var filePath = Directory.GetCurrentDirectory() + "/Files/" + FileName;
+            var filePath = Path + FileName;
 
             if (File.Exists(filePath))
             {
@@ -46,6 +46,11 @@ namespace Litium.Accelerator.Services
 
             return (null, "");
 
+        }
+
+        public string GetFilePath()
+        {
+            return Path + FileName;
         }
     }
 }

@@ -1,0 +1,56 @@
+﻿@model Litium.Accelerator.ViewModels.Dealer.DealerViewModel
+@using Litium.Studio.Extenssions
+
+@{
+	ViewContext.RouteData.DataTokens["BareLayout"] = true;
+	var importButton = "accelerator.dealer.import.button".AsAngularResourceString();
+	var exportButton = "accelerator.dealer.export.button".AsAngularResourceString();
+	var header = "accelerator.dealer.header".AsAngularResourceString();
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<main class="py-5">
+	<div class="px-3 container-fluid">
+		<h2>@header</h2>
+
+		@if (!string.IsNullOrEmpty(Model.ImportMessage))
+		{<h3>@Model.ImportMessage</h3>}
+		<div class="row">
+			<div class="col-12 col-md-6">
+				@using (Html.BeginForm("ImportFile", "DealerAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+				{
+					<div>
+						@Html.AntiForgeryToken()
+						@Html.LabelFor(x => x.ImportForm.DealerFile, "accelerator.dealer.importname.label".AsAngularResourceString(), new { @class = "form-label" }) <br />
+						<input type="file" name="ImportForm.DealerFile" class="form-control" />
+					</div>
+					<div>
+						<button type="submit" class="btn btn-outline-dark mt-3">@importButton</button>
+					</div>
+				}
+			</div>
+			<div class="col-12 col-md-6">
+				@using (Html.BeginForm("ExportFile", "DealerAdmin", FormMethod.Post))
+				{
+					<div>
+						@Html.AntiForgeryToken()
+						@Html.LabelFor(x => x.ImportForm.DealerFile, "accelerator.dealer.exportname.label".AsAngularResourceString(), new { @class = "form-label" })
+					</div>
+					<div>
+						<button type="submit" class="btn btn-outline-dark">@exportButton</button>
+					</div>
+				}
+			</div>
+		</div>
+
+		<div class="list-group">
+
+			@foreach (var dealer in Model.Dealers)
+			{
+			<div class="list-group-item">
+				@dealer.DealerNumber @dealer.DealerGroup @dealer.CompanyName
+			</div>
+			}
+
+		</div>
+	</div>
+</main>

@@ -15,6 +15,8 @@ namespace Litium.Accelerator.ViewModels.Dealer
         
         public string ImportMessage { get; set; }
 
+        public List<DealerItemViewModel> Dealers { get; set; }
+
         public class ImportViewModel
         {
             [Required]

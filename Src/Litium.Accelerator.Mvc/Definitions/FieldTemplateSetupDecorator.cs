@@ -18,7 +18,7 @@ namespace Litium.Accelerator.Mvc.Definitions
         {
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.Article)] = (typeof(Controllers.Article.ArticleController), nameof(Controllers.Article.ArticleController.Index)),
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.ContactUs)] = (typeof(Controllers.ContactUs.ContactUsController), nameof(Controllers.ContactUs.ContactUsController.Index)),
-            [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.DealerList)] = (typeof(Controllers.Dealers.DealerController), nameof(Controllers.Dealers.DealerController.DealerList)),
+            [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.DealerList)] = (typeof(Controllers.Dealers.DealerController), nameof(Controllers.Dealers.DealerController.Index)),
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.BrandList)] = (typeof(Controllers.Brand.BrandController), nameof(Controllers.Brand.BrandController.List)),
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.Brand)] = (typeof(Controllers.Brand.BrandController), nameof(Controllers.Brand.BrandController.Index)),
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.Checkout)] = (typeof(Controllers.Checkout.CheckoutController), nameof(Controllers.Checkout.CheckoutController.Index)),

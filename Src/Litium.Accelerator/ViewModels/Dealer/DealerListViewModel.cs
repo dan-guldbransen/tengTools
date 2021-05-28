@@ -27,22 +27,5 @@ namespace Litium.Accelerator.ViewModels.Dealer
         }
     }
 
-    public class DealerItemViewModel
-    {
-        public string CompanyName { get; set; }
-        public string City { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Website { get; set; }
-        public string StreetAdress { get; set; }
-        public string ZipCode { get; set; }
-        public string Country { get; set; }
-        public DealerType DealerType { get; set; }
-    }
-
-    public enum DealerType
-    {
-        Physical = 1,
-        Ecom = 2
-    }
 }
+   

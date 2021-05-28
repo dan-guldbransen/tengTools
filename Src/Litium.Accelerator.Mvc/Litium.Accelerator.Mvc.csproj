@@ -73,6 +73,7 @@
     <Compile Include="Attributes\OrganizationRoleAttribute.cs" />
     <Compile Include="Attributes\ApiValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Controllers\Api\CommonController.cs" />
+    <Compile Include="Controllers\Dealers\DealerAdminController.cs" />
     <Compile Include="Controllers\Dealers\DealerController.cs" />
     <Compile Include="Controllers\ContactUs\ContactUsController.cs" />
     <Compile Include="Extensions\BlockContainerHelperExtension.cs" />
@@ -247,6 +248,7 @@
     <Content Include="Client\Scripts\index.js" />
     <Content Include="Client\Scripts\Middlewares\History.middleware.js" />
     <Content Include="Client\Scripts\NoneReactComponents\cookieNotificationMessage.js" />
+    <Content Include="Client\Scripts\NoneReactComponents\dealers.js" />
     <Content Include="Client\Scripts\reducers.js" />
     <Content Include="Client\Scripts\Reducers\Address.reducer.js" />
     <Content Include="Client\Scripts\Reducers\Cart.reducer.js" />
@@ -464,7 +466,7 @@
     <Content Include="Views\ContactUs\ContactUsForm.cshtml" />
     <Content Include="Views\ContactUs\ContactInformation.cshtml" />
     <Content Include="Views\Shared\Framework\SocialMediaLinksWhite.cshtml" />
-    <Content Include="Views\Dealer\DealerList.cshtml" />
+    <Content Include="Views\DealerAdmin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

@@ -2181,4 +2181,22 @@
   <data name="fieldtemplate.websitearea.dealerlist.fieldgroup.general.name" xml:space="preserve">
     <value>General</value>
   </data>
+  <data name="accelerator.dealer.export.button" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="accelerator.dealer.exportname.label" xml:space="preserve">
+    <value>Export dealers</value>
+  </data>
+  <data name="accelerator.dealer.header" xml:space="preserve">
+    <value>Dealers</value>
+  </data>
+  <data name="accelerator.dealer.import.button" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="accelerator.dealer.importname.label" xml:space="preserve">
+    <value>Import dealers</value>
+  </data>
+  <data name="panels.DealerUploadPanel.title" xml:space="preserve">
+    <value>Dealers</value>
+  </data>
 </root>
