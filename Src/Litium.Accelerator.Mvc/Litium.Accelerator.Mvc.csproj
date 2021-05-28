@@ -17,7 +17,7 @@
     <RootNamespace>Litium.Accelerator.Mvc</RootNamespace>
     <AssemblyName>Litium.Accelerator.Mvc</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -31,6 +31,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <LangVersion>latest</LangVersion>
     <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,6 +73,7 @@
     <Compile Include="Attributes\OrganizationRoleAttribute.cs" />
     <Compile Include="Attributes\ApiValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Controllers\Api\CommonController.cs" />
+    <Compile Include="Controllers\Dealers\DealerAdminController.cs" />
     <Compile Include="Controllers\Dealers\DealerController.cs" />
     <Compile Include="Controllers\ContactUs\ContactUsController.cs" />
     <Compile Include="Extensions\BlockContainerHelperExtension.cs" />
@@ -246,6 +248,7 @@
     <Content Include="Client\Scripts\index.js" />
     <Content Include="Client\Scripts\Middlewares\History.middleware.js" />
     <Content Include="Client\Scripts\NoneReactComponents\cookieNotificationMessage.js" />
+    <Content Include="Client\Scripts\NoneReactComponents\dealers.js" />
     <Content Include="Client\Scripts\reducers.js" />
     <Content Include="Client\Scripts\Reducers\Address.reducer.js" />
     <Content Include="Client\Scripts\Reducers\Cart.reducer.js" />
@@ -463,6 +466,7 @@
     <Content Include="Views\ContactUs\ContactUsForm.cshtml" />
     <Content Include="Views\ContactUs\ContactInformation.cshtml" />
     <Content Include="Views\Shared\Framework\SocialMediaLinksWhite.cshtml" />
+    <Content Include="Views\DealerAdmin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -1075,7 +1079,16 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58109/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

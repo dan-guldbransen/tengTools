@@ -18,6 +18,7 @@ namespace Litium.Accelerator.Mvc.Definitions
         {
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.Article)] = (typeof(Controllers.Article.ArticleController), nameof(Controllers.Article.ArticleController.Index)),
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.ContactUs)] = (typeof(Controllers.ContactUs.ContactUsController), nameof(Controllers.ContactUs.ContactUsController.Index)),
+            [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.DealerList)] = (typeof(Controllers.Dealers.DealerController), nameof(Controllers.Dealers.DealerController.Index)),
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.BrandList)] = (typeof(Controllers.Brand.BrandController), nameof(Controllers.Brand.BrandController.List)),
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.Brand)] = (typeof(Controllers.Brand.BrandController), nameof(Controllers.Brand.BrandController.Index)),
             [(typeof(Websites.WebsiteArea), PageTemplateNameConstants.Checkout)] = (typeof(Controllers.Checkout.CheckoutController), nameof(Controllers.Checkout.CheckoutController.Index)),
@@ -43,7 +44,7 @@ namespace Litium.Accelerator.Mvc.Definitions
             [(typeof(Blocks.BlockArea), BlockTemplateNameConstants.Product)] = (typeof(ProductBlockController), nameof(ProductBlockController.Index)),
             [(typeof(Blocks.BlockArea), BlockTemplateNameConstants.ProductsAndBanner)] = (typeof(ProductsAndBannerBlockController), nameof(ProductsAndBannerBlockController.Index)),
             [(typeof(Blocks.BlockArea), BlockTemplateNameConstants.Slider)] = (typeof(SliderBlockController), nameof(SliderBlockController.Index)),
-            [(typeof(Blocks.BlockArea), BlockTemplateNameConstants.Video)] = (typeof(VideoBlockController), nameof(VideoBlockController.Index))
+            [(typeof(Blocks.BlockArea), BlockTemplateNameConstants.Video)] = (typeof(VideoBlockController), nameof(VideoBlockController.Index)),
         };
 
         public FieldTemplateSetupDecorator(FieldTemplateSetup parent)

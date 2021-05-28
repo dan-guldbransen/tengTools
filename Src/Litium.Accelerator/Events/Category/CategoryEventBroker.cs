@@ -7,6 +7,7 @@ using Litium.Products;
 using Litium.Globalization;
 using Litium.Web;
 using Litium.Security;
+using Litium.Studio.Plugins.Suggestions;
 
 namespace Litium.Accelerator.Events.Category
 {
@@ -20,12 +21,14 @@ namespace Litium.Accelerator.Events.Category
         private readonly ChannelService _channelService;
         private readonly SlugifyService _slugService;
         private readonly SecurityContextService _securityContextService;
+        private readonly UrlValidator _urlValidator;
 
         public CategoryEventBroker(EventBroker eventBroker,
             CategoryService categoryService,
             ChannelService channelService,
             SlugifyService slugService,
-            SecurityContextService securityContextService)
+            SecurityContextService securityContextService,
+            UrlValidator urlValidator)
         {
             _createdSubscription = eventBroker.Subscribe<CategoryCreated>(categoryCreatedEvent => SetupNewCategory(categoryCreatedEvent));
             _updatedSubscription = eventBroker.Subscribe<CategoryUpdated>(categoryUpdatedEvent => SetupUpdatedCategory(categoryUpdatedEvent));
@@ -35,6 +38,7 @@ namespace Litium.Accelerator.Events.Category
             _channelService = channelService;
             _slugService = slugService;
             _securityContextService = securityContextService;
+            _urlValidator = urlValidator;
         }
 
         private void SetupUpdatedCategory(CategoryUpdated categoryUpdatedEvent)
@@ -61,11 +65,20 @@ namespace Litium.Accelerator.Events.Category
             {
                 var name = clone.Fields.GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Name, localization.Key);
                 var slug = _slugService.Slugify(new System.Globalization.CultureInfo(localization.Key), name);
-
                 var currentSlug = clone.Fields.GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Url, localization.Key);
 
                 if(currentSlug != slug)
                 {
+                    var validation = _urlValidator.Validate(new System.Globalization.CultureInfo(localization.Key), slug);
+
+                    var suffix = 0;
+                    while (!validation.IsValid)
+                    {
+                        suffix++;
+                        slug = $"{slug}_{suffix}";
+                        validation = _urlValidator.Validate(new System.Globalization.CultureInfo(localization.Key), slug);
+                    }
+
                     clone.Fields.AddOrUpdateValue(FieldFramework.SystemFieldDefinitionConstants.Url, localization.Key, slug);
                     hasChanges = true;
                 }
@@ -92,6 +105,16 @@ namespace Litium.Accelerator.Events.Category
             {
                 var name = clone.Fields.GetValue<string>(FieldFramework.SystemFieldDefinitionConstants.Name, localization.Key);
                 var slug = _slugService.Slugify(new System.Globalization.CultureInfo(localization.Key), name);
+
+                var validation = _urlValidator.Validate(new System.Globalization.CultureInfo(localization.Key), slug);
+
+                var suffix = 0;
+                while (!validation.IsValid)
+                {
+                    suffix++;
+                    slug = $"{slug}_{suffix}";
+                    validation = _urlValidator.Validate(new System.Globalization.CultureInfo(localization.Key), slug);
+                }
 
                 clone.Fields.AddOrUpdateValue(FieldFramework.SystemFieldDefinitionConstants.Url, localization.Key, slug);
             }
