@@ -1,70 +1,27 @@
-﻿using Litium.Accelerator.Services;
 using Litium.Accelerator.ViewModels.Dealer;
-using System;
-using System.Collections.Generic;
+using Litium.Web.Models.Websites;
+﻿using Litium.Accelerator.Services;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
+using Litium.Accelerator.Builders.Dealer;
+using System.Collections.Generic;
+using Litium.Accelerator.Routing;
 
 namespace Litium.Accelerator.Mvc.Controllers.Dealers
 {
-    public class DealerController : Controller
+    public class DealerController : ControllerBase
     {
-        private readonly DealerService _dealerService;
-
-        public DealerController(DealerService dealerService)
+        private readonly DealerListViewModelBuilder _dealerListViewModelBuilder;
+       
+        public DealerController(DealerListViewModelBuilder dealerListViewModelBuilder)
         {
-            _dealerService = dealerService;
+            _dealerListViewModelBuilder = dealerListViewModelBuilder;
         }
-
-        [Route("litium/dealers", Name = "DealerView")]
-        public ActionResult Index()
+       
+        public ActionResult Index(PageModel currentPageModel)
         {
-            return View(new DealerViewModel());
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ImportFile(DealerViewModel model)
-        {
-            bool isExcel = false;
-            var ext = Path.GetExtension(model.ImportForm.DealerFile.FileName);
-            switch (ext)   
-            {
-                case ".xls":
-                    isExcel =true;
-                    break;
-                case ".xlsx":
-                    isExcel = true;
-                    break;
-            }
-
-            if (!ModelState.IsValid || !isExcel)
-            {
-                return View(nameof(Index), model);
-            }
-            else
-            {
-                string filePath = "";
-                filePath = Server.MapPath("~/Src/Files/");
-                var result = _dealerService.SaveFile(model, filePath);
-            }
-               
-            model.ImportMessage = "Done";
-            return View(nameof(Index), model);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ExportFile()
-        {
-            var fileName = "Dealers.xlsx";
-            string filePath = "";
-            filePath = Server.MapPath("~/Src/Files/") + fileName;
-            byte[] bytes = System.IO.File.ReadAllBytes(filePath);
-            return File(bytes, "application/octet-stream", fileName);
+            var model = _dealerListViewModelBuilder.Build(currentPageModel);
+            return View(model);
         }
     }
 }

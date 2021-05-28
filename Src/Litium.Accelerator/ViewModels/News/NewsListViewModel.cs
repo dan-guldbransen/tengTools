@@ -23,10 +23,10 @@ namespace Litium.Accelerator.ViewModels.News
         public IList<FileModel> Files { get; set; }
         public IList<NewsViewModel> News { get; set; }
         public PaginationViewModel Pagination { get; set; }
-        public IList<string> BlogTags { get; set; } = new List<string>();
-        public IList<string> TagsToLoad { get; set; } = new List<string>();
+        public IList<BlogTag> BlogTags { get; set; } = new List<BlogTag>();
+        private IList<string> BlogTagValues { get; set; } = new List<string>();
 
-        public NewsViewModel FeaturedBlog => News.Where(x => x.FeaturedBlog == true).FirstOrDefault();
+        public NewsViewModel FeaturedBlog => News.FirstOrDefault(x => x.FeaturedBlog); // TODO: Hämta feature innan filtrerade nyheter
 
         [UsedImplicitly]
         void IAutoMapperConfiguration.Configure(IMapperConfigurationExpression cfg)
@@ -38,7 +38,15 @@ namespace Litium.Accelerator.ViewModels.News
                .ForMember(x => x.NumberOfNewsPerPage, m => m.MapFromField(PageFieldNameConstants.NumberOfNewsPerPage))
                .ForMember(x => x.Links, m => m.MapFrom(newsListPage => newsListPage.GetValue<IList<PointerItem>>(PageFieldNameConstants.Links) != null ? newsListPage.GetValue<IList<PointerItem>>(PageFieldNameConstants.Links).OfType<PointerPageItem>().ToList().Select(x => x.MapTo<LinkModel>()).Where(x => x != null) : new List<LinkModel>()))
                .ForMember(x => x.Files, m => m.MapFrom(newsListPage => newsListPage.GetValue<IList<Guid>>(PageFieldNameConstants.Files).Select(x => x.MapTo<FileModel>())))
-               .ForMember(x => x.BlogTags, m => m.MapFrom(c => c.GetValue<IList<string>>(AcceleratorWebsiteFieldNameConstants.BlogTagList)));
+               .ForMember(x => x.BlogTagValues, m => m.MapFrom(c => c.GetValue<IList<string>>(AcceleratorWebsiteFieldNameConstants.BlogTagList)));
         }
+    }
+
+    public class BlogTag
+    {
+        public bool IsActive { get; set; }
+        public string Value { get; set; }
+        public string Text { get; set; }
+        public string Url { get; set; }
     }
 }

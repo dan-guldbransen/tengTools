@@ -30,37 +30,20 @@ namespace Litium.Accelerator.Builders.News
             _fieldDefinitionService = fieldDefinitionService;
         }
 
-        public virtual NewsListViewModel Build(int pageIndex) 
-            => Build(_requestModelAccessor.RequestModel.CurrentPageModel, pageIndex);
+        public virtual NewsListViewModel Build(string[] tags, int pageIndex)
+            => Build(_requestModelAccessor.RequestModel.CurrentPageModel, tags, pageIndex);
 
-        public virtual NewsListViewModel Build(PageModel pageModel, int pageIndex)
+        public virtual NewsListViewModel Build(PageModel pageModel, string[] tags, int pageIndex)
         {
             var model = pageModel.MapTo<NewsListViewModel>();
-            model.News = GetNews(pageModel, model.NumberOfNewsPerPage, pageIndex, out var totalCount);
+            model.News = GetNews(pageModel, tags, model.NumberOfNewsPerPage, pageIndex, out var totalCount);
             model.Pagination = new PaginationViewModel(totalCount, pageIndex, model.NumberOfNewsPerPage);
-            model.BlogTags = GetTags();
-            model.TagsToLoad = TagsToLoad(model.TagsToLoad, model.BlogTags);
+            model.BlogTags = GetTags(tags);
 
             return model;
         }
 
-        private IList<string> TagsToLoad(IList<string> tagsToLoad, IList<string> blogTags)
-        {
-            if(tagsToLoad.Count == 0)
-            {
-                foreach (var tag in blogTags)
-                {
-                    tagsToLoad.Add(tag);
-                }
-                return tagsToLoad;
-            }
-            else
-            {                
-                return tagsToLoad;
-            }
-        }
-
-        private List<NewsViewModel> GetNews(PageModel pageModel, int pageSize, int pageIndex, out int totalCount)
+        private List<NewsViewModel> GetNews(PageModel pageModel, string[] tags, int pageSize, int pageIndex, out int totalCount)
         {
             var news = new List<NewsViewModel>();
             totalCount = 0;
@@ -78,6 +61,11 @@ namespace Litium.Accelerator.Builders.News
                     continue;
                 }
 
+                if (tags.Any() && !tags.Contains(newsModel.BlogTags))
+                {
+                    continue;
+                }
+
                 newsModel.Url = _urlService.GetUrl(childPage);
                 news.Add(newsModel);
             }
@@ -90,20 +78,34 @@ namespace Litium.Accelerator.Builders.News
             {
                 return orderedNews.ToList();
             }
-            
+
             var skip = pageSize * (pageIndex - 1);
             orderedNews = orderedNews.Skip(skip).Take(pageSize);
 
             return orderedNews.ToList();
         }
 
-        private IList<string> GetTags()
+        private IList<BlogTag> GetTags(string[] tags) //TODO: add page as parameter so we can add it to url
         {
+            var retval = new List<BlogTag>();
+
             var field = _fieldDefinitionService.Get<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.BlogTagList);
             var options = field.Option as TextOption;
-            var tags = options.Items.Select(option => option.Value);
 
-            return tags.ToList();
+            // TODO: Create the correct url based on selected tags
+            if (options != null && options.Items != null && options.Items.Any())
+            {
+                retval = options.Items.Select(option =>
+                new BlogTag
+                {
+                    Value = option.Value,
+                    Text = option.Name[CultureInfo.CurrentUICulture.Name],
+                    IsActive = tags?.Contains(option.Value) ?? false,
+                    Url = "tengtools.com/news?tags=[tags]," + option.Value // när man ska filtrera med denna tag oxå 
+                }).ToList();
+            }
+
+            return retval;
         }
     }
 }
