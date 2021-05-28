@@ -36,11 +36,39 @@ namespace Litium.Accelerator.Builders.News
         public virtual NewsListViewModel Build(PageModel pageModel, string[] tags, int pageIndex)
         {
             var model = pageModel.MapTo<NewsListViewModel>();
+            model.FeaturedBlog = GetFeaturedBlog(pageModel, tags);
             model.News = GetNews(pageModel, tags, model.NumberOfNewsPerPage, pageIndex, out var totalCount);
             model.Pagination = new PaginationViewModel(totalCount, pageIndex, model.NumberOfNewsPerPage);
-            model.BlogTags = GetTags(tags);
+            model.BlogTags = GetTags(tags, pageIndex, pageModel);
+            model.BaseUrl = _urlService.GetUrl(pageModel.Page);
 
             return model;
+        }
+
+        private NewsViewModel GetFeaturedBlog(PageModel pageModel, string[] tags)
+        {
+            var news = new List<NewsViewModel>();
+
+            var childPages = _pageService.GetChildPages(pageModel.SystemId, pageModel.Page.WebsiteSystemId);
+            foreach (var childPage in childPages.Where(p => p.IsActive(_requestModelAccessor.RequestModel.ChannelModel.SystemId)))
+            {
+                var newsModel = childPage.MapTo<PageModel>().MapTo<NewsViewModel>();
+                if (newsModel == null)
+                {
+                    continue;
+                }
+
+                if (tags.Any() && !tags.Contains(newsModel.BlogTags))
+                {
+                    continue;
+                }
+
+                newsModel.Url = _urlService.GetUrl(childPage);
+                news.Add(newsModel);
+            }
+
+            var featuredBlog = news.Where(x => x.FeaturedBlog == true).FirstOrDefault();
+            return featuredBlog;
         }
 
         private List<NewsViewModel> GetNews(PageModel pageModel, string[] tags, int pageSize, int pageIndex, out int totalCount)
@@ -85,24 +113,38 @@ namespace Litium.Accelerator.Builders.News
             return orderedNews.ToList();
         }
 
-        private IList<BlogTag> GetTags(string[] tags) //TODO: add page as parameter so we can add it to url
+        private IList<BlogTag> GetTags(string[] tags, int pageIndex, PageModel pageModel) //TODO: add page as parameter so we can add it to url
         {
             var retval = new List<BlogTag>();
 
             var field = _fieldDefinitionService.Get<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.BlogTagList);
             var options = field.Option as TextOption;
 
-            // TODO: Create the correct url based on selected tags
             if (options != null && options.Items != null && options.Items.Any())
             {
-                retval = options.Items.Select(option =>
-                new BlogTag
+                if (tags.Any())
                 {
-                    Value = option.Value,
-                    Text = option.Name[CultureInfo.CurrentUICulture.Name],
-                    IsActive = tags?.Contains(option.Value) ?? false,
-                    Url = "tengtools.com/news?tags=[tags]," + option.Value // när man ska filtrera med denna tag oxå 
-                }).ToList();
+                    retval = options.Items.Select(option =>
+                    new BlogTag
+                    {
+                        Value = option.Value,
+                        Text = option.Name[CultureInfo.CurrentUICulture.Name],
+                        IsActive = tags?.Contains(option.Value) ?? false,
+                        Url = _urlService.GetUrl(pageModel.Page) + $"?tags={string.Join(",", tags)},{option.Value}"
+                    }).ToList();
+                }
+                else
+                {
+                    retval = options.Items.Select(option =>
+                    new BlogTag
+                    {
+                        Value = option.Value,
+                        Text = option.Name[CultureInfo.CurrentUICulture.Name],
+                        IsActive = tags?.Contains(option.Value) ?? false,
+                        Url = _urlService.GetUrl(pageModel.Page) + $"?tags={option.Value}"
+                    }).ToList();
+                }
+
             }
 
             return retval;
