@@ -1,9 +1,7 @@
 .mixed-block {
     &__header {
-        font-size : rem($fontsize-large);
         text-transform: uppercase;
-        color: $color-black-light;
-        font-family: $font-family;
+        color: $black;
         font-weight: 400;
     }
 }

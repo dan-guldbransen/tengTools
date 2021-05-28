@@ -1,6 +1,9 @@
 ﻿@mixin icon--favorites() {
     background: url('../../images/favorites.svg') center no-repeat;
 }
+@mixin icon--favorites-white() {
+    background: url('../../images/white-heart.svg') center no-repeat;
+}
 
 @mixin icon--search() {
     content: url('../../images/search.svg');
@@ -15,12 +18,20 @@
     background: url('../../images/profile.svg') center no-repeat;
 }
 
+@mixin icon--profile-white() {
+    background: url('../../images/white-dude.svg') center no-repeat;
+}
 @mixin icon--wishlist() {
     background: url('../../images/wishlist.svg') center no-repeat;
 }
-
+@mixin icon--wishlist-white() {
+    background: url('../../images/white-heart.svg') center no-repeat;
+}
 @mixin icon--cta-arrow() {
     content: url('../../images/cta-arrow.svg');
+}
+@mixin icon--cta-arrow-white() {
+    content: url('../../images/arrow-white.svg') !important;
 }
 @mixin icon--cta-arrow-red() {
     content: url('../../images/cta-arrow-red.svg');
@@ -33,7 +44,9 @@
 @mixin icon--hamburger() {
     content: url('../../images/hamburger.svg');
 }
-
+@mixin icon--hamburger-white() {
+    content: url('../../images/menu-white.svg');
+}
 @mixin icon--close() {
     content: url('../../images/close.svg');
 }

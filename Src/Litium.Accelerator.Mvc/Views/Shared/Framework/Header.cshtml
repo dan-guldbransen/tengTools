@@ -3,10 +3,11 @@
 
 @{
 	var hasGetOrganisedCTA = !string.IsNullOrEmpty(Model.GetOrganised.Href);
+	var isDark = true;
 }
 
-<header id="header" role="banner" class="header bg-primary">
-	<nav class="navbar navbar-expand-lg border-bottom border-dark border-1 py-2 d-none d-lg-flex">
+<header id="header" role="banner" class="header @(isDark ? "dark" : "red")">
+	<nav class="navbar navbar-expand-lg border-bottom border-dark border-1 py-2 d-none d-lg-flex @(isDark ? "bg-dark border border-bottom border-dashed border-light" : "bg-primary")">
 		<div class="container justify-content-end">
 			<div class="collapse navbar-collapse me-auto">
 				<ul class="navbar-nav">
@@ -24,7 +25,7 @@
 		</div>
 	</nav>
 
-	<nav class="navbar navbar-expand-lg py-2 @(hasGetOrganisedCTA ? "p-lg-0": "py-lg-3") px-3 px-lg-0">
+	<nav class="navbar navbar-expand-lg py-2 @(hasGetOrganisedCTA ? "p-lg-0": "py-lg-3") px-3 px-lg-0 @(isDark ? "linear-bg" : "bg-primary")">
 		<div class="container">
 			<a class="navbar-brand me-5" href="@Model.StartPageUrl">
 				@Html.ImageFor(x => x.Logo, maxSize: new System.Drawing.Size(-1, 50))
@@ -60,14 +61,14 @@
 			</div>
 			@if (hasGetOrganisedCTA)
 			{
-				<a class="btn btn-secondary btn-cta ms-3 text-uppercase d-none d-lg-block" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
+				<a class="btn @(isDark ? "btn-primary text-white" : "btn-secondary") btn-cta ms-3 text-uppercase d-none d-lg-block" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
 					Get Organised
 				</a>
 			}
 		</div>
 	</nav>
 
-	<nav class="navbar d-lg-none justify-content-between border-top border-dark border-1 ps-3 @(hasGetOrganisedCTA ? "py-0 pe-0": "")">
+	<nav class="navbar d-lg-none justify-content-between border-top border-dark border-1 ps-3 @(hasGetOrganisedCTA ? "py-0 pe-0": "") @(isDark ? "bg-dark" : "bg-primary")">
 		<div class="container @(hasGetOrganisedCTA ? "pe-0 ": "")">
 			<button class="hamburger hamburger--slider" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
 				<span class="hamburger-box">
@@ -77,7 +78,7 @@
 
 			@if (hasGetOrganisedCTA)
 			{
-				<a class="btn btn-secondary btn-cta btn-cta-sm text-uppercase" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
+				<a class="btn @(isDark ? "btn-primary text-white" : "btn-secondary") btn-cta btn-cta-sm text-uppercase" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
 					@Model.GetOrganised.Text
 				</a>
 			}

@@ -45,6 +45,7 @@ namespace Litium.Accelerator.Mvc.Definitions
             [(typeof(Blocks.BlockArea), BlockTemplateNameConstants.ProductsAndBanner)] = (typeof(ProductsAndBannerBlockController), nameof(ProductsAndBannerBlockController.Index)),
             [(typeof(Blocks.BlockArea), BlockTemplateNameConstants.Slider)] = (typeof(SliderBlockController), nameof(SliderBlockController.Index)),
             [(typeof(Blocks.BlockArea), BlockTemplateNameConstants.Video)] = (typeof(VideoBlockController), nameof(VideoBlockController.Index)),
+            [(typeof(Blocks.BlockArea), BlockTemplateNameConstants.Hero)] = (typeof(HeroBlockController), nameof(HeroBlockController.Index)),
         };
 
         public FieldTemplateSetupDecorator(FieldTemplateSetup parent)

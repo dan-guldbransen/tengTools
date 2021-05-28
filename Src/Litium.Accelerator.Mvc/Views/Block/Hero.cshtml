@@ -1,0 +1,16 @@
+﻿@model Litium.Accelerator.ViewModels.Block.HeroBlockViewModel
+
+@{var url = Model.BackgroundImage?.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(0, 0))?.Url;
+}
+<section class="hero">
+	<img src="@url" class="img-fluid" />
+	<div class="hero-content position-absolute top-50">
+		<div class="col-6 offset-2">
+			<h2>@Model.Title</h2>
+			<p>@Model.Text</p>
+			<a href="@Model.LinkUrl.Href" class="btn btn-outline-light">@Model.LinkText</a>
+		</div>
+	</div>
+</section>
+
+ 

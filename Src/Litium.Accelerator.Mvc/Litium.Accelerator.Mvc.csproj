@@ -73,6 +73,7 @@
     <Compile Include="Attributes\OrganizationRoleAttribute.cs" />
     <Compile Include="Attributes\ApiValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Controllers\Api\CommonController.cs" />
+    <Compile Include="Controllers\Blocks\HeroBlockController.cs" />
     <Compile Include="Controllers\Dealers\DealerAdminController.cs" />
     <Compile Include="Controllers\Dealers\DealerController.cs" />
     <Compile Include="Controllers\ContactUs\ContactUsController.cs" />
@@ -467,6 +468,7 @@
     <Content Include="Views\ContactUs\ContactInformation.cshtml" />
     <Content Include="Views\Shared\Framework\SocialMediaLinksWhite.cshtml" />
     <Content Include="Views\DealerAdmin\Index.cshtml" />
+    <Content Include="Views\Block\Hero.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

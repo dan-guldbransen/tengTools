@@ -14,7 +14,7 @@ class QuickSearch extends Component {
         return (
             <div className="quick-search d-flex align-items-center justify-content-between" role="search">
                 <a className="quick-search__link--block" onClick={e => { toggleShowFullForm(); this.focusOnInput() }}>
-                    <span className="quick-search__title text-dark">{translate('general.search')}:</span>
+                    <span className="quick-search__title">{translate('general.search')}:</span>
                 </a>
                 <div className={`quick-search__form d-flex align-items-center justify-content-between ${showFullForm ? 'quick-search__form--force-show' : ''}`} role="search">
                     <i className="quick-search__icon" onClick={e => toggleShowFullForm()}></i>

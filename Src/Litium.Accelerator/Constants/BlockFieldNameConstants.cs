@@ -15,6 +15,10 @@
         // Using in brand block template
         public const string BrandsLinkList = "BrandsLinkList";
         
+        // Using in hero
+        public const string ContentPosition = "ContentPosition";
+        public const string BackgroundImage = "BackgroundImage";
+
         // Using in product block template
         public const string CategoryLink= "CategoryLink";
         public const string ProductListLink = "ProductListLink";

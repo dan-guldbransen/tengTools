@@ -2,7 +2,7 @@
 
 @if (Model.Sliders != null && Model.Sliders.Any())
 {
-    <div class="slider__container">
+    <div class="slider__container container-fluid">
         @{var url = Model.Sliders.First().Image?.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(0, 0))?.Url;
         }
         <section class="slider" style="background-image: url('@url')">

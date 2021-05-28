@@ -1,3 +1,11 @@
+.dark {
+    .btn-cta {
+        &:after {
+            @include icon--cta-arrow-white();
+        }
+    }
+}
+
 .btn-cta {
     &-sm {
         padding: 1rem 1.5rem;

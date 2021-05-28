@@ -2,6 +2,7 @@
 {
     public static class BlockTemplateNameConstants
     {
+        public const string Hero = "Hero";
         public const string Banner = "Banner";
         public const string Brand = "Brand";
         public const string Product = "Product";
