@@ -8,7 +8,7 @@
 		<div class="text-center mb-5">
 			<img class="img-fluid rounded" src="@Model.FeaturedBlog.Image.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(1320, 608)).Url" />
 			<div class="mt-5">
-				<div class="text-primary text-uppercase">@Model.FeaturedBlog.BlogTags/@DateTime.Now.ToShortDateString()</div>
+				<div class="text-primary text-uppercase">@Model.FeaturedBlog.BlogTags/@Model.FeaturedBlog.NewsDate.ToString("dddd, dd MMMM yyyy")</div>
 				<b class="fs-4">@Model.FeaturedBlog.Title</b>
 				<p>@Model.FeaturedBlog.Introduction</p>
 			</div>
@@ -20,11 +20,10 @@
 
 		@foreach (var tag in Model.BlogTags)
 		{
-			//Andreas TODO: make anchor-tag with correct link, create the links in ModelBuilder and add a ULR-property to blogtag-model
-			<button type="submit" name="tag" value="@tag.Value" class="btn @(tag.IsActive ? "btn-outline-primary" : "btn-outline-dark") rounded mx-2 fw-light tagButton">@tag.Text</button>
+			<a href="@tag.Url" class="btn @(tag.IsActive ? "btn-outline-primary" : "btn-outline-dark") rounded mx-2 fw-light tagButton">@tag.Text</a>
 		}
 
-		<button type="submit" name="tag" value="Clear selection" class="btn btn-link"><u>@Html.WebSiteString("blog.clearselection")</u></button>
+		<a href="@Model.BaseUrl" class="btn btn-link"><u>@Html.WebSiteString("blog.clearselection")</u></a>
 
 	</div>
 
@@ -40,7 +39,7 @@
 					<img src="@ImageUrl" alt="Blog Image" class="img-fluid card-img-top rounded-top" />
 
 					<div class="px-4 py-3 cta-arrow-red-small card-body">
-						<div class="text-primary text-uppercase fs-6">@item.BlogTags/@item.NewsDate.ToShortDateString()</div>
+						<div class="text-primary text-uppercase fs-6">@item.BlogTags/@item.NewsDate.ToString("dddd, dd MMMM yyyy")</div>
 						<h5 class="fw-bold card-title fs-5">@item.Title</h5>
 						<div class="fs-6 card-text">@item.Introduction</div>
 					</div>
