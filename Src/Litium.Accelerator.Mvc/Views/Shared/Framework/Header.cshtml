@@ -37,9 +37,11 @@
 					<ul class="navbar-nav">
 						@foreach (var category in Model.Categories)
 						{
-							<li class="nav-item px-4">
-								<a href="@category.Url" class="nav-link text-uppercase fs-5">@category.Name</a>
-							</li>
+                        <li class="nav-item px-4">
+                            <div class="megamenu dropdown text-uppercase">
+								@Html.Partial("Framework/Subcategory", category)
+                            </div>
+                        </li>
 						}
 					</ul>
 				</div>

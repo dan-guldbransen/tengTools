@@ -450,6 +450,7 @@
     <Content Include="Client\Styles\DefaultTheme\socialmedialinks.scss" />
     <Content Include="Client\Styles\DefaultTheme\arrow.scss" />
     <Content Include="Client\Styles\DefaultTheme\contactus.scss" />
+    <Content Include="Client\Styles\DefaultTheme\megamenu.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
@@ -468,6 +469,7 @@
     <Content Include="Views\ContactUs\ContactInformation.cshtml" />
     <Content Include="Views\Shared\Framework\SocialMediaLinksWhite.cshtml" />
     <Content Include="Views\DealerAdmin\Index.cshtml" />
+    <Content Include="Views\Shared\Framework\Subcategory.cshtml" />
     <Content Include="Views\Block\Hero.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

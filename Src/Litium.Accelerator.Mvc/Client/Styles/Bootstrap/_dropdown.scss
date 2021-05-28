@@ -11,7 +11,7 @@
     padding-right: 1rem !important;
     // Generate the caret automatically
 
-    &#navbarMarketsDropdown.show {
+    &#navbarMarketsDropdown.show, &#navbarSubCategoryDropdown.show {
         &:after {
             content: "";
             width: 0;
@@ -51,7 +51,7 @@
         margin-top: $dropdown-spacer;
     }
 
-    &.dropdown-menu-marketselector {
+    &.dropdown-menu-marketselector, &.dropdown-menu-megamenu {
         top: 54px;
         right: 0;
         left: 0;
