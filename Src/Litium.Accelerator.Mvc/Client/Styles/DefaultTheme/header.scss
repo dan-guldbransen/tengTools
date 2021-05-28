@@ -21,13 +21,13 @@
                 background: linear-gradient(90.15deg, #131313 0.91%, #333333 66.56%, #191919 98.15%), #333333;
             }
 
-            @include media-breakpoint-down(md) {
+            @include media-breakpoint-down(lg) {
                 background-color: $black;
             }
         }
 
         .linear-bg-small {
-            @include media-breakpoint-down(md) {
+            @include media-breakpoint-down(lg) {
                 border-top: 1px dashed #767676;
                 background: linear-gradient(90.15deg, #131313 0.91%, #333333 66.56%, #191919 98.15%), #333333;
             }

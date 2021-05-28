@@ -8,11 +8,11 @@
 	var centerText = Model.Offset == "center";
 }
 <section class="hero position-relative">
-	<img src="@url" />
-	<div class="position-absolute top-50 w-100 text-@textColor px-5">
+	<img src="@url" alt="hero-img"/>
+	<div class="hero-content-wrapper w-100 text-@textColor px-5">
 
-		<div class="mx-5 d-flex justify-content-@(Model.Offset)">
-			<div class="hero-content mx-5 @(centerText ? "text-center" : "")">
+		<div class="py-4 p-md-0 mx-1 mx-md-5 d-flex justify-content-@(Model.Offset)">
+			<div class="hero-content mx-1 mx-md-5 @(centerText ? "text-center" : "")">
 				<h2 class="text-primary text-uppercase">@Model.SubTitle</h2>
 				<h1 class="text-uppercase display-3">@Model.Title</h1>
 				<p class="fs-4">@Model.Text</p>
