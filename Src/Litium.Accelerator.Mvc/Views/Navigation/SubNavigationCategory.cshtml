@@ -1,8 +1,29 @@
 ﻿@using Litium.Accelerator.ViewModels.Framework
 @model SubNavigationLinkModel
 
+
 @if (Model != null)
 {
+    <div class="container">
+        <div class="headerContainer" style="position:relative;">
+            <div class="headerImage">
+
+            </div>
+            <div class="headerTextDiv">
+                <div>
+                    <h2>@Model.Name</h2>
+                </div>
+                <div>
+                    <p>Text block</p>
+                </div>
+                <div>
+                    <button> Knapp</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
     <nav class="subnav" role="navigation">
         <h3 class="subnav__header">
             @if (Model.Url != null)
@@ -18,6 +39,7 @@
     </nav>
 }
 
+
 @helper DisplayLinks(SubNavigationLinkModel contentLink, string ulCssClass = "")
 {
     if (contentLink?.Links != null && contentLink.Links.Any())
@@ -31,6 +53,17 @@
                 </li>
             }
         </ul>
+        <div class="cardContainer">
+            <table>
+                <tr>
+                    @foreach (var childLink in contentLink.Links)
+                    {
+                        @Html.Partial("SubCategoryCard", childLink)
+                    }
+                </tr>
+            </table>
+        </div>
+       
     }
 }
 

@@ -474,6 +474,7 @@
     <Content Include="Views\DealerAdmin\Index.cshtml" />
     <Content Include="Views\Shared\Framework\Subcategory.cshtml" />
     <Content Include="Views\Block\Hero.cshtml" />
+    <Content Include="Views\Navigation\SubCategoryCard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
