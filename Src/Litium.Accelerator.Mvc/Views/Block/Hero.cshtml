@@ -1,0 +1,24 @@
+﻿@model Litium.Accelerator.ViewModels.Block.HeroBlockViewModel
+
+@{
+	var url = Model.BackgroundImage?.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(0, 0))?.Url;
+	var textColor = Model.ContentColor ?? "white";
+
+	var btnOutline = textColor == "white" ? "light" : "dark";
+	var centerText = Model.Offset == "center";
+}
+<section class="hero position-relative">
+	<img src="@url" alt="hero-img"/>
+	<div class="hero-content-wrapper w-100 text-@textColor px-5">
+
+		<div class="py-4 p-md-0 mx-1 mx-md-5 d-flex justify-content-@(Model.Offset)">
+			<div class="hero-content mx-1 mx-md-5 @(centerText ? "text-center" : "")">
+				<h2 class="text-primary text-uppercase">@Model.SubTitle</h2>
+				<h1 class="text-uppercase display-3">@Model.Title</h1>
+				<p class="fs-4">@Model.Text</p>
+				<a href="@Model.LinkUrl.Href" class="btn btn-outline-@(btnOutline) rounded-3">@Model.LinkText</a>
+			</div>
+		</div>
+
+	</div>
+</section>

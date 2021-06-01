@@ -1,77 +1,172 @@
-.quick-search {
 
-    ::-webkit-input-placeholder { /* Edge */
-        color: $black;
-        text-align: center;
-    }
+.header {
+    &.dark {
+        .quick-search {
+            color: $white !important;
 
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: $black;
-        text-align: center;
-    }
+            ::-webkit-input-placeholder { /* Edge */
+                color: $white;
+                text-align: center;
+            }
 
-    ::placeholder {
-        color: $black;
-        text-align: center;
-    }
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $white;
+                text-align: center;
+            }
 
-    &__arrow {
-        &:after {
-            content: "";
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 10px solid $dropdown-bg;
-            position: absolute;
-            top: 32px;
-            left: 50%;
-            z-index: 1001;
-            transform: translateX(-50%);
+            ::placeholder {
+                color: $white;
+                text-align: center;
+            }
+
+            &__title {
+                color: $white;
+            }
+
+            &__arrow {
+                &:after {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 10px solid $dropdown-bg;
+                    position: absolute;
+                    top: 32px;
+                    left: 50%;
+                    z-index: 1001;
+                    transform: translateX(-50%);
+                }
+            }
+
+            &__input {
+                background-color: transparent;
+                color: $white;
+                border: none;
+                border-bottom: 1px solid $white;
+                border-radius: 0;
+                outline: none;
+                height: 1rem;
+                width: 100%;
+                margin: 0 8px 0 8px;
+                padding: 5px 0;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                -webkit-box-sizing: content-box;
+                box-sizing: content-box;
+                -webkit-transition: border .3s, -webkit-box-shadow .3s;
+                transition: border .3s, -webkit-box-shadow .3s;
+                transition: box-shadow .3s, border .3s;
+                transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+
+                &::-webkit-search-cancel-button {
+                    -webkit-appearance: none;
+                }
+            }
+
+            &__link--block {
+                margin-top: 5px;
+            }
+
+            &__title {
+                font-weight: 500;
+            }
+
+            &__submit-button {
+                border: none;
+                background: none;
+                background-color: transparent;
+            }
+
+            &__submit-icon {
+                &:before {
+                    @include icon--search();
+                }
+            }
         }
     }
 
-    &__input {
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid $black;
-        border-radius: 0;
-        outline: none;
-        height: 1rem;
-        width: 100%;
-        margin: 0 8px 0 8px;
-        padding: 5px 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        -webkit-box-sizing: content-box;
-        box-sizing: content-box;
-        -webkit-transition: border .3s, -webkit-box-shadow .3s;
-        transition: border .3s, -webkit-box-shadow .3s;
-        transition: box-shadow .3s, border .3s;
-        transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+    &.red {
+        .quick-search {
+            &__title {
+                color: $black;
+            }
 
-        &::-webkit-search-cancel-button {
-            -webkit-appearance: none;
-        }
-    }
+            ::-webkit-input-placeholder { /* Edge */
+                color: $black;
+                text-align: center;
+            }
 
-    &__link--block {
-        margin-top: 5px;
-    }
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color: $black;
+                text-align: center;
+            }
 
-    &__title {
-        font-weight: 500;
-    }
+            ::placeholder {
+                color: $black;
+                text-align: center;
+            }
 
-    &__submit-button {
-        border: none;
-        background: none;
-        background-color: transparent;
-    }
+            &__arrow {
+                &:after {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 10px solid $dropdown-bg;
+                    position: absolute;
+                    top: 32px;
+                    left: 50%;
+                    z-index: 1001;
+                    transform: translateX(-50%);
+                }
+            }
 
-    &__submit-icon {
-        &:before {
-            @include icon--search();
+            &__input {
+                background-color: transparent;
+                border: none;
+                color: $black;
+                border-bottom: 1px solid $black;
+                border-radius: 0;
+                outline: none;
+                height: 1rem;
+                width: 100%;
+                margin: 0 8px 0 8px;
+                padding: 5px 0;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                -webkit-box-sizing: content-box;
+                box-sizing: content-box;
+                -webkit-transition: border .3s, -webkit-box-shadow .3s;
+                transition: border .3s, -webkit-box-shadow .3s;
+                transition: box-shadow .3s, border .3s;
+                transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+
+                &::-webkit-search-cancel-button {
+                    -webkit-appearance: none;
+                }
+            }
+
+            &__link--block {
+                margin-top: 5px;
+            }
+
+            &__title {
+                font-weight: 500;
+            }
+
+            &__submit-button {
+                border: none;
+                background: none;
+                background-color: transparent;
+            }
+
+            &__submit-icon {
+                &:before {
+                    @include icon--search();
+                }
+            }
         }
     }
 }

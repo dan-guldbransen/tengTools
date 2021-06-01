@@ -1,0 +1,28 @@
+﻿.hero {
+    .hero-content-wrapper {
+        @include media-breakpoint-up(lg){
+            transform: translateY(-50%);
+            position:absolute;
+            top:50%;
+        }
+
+        @include media-breakpoint-down(lg){
+            color: $black !important;
+            background-color: $light;
+
+            .btn{
+                border-color: $black;
+                color:$black;
+            }
+        }
+    }
+
+   
+    &-content {
+        max-width: 400px;
+    }
+
+    img {
+        width: 100%;
+    }
+}
