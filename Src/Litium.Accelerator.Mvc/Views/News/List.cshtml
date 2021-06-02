@@ -2,36 +2,46 @@
 @model Litium.Accelerator.ViewModels.News.NewsListViewModel
 
 
-@if (Model.FeaturedBlog != null)
-{
-	<div class="container align-content-center mb-5">
+<div class="container mb-5">
+	@if (Model.FeaturedBlog != null)
+	{
 		<div class="text-center mb-5">
-			<img class="img-fluid rounded" src="@Model.FeaturedBlog.Image.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(253, 140)).Url" />
+			<img class="img-fluid rounded" src="@Model.FeaturedBlog.Image.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(1320, 608)).Url" />
 			<div class="mt-5">
-				<div class="text-primary text-uppercase">@Model.FeaturedBlog.BlogTags/@DateTime.Now.ToShortDateString()</div>
+				<div class="text-primary text-uppercase">@Model.FeaturedBlog.BlogTags/@Model.FeaturedBlog.NewsDate.ToString("dddd, dd MMMM yyyy")</div>
 				<b class="fs-4">@Model.FeaturedBlog.Title</b>
 				<p>@Model.FeaturedBlog.Introduction</p>
 			</div>
 			<a class="cta-arrow-red" href="@Model.FeaturedBlog.Url"></a>
 		</div>
-		<hr class="border border-secondary border-2 shadow" />
-	</div>
-}
+	}
+	<hr class="border border-secondary border-2 shadow" />
+	<div class="justify-content-center d-flex">
 
+		@foreach (var tag in Model.BlogTags)
+		{
+			<a href="@tag.Url" class="btn @(tag.IsActive ? "btn-outline-primary" : "btn-outline-dark") rounded mx-2 fw-light tagButton">@tag.Text</a>
+		}
+
+		<a href="@Model.BaseUrl" class="btn btn-link"><u>@Html.WebSiteString("blog.clearselection")</u></a>
+
+	</div>
+
+</div>
 @if (Model.News.Any())
 {
-	<div class="container-fluid bg-light">
+	<div class="container-fluid bg-ligh">
 		<div class="row justify-content-around blogList">
 			@foreach (var item in Model.News)
 			{
-				var ImageUrl = item.Image.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(253, 140)).Url;
-				<a class="bg-white col-3 rounded my-3 px-0 shadow" href="@item.Url">
-					<img src="@ImageUrl" class="img-fluid d-flex rounded-top" />
+				var ImageUrl = item.Image.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(475, 245)).Url;
+				<a class="bg-white card col-12 col-md-4 col-lg-3 rounded my-3 px-0 shadow" href="@item.Url">
+					<img src="@ImageUrl" alt="Blog Image" class="img-fluid card-img-top rounded-top" />
 
-					<div class="px-4 py-3 cta-arrow-red-small">
-						<div class="text-primary text-uppercase fs-6">@item.BlogTags/@item.NewsDate.ToShortDateString()</div>
-						<div class="fw-bold fs-5">@item.Title</div>
-						<div class="fs-6">@item.Introduction</div>
+					<div class="px-4 py-3 cta-arrow-red-small card-body">
+						<div class="text-primary text-uppercase fs-6">@item.BlogTags/@item.NewsDate.ToString("dddd, dd MMMM yyyy")</div>
+						<h5 class="fw-bold card-title fs-5">@item.Title</h5>
+						<div class="fs-6 card-text">@item.Introduction</div>
 					</div>
 				</a>
 			}

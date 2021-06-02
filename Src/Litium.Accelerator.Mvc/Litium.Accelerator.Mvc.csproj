@@ -17,7 +17,7 @@
     <RootNamespace>Litium.Accelerator.Mvc</RootNamespace>
     <AssemblyName>Litium.Accelerator.Mvc</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -31,6 +31,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <LangVersion>latest</LangVersion>
     <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,6 +73,8 @@
     <Compile Include="Attributes\OrganizationRoleAttribute.cs" />
     <Compile Include="Attributes\ApiValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Controllers\Api\CommonController.cs" />
+    <Compile Include="Controllers\Blocks\HeroBlockController.cs" />
+    <Compile Include="Controllers\Dealers\DealerAdminController.cs" />
     <Compile Include="Controllers\Dealers\DealerController.cs" />
     <Compile Include="Controllers\ContactUs\ContactUsController.cs" />
     <Compile Include="Extensions\BlockContainerHelperExtension.cs" />
@@ -145,9 +148,12 @@
     <Compile Include="ModelStates\ApiModelState.cs" />
     <Compile Include="ModelStates\MvcModelState.cs" />
     <Content Include="Client\images\arrow-down.svg" />
+    <Content Include="Client\images\arrow-white.svg" />
     <Content Include="Client\images\bag.svg" />
     <Content Include="Client\images\bin.svg" />
     <Content Include="Client\images\caret-down.svg" />
+    <Content Include="Client\images\carousel-arrow-left.svg" />
+    <Content Include="Client\images\carousel-arrow-right.svg" />
     <Content Include="Client\images\checked.svg" />
     <Content Include="Client\images\close.svg" />
     <Content Include="Client\images\cross.svg" />
@@ -164,7 +170,6 @@
     <Content Include="Client\images\Favicon_litium_transp.32x32.png" />
     <Content Include="Client\images\Favicon_litium_transp.96x96.png" />
     <Content Include="Client\images\favorites.svg" />
-    <Content Include="Client\images\hamburger.svg" />
     <Content Include="Client\images\Instagram-black.svg" />
     <Content Include="Client\images\Instagram.svg" />
     <Content Include="Client\images\linkedin-black.svg" />
@@ -173,7 +178,6 @@
     <Content Include="Client\images\logo.svg" />
     <Content Include="Client\images\magnifier.svg" />
     <Content Include="Client\images\mail.svg" />
-    <Content Include="Client\images\menu.svg" />
     <Content Include="Client\images\pencil.svg" />
     <Content Include="Client\images\Phone.svg" />
     <Content Include="Client\images\profile.svg" />
@@ -186,6 +190,9 @@
     <Content Include="Client\images\user.png" />
     <Content Include="Client\images\user.svg" />
     <Content Include="Client\images\web.svg" />
+    <Content Include="Client\images\white-bag.svg" />
+    <Content Include="Client\images\white-dude.svg" />
+    <Content Include="Client\images\white-heart.svg" />
     <Content Include="Client\images\wishlist.svg" />
     <Content Include="Client\images\Youtube-black.svg" />
     <Content Include="Client\images\Youtube.svg" />
@@ -244,6 +251,7 @@
     <Content Include="Client\Scripts\index.js" />
     <Content Include="Client\Scripts\Middlewares\History.middleware.js" />
     <Content Include="Client\Scripts\NoneReactComponents\cookieNotificationMessage.js" />
+    <Content Include="Client\Scripts\NoneReactComponents\dealers.js" />
     <Content Include="Client\Scripts\reducers.js" />
     <Content Include="Client\Scripts\Reducers\Address.reducer.js" />
     <Content Include="Client\Scripts\Reducers\Cart.reducer.js" />
@@ -444,6 +452,8 @@
     <Content Include="Client\Styles\DefaultTheme\socialmedialinks.scss" />
     <Content Include="Client\Styles\DefaultTheme\arrow.scss" />
     <Content Include="Client\Styles\DefaultTheme\contactus.scss" />
+    <Content Include="Client\Styles\DefaultTheme\megamenu.scss" />
+    <Content Include="Client\Styles\DefaultTheme\Block\hero.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
@@ -461,6 +471,9 @@
     <Content Include="Views\ContactUs\ContactUsForm.cshtml" />
     <Content Include="Views\ContactUs\ContactInformation.cshtml" />
     <Content Include="Views\Shared\Framework\SocialMediaLinksWhite.cshtml" />
+    <Content Include="Views\DealerAdmin\Index.cshtml" />
+    <Content Include="Views\Shared\Framework\Subcategory.cshtml" />
+    <Content Include="Views\Block\Hero.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -1073,7 +1086,16 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58109/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

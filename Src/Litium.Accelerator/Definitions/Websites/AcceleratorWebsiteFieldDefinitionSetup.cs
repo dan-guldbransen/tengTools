@@ -13,7 +13,7 @@ namespace Litium.Accelerator.Definitions.Websites
             var fields = new[]
             {
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.LogotypeMain, SystemFieldTypeConstants.MediaPointerImage),
-                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.LogotypeAlt, SystemFieldTypeConstants.MediaPointerImage),
+                new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.LogotypeAlt, SystemFieldTypeConstants.MediaPointerImage),
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.LogotypeIcon, SystemFieldTypeConstants.MediaPointerImage),
                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.CheckoutPage, SystemFieldTypeConstants.Pointer)
                 {
@@ -293,6 +293,14 @@ namespace Litium.Accelerator.Definitions.Websites
                         AcceleratorWebsiteFieldNameConstants.PartnerYoutube,
                     }
                  }
+                },
+                 new FieldDefinition<WebsiteArea>(AcceleratorWebsiteFieldNameConstants.BlogTagList, SystemFieldTypeConstants.TextOption)
+                {
+                    MultiCulture = true,
+                    Option = new TextOption()
+                    {
+                        MultiSelect = false
+                    }
                 },
             };
             return fields;

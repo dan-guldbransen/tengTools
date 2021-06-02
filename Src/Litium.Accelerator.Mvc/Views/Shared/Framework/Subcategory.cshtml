@@ -1,0 +1,65 @@
+﻿@model Litium.Accelerator.ViewModels.Framework.ContentLinkModel
+
+
+@if (Model.Links.Any() && Model.Links.Count > 1)
+{
+    var current = Model.Name;
+
+    var uneven = Model.Links.Count % 2 == 1;
+    var half = Model.Links.Count / 2;
+
+    var firstRow = uneven ? Model.Links.Skip(0).Take(half + 1) : Model.Links.Skip(0).Take(half);
+    var secondRow = uneven ? Model.Links.Skip(half + 1).Take(half) : Model.Links.Skip(half).Take(half);
+
+    <a href="#" class="nav-link dropdown-toggle" id="navbarSubCategoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        @if (current != null)
+        {
+            <span>@current</span>
+        }
+    </a>
+    <ul class="dropdown-menu dropdown-menu-megamenu" aria-labelledby="navbarSubCategoryDropdown">
+        <li class="bg-white border-bottom border-dark border-1">
+            <div class="container">
+                <div class="clearfix"><div class="media close mt-3 float-end"></div></div>
+                <div class="row pb-4">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-12"><h6 class="px-3">@Html.WebSiteString("subcategory.categories.header")</h6></div>
+                            <div class="col-md-5">
+                                <ul class="list-group list-group-flush">
+                                    @foreach (var link in firstRow)
+                                    {
+                                        if (link != null)
+                                        {
+                                            <li class="list-group-item vertical-align-tb"><a class="ms-3" href="@link.Url">@link.Name</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <div class="col-md-5">
+                                <ul class="list-group list-group-flush">
+                                    @foreach (var link in secondRow)
+                                    {
+                                        if (link != null)
+                                        {
+                                            <li class="list-group-item vertical-align-tb"><a class="ms-3" href="@link.Url">@link.Name</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-12"><h6 class="px-3"></h6></div>
+                            <div class="col-12">
+                                <ul class="list-group list-group-flush">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+} 

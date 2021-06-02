@@ -1,35 +1,56 @@
-﻿using Litium.Accelerator.ViewModels.Dealer;
-using Litium.Runtime.DependencyInjection;
+﻿using Litium.Runtime.DependencyInjection;
+using Litium.Web.Models.Websites;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Reflection;
+using System.Web;
+
 
 namespace Litium.Accelerator.Services
 {
     [Service(ServiceType = typeof(DealerService))]
     public class DealerService
     {
-        public bool SaveFile(DealerViewModel model, string filePath)
+        private static readonly string Path = $"{AppDomain.CurrentDomain.BaseDirectory}\\App_Files\\";
+        private const string FileName = "Dealers.xlsx";
+
+        public string SaveFile(HttpPostedFileBase file, WebsiteModel website)
         {
             try
             {
-                if (!Directory.Exists(filePath))
+               
+
+                if (!Directory.Exists(Path))
                 {
-                    Directory.CreateDirectory(filePath);
+                    Directory.CreateDirectory(Path);
                 }
-                var name = "Dealers";
-                filePath = filePath + name + Path.GetExtension(model.ImportForm.DealerFile.FileName);
-                model.ImportForm.DealerFile.SaveAs(filePath);
-                return true;
+                
+                file.SaveAs(System.IO.Path.Combine(Path, FileName));
+                return website.Texts.GetValue("dealer.backoffice.fileupload.success");
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                return website.Texts.GetValue("dealer.backoffice.fileupload.failed") + $" Error: {e.Message}";
             }
+        }
+
+        public (byte[], string) GetDealerFileBytes()
+        {
+            
+            var filePath = Path + FileName;
+
+            if (File.Exists(filePath))
+            {
+                return (File.ReadAllBytes(filePath), FileName);
+            }
+
+            return (null, "");
+
+        }
+
+        public string GetFilePath()
+        {
+            return Path + FileName;
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿@mixin icon--favorites() {
     background: url('../../images/favorites.svg') center no-repeat;
 }
+@mixin icon--favorites-white() {
+    background: url('../../images/white-heart.svg') center no-repeat;
+}
 
 @mixin icon--search() {
     content: url('../../images/search.svg');
@@ -15,24 +18,27 @@
     background: url('../../images/profile.svg') center no-repeat;
 }
 
+@mixin icon--profile-white() {
+    background: url('../../images/white-dude.svg') center no-repeat;
+}
 @mixin icon--wishlist() {
     background: url('../../images/wishlist.svg') center no-repeat;
 }
-
-@mixin icon--cta-arrow() {
-    content: url('../../images/cta-arrow.svg');
+@mixin icon--wishlist-white() {
+    background: url('../../images/white-heart.svg') center no-repeat;
 }
-
+@mixin icon--cta-arrow() {
+    background: url('../../images/cta-arrow.svg') right no-repeat;
+}
+@mixin icon--cta-arrow-white() {
+    background: url('../../images/arrow-white.svg') right no-repeat;
+}
 @mixin icon--cta-arrow-red() {
     content: url('../../images/cta-arrow-red.svg');
 }
 
 @mixin icon--cta-arrow-red-small() {
     content: url('../../images/cta-arrow-red-small.svg');
-}
-
-@mixin icon--hamburger() {
-    content: url('../../images/hamburger.svg');
 }
 
 @mixin icon--close() {
@@ -77,4 +83,11 @@
 }
 @mixin icon--instagramBlack() {
     background: url('../../images/instagram-black.svg') center no-repeat
+}
+
+@mixin icon--carousel-arrow-right(){
+    content: url('../../images/carousel-arrow-right.svg');
+}
+@mixin icon--carousel-arrow-left() {
+    content: url('../../images/carousel-arrow-left.svg');
 }

@@ -24,8 +24,6 @@
         text-align : center;
     }
     &__button {
-        background-color: $color-primary;
-        color: $color-white;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -66,7 +64,7 @@
         .dot {
             width: 10px;
             height: 10px;
-            background: $color-grey;
+            background: $light;
             &:hover {
                 background: #f6ee26;
             }

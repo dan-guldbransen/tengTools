@@ -1,15 +1,48 @@
-.btn-cta {
-    &-sm {
-        padding: 1rem 1.5rem;
+.dark {
+    .btn-cta {
+        &-sm {
+            padding: 1rem 1.5rem;
+        }
+
+        padding: 1.8rem 2.5rem;
+        border-radius: 0;
+
+
+        &:after {
+            display: inline-block;
+            margin-left: 1rem;
+            @include icon--cta-arrow-white();
+        }
     }
 
-    padding: 1.8rem 2.5rem;
-    border-radius: 0;
+    .btn-cta-link {
+        line-height: 1.1;
+        padding-right: 45px;
+        color: $white;
+        @include icon--cta-arrow-white();
+    }
+}
+
+.red {
+    .btn-cta {
+        &-sm {
+            padding: 1rem 1.5rem;
+        }
+
+        padding: 1.8rem 2.5rem;
+        border-radius: 0;
 
 
-    &:after {
-        display: inline-block;
-        margin-left: 1rem;
+        &:after {
+            display: inline-block;
+            margin-left: 1rem;
+            @include icon--cta-arrow();
+        }
+    }
+
+    .btn-cta-link {
+        line-height: 1.1;
+        padding-right: 45px;
         @include icon--cta-arrow();
     }
 }

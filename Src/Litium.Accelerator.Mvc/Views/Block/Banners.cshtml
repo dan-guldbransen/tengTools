@@ -6,16 +6,18 @@
 
 @if (hasBanner)
 {
-    <div class="row">
-        @foreach (var banner in Model.Banners)
-        {
-            <div class="columns small-12 medium-@MediumColumn">
-                <div class="teaser">
-                    <a href="@banner.LinkUrl" class="banner-block__image-link" title="@banner.ActionText">
-                        @Html.ImageFor(x => banner.Image, maxSize: new Size(786, -1), htmlAttributes: new { @class="banner-block__image" })
-                    </a>
-                </div>
-            </div>
-        }
-    </div>
+	<div class="container my-5">
+		<div class="row">
+			@foreach (var banner in Model.Banners)
+			{
+				<div class="col-12 col-md-@MediumColumn">
+					<div class="teaser">
+						<a href="@banner.LinkUrl" class="banner-block__image-link" title="@banner.ActionText">
+							@Html.ImageFor(x => banner.Image, maxSize: new Size(786, -1), htmlAttributes: new { @class = "banner-block__image" })
+						</a>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
 }

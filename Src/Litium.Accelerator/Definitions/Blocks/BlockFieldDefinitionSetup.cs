@@ -19,7 +19,7 @@ namespace Litium.Accelerator.Definitions.Blocks
             fields.AddRange(ProductFields());
             fields.AddRange(ProductsAndBannerFields());
             fields.AddRange(SliderFields());
-
+            fields.AddRange(HeroFields());
             return fields;
         }
 
@@ -73,6 +73,64 @@ namespace Litium.Accelerator.Definitions.Blocks
                 {
                     Option = new MultiFieldOption { IsArray = true, Fields = new List<string>(){ BlockFieldNameConstants.LinkText, BlockFieldNameConstants.BlockImagePointer, BlockFieldNameConstants.LinkToPage} }
                 }
+            };
+            return fields;
+        }
+
+        private IEnumerable<FieldDefinition> HeroFields()
+        {
+            var fields = new List<FieldDefinition>
+            {
+                new FieldDefinition<BlockArea>(BlockFieldNameConstants.BackgroundImage, SystemFieldTypeConstants.MediaPointerImage),
+                 new FieldDefinition<BlockArea>(BlockFieldNameConstants.BlockSubTitle, SystemFieldTypeConstants.Text)
+                {
+                    MultiCulture = true,
+                },
+                new FieldDefinition<BlockArea>(BlockFieldNameConstants.ContentPosition, SystemFieldTypeConstants.TextOption)
+                {
+                    Option = new TextOption
+                    {
+                        MultiSelect = false,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "left",
+                                Name = new Dictionary<string, string> { { "en-US", "Content left" }, { "sv-SE", "Innehåll vänster" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "center",
+                                Name = new Dictionary<string, string> { { "en-US", "Content center" }, { "sv-SE", "Innehåll centrerat" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "right",
+                                Name = new Dictionary<string, string> { { "en-US", "Content right" }, { "sv-SE", "Innehåll höger" } }
+                            }
+                        }
+                    }
+                },
+                 new FieldDefinition<BlockArea>(BlockFieldNameConstants.ContentColor, SystemFieldTypeConstants.TextOption)
+                {
+                    Option = new TextOption
+                    {
+                        MultiSelect = false,
+                        Items = new List<TextOption.Item>
+                        {
+                            new TextOption.Item
+                            {
+                                Value = "white",
+                                Name = new Dictionary<string, string> { { "en-US", "White" }, { "sv-SE", "Vitt" } }
+                            },
+                            new TextOption.Item
+                            {
+                                Value = "black",
+                                Name = new Dictionary<string, string> { { "en-US", "Black" }, { "sv-SE", "Svart" } }
+                            },
+                        }
+                    }
+                },
             };
             return fields;
         }

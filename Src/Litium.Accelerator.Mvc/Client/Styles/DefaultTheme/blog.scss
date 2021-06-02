@@ -1,43 +1,3 @@
-.smaller-header {
-    color: #767676;
-}
-
-.cards-wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-.card img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.card {
-    margin: 0 0.5em;
-    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-    border: none;
-    border-radius: 0;
-}
-
-.carousel-inner {
-    padding: 1em;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    background-color: #e1e1e1;
-    width: 5vh;
-    height: 5vh;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-@media (min-width: 768px) {
-    .card img {
-        height: 11em;
-    }
-}
 
 .blogList{
     padding-left: 10rem;
@@ -48,6 +8,49 @@
     &:after {
         display: inline-block;
         @include icon--cta-arrow-red();
+    }
+}
+
+
+.cta-arrow-red-small {
+    &:after {
+        display: inline-block;
+        margin-top: 1.5rem;
+        @include icon--cta-arrow-red-small();
+    }
+}
+
+.tagButton:hover {
+    background-color: #EDEDED;
+    border-color: #AAAAAA;
+    color: black;
+    text-decoration: underline;
+}
+
+.car-height {
+    height: 40.375rem !important;
+    padding-left:10rem;
+}
+
+.blogList{
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+.carousel-arrow-left {
+    & {
+        @include icon--carousel-arrow-left();
+    }
+}
+
+.cta-arrow-red {
+    &:after {
+        display: inline-block;
+        @include icon--cta-arrow-red();
+    }
+}
+.carousel-arrow-right {
+    & {
+        @include icon--carousel-arrow-right();
     }
 }
 
