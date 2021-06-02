@@ -127,9 +127,13 @@ namespace Litium.Accelerator.Builders.Search
                     break;
                 }
             }
-            contentLink.Title = selectedLink.Name;
-            contentLink.Description = selectedLink.Description;
-            contentLink.Image = selectedLink.Image;
+            if(selectedLink != null)
+            {
+                contentLink.Title = selectedLink.Name;
+                contentLink.Description = selectedLink.Description;
+                contentLink.Image = selectedLink.Image;
+            }
+           
 
             return contentLink;
         }
@@ -257,11 +261,11 @@ namespace Litium.Accelerator.Builders.Search
             {
                 if (showAll || _selectedStructureId.Contains(child.SystemId))
                 {
-                    var im = child.Fields.GetValue<Guid>(SystemFieldDefinitionConstants.Images);
+                    var im = child.Fields.GetValue<Guid>("Images"); 
                     ImageModel tq = null;
                     if(im != null)
                     {
-                        tq = im.MapTo<IList<ImageModel>>().FirstOrDefault(null);
+                        tq = im.MapTo<ImageModel>();
                     }
                     var link = new SubNavigationLinkModel
                     {
