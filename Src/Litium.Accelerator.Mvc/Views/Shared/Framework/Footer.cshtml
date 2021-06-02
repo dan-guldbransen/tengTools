@@ -10,14 +10,14 @@
 
 		@if (Model.HasCTASection)
 		{
-    <div class="my-5 py-3 fs-6 text-uppercase d-flex justify-content-center">
+    <div class="my-5 py-3 fs-6 text-uppercase d-block d-md-flex justify-content-center">
         @if (Model.Newsletter != null)
         {
-            @: <a class="mx-3 btn px-5 py-3 btn-primary @(Model.Newsletter != null ? "" : "d-none")" href="@Model.Newsletter.Href">@Model.Newsletter.Text</a>
+            @: <a class="mx-3 btn px-5 py-3 btn-primary d-block @(Model.Newsletter != null ? "" : "d-none")" href="@Model.Newsletter.Href">@Model.Newsletter.Text</a>
         }
         @if (Model.GetOrganised != null)
         {
-            @: <a class="mx-3 btn px-5 py-3 btn-secondary cta-arrow @(Model.GetOrganised != null ? "" : "d-none")" href="@Model.GetOrganised.Href">@Model.GetOrganised.Text</a>
+            @: <a class="mx-3 btn px-5 py-3 btn-secondary d-block cta-arrow mt-3 mt-md-0 @(Model.GetOrganised != null ? "" : "d-none")" href="@Model.GetOrganised.Href">@Model.GetOrganised.Text</a>
         }
 
     </div>}
@@ -52,7 +52,7 @@
 		@if (Model.HasVisionSection)
 		{
 <div class="row mt-5 pb-5 justify-content-center">
-	<div class="w-25 text-white fw-bold fs-6 text-center @(!string.IsNullOrEmpty(Model.VisionHeader) ? "" : "d-none")">@Model.VisionHeader</div>
+	<div class="w-lg-25 text-white fw-bold fs-6 text-center @(!string.IsNullOrEmpty(Model.VisionHeader) ? "" : "d-none")">@Model.VisionHeader</div>
 	<div class="row mt-4 justify-content-center text-left">
 		<div class="vision-text text-white-50 d-inline-block @(!string.IsNullOrEmpty(Model.VisionText) ? "" : "d-none")">@Model.VisionText</div>
 	</div>
@@ -64,5 +64,5 @@
 		</div>
 
 	</div>
-	@Html.ImageFor(x => x.Logo, maxSize: new Size(380, -1), htmlAttributes: new { @class = "footer-logo"})
+	@Html.ImageFor(x => x.Logo, maxSize: new Size(380, -1), htmlAttributes: new { @class = "footer-logo d-none d-lg-inline-block"})
 </footer>

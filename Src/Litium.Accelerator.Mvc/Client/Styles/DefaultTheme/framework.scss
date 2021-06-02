@@ -7,3 +7,8 @@
 .mr-auto {
     margin-right: auto;
 }
+.cursor-hover{
+    &:hover{
+        cursor: pointer;
+    }
+}

@@ -3,24 +3,31 @@
 	@if (!string.IsNullOrEmpty(Model.PageTitle))
 	{
 		<h2 class="text-uppercase mt-4">@Model.PageTitle</h2>
-
 		<hr class="hr mb-4" />
 	}
 
-<div class="mb-5">
-	<div class="d-block mb-2"><input type="text" placeholder="@Html.WebSiteString("dealers.searchplaceholder")" class="form-control w-100 dealer-search"></div>
-	<div class="form-check-inline">
-		<label class="form-label">@Html.WebSiteString("dealers.filter"):</label>
+
+	<div class="mb-5">
+		<div class="input-group mb-2">
+			<input type="text" name="query" id="query" placeholder="@Html.WebSiteString("dealers.searchplaceholder")" class="form-control dealer-search border-end-0 p-2">
+			<div class="input-group-append">
+				<button class="btn border border-1 border-start-0 p-2" type="submit"><i class="bi bi-search"></i></button>
+			</div>
+		</div>
+
+		<div class="form-check-inline">
+			<label class="form-label">@Html.WebSiteString("dealers.filter"):</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input cursor-hover dealer-check" type="checkbox" id="physicalCheckbox" name="physicalCheckbox" value="physical" checked="checked">
+			<label class="form-check-label cursor-hover" for="physicalCheckbox">@Html.WebSiteString("dealers.physicalstore")</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input cursor-hover dealer-check" type="checkbox" id="ecomCheckbox" name="ecomCheckbox" value="ecom" checked="checked">
+			<label class="form-check-label cursor-hover" for="ecomCheckbox">@Html.WebSiteString("dealers.ecom")</label>
+		</div>
 	</div>
-	<div class="form-check form-check-inline">
-		<input class="form-check-input" type="checkbox" id="physicalCheckbox" value="physical" checked="checked"> 
-		<label class="form-check-label" for="physicalCheckbox">@Html.WebSiteString("dealers.physicalstore")</label>
-	</div>
-	<div class="form-check form-check-inline">
-		<input class="form-check-input" type="checkbox" id="ecomCheckbox" value="ecom" checked="checked">
-		<label class="form-check-label" for="ecomCheckbox">@Html.WebSiteString("dealers.ecom")</label>
-	</div>
-</div>
+
 
 	<div class="dealer-container mt-5">
 		@if (Model.Dealers != null && Model.Dealers.Any())
@@ -39,10 +46,22 @@
 						counter++;
 						var id = "dealeritem-" + group.Key + "-" + counter;
 
-						<div class="accordion-item">
+						<div class="accordion-item" data-value="@item.CompanyName" data-isEcom="@item.IsEcom">
 							<h2 class="accordion-header" id="flush-heading@(id)">
 								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse@(id)" aria-expanded="false" aria-controls="flush-collapse@(id)">
-									@item.CompanyName, @item.Country
+									<div class="d-flex justify-content-between align-items-center w-100 pe-5">
+										<div>@item.CompanyName @(string.IsNullOrEmpty(item.Country) ? "" : $", {item.Country}")</div>
+										<div>
+											@if (item.IsEcom)
+											{
+												<i class="bi bi-bag"></i>
+											}
+											else
+											{
+												<i class="bi bi-house-door"></i>
+											}
+										</div>
+									</div>
 								</button>
 							</h2>
 							<div id="flush-collapse@(id)" class="accordion-collapse collapse" aria-labelledby="flush-heading@(id)" data-bs-parent="#dealeraccordion-@(group.Key)">
