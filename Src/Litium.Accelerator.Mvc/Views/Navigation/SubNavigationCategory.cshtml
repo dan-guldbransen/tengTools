@@ -4,17 +4,17 @@
 
 @if (Model != null)
 {
-    <div class="container">
+    <div class="container subcategoryContainer">
         <div class="headerContainer" style="position:relative;">
             <div class="headerImage">
 
             </div>
             <div class="headerTextDiv">
                 <div>
-                    <h2>@Model.Name</h2>
+                    <h2>@Model.Title</h2>
                 </div>
                 <div>
-                    <p>Text block</p>
+                    <p>@Model.Description</p>
                 </div>
                 <div>
                     <button> Knapp</button>
@@ -25,6 +25,7 @@
 
     </div>
     <nav class="subnav" role="navigation">
+        @*
         <h3 class="subnav__header">
             @if (Model.Url != null)
             {
@@ -32,57 +33,72 @@
             }
             else
             {
-                @Model.Name
+                @Model.Name @Model.Name
             }
         </h3>
+        *@
         @DisplayLinks(Model)
     </nav>
-}
+        }
 
 
-@helper DisplayLinks(SubNavigationLinkModel contentLink, string ulCssClass = "")
-{
-    if (contentLink?.Links != null && contentLink.Links.Any())
-    {
-        <ul class="subnav__list @ulCssClass">
-            @foreach (var childLink in contentLink.Links)
+        @helper DisplayLinks(SubNavigationLinkModel contentLink, string ulCssClass = "")
+        {
+            if (contentLink?.Links != null && contentLink.Links.Any())
             {
-                <li class="subnav__item @GetSubnavigationCssClass(childLink)">
-                    <a class="subnav__link" href="@childLink.Url">@childLink.Name</a>
-                    @DisplayLinks(childLink)
-                </li>
-            }
-        </ul>
-        <div class="cardContainer">
-            <table>
-                <tr>
+                <ul class="subnav__list @ulCssClass">
                     @foreach (var childLink in contentLink.Links)
                     {
-                        @Html.Partial("SubCategoryCard", childLink)
+                            @*
+                        <li class="subnav__item @GetSubnavigationCssClass(childLink)">
+                            <a class="subnav__link" href="@childLink.Url">@childLink.Name</a>
+                        </li>
+                            *@
+                            @DisplayLinks(childLink)
                     }
-                </tr>
-            </table>
-        </div>
-       
-    }
-}
+                </ul>
 
-@helper GetSubnavigationCssClass(SubNavigationLinkModel contentLink)
-{
-    var classes = new List<string>();
-
-    if (contentLink.Links != null)
-    {
-        classes.Add("has-children");
-        if (contentLink.Links.Any())
-        {
-            classes.Add("expanded");
+                <div class="px-5 subcategoryContainer">
+                    <table class="table table-borderless">
+                        <tr>
+                            @{ int counter = 0;}
+                            @foreach (var childLink in contentLink.Links)
+                            {
+                                if (childLink.IsSelected == false)
+                                {
+                                    counter++;
+                                    <td class="col-3 productCardTableTd">
+                                        @Html.Partial("SubCategoryCard", childLink)
+                                    </td>
+                                    if (@counter % 3 == 0)
+                                    {
+                                    @:</tr>
+                                    @:<tr>
+                                    }
+                                }
+                            }
+                        </tr>
+                    </table>
+                </div>
+            }
         }
-    }
 
-    if (contentLink.IsSelected && (contentLink.Links == null || contentLink.Links.All(x => !x.IsSelected)))
-    {
-        classes.Add("active");
-    }
-    @Html.Raw(classes.Any() ? string.Join(" ", classes) : string.Empty)
-}
+        @helper GetSubnavigationCssClass(SubNavigationLinkModel contentLink)
+        {
+            var classes = new List<string>();
+
+            if (contentLink.Links != null)
+            {
+                classes.Add("has-children");
+                if (contentLink.Links.Any())
+                {
+                    classes.Add("expanded");
+                }
+            }
+
+            if (contentLink.IsSelected && (contentLink.Links == null || contentLink.Links.All(x => !x.IsSelected)))
+            {
+                classes.Add("active");
+            }
+            @Html.Raw(classes.Any() ? string.Join(" ", classes) : string.Empty)
+        }

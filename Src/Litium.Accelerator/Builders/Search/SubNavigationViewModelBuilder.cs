@@ -7,6 +7,7 @@ using Litium.Accelerator.Routing;
 using Litium.Accelerator.Search;
 using Litium.Accelerator.ViewModels.Framework;
 using Litium.Common;
+using Litium.FieldFramework;
 using Litium.Foundation.Modules.ExtensionMethods;
 using Litium.Foundation.Modules.ProductCatalog.Routing;
 using Litium.Globalization;
@@ -14,6 +15,7 @@ using Litium.Products;
 using Litium.Runtime.AutoMapper;
 using Litium.Security;
 using Litium.Web;
+using Litium.Web.Models;
 using Litium.Web.Models.Globalization;
 using Litium.Web.Models.Websites;
 using Litium.Web.Rendering;
@@ -91,6 +93,43 @@ namespace Litium.Accelerator.Builders.Search
             {
                 contentLink = CreatePageNavigation();
             }
+            SubNavigationLinkModel selectedLink = null;
+            if (contentLink.Links != null && contentLink.Links.Any())
+            {
+                foreach (var link in contentLink.Links)
+                {
+                    if (link.IsSelected)
+                    {
+                        selectedLink = link;
+                        if (link.Links != null && link.Links.Any())
+                        {
+                            foreach (var subLink in link.Links)
+                            {
+                                if (subLink.IsSelected)
+                                {
+                                    selectedLink = subLink;
+                                    if (subLink.Links != null && subLink.Links.Any())
+                                    {
+                                        foreach (var thirdLvLink in subLink.Links)
+                                        {
+                                            if (thirdLvLink.IsSelected)
+                                            {
+                                                selectedLink = thirdLvLink;
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    break;
+                }
+            }
+            contentLink.Title = selectedLink.Name;
+            contentLink.Description = selectedLink.Description;
+            contentLink.Image = selectedLink.Image;
 
             return contentLink;
         }
@@ -184,7 +223,7 @@ namespace Litium.Accelerator.Builders.Search
                                                                    && _renderingValidators.Validate(x));
 
             var currentCategoryParentSystemId = category.ParentCategorySystemId;
-            return new SubNavigationLinkModel
+            var output =  new SubNavigationLinkModel
             {
                 IsSelected = true,
                 Name = _website.Texts.GetValue("ProductCategories") ?? "Product Categories",
@@ -204,6 +243,7 @@ namespace Litium.Accelerator.Builders.Search
                                 };
                             }).ToList()
             };
+            return output;
         }
 
         private IEnumerable<SubNavigationLinkModel> GetChildLinks(Category category, bool showAll = false, int level = int.MaxValue)
@@ -217,9 +257,17 @@ namespace Litium.Accelerator.Builders.Search
             {
                 if (showAll || _selectedStructureId.Contains(child.SystemId))
                 {
+                    var im = child.Fields.GetValue<Guid>(SystemFieldDefinitionConstants.Images);
+                    ImageModel tq = null;
+                    if(im != null)
+                    {
+                        tq = im.MapTo<IList<ImageModel>>().FirstOrDefault(null);
+                    }
                     var link = new SubNavigationLinkModel
                     {
                         Name = child.Localizations.CurrentCulture.Name,
+                        Description = child.Localizations.CurrentUICulture.Description,
+                        Image = tq, // child.Fields.GetValue<Guid>(SystemFieldDefinitionConstants.Images)??.MapTo<IList<ImageModel>>().FirstOrDefault(null),
                         Url = child.GetUrl(_channel.SystemId),
                         IsSelected = _selectedStructureId.Contains(child.SystemId),
                         Links = _selectedStructureId.Contains(child.SystemId) ?
