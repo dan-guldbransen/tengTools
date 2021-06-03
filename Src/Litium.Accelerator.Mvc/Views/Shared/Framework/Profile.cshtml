@@ -10,7 +10,6 @@
 @if (!string.IsNullOrEmpty(href))
 {
 	<a href="@href" title="@text" target="@(User.Identity.IsAuthenticated ? "_self" : "_blank")">
-		<div class="profile media me-4">
-		</div>
+		<i class="bi bi-person"></i>
 	</a>
 }

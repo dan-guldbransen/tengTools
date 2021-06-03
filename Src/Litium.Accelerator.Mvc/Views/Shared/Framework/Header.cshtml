@@ -3,11 +3,10 @@
 
 @{
 	var hasGetOrganisedCTA = !string.IsNullOrEmpty(Model.GetOrganised.Href);
-	var isDark = true;
 }
 
-<header id="header" role="banner" class="header @(isDark ? "dark" : "red")">
-	<nav class="navbar navbar-expand-lg border-bottom border-dark border-1 py-2 d-none d-lg-flex @(isDark ? "bg-dark" : "bg-primary")">
+<header id="header" role="banner" class="header dark">
+	<nav class="navbar navbar-expand-lg border-bottom border-dark border-1 py-2 d-none d-lg-flex bg-dark">
 		<div class="container justify-content-end">
 			<div class="collapse navbar-collapse me-auto">
 				<ul class="navbar-nav">
@@ -25,7 +24,7 @@
 		</div>
 	</nav>
 
-	<nav class="navbar navbar-expand-lg py-2 px-3 px-lg-0 @(isDark ? "linear-bg" : "bg-primary")">
+	<nav class="navbar navbar-expand-lg py-2 px-3 px-lg-0 linear-bg">
 		<div class="container">
 			<a class="navbar-brand me-5" href="@Model.StartPageUrl">
 				@Html.ImageFor(x => x.Logo, maxSize: new System.Drawing.Size(-1, 50))
@@ -47,20 +46,16 @@
 				</div>
 			}
 
-			<div class="d-flex align-items-center justify-content-around util-items">
-				<a href="#" data-bs-toggle="offcanvas" data-bs-target="#favorites" aria-controls="favorites">
-					<i class="bi bi-heart me-2"></i>
-				</a>
+		<div class="d-flex align-items-center justify-content-around util-items">
+			<a href="#" data-bs-toggle="offcanvas" data-bs-target="#favorites" aria-controls="favorites">
+				<i class="bi bi-heart"></i>
+			</a>
 
-				@Html.Partial("Framework/Profile", Model)
+			@Html.Partial("Framework/Profile", Model)
 
-				<a href="#">
-					<i class="bi bi-bag me-2"></i>
-				</a>
+			@*<div id="miniCart" class="cart cart--mini"><i class="bi bi-bag"></i></div>*@
 
-				@*<div id="miniCart" class="cart cart--mini"></div>*@
-
-			</div>
+		</div>
 			@if (hasGetOrganisedCTA)
 			{
 				<a class="btn btn-link btn-cta-link ms-3 text-uppercase d-none d-lg-block" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
@@ -70,7 +65,7 @@
 		</div>
 	</nav>
 
-	<nav class="navbar d-lg-none justify-content-between p-3 @(isDark ? "linear-bg-small" : "bg-primary")">
+	<nav class="navbar d-lg-none justify-content-between p-3 linear-bg-small">
 		<div class="container">
 			<button class="hamburger hamburger--slider" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
 				<span class="hamburger-box">
@@ -92,7 +87,7 @@
 <!-- MOBILE MENU -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
 	<!-- Header -->
-	<div class="offcanvas-header @(isDark ? "bg-dark" : "bg-primary")">
+	<div class="offcanvas-header bg-dark">
 		<a class="navbar-brand me-5" href="@Model.StartPageUrl">
 			@Html.ImageFor(x => x.Logo, maxSize: new System.Drawing.Size(-1, 50))
 		</a>
@@ -146,9 +141,9 @@
 		<hr />
 		<!-- Utils -->
 		<ul class="list-group border-0 mobile-utils mt-2">
-			<li class="list-group-item border-0"><a href="#"><i class="bi bi-heart me-2"></i>@Html.WebSiteString("general.mobilenavigation.favorites")</a></li>
+			<li class="list-group-item border-0"><a href="#" data-bs-toggle="offcanvas" data-bs-target="#favorites" aria-controls="favorites"><i class="bi bi-heart me-2"></i>@Html.WebSiteString("general.mobilenavigation.favorites")</a></li>
 			@Html.Partial("Framework/ProfileMobile", Model)
-			<li class="list-group-item border-0"><a href="#"><i class="bi bi-bag me-2"></i>@Html.WebSiteString("general.mobilenavigation.cart")</a></li>
+			@*<li class="list-group-item border-0"><a href="#"><i class="bi bi-bag me-2"></i>@Html.WebSiteString("general.mobilenavigation.cart")</a></li>*@
 
 			<!-- marketselector -->
 		</ul>
