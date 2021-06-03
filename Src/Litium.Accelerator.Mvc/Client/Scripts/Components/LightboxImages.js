@@ -8,7 +8,7 @@ const LightboxImages = props => (
             <div className="small-12 large-9 columns large-order-1">
                 <figure className="product-detail__image-container">
                     <a data-src={props.images[0].src} itemProp="url" onClick={() => props.onClickThumbnail(0)} className="product-image">
-                        <img className="product-detail__image--main" itemProp="image" src={props.thumbnails[0].src} />
+                        <img className="shadow" itemProp="image" src={props.thumbnails[0].src} />
                     </a>
                 </figure>
             </div>
