@@ -1,0 +1,37 @@
+﻿.productListLeftSide {
+    height: auto;
+    padding-left: 1.875rem;
+    border-right: dashed;
+    border-width: 0.094rem;
+}
+
+.productlist-imageHolder {
+    position:relative;
+    background-color: #EBEBEB;
+}
+
+.productList-categoryImage-textDiv {
+    position: absolute;
+    background-color: #000000;
+    opacity: .6;
+    width: 36.5rem;
+    height: 15.188rem;
+    Top: 12.038rem; 
+    Left: 9.688rem;
+}
+
+.productlistMain {
+    background-color: #EBEBEB;
+}
+
+.productlistCard {
+    border-radius:0.938rem;
+}
+
+.productlistCardImage {
+    min-height: 12.5rem;
+}
+
+.productCardTableTd {
+    padding: 1.5rem !important;
+}

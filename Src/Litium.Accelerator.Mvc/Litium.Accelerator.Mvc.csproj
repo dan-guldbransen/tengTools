@@ -457,6 +457,7 @@
     <Content Include="Client\Styles\DefaultTheme\megamenu.scss" />
     <Content Include="Client\Styles\DefaultTheme\Block\hero.scss" />
     <Content Include="Client\Styles\Bootstrap\_close.scss" />
+    <Content Include="Client\Styles\DefaultTheme\productlist.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
@@ -478,6 +479,7 @@
     <Content Include="Views\Shared\Framework\Subcategory.cshtml" />
     <Content Include="Views\Block\Hero.cshtml" />
     <Content Include="Views\Shared\Framework\Favorites.cshtml" />
+    <Content Include="Views\ProductList\ProductListProductCard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

@@ -17,6 +17,7 @@ namespace Litium.Accelerator.ViewModels.Product
         /// The title
         /// </summary>
         public string Title { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// The image description
@@ -44,6 +45,7 @@ namespace Litium.Accelerator.ViewModels.Product
         {
             cfg.CreateMap<PageModel, ProductListViewModel>()
                .ForMember(x => x.Title, m => m.MapFromField(PageFieldNameConstants.Title))
+               .ForMember(x => x.Description, m => m.MapFromField(PageFieldNameConstants.Description))
                .ForMember(x => x.AlternativeImageDescription, m => m.MapFromField(PageFieldNameConstants.AlternativeImageDescription))
                .ForMember(x => x.Image, m => m.MapFrom(newsPage => newsPage.GetValue<Guid>(PageFieldNameConstants.Image).MapTo<ImageModel>()));
         }
