@@ -48,14 +48,14 @@
 			}
 
 			<div class="d-flex align-items-center justify-content-around util-items">
-				<a href="#">
-					<div class="favorites media me-4"></div>
+				<a href="#" data-bs-toggle="offcanvas" data-bs-target="#favorites" aria-controls="favorites">
+					<i class="bi bi-heart me-2"></i>
 				</a>
 
 				@Html.Partial("Framework/Profile", Model)
 
 				<a href="#">
-					<div class="wishlist media me-lg-4"></div>
+					<i class="bi bi-bag me-2"></i>
 				</a>
 
 				@*<div id="miniCart" class="cart cart--mini"></div>*@
@@ -146,9 +146,9 @@
 		<hr />
 		<!-- Utils -->
 		<ul class="list-group border-0 mobile-utils mt-2">
-			<li class="list-group-item border-0"><a href="#"><i class="bi bi-heart me-2"></i>@Html.WebSiteString("general.mobilenavigation.favorites") (3)</a></li>
+			<li class="list-group-item border-0"><a href="#"><i class="bi bi-heart me-2"></i>@Html.WebSiteString("general.mobilenavigation.favorites")</a></li>
 			@Html.Partial("Framework/ProfileMobile", Model)
-			<li class="list-group-item border-0"><a href="#"><i class="bi bi-bag me-2"></i>@Html.WebSiteString("general.mobilenavigation.cart") (1)</a></li>
+			<li class="list-group-item border-0"><a href="#"><i class="bi bi-bag me-2"></i>@Html.WebSiteString("general.mobilenavigation.cart")</a></li>
 
 			<!-- marketselector -->
 		</ul>

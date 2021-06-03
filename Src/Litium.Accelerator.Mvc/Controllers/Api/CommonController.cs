@@ -17,5 +17,13 @@ namespace Litium.Accelerator.Mvc.Controllers.Api
         {
             return Ok(new { name = CookieNotificationMessage.CookieName, expires = CookieNotificationMessage.Expires });
         }
+
+        [HttpGet]
+        [Route("getfavorites")]
+        public IHttpActionResult Favorites()
+        {
+            return Ok();
+        }
+
     }
 }

@@ -5,6 +5,7 @@ using Litium.Web.Models.Websites;
 using Litium.Web.Models.Products;
 using Litium.Accelerator.Constants;
 using System.Web;
+using Litium.Accelerator.Utilities;
 
 namespace Litium.Accelerator.Mvc.Controllers.Framework
 {
@@ -109,6 +110,20 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             viewModel.ShouldRender = Request.Cookies[CookieNotificationMessage.CookieName] == null;
 
             return PartialView("Framework/CookieNotification", viewModel);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Favorites()
+        {
+            var model = new FavoritesViewModel();
+
+            var cookie = Request.Cookies[FavoritesConstants.FavoritesCookieName];
+            if(cookie != null)
+            {
+                var variantSystemIds = Request.Cookies[FavoritesConstants.FavoritesCookieName].Value;
+            }
+
+            return PartialView("Framework/Favorites", model);
         }
     }
 }

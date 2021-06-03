@@ -1,0 +1,27 @@
+﻿@model Litium.Accelerator.ViewModels.Framework.FavoritesViewModel
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="favorites" aria-labelledby="favoritesLabel">
+
+	<!-- Header -->
+	<div class="offcanvas-header bg-dark">
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+
+	<div class="offcanvas-body">
+		<h2>@Html.WebSiteString("favorites.header")</h2>
+		<hr />
+		<ul class="list-group mb-3">
+			@foreach (var product in Model.Products)
+			{
+				<li class="list-group-item border-0">
+					<a href="@product.Url">
+						<h2 class="text-uppercase">@product.Name</h2>
+					</a>
+					<button class="deletefavorites-btn" data-variantid="@product.Id">
+						<i class="bi bi-trash"></i>
+					</button>
+				</li>
+			}
+		</ul>
+	</div>
+</div>

@@ -253,6 +253,7 @@
     <Content Include="Client\Scripts\Middlewares\History.middleware.js" />
     <Content Include="Client\Scripts\NoneReactComponents\cookieNotificationMessage.js" />
     <Content Include="Client\Scripts\NoneReactComponents\dealers.js" />
+    <Content Include="Client\Scripts\NoneReactComponents\favorites.js" />
     <Content Include="Client\Scripts\reducers.js" />
     <Content Include="Client\Scripts\Reducers\Address.reducer.js" />
     <Content Include="Client\Scripts\Reducers\Cart.reducer.js" />
@@ -476,6 +477,7 @@
     <Content Include="Views\DealerAdmin\Index.cshtml" />
     <Content Include="Views\Shared\Framework\Subcategory.cshtml" />
     <Content Include="Views\Block\Hero.cshtml" />
+    <Content Include="Views\Shared\Framework\Favorites.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
