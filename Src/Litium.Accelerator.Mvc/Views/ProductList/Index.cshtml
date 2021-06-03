@@ -2,6 +2,13 @@
 @model ProductListViewModel
 
 
+@foreach (var item in Model.Products)
+{
+    <div>@item.Name</div>
+    <a href="@item.Url">Klicka</a>
+}
+
+
 <div id="search-result" class="row">
     <div class="columns small-12">
         <div>
@@ -24,7 +31,7 @@
                 }
                 if (Model.Products != null && Model.Products.Any())
                 {
-                    <div class="row">
+                    @*<div class="row">
                         <div class="small-12 columns product-list">
                             <ul class="row product-list">
                                 @foreach (var product in Model.Products)
@@ -33,7 +40,7 @@
                                 }
                             </ul>
                         </div>
-                    </div>
+                    </div>*@
                 }
                 @Html.DisplayFor(x => x.Pagination)
             }

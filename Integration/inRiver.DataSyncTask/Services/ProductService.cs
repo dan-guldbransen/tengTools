@@ -18,6 +18,8 @@ namespace inRiver.DataSyncTask.Services
             {
                 if (string.IsNullOrEmpty(product.GetField(InRiver.InRiverField.Product.ProductId).Data?.ToString()))
                     continue;
+                if (string.IsNullOrEmpty(product.GetField(InRiver.InRiverField.Product.ProductPublicPlatforms).Data?.ToString()))
+                    continue;
 
                 var plattforms = product.GetField(InRiver.InRiverField.Product.ProductPublicPlatforms)?.Data.ToString();
                 if(!string.IsNullOrEmpty(plattforms) && !plattforms.ToLower().Contains("web"))
