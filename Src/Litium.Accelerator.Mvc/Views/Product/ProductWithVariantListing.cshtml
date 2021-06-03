@@ -1,62 +1,42 @@
 ﻿@model Litium.Accelerator.ViewModels.Product.ProductPageViewModel
 
-<div class="row">
-    <div class="small-12 columns">
-        <div class="row-inner product" itemscope itemtype="http://schema.org/Product">
-            <div class="small-12 large-11 product-detail--centered columns">
-                <div class="row-inner">
-                    <div class="small-12 medium-8 columns">
 
-                        @Html.Partial("_Images", Model)
-
-                    </div>
-                    <div class="small-12 medium-4 columns">
-                        <div class="product-detail">
-                            <hgroup>
-                                @if (!string.IsNullOrEmpty(Model.ProductItem.Brand))
-                                {
-                                    <h2 class="product-detail__brand" itemprop="brand">@Model.ProductItem.Brand</h2>
-                                }
-
-                                <h1 class="product-detail__name" itemprop="name">
-                                    @Model.ProductItem.Name
-                                </h1>
-                            </hgroup>
-
-                            <div class="product-detail__article-number">
-                                @Html.WebSiteString("product.articlenumber")
-                                @Model.ProductItem.Id
-                            </div>
-
-                            @if (!string.IsNullOrEmpty(Model.ProductItem.Description))
-                            {
-                                <div itemprop="description" class="product-detail__description">
-                                    @Model.ProductItem.Description
-                                </div>
-                            }
-
-                            <div class="product-detail__social-share">
-                                @Html.Raw(Html.WebSiteString("product.socialsharingscript"))
-                            </div>
-                        </div>
-                    </div>
+<div class="container">
+    <div class="row">
+            <div class="col">
+                @Html.Partial("_Images", Model)
+            </div>
+            <div class="col">
+                <p class="text-uppercase text-black-50 mb-1">TCMM1001N</p>
+                <h3 class="text-uppercase fw-bolder text-primary">
+                    @Model.ProductItem.Name
+                </h3>
+                <p class="text-black-50">
+                    A complete tool kit with 1001 pcs in a classic red stack system
+                </p>
+                <p>
+                    This is one of our most popular products since this complete tool kit covers the requirements of most types of user. [here should we have a text about what products are included in the kit, any recommendations we make]. All the tools are laid out in individual tool trays using the Teng Tools Get Organised system, which makes it easy to see if any tools have been mislaid or lost helping to prevent leaving them with the work piece. All drawers are filled with tool trays except for 2 of the drawers in the top box.
+                    This tool kit is supplied in our classic red 19 drawer stack system...
+                </p>
+                <a href="#" class="fw-bold">Read more</a>
+                <div class="mt-3">
+                    <p class="text-primary fs-3 fw-bold mb-0">$4000.00</p>
+                    <p class="fw-light mb-0">Pris inkl. moms. | Pris exkl. moms: $3500.00</p>
+                    <small class="text-black-50">This is a recommended retail price, local deviations may occur</small>
                 </div>
-                <div class="row-inner">
-                    <div class="small-12 columns">
-                        @Html.Partial("_VariantInformationTabs", Model)
-                    </div>
+
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown link
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        @foreach (var variant in Model.Variants)
+                        {
+                            <li><a class="dropdown-item" href="@variant.Url">@variant.Name</a></li>
+                        }
+                    </ul>
                 </div>
             </div>
-        </div>
-        @if (Model.BrandPage != null)
-        {
-            @Html.Partial("_BrandInfo", Model.BrandPage)
-        }
-
-        @Html.Partial("_MostSold", Model.MostSoldProducts, new ViewDataDictionary { { "Title", Model.ProductItem.Name } })
-
-        @Html.Partial("_RelatedProducts", Model.AccessoriesProducts)
-
-        @Html.Partial("_RelatedProducts", Model.SimilarProducts)
     </div>
 </div>
