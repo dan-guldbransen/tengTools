@@ -71,7 +71,7 @@ namespace Litium.Accelerator.Events.Product
             var mainCat = _categoryService.Get(productCategoryNumber);
             var subCat = _categoryService.Get(productGroupNumber);
 
-            if(categories == null || !categories.Any() && mainCat != null)
+            if(categories == null || !categories.Any())
             {
                 // if we get here we need set link to baseproduct also
                 var mainClone = mainCat.MakeWritableClone();
