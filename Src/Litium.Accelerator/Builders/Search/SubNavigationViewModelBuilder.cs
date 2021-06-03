@@ -132,6 +132,7 @@ namespace Litium.Accelerator.Builders.Search
                 contentLink.Title = selectedLink.Name;
                 contentLink.Description = selectedLink.Description;
                 contentLink.Image = selectedLink.Image;
+                contentLink.CtaLinkText = "Knapp-text";
             }
            
 
@@ -261,17 +262,11 @@ namespace Litium.Accelerator.Builders.Search
             {
                 if (showAll || _selectedStructureId.Contains(child.SystemId))
                 {
-                    var im = child.Fields.GetValue<Guid>("Images"); 
-                    ImageModel tq = null;
-                    if(im != null)
-                    {
-                        tq = im.MapTo<ImageModel>();
-                    }
                     var link = new SubNavigationLinkModel
                     {
                         Name = child.Localizations.CurrentCulture.Name,
                         Description = child.Localizations.CurrentUICulture.Description,
-                        Image = tq, // child.Fields.GetValue<Guid>(SystemFieldDefinitionConstants.Images)??.MapTo<IList<ImageModel>>().FirstOrDefault(null),
+                        Image = child.Fields.GetValue<IList<Guid>>(SystemFieldDefinitionConstants.Images).MapTo<IList<ImageModel>>()?.FirstOrDefault(),
                         Url = child.GetUrl(_channel.SystemId),
                         IsSelected = _selectedStructureId.Contains(child.SystemId),
                         Links = _selectedStructureId.Contains(child.SystemId) ?

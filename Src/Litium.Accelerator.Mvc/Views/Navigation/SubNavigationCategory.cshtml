@@ -5,24 +5,24 @@
 @if (Model != null)
 {
     <div class="container subcategoryContainer">
-        <div class="headerContainer" style="position:relative;">
-            <div class="headerImage">
-
+        <div class="headerContainer" >
+            <div class="headerImage min-vh-100" style="position:relative; ">
+                @Html.ImageFor(x => Model.Image)
             </div>
-            <div class="headerTextDiv">
-                <div>
-                    <h2>@Model.Title</h2>
+            <div class="p-5 text-white m-lg-5 headerTextDiv" style="position: absolute; width:36.5rem; height:22.75rem;
+        top: 31.25rem;
+        left: 9.688rem; background-image: linear-gradient(to left,rgba(0,0,0,0.25),rgba(0,0,0,0.6), rgba(0,0,0,1));">
+                <div class="row pb-3">
+                    <h2 >@Model.Title</h2>
                 </div>
-                <div>
-                    <p>@Model.Description</p>
+                <div  class="row">
+                    <p>@Model.Description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit </p>
                 </div>
-                <div>
-                    <button> Knapp</button>
+                <div  class="row mx-5 w-50">
+                    <button class=" btn btn-secondary"> @Model.CtaLinkText <i class="bi bi-arrow-right"></i></button>
                 </div>
             </div>
         </div>
-
-
     </div>
     <nav class="subnav" role="navigation">
         @*
