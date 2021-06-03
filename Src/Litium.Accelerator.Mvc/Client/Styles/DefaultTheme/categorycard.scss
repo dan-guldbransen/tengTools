@@ -4,3 +4,34 @@
 .subcategoryCard {
     border-radius: 25px;
 }
+
+.subcategory {
+    .subcategory-content-wrapper {
+        background-image: linear-gradient(to left,rgba(0,0,0,0.25),rgba(0,0,0,0.6), rgba(0,0,0,1));
+
+        @include media-breakpoint-up(lg) {
+            transform: translateY(-50%);
+            position: absolute;
+            top: 77.2%;
+        }
+
+        @include media-breakpoint-down(lg) {
+            color: $black !important;
+            background-color: $light;
+
+            .btn {
+                border-color: $black;
+                color: $black;
+            }
+        }
+    }
+
+
+    &-content {
+        max-width: 400px;
+    }
+
+    img {
+        width: 100%;
+    }
+}

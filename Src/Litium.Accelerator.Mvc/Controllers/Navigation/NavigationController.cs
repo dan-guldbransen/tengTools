@@ -18,7 +18,7 @@ namespace Litium.Accelerator.Mvc.Controllers.Navigation
         [ChildActionOnly]
         public ActionResult SubNavigationCategory()
         {
-            return PartialView(_subNavigationViewModelBuilder.Build());
+              return PartialView(_subNavigationViewModelBuilder.Build());
         }
 
         public ActionResult CategoryFiltering(int totalHits = 0)
