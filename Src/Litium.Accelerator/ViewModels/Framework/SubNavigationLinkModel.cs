@@ -19,6 +19,7 @@ namespace Litium.Accelerator.ViewModels.Framework
         public string Description { get; set; }
         public string CtaLinkText { get; set; }
         public string CtaLink { get; set; }
+        public int CurrentCategoryLevel { get; set; }
 
 
         internal class Mapper : IAutoMapperConfiguration

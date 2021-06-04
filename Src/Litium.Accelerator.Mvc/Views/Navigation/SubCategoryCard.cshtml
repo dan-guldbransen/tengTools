@@ -1,23 +1,13 @@
 ﻿@model Litium.Accelerator.ViewModels.Framework.SubNavigationLinkModel
 
 
-<div class="card m-lg-2 shadow p-3 mb-5 bg-white subcategoryCard" >
+<div class="card m-lg-2 shadow p-3 mb-5 rounded text-white subcategoryCard">
     <div class="card-body">
-        <div class="row">
-            <div class="col-2 subcategoryCardIcon d-inline-block">
-                <p>Icon</p>
-            </div>
-            <div class="col-8 subcategoryCardName d-inline-block">
-                <h4>@Model.Name</h4>
-            </div>
-            <div class="col-2 subcategoryCardCta text-danger d-inline-block">
-                <p>PIL</p>
-            </div>
+        <div class="d-flex align-items-center justify-content-between">
+            <p> @* model.icon *@</p>
+            <h4>@Model.Name</h4>
+            <i class="bi bi-arrow-right text-danger"></i>
         </div>
-        <div class="row">
-            <div class="col">
-                <p> text text</p>
-            </div>
-        </div>
+        <p>@Model.Description</p>
     </div>
 </div>

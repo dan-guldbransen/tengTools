@@ -133,6 +133,7 @@ namespace Litium.Accelerator.Builders.Search
                 contentLink.Description = selectedLink.Description;
                 contentLink.Image = selectedLink.Image;
                 contentLink.CtaLinkText = "Knapp-text";
+                contentLink.CurrentCategoryLevel = selectedLink.Url.Split('/').Length - 1; ;
             }
            
 

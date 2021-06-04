@@ -6,105 +6,71 @@
     var textColor = "white";
 
     var btnOutline = textColor == "white" ? "light" : "dark";
-    var centerText = "center";
+    var categoryCount = 1;
 }
 
-@if (Model != null)
+
+@if (Model != null && Model.CurrentCategoryLevel < 3)
 {
-    <div class="subcategoryContainer">
-        <div>
-            <div class="headerImage" >
-                <div class="subcategory position-relative">
-                    <img src="@url" alt="subcategory-img" />
-                    <div class="subcategory-content-wrapper text-white px-5 py-5 mx-5 position-absolute">
-                        <div class="py-4 p-md-0 mx-1 mx-md-5 d-flex">
-                            <div class="subcategory-content mx-1 mx-md-5 @( "text-center")">
-                                <h2>@Model.Title</h2>
-                                <p >@Model.Description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderitn</p>
-                                <button class=" btn btn-secondary"> @Model.CtaLinkText <i class="bi bi-arrow-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
+<div class="subcategoryHeadWrapper" style="background-color: ;">
+    <div class="subcategory position-relative">
+        @if (!string.IsNullOrEmpty(url))
+        {
+            <img src="@url" alt="subcategory-img" />
+        }
+        <div class="subcategory-content-wrapper text-white px-5 py-5 mx-5  @(string.IsNullOrEmpty(url) ? "" : "position-absolute")">
+            <div class="py-4 p-md-0 mx-1 mx-md-5 d-flex">
+                <div class="subcategory-content mx-1 mx-md-5 @( "text-center")">
+                    <h2>@Model.Title</h2>
+                    <p>@Model.Description</p>
+                    <button class=" btn btn-secondary"> @Model.CtaLinkText <i class="bi bi-arrow-right text-danger"></i></button>
                 </div>
             </div>
-            
         </div>
     </div>
-    <nav class="subnav" role="navigation">
-        @*
-            <h3 class="subnav__header">
-                @if (Model.Url != null)
-                {
-                    <a href="@Model.Url">@Model.Name</a>
-                }
-                else
-                {
-                    @Model.Name @Model.Name
-                }
-            </h3>
-        *@
-        @DisplayLinks(Model)
-    </nav>
-}
-
-
-@helper DisplayLinks(SubNavigationLinkModel contentLink, string ulCssClass = "")
-{
-    if (contentLink?.Links != null && contentLink.Links.Any())
-    {
-        <ul class="subnav__list @ulCssClass">
-            @foreach (var childLink in contentLink.Links)
+</div>
+    
+    <div class="subcategoryContainer">
+        <nav class="subnav py-5 px-5" role="navigation">
+            @foreach (var link in Model.Links)
             {
-                @*
-                    <li class="subnav__item @GetSubnavigationCssClass(childLink)">
-                        <a class="subnav__link" href="@childLink.Url">@childLink.Name</a>
-                    </li>
-                *@
-                @DisplayLinks(childLink)
-            }
-        </ul>
-
-        <div class="px-5 subcategoryContainer">
-            <table class="table table-borderless">
-                <tr>
-                    @{ int counter = 0;}
-                    @foreach (var childLink in contentLink.Links)
+                if (link.Links != null && link.Links.Any())
+                {
+                    categoryCount++;
+                    foreach (var childLink in link.Links)
                     {
-                        if (childLink.IsSelected == false)
+                        if (childLink.Name == Model.Title && Model.CurrentCategoryLevel == categoryCount)
                         {
-                            counter++;
-                            <td class="col-3 productCardTableTd">
-                                @Html.Partial("SubCategoryCard", childLink)
-                            </td>
-                            if (@counter % 3 == 0)
+                            if (childLink.Links != null && childLink.Links.Any())
                             {
-                            @:</tr>
-                            @:<tr>
+                                <div class="row">
+
+                                    @foreach (var subCategory in childLink.Links)
+                                    {
+                                        <div class="col-12 col-md-4 col-lg-3">
+                                            <a href="@subCategory.Url">
+                                                @Html.Partial("SubCategoryCard", subCategory)
+                                            </a>
+                                        </div>
+
+                                    }
+                                </div>
+
                             }
                         }
                     }
-                </tr>
-            </table>
-        </div>
-    }
-}
+                }
 
-@helper GetSubnavigationCssClass(SubNavigationLinkModel contentLink)
+            }
+
+
+        </nav>
+    </div>
+
+}
+else
 {
-    var classes = new List<string>();
 
-    if (contentLink.Links != null)
-    {
-        classes.Add("has-children");
-        if (contentLink.Links.Any())
-        {
-            classes.Add("expanded");
-        }
-    }
-
-    if (contentLink.IsSelected && (contentLink.Links == null || contentLink.Links.All(x => !x.IsSelected)))
-    {
-        classes.Add("active");
-    }
-    @Html.Raw(classes.Any() ? string.Join(" ", classes) : string.Empty)
 }
+
+
