@@ -13,6 +13,10 @@
     background: url('../../images/search.svg') center no-repeat;
 }
 
+@mixin icon--close-white() {
+    background: transparent url('../../images/close-white.svg') center no-repeat !important;
+}
+
 
 @mixin icon--profile() {
     background: url('../../images/profile.svg') center no-repeat;

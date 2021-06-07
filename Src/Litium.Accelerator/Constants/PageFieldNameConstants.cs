@@ -22,5 +22,6 @@
         public const string OrderLink = "OrderLink";
         public const string OrderHistoryLink = "OrderHistoryLink";
         public const string MayUserEditLogin = "MayUserEditLogin";
+        public const string Description = "Description";
     }
 }

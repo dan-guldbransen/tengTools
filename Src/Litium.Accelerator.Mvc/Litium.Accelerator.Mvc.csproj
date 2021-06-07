@@ -155,6 +155,7 @@
     <Content Include="Client\images\carousel-arrow-left.svg" />
     <Content Include="Client\images\carousel-arrow-right.svg" />
     <Content Include="Client\images\checked.svg" />
+    <Content Include="Client\images\close-white.svg" />
     <Content Include="Client\images\close.svg" />
     <Content Include="Client\images\componentpic.png" />
     <Content Include="Client\images\cross.svg" />
@@ -455,6 +456,8 @@
     <Content Include="Client\Styles\DefaultTheme\contactus.scss" />
     <Content Include="Client\Styles\DefaultTheme\megamenu.scss" />
     <Content Include="Client\Styles\DefaultTheme\Block\hero.scss" />
+    <Content Include="Client\Styles\Bootstrap\_close.scss" />
+    <Content Include="Client\Styles\DefaultTheme\productlist.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
@@ -475,6 +478,7 @@
     <Content Include="Views\DealerAdmin\Index.cshtml" />
     <Content Include="Views\Shared\Framework\Subcategory.cshtml" />
     <Content Include="Views\Block\Hero.cshtml" />
+    <Content Include="Views\ProductList\ProductListProductCard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

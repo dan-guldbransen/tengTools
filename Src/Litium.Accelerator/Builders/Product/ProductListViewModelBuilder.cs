@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Litium.Accelerator.Constants;
 using Litium.Accelerator.Routing;
@@ -15,7 +16,7 @@ namespace Litium.Accelerator.Builders.Product
         private readonly RequestModelAccessor _requestModelAccessor;
         private readonly ProductSearchService _productSearchService;
         private readonly ProductItemViewModelBuilder _productItemBuilder;
-
+       
         public ProductListViewModelBuilder(RequestModelAccessor requestModelAccessor, ProductSearchService productSearchService, ProductItemViewModelBuilder productItemBuilder)
         {
             _requestModelAccessor = requestModelAccessor;
@@ -29,6 +30,7 @@ namespace Litium.Accelerator.Builders.Product
             var viewModel = page.MapTo<ProductListViewModel>();
 
             var searchQuery = _requestModelAccessor.RequestModel.SearchQuery.Clone();
+
             if (searchQuery.PageSize == null)
             {
                 var pageSize = _requestModelAccessor.RequestModel.WebsiteModel.GetValue<int?>(AcceleratorWebsiteFieldNameConstants.ProductsPerPage) ?? DefaultWebsiteFieldValueConstants.ProductsPerPage;

@@ -2,27 +2,53 @@
 @model ProductListViewModel
 
 
-@foreach (var item in Model.Products)
-{
-    <div>@item.Name</div>
-    <a href="@item.Url">Klicka</a>
-}
-
-
-<div id="search-result" class="row">
-    <div class="columns small-12">
-        <div>
-            <h1>@Model.Title</h1>
-            @if (Model.Image != null)
-            {
+<div id="search-result">
+    <div class="row productlist-imageHolder">
+        @if (Model.Image != null)
+        {
+            <div class="productList-categoryImage">
                 @Html.ImageFor(x => x.Image, htmlAttributes: new { @class = "product__group-image" })
-                <p>
-                    @Model.AlternativeImageDescription
-                </p>
-            }
+            </div>
+            <div class="productList-categoryImage-textDiv m-5">
+               <div>
+                   <p class="text-white m-lg-3"><u>Verktyg</u></p>
+                   <h2 class="text-white text-uppercase mx-3">@Model.Title</h2>
+                   <p class="text-white mx-3">@Model.AlternativeImageDescription</p>
+               </div>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col productListLeftSide">
+            <div>
+                <p>@Html.WebSiteString("searchresult.display") @Model.Title</p>
+            </div>
+            <div>
+                <p> filtrering aside</p>
+            </div>
         </div>
-        <div>
-            <div id="facetedSearchCompact" class="compact-filter"></div>
+        <div class="col-10 ml-2 productlistMain">
+            <div class="row my-0 px-lg-4">
+                <div class="col px-lg-5">
+                    @Html.Action("BreadCrumbs", "Layout")
+                </div>
+            </div>
+            <div class="row my-0 px-lg-5">
+                <div class="col px-lg-5">
+                    <div class="col d-inline-block">
+                        <p class="font-weight-bold text-uppercase ">@Html.WebSiteString("searchresult.sortBy")</p>
+                    </div>
+                    <div class="col d-inline-block m-lg-2 w-25 p-3">
+                        @{Html.RenderAction("CategoryFiltering", "Navigation", new { TotalHits = Model.Products.Count });}
+                    </div>
+                </div>
+                <div class="col pt-3">
+                    <div class="col">
+                        <p class="text-center">@string.Format(@Html.WebSiteString("searchresult.displayingProductsAndPages"), Model.Products.Count, Model.Pagination.PageCount)</p>
+                    </div>
+                </div>
+            </div>
+
             @if (Model.Pagination != null && Model.Pagination.TotalCount > 0)
             {
                 if (Model.Pagination.TotalCount > 1)
@@ -31,19 +57,30 @@
                 }
                 if (Model.Products != null && Model.Products.Any())
                 {
-                    @*<div class="row">
-                        <div class="small-12 columns product-list">
-                            <ul class="row product-list">
+                    <div class="px-5">
+                        <table class="table table-borderless">
+                            <tr>
+                                @{ int counter = 0;}
                                 @foreach (var product in Model.Products)
                                 {
-                                    <li class="product-list__item columns small-6 medium-4 large-3">@Html.DisplayFor(x => product, new { maxWidth = 371 })</li>
+                                    counter++;
+                                    <td class="productCardTableTd">
+                                        @Html.Partial("ProductListProductCard", product)
+                                    </td>
+                                    if (@counter % 3 == 0)
+                                    {
+                                    @:</tr>
+                                    @:<tr>
+                                    }
                                 }
-                            </ul>
-                        </div>
-                    </div>*@
+                            </tr>
+                        </table>
+                    </div>
                 }
                 @Html.DisplayFor(x => x.Pagination)
             }
         </div>
-    </div>
+        </div>
 </div>
+
+
