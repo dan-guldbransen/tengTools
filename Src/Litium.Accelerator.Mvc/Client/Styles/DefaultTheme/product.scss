@@ -1,4 +1,4 @@
-@keyframes spin-loading {
+/*@keyframes spin-loading {
     0% {
       transform: rotate(0deg);
     }
@@ -214,4 +214,8 @@
             }
         }
     }
+}*/
+
+.productTabButton:active{
+    border-bottom: 10px red;
 }

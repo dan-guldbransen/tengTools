@@ -2,113 +2,289 @@
 @using Litium.Accelerator.ViewModels.Product
 @model ProductPageViewModel
 
-@if (Model != null)
-{
-    <div class="row" itemscope itemtype="http://schema.org/Product">
-        <div class="small-12 medium-7 columns">@Html.Partial("_Images", Model)</div>
-        <div class="small-12 medium-5 columns">
-            <div class="product-detail">
-                <hgroup>
-                    @if (!string.IsNullOrEmpty(Model.ProductItem.Brand))
-                    {
-                        <h2 class="product-detail__brand" itemprop="brand">@Model.ProductItem.Brand</h2>
-                    }
-                    <h1 class="product-detail__name" itemprop="name">@Model.ProductItem.Name</h1>
-                </hgroup>
-                @if (!string.IsNullOrEmpty(Model.ProductItem.Description))
-                {
-                    <div itemprop="description" class="product-detail__description">@Model.ProductItem.Description</div>
-                }
-                @if (Model.ProductItem.Price != null && Model.ProductItem.Price.Price != null)
-                {
-                    <meta itemprop="sku" content="@Model.ProductItem.Price.Price.UnitOfMeasurementTitle" />
-                }
 
-                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                    <link itemprop="url" href="@Model.ProductItem.Url" />
-                    <div class="product-detail__price-info">
-                        @Html.DisplayFor(x => x.ProductItem.Price)
-                    </div>
-
-                    <div>
-                        <div class="row">
-                            <div class="small-12 columns">
-                                @if (Model.Colors != null && Model.Colors.Any())
-                                {
-                                    <h4 class="product-detail__color-text">@Model.ColorText</h4>
-                                    <ul class="product-detail__variant-color" data-filter="sizefilter" id="colorfilter">
-                                        @foreach (var color in Model.Colors)
-                                        {
-                                            @GetFilterItem(color)
-                                        }
-                                    </ul>
-                                }
-                                @if (Model.Sizes != null && Model.Sizes.Any())
-                                {
-                                    <h4 class="product-detail__size-text">@Model.SizeText</h4>
-                                    <ul class="product-detail__variant-size" data-filter="colorfilter" id="sizefilter">
-                                        @foreach (var size in Model.Sizes)
-                                        {
-                                            @GetFilterItem(size)
-                                        }
-                                    </ul>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                    @Html.Partial("_StockStatus", Model.ProductItem)
-                    @Html.Partial("_TierPriceInfo", Model.ProductItem.Price)
+<div class="container">
+    <div class="row justify-content-center justify-content-around" itemscope itemtype="http://schema.org/Product">
+        <div class="col-12 col-md-4">
+            @Html.Partial("_Images", Model)
+        </div>
+        <div class="col-12 col-md-4">
+            <p class="text-uppercase text-black-50 mb-1">@Model.ProductItem.Id</p>
+            <h3 class="text-uppercase fw-bolder text-primary">
+                @Model.ProductItem.Name
+            </h3>
+            <p class="text-black-50">
+                @Model.ProductItem.LongHeading
+            </p>
+            <p>
+                @Model.ProductItem.ShortDescription
+            </p>
+            <a href="#" class="fw-bold">@Html.WebSiteString("product.readmore")</a>
+            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <div class="mt-3">
+                    <p class="text-primary fs-3 fw-bold mb-0">@Html.DisplayFor(x => x.ProductItem.Price.Price.PriceWithVat)</p>
+                    <p class="fw-light mb-0">@Html.WebSiteString("product.priceinclVAT") | @Html.WebSiteString("product.priceexclVAT") @Html.DisplayFor(x => x.ProductItem.Price)</p>
+                    <small class="text-black-50">@Html.WebSiteString("product.pricedisclaimer")</small>
                 </div>
 
-                @if (Model.ProductItem.ShowQuantityField)
+                @if (Model.Variants.Count() > 0)
                 {
-                    <div class="row-inner product-detail__quantity-container" id="BuyProductContainer">
-                        <div class="small-6 columns">
-                            <label for="@Model.ProductItem.QuantityFieldId">
-                                @Html.WebSiteString("product.quantity")
-                            </label>
-                        </div>
-                        <div class="small-6 large-3 columns">
-                            <input id="@Model.ProductItem.QuantityFieldId" type="number" class="form__input product-detail__quantity-input" data-buy-quantity-input value="1" min="0" max="999" maxlength="3" />
-                        </div>
-                    </div>
+                    <select class="form-select bg-light" aria-label="Default select example">
+                        <option selected>@Model.ProductItem.Name</option>
+                        @foreach (var variant in Model.Variants)
+                        {
+                            <option value="@variant.Url">@variant.Name</option>
+                        }
+                    </select>
                 }
-                @Html.BuyButton(x => x.ProductItem, cssClass: "product-detail__buy-button", isBuyButton: true)
-
-                <div class="product-detail__social-share">
-                    @Html.Raw(Html.WebSiteString("product.socialsharingscript"))
-                </div>
             </div>
         </div>
     </div>
-
-    @Html.Partial("_InformationTabs", Model)
-
-    if (Model.BrandPage != null)
-    {
-        @Html.Partial("_BrandInfo", Model.BrandPage)
-    }
+</div>
 
 
-    @Html.Partial("_MostSold", Model.MostSoldProducts, new ViewDataDictionary { { "Title", Model.ProductItem.Name } })
-
-    @Html.Partial("_RelatedProducts", Model.AccessoriesProducts)
-
-    @Html.Partial("_RelatedProducts", Model.SimilarProducts)
-
-    @helper GetFilterItem(ProductPageViewModel.ProductFilterItem item)
-    {
-        var cssClass = "";
-        if (!item.Enabled)
-        {
-            cssClass += " product-detail__selector-link--disabled";
-        }
-        if (item.IsActive)
-        {
-            cssClass += " product-detail__selector-link--active";
-        }
-        <li class="product-detail__selector-item variant-@item.Value.ToLower()">
-            <a class="product-detail__selector-link @cssClass" href="@item.Url">@item.Title</a>
+<div class="container-fluid mt-5">
+    <ul class="nav nav-tabs nav-justified text-uppercase" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active productTabButton" id="home-tab" data-bs-toggle="tab" data-bs-target="#Description" type="button" role="tab" aria-controls="Description" aria-selected="true">Description</button>
         </li>
-    }
-}
+        <li class="nav-item" role="presentation">
+            <button class="nav-link productTabButton" id="profile-tab" data-bs-toggle="tab" data-bs-target="#Components" type="button" role="tab" aria-controls="Components" aria-selected="false">Components</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link productTabButton" id="contact-tab" data-bs-toggle="tab" data-bs-target="#Specification" type="button" role="tab" aria-controls="Specification" aria-selected="false">Specification</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link productTabButton" id="contact-tab" data-bs-toggle="tab" data-bs-target="#Accessoaries" type="button" role="tab" aria-controls="Accessoaries" aria-selected="false">Accessoaries</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link productTabButton" id="contact-tab" data-bs-toggle="tab" data-bs-target="#Documents" type="button" role="tab" aria-controls="Documents" aria-selected="false">Documents</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <!--Description-->
+        <div class="tab-pane fade show active mt-5 container" id="Description" role="tabpanel" aria-labelledby="home-tab">
+
+            <div class="row">
+                <div class="col-12 col-md-6 col-sm-3">
+                    <h3 class="fw-bold">This is a small heading</h3>
+                    <p class="mt-2 fw-light">
+                        This is one of our most popular products since this complete tool kit covers the requirements of most types of user. [here should we have a text about what products are included in the kit, any recommendations we make] 
+                        All the tools are laid out in individual tool trays using the Teng Tools Get Organised system, which makes it easy to see if any tools have been mislaid or lost helping to prevent leaving them with the work piece. All drawers are filled with tool trays except for 2 of the drawers in the top box.
+
+                        This tool kit is supplied in our classic red 19 drawer stack system with a top box [item id], middle box [item id] and roller cabinet [item id] with the distinctive Teng Tools eyes logo on the drop front of the top box. [Fästjärn TCF01 för fixering av mellanlådan till verktygsvagnen ingår.] [USP regarding the stack system, mobility and easy to reach] All drawers are lockable.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!--Description-->
+
+        <!--Components-->
+        <div class="tab-pane fade mt-5 container" id="Components" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="row">
+                <h3 class="bold">This kit consists of the follow products</h3>
+                <p class="mt-3">ras volutpat sit amet magna sed cursus. Donec luctus molestie ligula, vitae imperdiet metus. Maecenas fringilla leo in velit iaculis, euismod ornare tellus ullamcorper. Nunc quis felis eget orci finibus blandit ut id nisl. Nullam neque nunc, vehicula eleifend facilisis in, maximus sit amet quam. </p>
+            </div>
+
+            <div class="bg-light">
+                <div class="float-end">@Html.WebSiteString("product.components-showaslist")</div>
+
+                <div class="row justify-content-around py-4">
+                    <div class="card rounded col-12 col-md-2 col-sm-3 shadow">
+                        <img src="..." class="card-img-top pt-3" alt="component pic">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-light pb-0">@Html.WebSiteString("product.components-itembuttontext")</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Components-->
+
+        <!--Specification-->
+        <div class="tab-pane fade mt-5 container" id="Specification" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="row">
+                <h3 class="bold">Lorem ipsum vitae imperdiet metus</h3>
+                <p class="mt-3">ras volutpat sit amet magna sed cursus. Donec luctus molestie ligula, vitae imperdiet metus. Maecenas fringilla leo in velit iaculis, euismod ornare tellus ullamcorper. Nunc quis felis eget orci finibus blandit ut id nisl. Nullam neque nunc, vehicula eleifend facilisis in, maximus sit amet quam. </p>
+            </div>
+            <div class="col-12 col-md-8 col-sm-6">
+                <table class="table border border-2 border-light">
+                    <thead class="bg-light">
+                        <tr>
+                            <th scope="col">Lorem</th>
+                            <th scope="col">Ipsum</th>
+                        </tr>
+                    </thead>
+                    <tbody class="border border-2 border-black-50">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Specification-->
+
+        <!--Accessoaries-->
+        <div class="tab-pane fade mt-5 container" id="Accessoaries" role="tabpanel" aria-labelledby="contact-tab">
+
+            <div class="row">
+                <h3 class="bold">This kit consists of the follow products</h3>
+                <p class="mt-3">ras volutpat sit amet magna sed cursus. Donec luctus molestie ligula, vitae imperdiet metus. Maecenas fringilla leo in velit iaculis, euismod ornare tellus ullamcorper. Nunc quis felis eget orci finibus blandit ut id nisl. Nullam neque nunc, vehicula eleifend facilisis in, maximus sit amet quam. </p>
+            </div>
+
+            <div class="bg-light">
+                <div class="float-end">@Html.WebSiteString("product.components-showaslist")</div>
+
+                <div class="row justify-content-around py-4">
+                    <div class="card rounded col-12 col-md-2 col-sm-3 shadow">
+                        <img src="..." class="card-img-top pt-3" alt="component pic">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-light pb-0">@Html.WebSiteString("product.components-itembuttontext")</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--Accessoaries-->
+
+        <!--Documents-->
+        <div class="tab-pane fade" id="Documents" role="tabpanel" aria-labelledby="contact-tab">
+
+        </div>
+        <!--Documents-->
+    </div>
+    <!--PAGINATION HÄR-->
+</div>
+
+
+
+<!--Gamla html-->
+@*@if (Model != null)
+    {
+        <div class="row" itemscope itemtype="http://schema.org/Product">
+            <div class="small-12 medium-7 columns">@Html.Partial("_Images", Model)</div>
+            <div class="small-12 medium-5 columns">
+                <div class="product-detail">
+                    <hgroup>
+                        @if (!string.IsNullOrEmpty(Model.ProductItem.Brand))
+                        {
+                            <h2 class="product-detail__brand" itemprop="brand">@Model.ProductItem.Brand</h2>
+                        }
+                        <h1 class="product-detail__name" itemprop="name">@Model.ProductItem.Name</h1>
+                    </hgroup>
+                    @if (!string.IsNullOrEmpty(Model.ProductItem.Description))
+                    {
+                        <div itemprop="description" class="product-detail__description">@Model.ProductItem.Description</div>
+                    }
+                    @if (Model.ProductItem.Price != null && Model.ProductItem.Price.Price != null)
+                    {
+                        <meta itemprop="sku" content="@Model.ProductItem.Price.Price.UnitOfMeasurementTitle" />
+                    }
+
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        <link itemprop="url" href="@Model.ProductItem.Url" />
+                        <div class="product-detail__price-info">
+                            @Html.DisplayFor(x => x.ProductItem.Price)
+                        </div>
+
+                        <div>
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    @if (Model.Colors != null && Model.Colors.Any())
+                                    {
+                                        <h4 class="product-detail__color-text">@Model.ColorText</h4>
+                                        <ul class="product-detail__variant-color" data-filter="sizefilter" id="colorfilter">
+                                            @foreach (var color in Model.Colors)
+                                            {
+                                                @GetFilterItem(color)
+                                            }
+                                        </ul>
+                                    }
+                                    @if (Model.Sizes != null && Model.Sizes.Any())
+                                    {
+                                        <h4 class="product-detail__size-text">@Model.SizeText</h4>
+                                        <ul class="product-detail__variant-size" data-filter="colorfilter" id="sizefilter">
+                                            @foreach (var size in Model.Sizes)
+                                            {
+                                                @GetFilterItem(size)
+                                            }
+                                        </ul>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        @Html.Partial("_StockStatus", Model.ProductItem)
+                        @Html.Partial("_TierPriceInfo", Model.ProductItem.Price)
+                    </div>
+
+                    @if (Model.ProductItem.ShowQuantityField)
+                    {
+                        <div class="row-inner product-detail__quantity-container" id="BuyProductContainer">
+                            <div class="small-6 columns">
+                                <label for="@Model.ProductItem.QuantityFieldId">
+                                    @Html.WebSiteString("product.quantity")
+                                </label>
+                            </div>
+                            <div class="small-6 large-3 columns">
+                                <input id="@Model.ProductItem.QuantityFieldId" type="number" class="form__input product-detail__quantity-input" data-buy-quantity-input value="1" min="0" max="999" maxlength="3" />
+                            </div>
+                        </div>
+                    }
+                    @Html.BuyButton(x => x.ProductItem, cssClass: "product-detail__buy-button", isBuyButton: true)
+
+                    <div class="product-detail__social-share">
+                        @Html.Raw(Html.WebSiteString("product.socialsharingscript"))
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @Html.Partial("_InformationTabs", Model)
+
+        if (Model.BrandPage != null)
+        {
+            @Html.Partial("_BrandInfo", Model.BrandPage)
+        }
+
+
+        @Html.Partial("_MostSold", Model.MostSoldProducts, new ViewDataDictionary { { "Title", Model.ProductItem.Name } })
+
+        @Html.Partial("_RelatedProducts", Model.AccessoriesProducts)
+
+        @Html.Partial("_RelatedProducts", Model.SimilarProducts)
+
+        @helper GetFilterItem(ProductPageViewModel.ProductFilterItem item)
+        {
+            var cssClass = "";
+            if (!item.Enabled)
+            {
+                cssClass += " product-detail__selector-link--disabled";
+            }
+            if (item.IsActive)
+            {
+                cssClass += " product-detail__selector-link--active";
+            }
+            <li class="product-detail__selector-item variant-@item.Value.ToLower()">
+                <a class="product-detail__selector-link @cssClass" href="@item.Url">@item.Title</a>
+            </li>
+        }
+    }*@

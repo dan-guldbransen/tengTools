@@ -18,10 +18,10 @@
     <AssemblyName>Litium.Accelerator.Mvc</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>53023</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -156,6 +156,7 @@
     <Content Include="Client\images\carousel-arrow-right.svg" />
     <Content Include="Client\images\checked.svg" />
     <Content Include="Client\images\close.svg" />
+    <Content Include="Client\images\componentpic.png" />
     <Content Include="Client\images\cross.svg" />
     <Content Include="Client\images\cta-arrow-red-small.svg" />
     <Content Include="Client\images\cta-arrow-red.svg" />

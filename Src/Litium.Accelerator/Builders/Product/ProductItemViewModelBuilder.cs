@@ -67,7 +67,9 @@ namespace Litium.Accelerator.Builders.Product
                 ShowBuyButton = websiteModel.GetValue<bool>(AcceleratorWebsiteFieldNameConstants.ShowBuyButton),
                 ShowQuantityField = inProductListPage ? websiteModel.GetValue<bool>(AcceleratorWebsiteFieldNameConstants.ShowQuantityFieldProductList)
                                                       : websiteModel.GetValue<bool>(AcceleratorWebsiteFieldNameConstants.ShowQuantityFieldProductPage),
-                UseVariantUrl = productModel.UseVariantUrl
+                UseVariantUrl = productModel.UseVariantUrl,
+                ShortDescription = _fieldDefinitionService.Get<ProductArea>("ItemShortDescription").GetTranslation(productModel.GetValue<string>("ItemShortDescription")),
+                LongHeading = _fieldDefinitionService.Get<ProductArea>("ProductLongHeading").GetTranslation(productModel.GetValue<string>("ProductLongHeading"))
             };
         }
     }
