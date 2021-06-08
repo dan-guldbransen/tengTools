@@ -34,6 +34,14 @@ namespace Litium.Accelerator.Definitions.Products
                 },
                 #endregion
 
+
+                new FieldDefinition<ProductArea>("HideLeftColumn", SystemFieldTypeConstants.Boolean )
+                {
+                    CanBeGridColumn = false,
+                    CanBeGridFilter = false,
+                    MultiCulture = false
+                },
+
                 #region Shared fields product and variant req by inRiver
                 #endregion
 

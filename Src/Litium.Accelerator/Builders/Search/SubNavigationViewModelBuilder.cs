@@ -6,6 +6,7 @@ using Litium.Accelerator.Extensions;
 using Litium.Accelerator.Routing;
 using Litium.Accelerator.Search;
 using Litium.Accelerator.ViewModels.Framework;
+using Litium.Accelerator.ViewModels.Product;
 using Litium.Common;
 using Litium.FieldFramework;
 using Litium.Foundation.Modules.ExtensionMethods;
@@ -52,9 +53,9 @@ namespace Litium.Accelerator.Builders.Search
             PageService pageService,
             UrlService urlService,
             SearchQueryBuilderFactory searchQueryBuilderFactory,
-            PageSearchService pageSearchService,
-            AuthorizationService authorizationService,
-            ICollection<IRenderingValidator<Category>> renderingValidators)
+            PageSearchService pageSearchService, 
+            AuthorizationService authorizationService, 
+       ICollection<IRenderingValidator<Category>> renderingValidators)
         {
             _requestModelAccessor = requestModelAccessor;
             _routeRequestInfoAccessor = routeRequestInfoAccessor;
@@ -132,11 +133,8 @@ namespace Litium.Accelerator.Builders.Search
                 contentLink.Title = selectedLink.Name;
                 contentLink.Description = selectedLink.Description;
                 contentLink.Image = selectedLink.Image;
-                contentLink.CtaLinkText = "Knapp-text";
                 contentLink.CurrentCategoryLevel = selectedLink.Url.Split('/').Length - 1; ;
             }
-           
-
             return contentLink;
         }
 

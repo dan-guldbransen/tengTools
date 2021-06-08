@@ -1,0 +1,27 @@
+﻿@model Litium.Accelerator.ViewModels.Product.ProductItemViewModel
+
+@{
+    var price = "";
+    var currency = "";
+    if (Model.Currency != null)
+    {
+        currency = Model.Currency.Symbol;
+    }
+    var url = Model.Images?.FirstOrDefault().GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(0, 0))?.Url;
+}
+
+<div class="card m-lg-2 shadow p-3 mb-5 bg-white productlistCard">
+    <a href="@Model.Url">
+        <img src="@url" class="card-img-top" alt="product-img" />
+        <div class="card-body">
+            <h5>@Model.Name</h5>
+            <p>@Model.Id</p>
+            @if (Model.Price != null && Model.Price.Price != null)
+            {
+                price = Model.Price.Price.Price.ToString();
+            }
+            <h5 class="text-danger">@price  @currency</h5>
+
+        </div>
+    </a>
+</div>

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Litium.Accelerator.ViewModels.Framework;
+using Litium.Web.Models;
 using Litium.Web.Models.Blocks;
 using Newtonsoft.Json;
 
@@ -20,5 +22,8 @@ namespace Litium.Accelerator.ViewModels.Product
         public bool ShowRegularHeader { get; set; }
         public bool ShowFilterHeader { get; set; }
         public bool ShowSections { get; set; }
+        public bool ShowProducts { get; set; }
+        public IList<SubNavigationLinkModel> Links { get; set; } = new List<SubNavigationLinkModel>();
+        public ImageModel Image { get; set; }
     }
 }

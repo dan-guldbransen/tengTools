@@ -49,6 +49,7 @@ namespace Litium.Accelerator.Definitions.Products
                                 "_seoTitle",
                                 "_seoDescription",
                                 "AcceleratorFilterFields",
+                                "HideLeftColumn",
                                 ProductFieldNameConstants.OrganizationsPointer
                             }
                         }

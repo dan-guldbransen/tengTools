@@ -2199,4 +2199,10 @@
   <data name="panels.DealerUploadPanel.title" xml:space="preserve">
     <value>Dealers</value>
   </data>
+  <data name="fielddefinition.productarea.HideLeftColumn.description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fielddefinition.productarea.HideLeftColumn.name" xml:space="preserve">
+    <value>Hide left column</value>
+  </data>
 </root>

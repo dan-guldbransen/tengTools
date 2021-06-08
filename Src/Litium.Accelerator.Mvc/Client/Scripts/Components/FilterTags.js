@@ -15,7 +15,7 @@ const FilterTags = (({facetFilters, searchFacetChange, navigationTheme}) => {
         ];
     }, []);
     return ( selectedFacetGroup.length === 0 ? null :
-        <div className="selected-filter hide-for-large">
+        <div className="selected-filter d-block d-lg-none">
             <span>
                 <span> {translate('search.yourfilter')} : </span>
                 {selectedFacetGroup && selectedFacetGroup.map((group, index) =>

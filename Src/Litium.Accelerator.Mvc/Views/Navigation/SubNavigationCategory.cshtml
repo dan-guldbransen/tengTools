@@ -1,76 +1,57 @@
 ﻿@using Litium.Accelerator.ViewModels.Framework
 @model SubNavigationLinkModel
 
-@{
-    var url = Model.Image?.GetUrlToImage(new System.Drawing.Size(0, 0), new System.Drawing.Size(0, 0))?.Url;
-    var textColor = "white";
-
-    var btnOutline = textColor == "white" ? "light" : "dark";
-    var categoryCount = 1;
-}
 
 
-@if (Model != null && Model.CurrentCategoryLevel < 3)
+@if (Model != null)
 {
-<div class="subcategoryHeadWrapper" style="background-color: ;">
-    <div class="subcategory position-relative">
-        @if (!string.IsNullOrEmpty(url))
-        {
-            <img src="@url" alt="subcategory-img" />
-        }
-        <div class="subcategory-content-wrapper text-white px-5 py-5 mx-5  @(string.IsNullOrEmpty(url) ? "" : "position-absolute")">
-            <div class="py-4 p-md-0 mx-1 mx-md-5 d-flex">
-                <div class="subcategory-content mx-1 mx-md-5 @( "text-center")">
-                    <h2>@Model.Title</h2>
-                    <p>@Model.Description</p>
-                    <button class=" btn btn-secondary"> @Model.CtaLinkText <i class="bi bi-arrow-right text-danger"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    
-    <div class="subcategoryContainer">
-        <nav class="subnav py-5 px-5" role="navigation">
-            @foreach (var link in Model.Links)
+    <nav class="subnav" role="navigation">
+        <h3 class="subnav__header">
+            @if (Model.Url != null)
             {
-                if (link.Links != null && link.Links.Any())
-                {
-                    categoryCount++;
-                    foreach (var childLink in link.Links)
-                    {
-                        if (childLink.Name == Model.Title && Model.CurrentCategoryLevel == categoryCount)
-                        {
-                            if (childLink.Links != null && childLink.Links.Any())
-                            {
-                                <div class="row">
-
-                                    @foreach (var subCategory in childLink.Links)
-                                    {
-                                        <div class="col-12 col-md-4 col-lg-3">
-                                            <a href="@subCategory.Url">
-                                                @Html.Partial("SubCategoryCard", subCategory)
-                                            </a>
-                                        </div>
-
-                                    }
-                                </div>
-
-                            }
-                        }
-                    }
-                }
-
+                <a href="@Model.Url">@Model.Name</a>
             }
-
-
-        </nav>
-    </div>
-
+            else
+            {
+                @Model.Name
+            }
+        </h3>
+        @DisplayLinks(Model)
+    </nav>
 }
-else
+
+@helper DisplayLinks(SubNavigationLinkModel contentLink, string ulCssClass = "")
 {
-
+    if (contentLink?.Links != null && contentLink.Links.Any())
+    {
+        <ul class="subnav__list @ulCssClass">
+            @foreach (var childLink in contentLink.Links)
+            {
+                <li class="subnav__item @GetSubnavigationCssClass(childLink)">
+                    <a class="subnav__link" href="@childLink.Url">@childLink.Name</a>
+                    @DisplayLinks(childLink)
+                </li>
+            }
+        </ul>
+    }
 }
 
+@helper GetSubnavigationCssClass(SubNavigationLinkModel contentLink)
+{
+    var classes = new List<string>();
 
+    if (contentLink.Links != null)
+    {
+        classes.Add("has-children");
+        if (contentLink.Links.Any())
+        {
+            classes.Add("expanded");
+        }
+    }
+
+    if (contentLink.IsSelected && (contentLink.Links == null || contentLink.Links.All(x => !x.IsSelected)))
+    {
+        classes.Add("active");
+    }
+    @Html.Raw(classes.Any() ? string.Join(" ", classes) : string.Empty)
+}

@@ -65,5 +65,6 @@
         public const string PartnerYoutube = "PartnerYoutube";
 
         public const string BlogTagList = "BlogTagList";
+        public const string HideLeftColumn = "HideLeftColumn";
     }
 }

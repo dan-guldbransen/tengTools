@@ -347,7 +347,6 @@
     <Content Include="Views\Block\ProductsAndBanner.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Navigation\SubNavigationCategory.cshtml" />
     <Content Include="Views\Shared\_LayoutWithLeftColumn.cshtml" />
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\MyPages\_LoginInfoPanel.cshtml" />
@@ -455,6 +454,7 @@
     <Content Include="Client\Styles\DefaultTheme\megamenu.scss" />
     <Content Include="Client\Styles\DefaultTheme\Block\hero.scss" />
     <Content Include="Client\Styles\DefaultTheme\categorycard.scss" />
+    <Content Include="Client\Styles\DefaultTheme\productlist.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
@@ -476,6 +476,9 @@
     <Content Include="Views\Shared\Framework\Subcategory.cshtml" />
     <Content Include="Views\Block\Hero.cshtml" />
     <Content Include="Views\Navigation\SubCategoryCard.cshtml" />
+    <Content Include="Views\ProductList\PoductListProductCard.cshtml" />
+    <Content Include="Views\Category\SubCategoryCard.cshtml" />
+    <Content Include="Views\Navigation\SubNavigationCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

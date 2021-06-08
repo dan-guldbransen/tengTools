@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Litium.Accelerator.Constants;
 using Litium.Accelerator.Extensions;
 using Litium.Accelerator.Routing;
@@ -29,7 +31,7 @@ namespace Litium.Accelerator.Builders.Menu
             var showleftColumn = false;
             if (_routeRequestInfoAccessor.RouteRequestInfo?.Data is ProductPageData productCatalogData)
             {
-                if (productCatalogData.BaseProductSystemId != null)
+            if (productCatalogData.BaseProductSystemId != null || productCatalogData.CategorySystemId.GetValueOrDefault().GetCategory().Fields.GetValue<bool>(AcceleratorWebsiteFieldNameConstants.HideLeftColumn))
                 {
                     return new MenuViewModel()
                     {

@@ -11,22 +11,22 @@
 		var bareLayout = (bool?)ViewContext.RouteData.DataTokens["BareLayout"] == true;
 	}
 
-	<div class="main-page">
-		@if (!bareLayout)
-		{
-			@Html.Action("Header", "Layout")
-			@Html.Action("BreadCrumbs", "Layout")
-		}
-		<main class="main-content">
-			@RenderBody()
-		</main>
-		@if (!bareLayout)
-		{
-			@Html.Action("Footer", "Layout")
-		}
-		@Html.Action("CookieNotification", "Layout")
-		<div id="globalNotification" />
-	</div>
+    <div class="main-page">
+        @if (!bareLayout)
+        {
+            @Html.Action("Header", "Layout")
+            @RenderSection("BreadCrumbs", required: false)
+        }
+        <main class="main-content">
+            @RenderBody()
+        </main>
+        @if (!bareLayout)
+        {
+            @Html.Action("Footer", "Layout")
+        }
+        @Html.Action("CookieNotification", "Layout")
+        <div id="globalNotification" />
+    </div>
 
 	<script src="~/ui/bootstrap/popper.min.js"></script>
 	<script src="~/ui/bootstrap/bootstrap.min.js"></script>

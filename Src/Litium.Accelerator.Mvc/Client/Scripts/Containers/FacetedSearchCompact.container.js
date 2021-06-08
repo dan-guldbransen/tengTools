@@ -91,7 +91,7 @@ class FacetedSearchCompactContainer extends Component {
         return ( hidden ? null :
             <Fragment>
                 <FilterTag {...{...facetProps, navigationTheme}} />
-                <Accordion className='compact-filter hide-for-large'>
+                <Accordion className='compact-filter d-block d-lg-none'>
                     {!empty(subNavigations) &&
                     <AccordionPanel header={translate('facet.header.categories')}>
                         <SubNav {...{subNavigation: subNavigations}}/>

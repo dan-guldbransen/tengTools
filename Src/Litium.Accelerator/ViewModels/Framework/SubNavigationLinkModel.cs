@@ -17,8 +17,6 @@ namespace Litium.Accelerator.ViewModels.Framework
         public ImageModel Image { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string CtaLinkText { get; set; }
-        public string CtaLink { get; set; }
         public int CurrentCategoryLevel { get; set; }
 
 

@@ -1,72 +1,78 @@
 ﻿@model Litium.Accelerator.ViewModels.Dealer.DealerListViewModel
+@section BreadCrumbs
+{
+    <section class="container">
+        @Html.Action("BreadCrumbs", "Layout")
+    </section>
+}
 <div class="container pb-5">
-	@if (!string.IsNullOrEmpty(Model.PageTitle))
-	{
-		<h2 class="text-uppercase mt-4">@Model.PageTitle</h2>
+    @if (!string.IsNullOrEmpty(Model.PageTitle))
+    {
+        <h2 class="text-uppercase mt-4">@Model.PageTitle</h2>
 
-		<hr class="hr mb-4" />
-	}
+        <hr class="hr mb-4" />
+    }
 
-<div class="mb-5">
-	<div class="d-block mb-2"><input type="text" placeholder="@Html.WebSiteString("dealers.searchplaceholder")" class="form-control w-100 dealer-search"></div>
-	<div class="form-check-inline">
-		<label class="form-label">@Html.WebSiteString("dealers.filter"):</label>
-	</div>
-	<div class="form-check form-check-inline">
-		<input class="form-check-input" type="checkbox" id="physicalCheckbox" value="physical" checked="checked"> 
-		<label class="form-check-label" for="physicalCheckbox">@Html.WebSiteString("dealers.physicalstore")</label>
-	</div>
-	<div class="form-check form-check-inline">
-		<input class="form-check-input" type="checkbox" id="ecomCheckbox" value="ecom" checked="checked">
-		<label class="form-check-label" for="ecomCheckbox">@Html.WebSiteString("dealers.ecom")</label>
-	</div>
-</div>
+    <div class="mb-5">
+        <div class="d-block mb-2"><input type="text" placeholder="@Html.WebSiteString("dealers.searchplaceholder")" class="form-control w-100 dealer-search"></div>
+        <div class="form-check-inline">
+            <label class="form-label">@Html.WebSiteString("dealers.filter"):</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="physicalCheckbox" value="physical" checked="checked">
+            <label class="form-check-label" for="physicalCheckbox">@Html.WebSiteString("dealers.physicalstore")</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="ecomCheckbox" value="ecom" checked="checked">
+            <label class="form-check-label" for="ecomCheckbox">@Html.WebSiteString("dealers.ecom")</label>
+        </div>
+    </div>
 
-	<div class="dealer-container mt-5">
-		@if (Model.Dealers != null && Model.Dealers.Any())
-		{
-			foreach (var group in Model.Dealers)
-			{
-				<h2 class="text-decoration-underline">
-					@group.Key
-				</h2>
+    <div class="dealer-container mt-5">
+        @if (Model.Dealers != null && Model.Dealers.Any())
+        {
+            foreach (var group in Model.Dealers)
+            {
+                <h2 class="text-decoration-underline">
+                    @group.Key
+                </h2>
 
-				var counter = 0;
+                var counter = 0;
 
-				<div class="accordion accordion-flush" id="dealeraccordion-@(group.Key)">
-					@foreach (var item in group)
-					{
-						counter++;
-						var id = "dealeritem-" + group.Key + "-" + counter;
+                <div class="accordion accordion-flush" id="dealeraccordion-@(group.Key)">
+                    @foreach (var item in group)
+                    {
+                        counter++;
+                        var id = "dealeritem-" + group.Key + "-" + counter;
 
-						<div class="accordion-item">
-							<h2 class="accordion-header" id="flush-heading@(id)">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse@(id)" aria-expanded="false" aria-controls="flush-collapse@(id)">
-									@item.CompanyName, @item.Country
-								</button>
-							</h2>
-							<div id="flush-collapse@(id)" class="accordion-collapse collapse" aria-labelledby="flush-heading@(id)" data-bs-parent="#dealeraccordion-@(group.Key)">
-								<div class="accordion-body">
-									<div class="container-fluid">
-										<div class="row">
-											<div class="col-12 col-md-6 col-lg-4">
-												<p><i class="bi-telephone me-2"></i> @item.Phone</p>
-												<p><i class="bi-envelope me-2"></i><a href="mailto: @item.Email"> @item.Email</a></p>
-												<p><i class="bi-globe2 me-2"></i><a href="@item.Website" target="_blank">@item.Website</a></p>
-											</div>
-											<div class="col-12 col-md-6 col-lg-5">
-												<p class="mb-1"><i class="bi-house-door me-2"></i> @item.CompanyName</p>
-												<p class="mb-1 ps-4">@item.StreetAdress</p>
-												<p class="ps-4">@item.ZipCode @item.City</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					}
-				</div>
-			}
-		}
-	</div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading@(id)">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse@(id)" aria-expanded="false" aria-controls="flush-collapse@(id)">
+                                    @item.CompanyName, @item.Country
+                                </button>
+                            </h2>
+                            <div id="flush-collapse@(id)" class="accordion-collapse collapse" aria-labelledby="flush-heading@(id)" data-bs-parent="#dealeraccordion-@(group.Key)">
+                                <div class="accordion-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <p><i class="bi-telephone me-2"></i> @item.Phone</p>
+                                                <p><i class="bi-envelope me-2"></i><a href="mailto: @item.Email"> @item.Email</a></p>
+                                                <p><i class="bi-globe2 me-2"></i><a href="@item.Website" target="_blank">@item.Website</a></p>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-5">
+                                                <p class="mb-1"><i class="bi-house-door me-2"></i> @item.CompanyName</p>
+                                                <p class="mb-1 ps-4">@item.StreetAdress</p>
+                                                <p class="ps-4">@item.ZipCode @item.City</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
 </div>

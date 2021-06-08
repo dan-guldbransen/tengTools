@@ -3,13 +3,12 @@
 }
 
 <div class="row">
-    <aside class="columns large-2 show-for-large">
+    <aside class="d-none d-lg-block col-lg-2">
         @Html.Action("SubNavigationCategory", "Navigation")
-
         <div role="navigation" id="facetedSearch">
         </div>
     </aside>
-    <div class="medium-12 large-10 columns">
+    <div class="col-12 col-lg-10">
         @RenderBody()
     </div>
 </div>

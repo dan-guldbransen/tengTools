@@ -9,7 +9,7 @@ import { historyMiddleware } from './Middlewares/History.middleware';
 import MiniCartContainer from './Containers/MiniCart.container';
 import QuickSearchContainer from './Containers/QuickSearch.container';
 import NavigationContainer from './Containers/Navigation.container';
-//import FacetedSearchContainer from './Containers/FacetedSearch.container';
+import FacetedSearchContainer from './Containers/FacetedSearch.container';
 import FacetedSearchCompactContainer from './Containers/FacetedSearchCompact.container';
 import DynamicComponent from './Components/DynamicComponent';
 
