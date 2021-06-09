@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Litium.Web.Models;
 using Litium.Web.Models.Blocks;
 using Newtonsoft.Json;
 
@@ -14,7 +15,7 @@ namespace Litium.Accelerator.ViewModels.Product
         public List<string> Images { get; set; }
         [JsonProperty(Order = 4)]
         public List<ProductItemViewModel> Products { get; set; }
-
+        public string ParentName { get; set; }
         public Dictionary<string, List<BlockModel>> Blocks { get; set; }
         public PaginationViewModel Pagination { get; set; }
         public bool ShowRegularHeader { get; set; }

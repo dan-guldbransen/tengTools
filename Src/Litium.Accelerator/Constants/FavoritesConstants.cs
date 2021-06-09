@@ -8,6 +8,6 @@ namespace Litium.Accelerator.Constants
 {
     public class FavoritesConstants
     {
-        public const string FavoritesCookieName = "favorites.variantsystemids";
+        public const string FavoritesCookieName = "favorites.variantids";
     }
 }

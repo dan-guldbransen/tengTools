@@ -36,6 +36,10 @@
         .nav-item {
             a.nav-link {
                 color: $white !important;
+
+                &.show{
+                    color: $primary !important;
+                }
             }
         }
 
@@ -46,10 +50,10 @@
                 margin-left: 1rem;
 
                 .bi {
-                    font-size: 2rem;
+                    font-size: 1.4rem;
 
                     &.bi-person {
-                        font-size: 2.2rem;
+                        font-size: 1.6rem;
                     }
 
                     @include media-breakpoint-up(lg) {

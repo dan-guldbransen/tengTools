@@ -13,13 +13,13 @@ namespace Litium.Accelerator.ViewModels.Block
     public class HeroBlockViewModel : IViewModel, IAutoMapperConfiguration
     {
         public Guid SystemId { get; set; }
-        public string Title { get; set; }
-        public string SubTitle { get; set; }
-        public string Text { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string SubTitle { get; set; } = string.Empty;
+        public string Text { get; set; } = string.Empty;
         public ImageModel BackgroundImage { get; set; }
-        public string ContentPosition { get; set; }
-        public string ContentColor { get; set; }
-        public string LinkText { get; set; }
+        public string ContentPosition { get; set; } = string.Empty;
+        public string ContentColor { get; set; } = string.Empty;
+        public string LinkText { get; set; } = string.Empty;
         public LinkModel LinkUrl { get; set; }
 
         public string Offset

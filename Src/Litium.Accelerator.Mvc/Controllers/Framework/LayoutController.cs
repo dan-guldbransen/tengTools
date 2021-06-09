@@ -6,6 +6,7 @@ using Litium.Web.Models.Products;
 using Litium.Accelerator.Constants;
 using System.Web;
 using Litium.Accelerator.Utilities;
+using Litium.Products;
 
 namespace Litium.Accelerator.Mvc.Controllers.Framework
 {
@@ -21,6 +22,8 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         private readonly BodyViewModelBuilder _bodyViewModelBuilder;
         private readonly MarketSelectorViewModelBuilder<MarketSelectorViewModel> _marketSelectorViewModelBuilder;
         private readonly CookieNotificationViewModelBuilder<CookieNotificationViewModel> _cookieNotificationViewModelBuilder;
+        private readonly FavoritesViewModelBuilder<FavoritesViewModel> _favoritesViewModelBuilder;
+        private readonly DisplayTemplateService _displayTemplateService;
 
         public LayoutController(
             BreadCrumbsViewModelBuilder<BreadCrumbsViewModel> breadCrumbsViewModelBuilder,
@@ -29,7 +32,9 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             FooterViewModelBuilder<FooterViewModel> footerViewModelBuilder,
             BodyViewModelBuilder bodyViewModelBuilder,
             MarketSelectorViewModelBuilder<MarketSelectorViewModel> marketSelectorViewModelBuilder,
-            CookieNotificationViewModelBuilder<CookieNotificationViewModel> cookieNotificationViewModelBuilder)
+            CookieNotificationViewModelBuilder<CookieNotificationViewModel> cookieNotificationViewModelBuilder,
+            FavoritesViewModelBuilder<FavoritesViewModel> favoritesViewModelBuilder,
+            DisplayTemplateService displayTemplateService)
         {
             _breadCrumbsViewModelBuilder = breadCrumbsViewModelBuilder;
             _headViewModelBuilder = headViewModelBuilder;
@@ -38,6 +43,8 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             _bodyViewModelBuilder = bodyViewModelBuilder;
             _marketSelectorViewModelBuilder = marketSelectorViewModelBuilder;
             _cookieNotificationViewModelBuilder = cookieNotificationViewModelBuilder;
+            _favoritesViewModelBuilder = favoritesViewModelBuilder;
+            _displayTemplateService = displayTemplateService;
         }
 
         [ChildActionOnly]
@@ -83,6 +90,10 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         [ChildActionOnly]
         public ActionResult BreadCrumbs(PageModel currentPageModel, CategoryModel categoryModel, ProductModel currentProductModel, int startLevel = 0)
         {
+            // dont show on category page
+            if(categoryModel != null && currentProductModel == null) 
+                return Content("");
+
             var viewModel = _breadCrumbsViewModelBuilder.BuildBreadCrumbs(currentPageModel, categoryModel, currentProductModel, startLevel);
             return PartialView("Framework/BreadCrumbs", viewModel);
         }
@@ -120,7 +131,12 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
             var cookie = Request.Cookies[FavoritesConstants.FavoritesCookieName];
             if(cookie != null)
             {
-                var variantSystemIds = Request.Cookies[FavoritesConstants.FavoritesCookieName].Value;
+                var variantSystemIds = Request.Cookies[FavoritesConstants.FavoritesCookieName]?.Value ?? string.Empty;
+                if (!string.IsNullOrEmpty(variantSystemIds))
+                {
+                    var decodedValue = HttpUtility.UrlDecode(variantSystemIds);
+                    model = _favoritesViewModelBuilder.Build(decodedValue.Split(','));
+                }
             }
 
             return PartialView("Framework/Favorites", model);

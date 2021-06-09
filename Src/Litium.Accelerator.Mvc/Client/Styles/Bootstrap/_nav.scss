@@ -1,0 +1,14 @@
+﻿.nav-tabs {
+    border-bottom: $nav-tabs-border-width dashed $nav-tabs-border-color;
+
+    @include media-breakpoint-up(lg) {
+        padding-left: 300px;
+        padding-right: 300px;
+    }
+
+    .nav-link.active,
+    .nav-item.show .nav-link {
+        border: none;
+        border-bottom: 1px solid $primary;
+    }
+}

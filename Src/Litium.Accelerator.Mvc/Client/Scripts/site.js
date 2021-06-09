@@ -17,3 +17,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
 });
+
+function SuccessMessage(message) {
+
+}
+
+function WarningMessage() {
+
+}
+
+function ErrorMessage(message) {
+
+}
