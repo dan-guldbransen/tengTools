@@ -15,8 +15,12 @@
 		@if (!bareLayout)
 		{
 			@Html.Action("Header", "Layout")
+			
+			@RenderSection("PresentationHero", required: false);
+
 			@Html.Action("BreadCrumbs", "Layout")
 		}
+		@Html.Action("Favorites", "Layout")
 		<main class="main-content">
 			@RenderBody()
 		</main>

@@ -1,15 +1,19 @@
 ﻿@{
-    Layout = "_Layout.cshtml";
+	Layout = "_Layout.cshtml";
+}
+@section PresentationHero
+{
+	@RenderSection("PresentationHero", required: false)
 }
 
 <div class="row">
-    <aside class="columns large-2 show-for-large">
-        @Html.Action("SubNavigationCategory", "Navigation")
+	<aside class="d-none d-lg-block col-lg-3 py-5 ps-5">
+		@Html.Action("SubNavigationCategory", "Navigation")
 
-        <div role="navigation" id="facetedSearch">
-        </div>
-    </aside>
-    <div class="medium-12 large-10 columns">
-        @RenderBody()
-    </div>
+		<div role="navigation" id="facetedSearch">
+		</div>
+	</aside>
+	<div class="col-12 col-lg-9 bg-grey p-5">
+		@RenderBody()
+	</div>
 </div>

@@ -3,6 +3,7 @@
     &.dark {
         .quick-search {
             color: $white !important;
+            background: #474747;
 
             ::-webkit-input-placeholder { /* Edge */
                 color: $white;
@@ -43,7 +44,6 @@
                 background-color: transparent;
                 color: $white;
                 border: none;
-                border-bottom: 1px solid $white;
                 border-radius: 0;
                 outline: none;
                 height: 1rem;
@@ -79,93 +79,7 @@
             }
 
             &__submit-icon {
-                &:before {
-                    @include icon--search();
-                }
-            }
-        }
-    }
-
-    &.red {
-        .quick-search {
-            &__title {
-                color: $black;
-            }
-
-            ::-webkit-input-placeholder { /* Edge */
-                color: $black;
-                text-align: center;
-            }
-
-            :-ms-input-placeholder { /* Internet Explorer 10-11 */
-                color: $black;
-                text-align: center;
-            }
-
-            ::placeholder {
-                color: $black;
-                text-align: center;
-            }
-
-            &__arrow {
-                &:after {
-                    content: "";
-                    width: 0;
-                    height: 0;
-                    border-left: 10px solid transparent;
-                    border-right: 10px solid transparent;
-                    border-bottom: 10px solid $dropdown-bg;
-                    position: absolute;
-                    top: 32px;
-                    left: 50%;
-                    z-index: 1001;
-                    transform: translateX(-50%);
-                }
-            }
-
-            &__input {
-                background-color: transparent;
-                border: none;
-                color: $black;
-                border-bottom: 1px solid $black;
-                border-radius: 0;
-                outline: none;
-                height: 1rem;
-                width: 100%;
-                margin: 0 8px 0 8px;
-                padding: 5px 0;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-                -webkit-box-sizing: content-box;
-                box-sizing: content-box;
-                -webkit-transition: border .3s, -webkit-box-shadow .3s;
-                transition: border .3s, -webkit-box-shadow .3s;
-                transition: box-shadow .3s, border .3s;
-                transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
-
-                &::-webkit-search-cancel-button {
-                    -webkit-appearance: none;
-                }
-            }
-
-            &__link--block {
-                margin-top: 5px;
-            }
-
-            &__title {
-                font-weight: 500;
-            }
-
-            &__submit-button {
-                border: none;
-                background: none;
-                background-color: transparent;
-            }
-
-            &__submit-icon {
-                &:before {
-                    @include icon--search();
-                }
+                color: $white;
             }
         }
     }

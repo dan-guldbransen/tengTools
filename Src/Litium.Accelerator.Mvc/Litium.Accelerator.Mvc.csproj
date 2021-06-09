@@ -253,6 +253,7 @@
     <Content Include="Client\Scripts\Middlewares\History.middleware.js" />
     <Content Include="Client\Scripts\NoneReactComponents\cookieNotificationMessage.js" />
     <Content Include="Client\Scripts\NoneReactComponents\dealers.js" />
+    <Content Include="Client\Scripts\NoneReactComponents\favorites.js" />
     <Content Include="Client\Scripts\reducers.js" />
     <Content Include="Client\Scripts\Reducers\Address.reducer.js" />
     <Content Include="Client\Scripts\Reducers\Cart.reducer.js" />
@@ -456,7 +457,7 @@
     <Content Include="Client\Styles\DefaultTheme\megamenu.scss" />
     <Content Include="Client\Styles\DefaultTheme\Block\hero.scss" />
     <Content Include="Client\Styles\Bootstrap\_close.scss" />
-    <Content Include="Client\Styles\DefaultTheme\productlist.scss" />
+    <Content Include="Client\Styles\Bootstrap\_nav.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
@@ -477,7 +478,7 @@
     <Content Include="Views\DealerAdmin\Index.cshtml" />
     <Content Include="Views\Shared\Framework\Subcategory.cshtml" />
     <Content Include="Views\Block\Hero.cshtml" />
-    <Content Include="Views\ProductList\ProductListProductCard.cshtml" />
+    <Content Include="Views\Shared\Framework\Favorites.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>

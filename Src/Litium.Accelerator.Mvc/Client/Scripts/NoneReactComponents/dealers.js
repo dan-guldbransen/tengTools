@@ -1,6 +1,4 @@
-﻿import { isEmptyObject } from "jquery";
-
-export default class Dealers {
+﻿export default class Dealers {
     constructor() {
         if (document.querySelector('.dealer-search') !== null) {
             document.querySelector('.dealer-search').addEventListener('keyup', this.filter);

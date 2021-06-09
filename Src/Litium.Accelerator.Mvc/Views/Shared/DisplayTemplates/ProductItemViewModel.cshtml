@@ -3,20 +3,16 @@
 @using Litium.Studio.Extenssions;
 @using Litium.Accelerator.Mvc.Extensions
 @model ProductItemViewModel
-@{
-    var maxHeight = 300;
-    var maxWidth = 220;
-}
 
-<div itemscope itemtype="http://schema.org/Product" class="product__wrapper">
-    <figure class="product__figure">
+<div itemscope itemtype="http://schema.org/Product" class="product__wrapper card rounded">
+    <figure class="product__figure card-img">
         @if (Model.Images != null && Model.Images.Any())
         {
             <a href="@Model.Url" itemprop="url" class="product__image-link">
                 @{
                     var image = Model.Images.FirstOrDefault();
                 }
-                @Html.ImageFor(x => image, maxSize: new Size(maxWidth, maxHeight), htmlAttributes: new { itemprop = "image", @class = "product__image" })
+                @Html.ImageFor(x => image, maxSize: new Size(0, 0), htmlAttributes: new { itemprop = "image", @class = "product__image w-100 rounded-top" })
             </a>
         }
         else
@@ -24,19 +20,20 @@
             <span class="product__image--missing">@("product.noproductimage".AsWebSiteString())</span>
         }
     </figure>
-    <article class="product__info">
+    <article class="product__info card-body">
         <meta itemprop="description" content="@Model.Description" />
         @if (Model.Price != null && Model.Price.Price != null)
         {
             <meta itemprop="sku" content="@Model.Price.Price.UnitOfMeasurementTitle" />
         }
         <a href="@Model.Url" title="@Model.Name">
-            <h3 itemprop="name" class="product__name">@Model.Name</h3>
+            <h3 itemprop="name" class="product__name text-uppercase">@Model.Name</h3>
             @if (!string.IsNullOrEmpty(Model.Brand))
             {
                 <h4 itemprop="brand" class="product__brand">@Model.Brand</h4>
             }
         </a>
+        <p class="text-black-50 mb-1">@Model.Id</p>
         <div class="product__price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             @if (Model.Price != null)
             {
@@ -52,7 +49,7 @@
             }
             <link itemprop="url" href="@Model.Url" />
         </div>
-        @if (Model.ShowBuyButton)
+        @*@if (Model.ShowBuyButton)
         {
             @Html.BuyButton("product__buy-button")
             if (Model.ShowQuantityField && Model.UseVariantUrl && Model.IsInStock)
@@ -64,6 +61,6 @@
                     <input id="@Model.QuantityFieldId" type="number" data-buy-quantity-input value="1" min="0" max="999" maxlength="3" class="product__buy-quantity form__input" />
                 </div>
             }
-        }
+        }*@
     </article>
 </div>

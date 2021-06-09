@@ -9,10 +9,12 @@ using Litium.Accelerator.Search;
 using Litium.Accelerator.ViewModels;
 using Litium.Accelerator.ViewModels.Product;
 using Litium.Accelerator.ViewModels.Search;
+using Litium.FieldFramework;
 using Litium.FieldFramework.FieldTypes;
 using Litium.Media;
 using Litium.Products;
 using Litium.Runtime.AutoMapper;
+using Litium.Web.Models;
 using Litium.Web.Models.Websites;
 
 namespace Litium.Accelerator.Builders.Product
@@ -82,6 +84,15 @@ namespace Litium.Accelerator.Builders.Product
 
         private void BuildFields(CategoryPageViewModel pageModel, Category entity, string culture)
         {
+            if(entity.ParentCategorySystemId != null)
+            {
+                var parent = _categoryService.Get(entity.ParentCategorySystemId);
+                if(parent != null)
+                {
+                    pageModel.ParentName = parent.Fields.GetValue<string>(SystemFieldDefinitionConstants.Name, System.Globalization.CultureInfo.CurrentUICulture);
+                }
+            }
+
             var fields = entity.Fields;
             pageModel.Name = fields.GetName(culture);
             pageModel.Description = fields.GetDescription(culture);

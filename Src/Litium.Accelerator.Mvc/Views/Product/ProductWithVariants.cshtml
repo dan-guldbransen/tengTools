@@ -3,112 +3,154 @@
 @model ProductPageViewModel
 
 @if (Model != null)
-{
-    <div class="row" itemscope itemtype="http://schema.org/Product">
-        <div class="small-12 medium-7 columns">@Html.Partial("_Images", Model)</div>
-        <div class="small-12 medium-5 columns">
-            <div class="product-detail">
-                <hgroup>
-                    @if (!string.IsNullOrEmpty(Model.ProductItem.Brand))
-                    {
-                        <h2 class="product-detail__brand" itemprop="brand">@Model.ProductItem.Brand</h2>
-                    }
-                    <h1 class="product-detail__name" itemprop="name">@Model.ProductItem.Name</h1>
-                </hgroup>
-                @if (!string.IsNullOrEmpty(Model.ProductItem.Description))
-                {
-                    <div itemprop="description" class="product-detail__description">@Model.ProductItem.Description</div>
-                }
-                @if (Model.ProductItem.Price != null && Model.ProductItem.Price.Price != null)
-                {
-                    <meta itemprop="sku" content="@Model.ProductItem.Price.Price.UnitOfMeasurementTitle" />
-                }
+{<div class="mt-5">
+		<div class="product-details-bg mb-5">
+			<div class="container">
+				<div class="row " itemscope itemtype="http://schema.org/Product">
+					<div class="col-12 col-md-6 px-5">@Html.Partial("_Images", Model)</div>
+					<div class="col-12 col-md-6 px-5">
+						<div class="product-detail d-flex flex-column justify-content-between h-100">
 
-                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                    <link itemprop="url" href="@Model.ProductItem.Url" />
-                    <div class="product-detail__price-info">
-                        @Html.DisplayFor(x => x.ProductItem.Price)
-                    </div>
+							<div>
+								@if (!string.IsNullOrEmpty(Model.ProductItem.Id))
+								{
+									<p class="text-uppercase text-black-50 mb-2 fs-3">@Model.ProductItem.Id</p>
+								}
 
-                    <div>
-                        <div class="row">
-                            <div class="small-12 columns">
-                                @if (Model.Colors != null && Model.Colors.Any())
-                                {
-                                    <h4 class="product-detail__color-text">@Model.ColorText</h4>
-                                    <ul class="product-detail__variant-color" data-filter="sizefilter" id="colorfilter">
-                                        @foreach (var color in Model.Colors)
-                                        {
-                                            @GetFilterItem(color)
-                                        }
-                                    </ul>
-                                }
-                                @if (Model.Sizes != null && Model.Sizes.Any())
-                                {
-                                    <h4 class="product-detail__size-text">@Model.SizeText</h4>
-                                    <ul class="product-detail__variant-size" data-filter="colorfilter" id="sizefilter">
-                                        @foreach (var size in Model.Sizes)
-                                        {
-                                            @GetFilterItem(size)
-                                        }
-                                    </ul>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                    @Html.Partial("_StockStatus", Model.ProductItem)
-                    @Html.Partial("_TierPriceInfo", Model.ProductItem.Price)
-                </div>
+								@if (!string.IsNullOrEmpty(Model.ProductItem.Brand))
+								{
+									<h2 class="product-detail__brand" itemprop="brand">@Model.ProductItem.Brand</h2>
+								}
 
-                @if (Model.ProductItem.ShowQuantityField)
-                {
-                    <div class="row-inner product-detail__quantity-container" id="BuyProductContainer">
-                        <div class="small-6 columns">
-                            <label for="@Model.ProductItem.QuantityFieldId">
-                                @Html.WebSiteString("product.quantity")
-                            </label>
-                        </div>
-                        <div class="small-6 large-3 columns">
-                            <input id="@Model.ProductItem.QuantityFieldId" type="number" class="form__input product-detail__quantity-input" data-buy-quantity-input value="1" min="0" max="999" maxlength="3" />
-                        </div>
-                    </div>
-                }
-                @Html.BuyButton(x => x.ProductItem, cssClass: "product-detail__buy-button", isBuyButton: true)
+								<h1 class="text-uppercase text-primary" itemprop="name">@Model.ProductItem.Name</h1>
 
-                <div class="product-detail__social-share">
-                    @Html.Raw(Html.WebSiteString("product.socialsharingscript"))
-                </div>
-            </div>
-        </div>
-    </div>
+								@if (!string.IsNullOrEmpty(Model.ProductItem.Description))
+								{
+									<div itemprop="description" class="product-detail__description">@Model.ProductItem.Description</div>
+								}
+								@if (Model.ProductItem.Price != null && Model.ProductItem.Price.Price != null)
+								{
+									<meta itemprop="sku" content="@Model.ProductItem.Price.Price.UnitOfMeasurementTitle" />
+								}
+							</div>
 
-    @Html.Partial("_InformationTabs", Model)
+							<div>
+								<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+									<link itemprop="url" href="@Model.ProductItem.Url" />
+									<div class="row">
+										<div class="product-detail__price-info col-12 col-md-6">
+											@Html.DisplayFor(x => x.ProductItem.Price)
 
-    if (Model.BrandPage != null)
-    {
-        @Html.Partial("_BrandInfo", Model.BrandPage)
-    }
+											<p class="small text-black-50">@Html.WebSiteString("productdetails.price.description")</p>
+
+											@if (Model.Variants.Any())
+											{
+												<select class="form-control bg-light">
+													@foreach (var variant in Model.Variants)
+													{
+														var selected = variant.Id == Model.ProductItem.Id;
+														<option value="@variant.Url" selected="@selected">
+															@variant.Name
+														</option>
+													}
+												</select>
+											}
+										</div>
+										<div class="col-12 col-md-6">
+											<a href="#" class="addfavorites-btn cursor-hover d-block text-center mb-2">
+												<i class="bi bi-heart" data-variantid="@Model.ProductItem.Id" data-varianturl="@Model.ProductItem.Url" data-variantname="@Model.ProductItem.Name"></i>
+												@Html.WebSiteString("productdetails.addtowishlist")
+											</a>
+
+											@Html.BuyButton(x => x.ProductItem, cssClass: "product-detail__buy-button btn btn-secondary rounded w-100 text-black", isBuyButton: true)
+										</div>
+									</div>
+									<div>
+										<div class="row">
+											<div class="small-12 columns">
+												@if (Model.Colors != null && Model.Colors.Any())
+												{
+													<h4 class="product-detail__color-text">@Model.ColorText</h4>
+													<ul class="product-detail__variant-color" data-filter="sizefilter" id="colorfilter">
+														@foreach (var color in Model.Colors)
+														{
+															@GetFilterItem(color)
+														}
+													</ul>
+												}
+												@if (Model.Sizes != null && Model.Sizes.Any())
+												{
+													<h4 class="product-detail__size-text">@Model.SizeText</h4>
+													<ul class="product-detail__variant-size" data-filter="colorfilter" id="sizefilter">
+														@foreach (var size in Model.Sizes)
+														{
+															@GetFilterItem(size)
+														}
+													</ul>
+												}
+											</div>
+										</div>
+									</div>
+								</div>
+
+								@Html.Partial("_StockStatus", Model.ProductItem)
+
+								@Html.Partial("_TierPriceInfo", Model.ProductItem.Price)
+
+								@if (Model.ProductItem.ShowQuantityField)
+								{
+									<div class="row-inner product-detail__quantity-container" id="BuyProductContainer">
+										<div class="small-6 columns">
+											<label for="@Model.ProductItem.QuantityFieldId">
+												@Html.WebSiteString("product.quantity")
+											</label>
+										</div>
+										<div class="small-6 large-3 columns">
+											<input id="@Model.ProductItem.QuantityFieldId" type="number" class="form__input product-detail__quantity-input" data-buy-quantity-input value="1" min="0" max="999" maxlength="3" />
+										</div>
+									</div>
+								}
 
 
-    @Html.Partial("_MostSold", Model.MostSoldProducts, new ViewDataDictionary { { "Title", Model.ProductItem.Name } })
 
-    @Html.Partial("_RelatedProducts", Model.AccessoriesProducts)
+								<div class="product-detail__social-share">
+									@Html.Raw(Html.WebSiteString("product.socialsharingscript"))
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    @Html.Partial("_RelatedProducts", Model.SimilarProducts)
+		@Html.Partial("_InformationTabs", Model)
 
-    @helper GetFilterItem(ProductPageViewModel.ProductFilterItem item)
-    {
-        var cssClass = "";
-        if (!item.Enabled)
-        {
-            cssClass += " product-detail__selector-link--disabled";
-        }
-        if (item.IsActive)
-        {
-            cssClass += " product-detail__selector-link--active";
-        }
-        <li class="product-detail__selector-item variant-@item.Value.ToLower()">
-            <a class="product-detail__selector-link @cssClass" href="@item.Url">@item.Title</a>
-        </li>
-    }
+		@if (Model.BrandPage != null)
+		{
+			@Html.Partial("_BrandInfo", Model.BrandPage)
+		}
+
+
+		@Html.Partial("_MostSold", Model.MostSoldProducts, new ViewDataDictionary { { "Title", Model.ProductItem.Name } })
+
+		@Html.Partial("_RelatedProducts", Model.AccessoriesProducts)
+
+		@Html.Partial("_RelatedProducts", Model.SimilarProducts)
+	</div>
+
+	@helper GetFilterItem(ProductPageViewModel.ProductFilterItem item)
+	{
+		var cssClass = "";
+		if (!item.Enabled)
+		{
+			cssClass += " product-detail__selector-link--disabled";
+		}
+		if (item.IsActive)
+		{
+			cssClass += " product-detail__selector-link--active";
+		}
+		<li class="product-detail__selector-item variant-@item.Value.ToLower()">
+			<a class="product-detail__selector-link @cssClass" href="@item.Url">@item.Title</a>
+		</li>
+	}
 }

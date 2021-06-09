@@ -14,7 +14,7 @@
     <a href="#" class="nav-link dropdown-toggle" id="navbarSubCategoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         @if (current != null)
         {
-            <span>@current</span>
+            @current
         }
     </a>
     <ul class="dropdown-menu dropdown-menu-megamenu" aria-labelledby="navbarSubCategoryDropdown">
@@ -24,7 +24,7 @@
                 <div class="row pb-4">
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-12"><h6 class="px-3">@Html.WebSiteString("subcategory.categories.header")</h6></div>
+                            <div class="col-12"><a href="@Model.Url"><h6 class="px-3"> @current</h6></a></div>
                             <div class="col-md-5">
                                 <ul class="list-group list-group-flush">
                                     @foreach (var link in firstRow)

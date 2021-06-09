@@ -11,6 +11,7 @@ namespace Litium.Accelerator.ViewModels.Product
         public string Brand { get; set; }
         public string Color { get; set; }
         public Currency Currency { get; set; }
+        public string ShortDescription { get; set; }
         public string Description { get; set; }
         public string Id { get; set; }
         public IList<ImageModel> Images { get; set; }

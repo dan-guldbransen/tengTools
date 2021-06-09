@@ -1,5 +1,6 @@
 ﻿import CookieNotificationMessage from '../Scripts/NoneReactComponents/cookieNotificationMessage';
 import Dealers from '../Scripts/NoneReactComponents/dealers';
+import Favorites from '../Scripts/NoneReactComponents/favorites';
 
 window.addEventListener('DOMContentLoaded', (event) => {
    
@@ -11,4 +12,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
         new Dealers();
     }
 
+    if (document.querySelector('#favorites') !== null) {
+        new Favorites();
+    }
+
 });
+
+function SuccessMessage(message) {
+
+}
+
+function WarningMessage() {
+
+}
+
+function ErrorMessage(message) {
+
+}

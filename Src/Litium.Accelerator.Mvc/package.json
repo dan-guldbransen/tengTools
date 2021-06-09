@@ -64,6 +64,7 @@
     },
     "dependencies": {
         "materialize-css": "^1.0.0-rc.2",
-        "node-sass": "4.14.1"
+        "node-sass": "4.14.1",
+        "toastr": "^2.1.4"
     }
 }
