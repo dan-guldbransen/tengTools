@@ -158,6 +158,7 @@
     <Content Include="Client\images\close-white.svg" />
     <Content Include="Client\images\close.svg" />
     <Content Include="Client\images\cross.svg" />
+    <Content Include="Client\images\cta-arrow-red-sm.svg" />
     <Content Include="Client\images\cta-arrow-red-small.svg" />
     <Content Include="Client\images\cta-arrow-red.svg" />
     <Content Include="Client\images\cta-arrow.svg" />
@@ -230,7 +231,9 @@
     <Content Include="Client\Scripts\Components\PersonList.js" />
     <Content Include="Client\Scripts\Components\ProductList.js" />
     <Content Include="Client\Scripts\Components\QuickSearch.js" />
+    <Content Include="Client\Scripts\Components\QuickSearchMobile.js" />
     <Content Include="Client\Scripts\Components\QuickSearchResult.js" />
+    <Content Include="Client\Scripts\Components\QuickSearchResultMobile.js" />
     <Content Include="Client\Scripts\Components\ReorderButton.js" />
     <Content Include="Client\Scripts\Components\Slider.js" />
     <Content Include="Client\Scripts\Components\SortCriteriaCompact.js" />
@@ -247,6 +250,7 @@
     <Content Include="Client\Scripts\Containers\Navigation.container.js" />
     <Content Include="Client\Scripts\Containers\PersonList.container.js" />
     <Content Include="Client\Scripts\Containers\QuickSearch.container.js" />
+    <Content Include="Client\Scripts\Containers\QuickSearchMobile.container.js" />
     <Content Include="Client\Scripts\Containers\ReorderButton.container.js" />
     <Content Include="Client\Scripts\Containers\withReactiveStyleBuyButton.js" />
     <Content Include="Client\Scripts\index.js" />
@@ -254,6 +258,7 @@
     <Content Include="Client\Scripts\NoneReactComponents\cookieNotificationMessage.js" />
     <Content Include="Client\Scripts\NoneReactComponents\dealers.js" />
     <Content Include="Client\Scripts\NoneReactComponents\favorites.js" />
+    <Content Include="Client\Scripts\NoneReactComponents\searchpage.js" />
     <Content Include="Client\Scripts\reducers.js" />
     <Content Include="Client\Scripts\Reducers\Address.reducer.js" />
     <Content Include="Client\Scripts\Reducers\Cart.reducer.js" />

@@ -11,13 +11,10 @@
         align-items: center;
         width: rem(30px);
         height: rem(30px);
-        background-color: $color-grey-lightest;
-        @include textoverflow();
-        @include transition(background-color);
+       
         &--current {
             &, &:hover, &:active, &:focus {
-                background-color: $color-black-light;
-                color: $color-white;
+                
             }
         }
         &--disabled {

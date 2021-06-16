@@ -90,10 +90,6 @@ namespace Litium.Accelerator.Mvc.Controllers.Framework
         [ChildActionOnly]
         public ActionResult BreadCrumbs(PageModel currentPageModel, CategoryModel categoryModel, ProductModel currentProductModel, int startLevel = 0)
         {
-            // dont show on category page
-            if(categoryModel != null && currentProductModel == null) 
-                return Content("");
-
             var viewModel = _breadCrumbsViewModelBuilder.BuildBreadCrumbs(currentPageModel, categoryModel, currentProductModel, startLevel);
             return PartialView("Framework/BreadCrumbs", viewModel);
         }

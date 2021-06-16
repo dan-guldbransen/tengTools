@@ -16,11 +16,11 @@ export default class Favorites {
         var name = e.target.dataset.variantname;
         var url = e.target.dataset.varianturl;
 
+        var cookie = Cookies.get('favorites.variantids')
+
         toastr.options.closeButton = true;
         toastr.options.closeDuration = 300;
 
-        var cookie = Cookies.get('favorites.variantids')
-        
         if (cookie === undefined) {
             // create value
             Cookies.set('favorites.variantids', id, { expires: 365 });

@@ -45,6 +45,10 @@
     content: url('../../images/cta-arrow-red-small.svg');
 }
 
+@mixin icon--cta-arrow-red-sm() {
+    background: url('../../images/cta-arrow-red-sm.svg') right no-repeat;
+}
+
 @mixin icon--close() {
     content: url('../../images/close.svg');
 }

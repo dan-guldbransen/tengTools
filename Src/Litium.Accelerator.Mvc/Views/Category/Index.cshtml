@@ -62,7 +62,7 @@
 				<div class="row product-list">
 					@foreach (ProductItemViewModel product in Model.Products)
 					{
-						<div class="product-list__item col-6 col-md-4 col-lg-3">
+						<div class="col-6 col-md-4 col-lg-3 mt-5">
 							@Html.DisplayFor(x => product, new { ImageMaxHeight = 300 })
 						</div>
 					}

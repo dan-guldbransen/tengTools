@@ -3,65 +3,73 @@
     -moz-box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.75);
 
-    &.dark {
 
-        .hamburger {
-            .hamburger-inner {
+
+    .hamburger {
+        .hamburger-inner {
+            background-color: $white !important;
+
+            &:after, &:before {
                 background-color: $white !important;
+            }
+        }
+    }
 
-                &:after, &:before {
-                    background-color: $white !important;
+    .linear-bg {
+        @include media-breakpoint-up(lg) {
+            border-top: 1px dashed #767676;
+            background: linear-gradient(90.15deg, #131313 0.91%, #333333 66.56%, #191919 98.15%), #333333;
+        }
+
+        @include media-breakpoint-down(lg) {
+            background-color: $black;
+        }
+    }
+
+    .linear-bg-small {
+        @include media-breakpoint-down(lg) {
+            border-top: 1px dashed #767676;
+            background: linear-gradient(90.15deg, #131313 0.91%, #333333 66.56%, #191919 98.15%), #333333;
+        }
+    }
+
+    .nav-item {
+        a.nav-link {
+            color: $white;
+
+            &.show {
+                color: $primary !important;
+            }
+
+            &:hover{
+                color: $primary !important;
+            }
+
+        }
+    }
+
+    .util-items {
+        a {
+            color: $white;
+            text-align: center;
+            margin-left: 1.5rem;
+
+            &:hover{
+                color: $primary;
+            }
+
+            .bi {
+                font-size: 1.4rem;
+
+                &.bi-person {
+                    font-size: 1.6rem;
                 }
-            }
-        }
 
-        .linear-bg {
-            @include media-breakpoint-up(lg) {
-                border-top: 1px dashed #767676;
-                background: linear-gradient(90.15deg, #131313 0.91%, #333333 66.56%, #191919 98.15%), #333333;
-            }
-
-            @include media-breakpoint-down(lg) {
-                background-color: $black;
-            }
-        }
-
-        .linear-bg-small {
-            @include media-breakpoint-down(lg) {
-                border-top: 1px dashed #767676;
-                background: linear-gradient(90.15deg, #131313 0.91%, #333333 66.56%, #191919 98.15%), #333333;
-            }
-        }
-
-        .nav-item {
-            a.nav-link {
-                color: $white !important;
-
-                &.show{
-                    color: $primary !important;
-                }
-            }
-        }
-
-        .util-items {
-            a {
-                color: $white !important;
-                text-align: center;
-                margin-left: 1rem;
-
-                .bi {
-                    font-size: 1.4rem;
+                @include media-breakpoint-up(lg) {
+                    font-size: 1.2rem;
 
                     &.bi-person {
-                        font-size: 1.6rem;
-                    }
-
-                    @include media-breakpoint-up(lg) {
-                        font-size: 1.2rem;
-
-                        &.bi-person {
-                            font-size: 1.4rem;
-                        }
+                        font-size: 1.4rem;
                     }
                 }
             }

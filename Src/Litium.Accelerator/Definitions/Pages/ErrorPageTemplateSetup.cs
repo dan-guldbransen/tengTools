@@ -33,7 +33,8 @@ namespace Litium.Accelerator.Definitions.Pages
                             Fields =
                             {
                                 PageFieldNameConstants.Title,
-                                PageFieldNameConstants.ErrorMessage
+                                PageFieldNameConstants.ErrorMessage,
+                                PageFieldNameConstants.Image
                             }
                         }
                     },
@@ -60,7 +61,8 @@ namespace Litium.Accelerator.Definitions.Pages
                             Fields =
                             {
                                 PageFieldNameConstants.Title,
-                                PageFieldNameConstants.ErrorMessage
+                                PageFieldNameConstants.ErrorMessage,
+                                PageFieldNameConstants.Image
                             }
                         }
                     },

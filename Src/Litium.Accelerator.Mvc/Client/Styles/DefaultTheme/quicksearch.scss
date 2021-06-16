@@ -1,86 +1,170 @@
 
 .header {
-    &.dark {
-        .quick-search {
-            color: $white !important;
-            background: #474747;
+    .quick-search {
+        color: $white !important;
+        background: #474747;
+        padding: .45rem .75rem;
 
-            ::-webkit-input-placeholder { /* Edge */
-                color: $white;
-                text-align: center;
+
+        ::-webkit-input-placeholder { /* Edge */
+            color: $white;
+            text-align: center;
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: $white;
+            text-align: center;
+        }
+
+        ::placeholder {
+            color: $white;
+            text-align: center;
+        }
+
+        &__title {
+            color: $white;
+        }
+
+        &__arrow {
+            &:after {
+                content: "";
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 10px solid $dropdown-bg;
+                position: absolute;
+                top: 34px;
+                left: 50%;
+                z-index: 1001;
+                transform: translateX(-50%);
             }
+        }
 
-            :-ms-input-placeholder { /* Internet Explorer 10-11 */
-                color: $white;
-                text-align: center;
+        &__input {
+            background-color: transparent;
+            color: $white;
+            border: none;
+            border-radius: 0;
+            outline: none;
+            height: 1rem;
+            width: 100%;
+            margin: 0 8px 0 8px;
+            padding: 5px 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            -webkit-transition: border .3s, -webkit-box-shadow .3s;
+            transition: border .3s, -webkit-box-shadow .3s;
+            transition: box-shadow .3s, border .3s;
+            transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+
+            &::-webkit-search-cancel-button {
+                -webkit-appearance: none;
             }
+        }
 
-            ::placeholder {
-                color: $white;
-                text-align: center;
+        &__link--block {
+            margin-top: 5px;
+        }
+
+        &__title {
+            font-weight: 500;
+        }
+
+        &__submit-button {
+            border: none;
+            background: none;
+            background-color: transparent;
+        }
+
+        &__submit-icon {
+            color: $white;
+        }
+    }
+}
+
+#mobileMenu {
+    .quick-search {
+        color: $white !important;
+        background: #474747;
+
+        ::-webkit-input-placeholder { /* Edge */
+            color: $white;
+            text-align: center;
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: $white;
+            text-align: center;
+        }
+
+        ::placeholder {
+            color: $white;
+            text-align: center;
+        }
+
+        &__title {
+            color: $white;
+        }
+
+        &__arrow {
+            &:after {
+                content: "";
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 10px solid $dropdown-bg;
+                position: absolute;
+                top: 32px;
+                left: 50%;
+                z-index: 1001;
+                transform: translateX(-50%);
             }
+        }
 
-            &__title {
-                color: $white;
+        &__input {
+            background-color: transparent;
+            color: $white;
+            border: none;
+            border-radius: 0;
+            outline: none;
+            height: 1rem;
+            width: 100%;
+            margin: 0 8px 0 8px;
+            padding: 5px 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            -webkit-transition: border .3s, -webkit-box-shadow .3s;
+            transition: border .3s, -webkit-box-shadow .3s;
+            transition: box-shadow .3s, border .3s;
+            transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+
+            &::-webkit-search-cancel-button {
+                -webkit-appearance: none;
             }
+        }
 
-            &__arrow {
-                &:after {
-                    content: "";
-                    width: 0;
-                    height: 0;
-                    border-left: 10px solid transparent;
-                    border-right: 10px solid transparent;
-                    border-bottom: 10px solid $dropdown-bg;
-                    position: absolute;
-                    top: 32px;
-                    left: 50%;
-                    z-index: 1001;
-                    transform: translateX(-50%);
-                }
-            }
+        &__link--block {
+            margin-top: 5px;
+        }
 
-            &__input {
-                background-color: transparent;
-                color: $white;
-                border: none;
-                border-radius: 0;
-                outline: none;
-                height: 1rem;
-                width: 100%;
-                margin: 0 8px 0 8px;
-                padding: 5px 0;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-                -webkit-box-sizing: content-box;
-                box-sizing: content-box;
-                -webkit-transition: border .3s, -webkit-box-shadow .3s;
-                transition: border .3s, -webkit-box-shadow .3s;
-                transition: box-shadow .3s, border .3s;
-                transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+        &__title {
+            font-weight: 500;
+        }
 
-                &::-webkit-search-cancel-button {
-                    -webkit-appearance: none;
-                }
-            }
+        &__submit-button {
+            border: none;
+            background: none;
+            background-color: transparent;
+        }
 
-            &__link--block {
-                margin-top: 5px;
-            }
-
-            &__title {
-                font-weight: 500;
-            }
-
-            &__submit-button {
-                border: none;
-                background: none;
-                background-color: transparent;
-            }
-
-            &__submit-icon {
-                color: $white;
-            }
+        &__submit-icon {
+            color: $white;
         }
     }
 }

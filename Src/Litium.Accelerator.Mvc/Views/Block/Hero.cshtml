@@ -8,7 +8,8 @@
 	var centerText = Model.Offset == "center";
 }
 <section class="hero position-relative">
-	<img src="@url" alt="hero-img"/>
+	<img src="@url" alt="hero-img" />
+	<div class="overlay"></div>
 	<div class="hero-content-wrapper w-100 text-@textColor px-5">
 		<div class="py-4 p-md-0 mx-1 mx-md-5 d-flex justify-content-@(Model.Offset)">
 			<div class="hero-content mx-1 mx-md-5 @(centerText ? "text-center" : "")">

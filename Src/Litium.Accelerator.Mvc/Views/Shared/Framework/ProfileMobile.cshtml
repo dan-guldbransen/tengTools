@@ -9,9 +9,9 @@
 
 @if (!string.IsNullOrEmpty(href))
 {
-	<li class="list-group-item border-0">
-		<a href="@href" title="@text" target="@(User.Identity.IsAuthenticated ? "_self" : "_blank")">
-			<i class="bi bi-person me-2"></i>@Html.WebSiteString("general.mobilenavigation.profile") (3)
+	<li class="list-group-item border-0 bg-transparent">
+		<a class="d-flex align-items-center" href="@href" title="@text" target="@(User.Identity.IsAuthenticated ? "_self" : "_blank")">
+			<i class="bi bi-person me-3"></i><p class="text-white mb-1">@Html.WebSiteString("general.mobilenavigation.profile")</p>
 		</a>
 	</li>
 }

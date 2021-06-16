@@ -1,6 +1,7 @@
 ﻿import CookieNotificationMessage from '../Scripts/NoneReactComponents/cookieNotificationMessage';
 import Dealers from '../Scripts/NoneReactComponents/dealers';
 import Favorites from '../Scripts/NoneReactComponents/favorites';
+import SearchPage from '../Scripts/NoneReactComponents/searchpage';
 
 window.addEventListener('DOMContentLoaded', (event) => {
    
@@ -16,16 +17,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         new Favorites();
     }
 
+    if (document.querySelector('.hit-count') !== null) {
+        new SearchPage();
+    }
+
 });
 
-function SuccessMessage(message) {
-
-}
-
-function WarningMessage() {
-
-}
-
-function ErrorMessage(message) {
-
-}

@@ -1,23 +1,37 @@
 ﻿.hero {
     .hero-content-wrapper {
-        @include media-breakpoint-up(lg){
+        z-index: 200;
+
+        @include media-breakpoint-up(lg) {
             transform: translateY(-50%);
-            position:absolute;
-            top:50%;
+            position: absolute;
+            top: 50%;
         }
 
-        @include media-breakpoint-down(lg){
+        @include media-breakpoint-down(lg) {
             color: $black !important;
             background-color: $light;
 
-            .btn{
+            .btn {
                 border-color: $black;
-                color:$black;
+                color: $black;
             }
         }
     }
 
-   
+    .overlay {
+        @include media-breakpoint-up(lg) {
+            z-index: 100;
+            background: #000;
+            opacity: 0.6;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+
     &-content {
         max-width: 400px;
     }

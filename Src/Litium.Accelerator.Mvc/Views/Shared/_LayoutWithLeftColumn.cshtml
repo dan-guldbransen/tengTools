@@ -1,9 +1,11 @@
 ﻿@{
 	Layout = "_Layout.cshtml";
 }
-@section PresentationHero
-{
+@section PresentationHero {
 	@RenderSection("PresentationHero", required: false)
+}
+@section BreadCrumbs {
+	@RenderSection("BreadCrumbs", required: false)
 }
 
 <div class="row">

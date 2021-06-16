@@ -1,24 +1,23 @@
-.dark {
-    .btn-cta {
-        &-sm {
-            padding: 1rem 1.5rem;
-        }
 
-        padding: 1.8rem 2.5rem;
-        border-radius: 0;
-
-
-        &:after {
-            display: inline-block;
-            margin-left: 1rem;
-            @include icon--cta-arrow-white();
-        }
+.btn-cta {
+    &-sm {
+        padding: 1rem 1.5rem;
     }
 
-    .btn-cta-link {
-        line-height: 1.1;
-        padding-right: 45px;
-        color: $primary;
-        @include icon--cta-arrow-red();
+    padding: 1.8rem 2.5rem;
+    border-radius: 0;
+
+
+    &:after {
+        display: inline-block;
+        margin-left: 1rem;
+        @include icon--cta-arrow-white();
     }
+}
+
+.btn-cta-link {
+    line-height: 1.1;
+    padding-right: 45px;
+    color: $primary;
+    @include icon--cta-arrow-red();
 }

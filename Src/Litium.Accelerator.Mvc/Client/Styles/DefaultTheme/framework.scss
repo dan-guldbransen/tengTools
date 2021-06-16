@@ -20,6 +20,7 @@
     img {
         min-height: 550px;
         width:100%;
+        object-fit: contain; // for now. todo: maybe remove
     }
 }
 

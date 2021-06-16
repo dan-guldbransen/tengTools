@@ -2,6 +2,10 @@
 @using Litium.Accelerator.ViewModels.Product
 @model ProductPageViewModel
 
+@section BreadCrumbs {
+	@Html.Action("BreadCrumbs", "Layout")
+}
+
 @if (Model != null)
 {<div class="mt-5">
 		<div class="product-details-bg mb-5">

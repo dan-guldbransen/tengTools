@@ -13,6 +13,8 @@ namespace Litium.Accelerator.ViewModels.Error
     {
         public string Title { get; set; }
         public EditorString Text { get; set; }
+        public ImageModel Image { get; set; }
+        public string StartPageUrl { get; set; }
 
         [UsedImplicitly]
         void IAutoMapperConfiguration.Configure(IMapperConfigurationExpression cfg)

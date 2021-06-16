@@ -12,6 +12,7 @@ import NavigationContainer from './Containers/Navigation.container';
 import FacetedSearchContainer from './Containers/FacetedSearch.container';
 import FacetedSearchCompactContainer from './Containers/FacetedSearchCompact.container';
 import DynamicComponent from './Components/DynamicComponent';
+import QuickSearchMobileContainer from './Containers/QuickSearchMobile.container';
 
 window.__litium = window.__litium || {};
 const preloadState = window.__litium.preloadState || {};
@@ -60,6 +61,14 @@ const bootstrapComponents = () => {
                 <QuickSearchContainer />
             </Provider>,
             document.getElementById('quickSearch')
+        );
+    }
+    if (document.getElementById('quickSearchMobile')) {
+        renderReact(
+            <Provider store={store}>
+                <QuickSearchMobileContainer />
+            </Provider>,
+            document.getElementById('quickSearchMobile')
         );
     }
     if (document.getElementById('navbar')) {

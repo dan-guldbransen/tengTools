@@ -5,21 +5,22 @@
 	var hasGetOrganisedCTA = !string.IsNullOrEmpty(Model.GetOrganised.Href);
 }
 
-<header id="header" role="banner" class="header dark">
+<header id="header" role="banner" class="header">
+
 	<nav class="navbar navbar-expand-lg border-bottom border-dark border-1 py-2 d-none d-lg-flex bg-dark">
-		<div class="container justify-content-end">
+		<div class="container">
 			<div class="collapse navbar-collapse me-auto">
 				<ul class="navbar-nav">
 					@Html.Partial("Framework/TopLink", Model)
 				</ul>
 			</div>
 
-			<div class="d-flex justify-content-around align-items-center">
+			<div class="d-flex align-items-center">
 				<div class="marketselector dropdown">
 					@Html.Action("MarketSelector", "Layout")
 				</div>
 
-				<div class="ms-5" id="quickSearch"></div>
+				<div class="ms-3" id="quickSearch"></div>
 			</div>
 		</div>
 	</nav>
@@ -54,11 +55,16 @@
 			@Html.Partial("Framework/Profile", Model)
 
 			@*<div id="miniCart" class="cart cart--mini"><i class="bi bi-bag"></i></div>*@
-
+			
+			<button class="hamburger hamburger--slider d-inline-block d-md-none ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
 		</div>
 			@if (hasGetOrganisedCTA)
 			{
-				<a class="btn btn-link btn-cta-link ms-3 text-uppercase d-none d-lg-block" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
+				<a class="btn btn-link btn-cta-link mx-5 text-uppercase d-none d-lg-block" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
 					@Model.GetOrganised.Text
 				</a>
 			}
@@ -66,13 +72,7 @@
 	</nav>
 
 	<nav class="navbar d-lg-none justify-content-between p-3 linear-bg-small">
-		<div class="container">
-			<button class="hamburger hamburger--slider" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
-			</button>
-
+		<div class="container d-flex justify-content-end">
 			@if (hasGetOrganisedCTA)
 			{
 				<a class="btn btn-link btn-cta-link text-uppercase" href="@Model.GetOrganised.Href" title="@Model.GetOrganised.Text">
@@ -85,7 +85,7 @@
 
 
 <!-- MOBILE MENU -->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+<div class="offcanvas offcanvas-start w-100 dark" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
 	<!-- Header -->
 	<div class="offcanvas-header bg-dark">
 		<a class="navbar-brand me-5" href="@Model.StartPageUrl">
@@ -94,31 +94,28 @@
 		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 	</div>
 
-	<div class="offcanvas-body">
+	<div class="offcanvas-body p-0 pb-4 bg-dark">
 		<!-- Search -->
-		<div class="input-group mb-4 mt-3">
-			<input class="form-control py-2" type="search" placeholder="@Html.WebSiteString("js.general.search.placeholder")" />
-			<div class="input-group-append">
-				<button class="btn search-btn border-0"><i class="bi bi-search"></i></button>
-			</div>
+		<div class="linear-bg-small py-1 px-2">
+			<div id="quickSearchMobile"></div>
 		</div>
 
 		<!-- Main categories -->
 		@if (Model.Categories != null && Model.Categories.Any())
 		{
-			<ul class="list-group mb-3">
+			<ul class="list-group mb-3 px-3 pt-5 bg-transparent">
 				@foreach (var category in Model.Categories)
 				{
-					<li class="list-group-item border-0"><a href="@category.Url"><h2 class="text-uppercase">@category.Name</h2></a></li>
+					<li class="list-group-item border-0 bg-transparent"><a href="@category.Url"><h2 class="text-uppercase text-white">@category.Name</h2></a></li>
 				}
 			</ul>
 		}
 
-		<ul class="list-group border-0 mb-2">
+		<ul class="list-group border-0 mb-2 px-3 bg-transparent">
 			@if (hasGetOrganisedCTA)
 			{
-				<li class="list-group-item border-0">
-					<a href="@Model.GetOrganised.Href" class="fw-bold text-uppercase link-primary" title="@Model.GetOrganised.Text">
+				<li class="list-group-item border-0 bg-transparent">
+					<a href="@Model.GetOrganised.Href" class="fw-bold text-uppercase link-primary cta-mobile-menu" title="@Model.GetOrganised.Text">
 						@Model.GetOrganised.Text
 					</a>
 				</li>
@@ -129,8 +126,8 @@
 				{
 					if (link != null)
 					{
-						<li class="list-group-item border-0">
-							<a href="@link.Href" class="fw-bold">
+						<li class="list-group-item border-0 bg-transparent">
+							<a href="@link.Href" class="fw-bold text-white">
 								@link.Text
 							</a>
 						</li>
@@ -140,10 +137,10 @@
 		</ul>
 		<hr />
 		<!-- Utils -->
-		<ul class="list-group border-0 mobile-utils mt-2">
-			<li class="list-group-item border-0"><a href="#" data-bs-toggle="offcanvas" data-bs-target="#favorites" aria-controls="favorites"><i class="bi bi-heart me-2"></i>@Html.WebSiteString("general.mobilenavigation.favorites")</a></li>
+		<ul class="list-group border-0 mobile-utils mt-2 px-3">
+			<li class="list-group-item border-0 bg-transparent"><a class="d-flex align-items-center" href="#" data-bs-toggle="offcanvas" data-bs-target="#favorites" aria-controls="favorites"><i class="bi bi-heart me-3"></i><p class="text-white mb-1">@Html.WebSiteString("general.mobilenavigation.favorites")</p></a></li>
+			
 			@Html.Partial("Framework/ProfileMobile", Model)
-			@*<li class="list-group-item border-0"><a href="#"><i class="bi bi-bag me-2"></i>@Html.WebSiteString("general.mobilenavigation.cart")</a></li>*@
 
 			<!-- marketselector -->
 		</ul>

@@ -1,8 +1,23 @@
 ﻿.mobile-utils {
     .bi {
-        color: $primary;
+        color: $white;
     }
 }
+
+#mobileMenu {
+    .linear-bg-small {
+        @include media-breakpoint-down(lg) {
+            border-top: 1px dashed #767676;
+            background: linear-gradient(90.15deg, #131313 0.91%, #333333 66.56%, #191919 98.15%), #333333;
+        }
+    }
+
+    .cta-mobile-menu {
+        @include icon--cta-arrow-red-sm();
+        padding-right: 30px;
+    }
+}
+
 .offcanvas-body {
     .input-group {
         input, .btn {
@@ -25,27 +40,28 @@
     }
 
     .dropup {
-        width: 80px;
-        float: right;
+        width: 100%;
+        /*float: right;*/
 
-        a {
+       > a {
             &.dropdown-toggle {
                 position: fixed;
                 bottom: 15px;
+                right: 15px;
             }
 
-            color: $black;
+            color: $white !important;
 
             &:hover, :focus, :visited, :active {
-                color: $black;
+                color: $primary;
             }
         }
 
         .dropdown-menu {
-            width: $offcanvas-horizontal-width - 3px;
+           /* width: $offcanvas-horizontal-width - 3px;*/
             padding-left: $offcanvas-padding-y;
             padding-right: $offcanvas-padding-y;
-            inset: auto auto 0px -1px !important;
+            /*inset: auto auto 0px -1px !important;*/
         }
     }
 }

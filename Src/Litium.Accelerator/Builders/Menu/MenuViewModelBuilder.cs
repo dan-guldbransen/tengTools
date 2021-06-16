@@ -61,7 +61,8 @@ namespace Litium.Accelerator.Builders.Menu
                         showleftColumn = filterNavigation == NavigationType.Filter && website.InProductListPages();
                         break;
                     case PageTemplateNameConstants.SearchResult:
-                        showleftColumn = filterNavigation == NavigationType.Filter;
+                        //showleftColumn = filterNavigation == NavigationType.Filter;
+                        showleftColumn = false;
                         break;
                     case PageTemplateNameConstants.Article:
                         showleftColumn = website.InArticlePages();
